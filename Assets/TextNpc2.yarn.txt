@@ -1,0 +1,27 @@
+title: TestNpc2.1
+tags: 
+colorID: 0
+position: 1032,583
+---
+TestNpc2: Hey mitch?
+TestNpc:yeah?
+TestNpc2:you got the time?
+TestNpc: you know i dont.
+TestNpc2:oh...
+===
+title: TestNpc2
+tags: 
+colorID: 0
+position: 1318,578
+---
+<<if visited("TestNpc2")>>
+    TestNpc2:Yes?
+<<else>>
+    <<SetTextBoxSettings TestNpc2 Slow>>
+    Global:calling Global TextBox.
+    TestNpc2:calling Local TextBox.
+    <<SetTextBoxSettings TestNpc2 DefaultSettings>>
+    TestNpc2:HAHAHAHAHAHAHA.
+    TestNpc:...
+<<endif>>
+===

@@ -1,0 +1,11 @@
+title: TestNpc
+tags: 
+colorID: 0
+position: 1178,609
+---
+<<if visited("TestNpc") is true>>
+    TestNpc:Leave me be...
+<<else>>
+    TestNpc: What'cha want m'Boy?
+<<endif>>
+===
