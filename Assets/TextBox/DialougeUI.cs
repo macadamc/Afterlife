@@ -5,17 +5,17 @@ using UnityEngine.UI;
 using Yarn;
 using Yarn.Unity;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 public class DialougeUI : DialogueUIBehaviour
 {
+    public VariableStorage variables;
     public GameObject choicePrefab;
-    public TextBox globalTextBox;
-    public TextBoxSettings globalTextBoxSettings;
     private OptionChooser SetSelectedOption;
-    private DialogueRunner runner;
     private TextGenerator generator;
     private List<TextBoxRef> activeTextBoxes;
     private AudioSource audioSource;
+    private TextBoxRef lastTextBox;
 
     public override IEnumerator RunCommand(Command command)
     {
@@ -26,6 +26,7 @@ public class DialougeUI : DialogueUIBehaviour
 
     public override IEnumerator RunLine(Line line)
     {
+        line.text = ParseVariables(line.text);
         TextBoxRef tb = null;
         TextBox textBox = null;
         string text = string.Empty;
@@ -45,6 +46,11 @@ public class DialougeUI : DialogueUIBehaviour
         text = lineText[1];
         textBox = tb.textBox;
         textBox.textComp.text = string.Empty;
+        lastTextBox = tb;
+        if(activeTextBoxes.Contains(tb) == false)
+        {
+            activeTextBoxes.Add(tb);
+        }
         int i = 0;
 
         audioSource = textBox.GetComponent<AudioSource>();
@@ -67,13 +73,22 @@ public class DialougeUI : DialogueUIBehaviour
             textBox.gameObject.SetActive(true);
         }
 
-        while (i < text.Length)
+        if(tb.textBoxSettings.useDelay)
         {
-            textBox.textComp.text += text[i];
-            tb.textBoxSettings.sfx.Play(audioSource);
-            yield return new WaitForSeconds(textBox.delay);
-            i++;
+            while (i < text.Length)
+            {
+                textBox.textComp.text += text[i];
+                tb.textBoxSettings.sfx.Play(audioSource);
+                yield return new WaitForSeconds(textBox.delay);
+                i++;
+            }
         }
+        else
+        {
+            textBox.textComp.text = text;
+            tb.textBoxSettings.sfx.Play(audioSource);
+        }
+        
 
         if(textBox.inputType == TextBox.InputType.Player)
             yield return new WaitWhile(() => { return Input.GetButtonDown("Fire1") == false; });
@@ -82,16 +97,34 @@ public class DialougeUI : DialogueUIBehaviour
         {
             float nextTime = Time.time + textBox.passiveLineDelay;
             yield return new WaitWhile(() => { return Time.time < nextTime; });
-            textBox.gameObject.SetActive(false);
         }
+        textBox.gameObject.SetActive(false);
     }
 
     public override IEnumerator RunOptions(Options optionsCollection, OptionChooser optionChooser)
     {
-        Debug.Log(optionsCollection.options);
-        optionChooser(0); // choose the first option.
+        bool waitingForChoice = true;
+        lastTextBox.textBox.gameObject.SetActive(true);
+        lastTextBox.textBox.choiceContainer.SetActive(true);
 
-        yield return null;
+        for (int i = 0; i < lastTextBox.textBox.choiceContainer.transform.childCount; i++)
+        {
+            Destroy(lastTextBox.textBox.choiceContainer.transform.GetChild(i).gameObject);
+        }
+
+        foreach(string option in optionsCollection.options)
+        {
+            Button choice = Instantiate(choicePrefab, lastTextBox.textBox.choiceContainer.transform, false).GetComponent<Button>();
+            choice.GetComponentInChildren<Text>().text = ParseVariables(option);
+            choice.onClick.AddListener(() => {
+                waitingForChoice = false;
+                optionChooser(choice.transform.GetSiblingIndex());
+            });
+        }
+
+        yield return new WaitUntil(() => { return waitingForChoice == false;});
+        lastTextBox.textBox.choiceContainer.SetActive(false);
+        lastTextBox.textBox.gameObject.SetActive(false);
     }
 
     public override IEnumerator DialogueStarted()
@@ -112,9 +145,6 @@ public class DialougeUI : DialogueUIBehaviour
         yield return null;
     }
 
-
-    // instead of '/100f' should get the canvas scaler from the current canvas it is trying to reference.
-    // auto size might only use the world space canvas?
     public Vector2 GetPageSize(TextGenerationSettings settings)
     {
         Vector2 ret = Vector2.zero;
@@ -126,15 +156,35 @@ public class DialougeUI : DialogueUIBehaviour
         for (int lIndex = 0; lIndex < lArray.Length; lIndex++)
         {
             lineWidth = 0;
-            ret.y += (settings.fontSize + settings.lineSpacing) /100f;
+            ret.y += settings.fontSize + settings.lineSpacing / 100f;
             int i = lIndex + 1 < lArray.Length ? lArray[lIndex + 1].startCharIdx : cArray.Length - 1;
             for (int cIndex = lArray[lIndex].startCharIdx; cIndex < i; cIndex++)
             {
-                lineWidth += cArray[cIndex].charWidth /100f;
+                lineWidth += cArray[cIndex].charWidth / 100f;
             }
 
             if (ret.x < lineWidth)
                 ret.x = lineWidth;
+        }
+        return ret;
+    }
+
+    public string ParseVariables(string text)
+    {
+        string ret = text;
+        Regex varcheck = new Regex("\\[.*\\]");
+        foreach(var match in varcheck.Matches(text))
+        {
+            string str = match.ToString();
+            string key = $"${str.Substring(1, str.Length - 2)}";
+
+            if(variables.HasKey(key))
+            {
+                string value = variables.GetValue(key).AsString;
+                //Debug.Log($"{key}: {value}");
+                ret = ret.Replace(str, value);
+            }
+            
         }
         return ret;
     }

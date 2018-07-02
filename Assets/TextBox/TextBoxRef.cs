@@ -29,6 +29,7 @@ public class TextBoxRef : MonoBehaviour {
     private void Awake()
     {
         dialogueRunner = GetComponent<DialogueRunner>();
+        defaultSettings = textBoxSettings;
     }
 
     private void LateUpdate()
@@ -51,7 +52,14 @@ public class TextBoxRef : MonoBehaviour {
     [YarnCommand("SetTextBoxSettings")]
     public void SetTextBoxSettings(string name)
     {
-        textBoxSettings = Instantiate(Resources.Load<TextBoxSettings>($"TextBoxSettings/{name}"));
-
+        if(name.ToLower() == "default")
+        {
+            textBoxSettings = defaultSettings;
+        }
+        else
+        {
+            textBoxSettings = Instantiate(Resources.Load<TextBoxSettings>($"TextBoxSettings/{name}"));
+        }
+        
     }
 }

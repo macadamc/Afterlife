@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224291633919086780}
+  - component: {fileID: 114102079205264594}
   m_Layer: 10
   m_Name: ChoiceContainer
   m_TagString: Untagged
@@ -199,6 +200,28 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114102079205264594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225349679947588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
 --- !u!114 &114115103090783720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,9 +236,8 @@ MonoBehaviour:
   choiceContainer: {fileID: 1225349679947588}
   textComp: {fileID: 114813480346837132}
   delay: 0.1
-  running: 0
   autoSize: 1
-  maxSize: {x: 200, y: 75}
+  maxSize: {x: 600, y: 75}
   padding: {x: 16, y: 16}
   inputType: 1
   passiveLineDelay: 0.75
@@ -321,7 +343,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224954523504783910
 RectTransform:

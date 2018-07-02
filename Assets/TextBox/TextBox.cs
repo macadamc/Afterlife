@@ -9,7 +9,6 @@ public class TextBox : MonoBehaviour
     public GameObject choiceContainer;
     public Text textComp;
     public float delay;
-    public bool running;
 
     public bool autoSize;
     [ShowIf("autoSize"), Indent]
