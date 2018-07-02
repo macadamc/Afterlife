@@ -15,6 +15,8 @@ public class Health : MonoBehaviour
     }
 
     public IntReference startingHealth;
+    public GameObject spawnOnDeath;
+    public bool deactivateRootObjectOnDeath;
     [DrawWithUnity]
     public Events events;
 
@@ -35,7 +37,15 @@ public class Health : MonoBehaviour
             events.onHurt.Invoke();
 
         if (_currentHealth <= 0)
+        {
+            if (spawnOnDeath != null)
+                Instantiate(spawnOnDeath, transform.position, Quaternion.identity);
+
             events.onDeath.Invoke();
+
+            if (deactivateRootObjectOnDeath)
+                gameObject.SetActive(false);
+        }
     }
 
     protected virtual void Start()

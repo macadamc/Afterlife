@@ -112,6 +112,9 @@ public class DialougeUI : DialogueUIBehaviour
         yield return null;
     }
 
+
+    // instead of '/100f' should get the canvas scaler from the current canvas it is trying to reference.
+    // auto size might only use the world space canvas?
     public Vector2 GetPageSize(TextGenerationSettings settings)
     {
         Vector2 ret = Vector2.zero;
@@ -123,11 +126,11 @@ public class DialougeUI : DialogueUIBehaviour
         for (int lIndex = 0; lIndex < lArray.Length; lIndex++)
         {
             lineWidth = 0;
-            ret.y += settings.fontSize + settings.lineSpacing;
+            ret.y += (settings.fontSize + settings.lineSpacing) /100f;
             int i = lIndex + 1 < lArray.Length ? lArray[lIndex + 1].startCharIdx : cArray.Length - 1;
             for (int cIndex = lArray[lIndex].startCharIdx; cIndex < i; cIndex++)
             {
-                lineWidth += cArray[cIndex].charWidth;
+                lineWidth += cArray[cIndex].charWidth /100f;
             }
 
             if (ret.x < lineWidth)

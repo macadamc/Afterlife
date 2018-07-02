@@ -58,13 +58,13 @@ namespace ShadyPixel.StateMachine
             StateMachine.Exit();
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             if (events.onEnterEvent != null)
                 events.onEnterEvent.Invoke();
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             if (events.onExitEvent != null)
                 events.onExitEvent.Invoke();

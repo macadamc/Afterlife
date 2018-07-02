@@ -25,13 +25,6 @@ public class FakeZAxis : MonoBehaviour {
             UpdateHeight();
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            velocity -= 5f;
-        }
-    }
 
     private void UpdateHeight()
     {

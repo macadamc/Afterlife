@@ -11,10 +11,7 @@ public class MovementController : MonoBehaviour
         {
             if (_inputController == null)
             {
-                if (startingInputController != null)
-                    _inputController = startingInputController;
-                else
-                    _inputController = GetComponentInChildren<InputController>();
+                _inputController = GetComponentInChildren<InputController>();
             }
 
             return _inputController;
@@ -69,7 +66,6 @@ public class MovementController : MonoBehaviour
     }
     
 
-    public InputController startingInputController;
     public Transform moveTarget;
     public FloatReference moveSpeed = new FloatReference(5f);
     [HideInInspector]
@@ -85,15 +81,6 @@ public class MovementController : MonoBehaviour
     Rigidbody2D _rigidbody;
     float _nextMoveTime;
     bool _stunned;
-
-    /// <summary>
-    /// changes the input controller this component is listening to.
-    /// </summary>
-    /// <param name="inputController"></param>
-    public void SetInputController(InputController inputController)
-    {
-        Ic = inputController;
-    }
 
     /// <summary>
     /// movement logic should go here.

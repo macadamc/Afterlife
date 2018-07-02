@@ -5,6 +5,8 @@ using UnityEngine;
 public class ApplyKnockback : MonoBehaviour
 {
     public float knockbackForce = 5f;
+    public bool useRotation = true;
+    //public float useRotationPercent = 0.5f;
 
     // solid collisions
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,7 +29,16 @@ public class ApplyKnockback : MonoBehaviour
             return;
 
         // get direction between the two objects
-        Vector2 knockback = (knockbackObj.transform.position - transform.position).normalized;
+        Vector3 knockback = Vector2.zero;
+        if(useRotation)
+        {
+            knockback += transform.rotation * Vector3.right;
+        }
+
+        knockback += (knockbackObj.transform.position - transform.position).normalized;
+
+        if (useRotation)
+            knockback /= 2f;
 
         // multiplies direction by the force of the knockback
         knockback *= knockbackForce;

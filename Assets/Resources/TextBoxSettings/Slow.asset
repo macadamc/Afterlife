@@ -15,4 +15,4 @@ MonoBehaviour:
   lineDelay: 1.5
   sfx: {fileID: 11400000, guid: defaeaf35e534e241a524754c49db636, type: 2}
   font: {fileID: 12800000, guid: 2734d75b269420044ade817b027e0d15, type: 3}
-  fontSize: 32
+  fontSize: 12

@@ -10,10 +10,7 @@ public class UseLookDirectionToFlipSprite : MonoBehaviour
         {
             if (_inputController == null)
             {
-                if (startingController != null)
-                    _inputController = startingController;
-                else
-                    _inputController = GetComponentInChildren<InputController>();
+                _inputController = GetComponentInChildren<InputController>();
             }
 
             return _inputController;
@@ -34,8 +31,6 @@ public class UseLookDirectionToFlipSprite : MonoBehaviour
         }
     }
 
-    public InputController startingController;
-
     InputController _inputController;
     ItemController _itemController;
     SpriteRenderer[] _spriteRenderers;
@@ -54,10 +49,10 @@ public class UseLookDirectionToFlipSprite : MonoBehaviour
         {
             foreach (SpriteRenderer s in _spriteRenderers)
             {
-                if (Itc.lookDirection.x > 0)
+                if (Itc.lastX > 0)
                     s.flipX = false;
 
-                if (Itc.lookDirection.x < 0)
+                if (Itc.lastX < 0)
                     s.flipX = true;
             }
         }

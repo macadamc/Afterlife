@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class InputController : MonoBehaviour
+public class InputController : MonoBehaviour
 {
     [System.Serializable]
     public class Button
@@ -16,6 +16,12 @@ public abstract class InputController : MonoBehaviour
             pressed = SimpleInput.GetButtonDown(buttonName);
             held = SimpleInput.GetButton(buttonName);
             released = SimpleInput.GetButtonUp(buttonName);
+        }
+        public void SetValue(bool value)
+        {
+            pressed = value;
+            held = value;
+            released = value;
         }
     }
 

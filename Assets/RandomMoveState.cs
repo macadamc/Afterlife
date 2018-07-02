@@ -1,25 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ShadyPixel.StateMachine;
 using Sirenix.OdinInspector;
 
-public class RandomInputController : InputController
-{
+public class RandomMoveState : State {
+
     [MinMaxSlider(0f, 10f, true)]
     public Vector2 moveTime;
 
     [MinMaxSlider(0f, 10f, true)]
     public Vector2 delayTime;
 
+    public float stateTime = 3f;
+
+    public InputController inputController;
+    public GameObject forceNextState;
+
     private float _nextMoveTime;
     private bool _delayed;
     private bool _joystickSet;
     private bool _delayedSet;
+    private float _endState;
 
-    // Use this for initialization
-    void Start ()
+    protected override void OnEnable()
     {
-        if(Random.Range(0f,1f) > 0.5f)
+        base.OnEnable();
+        Init();
+    }
+
+    protected override void OnDisable()
+    {
+        Init();
+        base.OnDisable();
+    }
+
+    private void Init()
+    {
+        if (inputController == null)
+            inputController = GetComponentInChildren<InputController>();
+
+        inputController.joystick = Vector2.zero;
+        inputController.input.SetValue(false);
+        _endState = Time.time + stateTime;
+    }
+
+    private void Start()
+    {
+        if (Random.Range(0f, 1f) > 0.5f)
         {
             _delayed = true;
         }
@@ -28,17 +56,9 @@ public class RandomInputController : InputController
             _delayed = false;
         }
 
-	}
-	
-	void Update ()
-    {
+    }
 
-        OnUpdateMoveInput();
-
-	}
-
-    // has move input logic
-    private void OnUpdateMoveInput()
+    private void Update()
     {
         if (_delayed)
         {
@@ -47,7 +67,7 @@ public class RandomInputController : InputController
             {
                 _delayedSet = true;
                 _joystickSet = false;
-                joystick = Vector2.zero;
+                inputController.joystick = Vector2.zero;
                 UpdateMoveTime(delayTime.x, delayTime.y);
             }
         }
@@ -56,7 +76,7 @@ public class RandomInputController : InputController
             // if movement input has not been set yet
             if (!_joystickSet)
             {
-                joystick = Random.insideUnitCircle;
+                inputController.joystick = Random.insideUnitCircle;
                 _joystickSet = true;
                 _delayedSet = false;
                 UpdateMoveTime(moveTime.x, moveTime.y);
@@ -67,27 +87,27 @@ public class RandomInputController : InputController
         if (Time.time >= _nextMoveTime)
         {
             _delayed = !_delayed;
+
+
+            if (Time.time >= _endState)
+            {
+                if (forceNextState != null)
+                    ChangeState(forceNextState);
+                else
+                    Next();
+            }
         }
 
     }
 
-    /// <summary>
-    /// adds a random range to the next move time
-    /// </summary>
-    /// <param name="min"></param>
-    /// <param name="max"></param>
     private void UpdateMoveTime(float min, float max)
     {
         _nextMoveTime = Time.time + Random.Range(min, max);
     }
 
-    /// <summary>
-    /// adds a set number to the next move time
-    /// </summary>
-    /// <param name="time"></param>
     private void UpdateMoveTime(float time)
     {
         _nextMoveTime = Time.time + time;
     }
-}
 
+}

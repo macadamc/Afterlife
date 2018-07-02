@@ -81,6 +81,7 @@ TextureImporter:
     21300152: Tree2_Top
     21300154: BasicTiles_0
     21300156: BasicTiles_1
+    21300158: BasicTiles_2
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -449,6 +450,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8735d68058259bb4a90394c417a6ced5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicTiles_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0158f620dec3f6f4987351724ac6bd8e
       vertices: []
       indices: 
       edges: []

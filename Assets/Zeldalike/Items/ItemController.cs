@@ -13,6 +13,8 @@ public class ItemController : MonoBehaviour
     public bool lockToCardinalDirections;
     public bool lockDirectionWhenUsingItem;
     public Vector2 lookDirection = Vector2.right;
+    [HideInInspector]
+    public float lastX;
 
     public Transform SpawnTransform
     {
@@ -150,6 +152,8 @@ public class ItemController : MonoBehaviour
     }
     private void SetLookDirection()
     {
+        lastX = InputController.joystick.x;
+
         if (lockToCardinalDirections)
         {
             Vector2 cardinalDirection = InputController.joystick;
