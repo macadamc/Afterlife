@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SmallSpider
+  m_Controller: {fileID: 9100000, guid: 686032d3dc3ce5341b0aa1f7c0a40b6a, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 38d8a84ee7241fe49a5e1df29df08812, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ea58e112b9549794cabe522caa06eda2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 87192f587ebed924a8ce5121ea246eec, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 975a36b55484fc3419f020d1366c7a60, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5b9a45bf198530147aab00010800febe, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 22531a4da36c3d04f976e942aa9b06aa, type: 2}

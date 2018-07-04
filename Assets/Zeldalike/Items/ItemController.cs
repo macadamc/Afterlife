@@ -55,10 +55,11 @@ public class ItemController : MonoBehaviour
     InputController _inputController;
     float _nextPossibleUseTime;
     bool _usingItem;
+    bool _init;
 
     public void EquipItem(Item item)
     {
-        currentItem = item;
+        currentItem = Instantiate(item);
         heldItemSpriteRend.sprite = item.onBackSprite;
     }
     public void Unequip()
@@ -95,14 +96,13 @@ public class ItemController : MonoBehaviour
                 SetLookDirection();
         }
 
-        if (_nextPossibleUseTime > Time.time)
-            return;
-
-        if (heldItemSpriteRend.enabled == false && !_usingItem)
-            heldItemSpriteRend.enabled = true;
-
         if (currentItem == null)
             return;
+
+        if (_nextPossibleUseTime > Time.time)
+            return;
+        else if( _init == false)
+            Init();
 
         if (!_usingItem)
         {
@@ -132,7 +132,6 @@ public class ItemController : MonoBehaviour
     private void HoldItem()
     {
         Log("Hold Item [" + currentItem.name + "]");
-
         currentItem.Hold(this);
     }
     private void EndItem()
@@ -169,5 +168,10 @@ public class ItemController : MonoBehaviour
         {
             lookDirection = InputController.joystick.normalized;
         }
+    }
+    private void Init()
+    {
+        heldItemSpriteRend.enabled = true;
+        _init = true;
     }
 }

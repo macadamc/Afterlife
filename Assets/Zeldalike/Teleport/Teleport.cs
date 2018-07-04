@@ -6,7 +6,6 @@ using Pixelplacement;
 public class Teleport : TriggerZone
 {
     public Transition transition;
-    public bool playerUseOnly = true;
     public string doorTag;
     public Transform enterTransform;
     MovementController mc;
@@ -27,27 +26,8 @@ public class Teleport : TriggerZone
 
     GameObject _teleportObj;
 
-    private void Start()
+    protected override void OnEnter(Collider2D collision)
     {
-        if(playerUseOnly)
-        {
-            if (!triggerTags.Contains("Player"))
-            {
-                triggerTags.Add("Player");
-            }
-        }
-    }
-
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-
-        if (triggerTags.Count > 0)
-        {
-            if (HasTag(collision.gameObject) == false)
-                return;
-        }
-
         mc = collision.gameObject.GetComponent<MovementController>();
         if (mc != null)
         {
@@ -55,7 +35,7 @@ public class Teleport : TriggerZone
         }
 
         TransitionManager.Instance.onTransitionEnd += OnFadeOut;
-        transition.FadeOut();
+        TransitionManager.Instance.FadeOut(transition);
 
         _teleportObj = collision.gameObject;
         //PauseManager.Instance.Paused = true;
@@ -84,8 +64,8 @@ public class Teleport : TriggerZone
                 TransitionManager.Instance.onTransitionEnd += OnFadeIn;
                 objectToTeleport.transform.position = t.TeleportTransform.position;
                 CameraFollow.Instance.SetPosition( t.TeleportTransform.position , t.cameraZone.bounds );
-                transition.FadeIn();
-                if(mc!=null)
+                TransitionManager.Instance.FadeIn(transition);
+                if (mc!=null)
                 {
                     mc.enabled = true;
                     mc = null;

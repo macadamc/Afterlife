@@ -21,35 +21,4 @@ public class Transition : ScriptableObject
     public float transitionTime = 1.0f;
     public AnimationCurve animationCurve = Tween.EaseInOut;
 
-
-    public void FadeIn()
-    {
-        TransitionManager.Instance.SetColor(fadeColor);
-
-        if (type == Type.Simple)
-        {
-            TransitionManager.Instance.SimpleFade(1.0f, 0.0f, transitionTime, startDelay, animationCurve);
-        }
-        else
-        {
-            TransitionManager.Instance.SetTexture(texture);
-            TransitionManager.Instance.TextureFade(1.0f, 0.0f, transitionTime, startDelay, animationCurve);
-        }
-    }
-
-    public void FadeOut()
-    {
-        TransitionManager.Instance.SetColor(fadeColor);
-
-        if (type == Type.Simple)
-        {
-            TransitionManager.Instance.SimpleFade(0.0f, 1.0f, transitionTime, startDelay, animationCurve);
-        }
-        else
-        {
-            TransitionManager.Instance.SetTexture(texture);
-            TransitionManager.Instance.TextureFade(0.0f, 1.0f, transitionTime, startDelay, animationCurve);
-        }
-    }
-
 }

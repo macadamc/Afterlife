@@ -12,16 +12,12 @@ public class RandomMoveState : State {
     [MinMaxSlider(0f, 10f, true)]
     public Vector2 delayTime;
 
-    public float stateTime = 3f;
-
     public InputController inputController;
-    public GameObject forceNextState;
 
     private float _nextMoveTime;
     private bool _delayed;
     private bool _joystickSet;
     private bool _delayedSet;
-    private float _endState;
 
     protected override void OnEnable()
     {
@@ -42,21 +38,10 @@ public class RandomMoveState : State {
 
         inputController.joystick = Vector2.zero;
         inputController.input.SetValue(false);
-        _endState = Time.time + stateTime;
+        _delayed = true;
+        _delayedSet = false;
     }
 
-    private void Start()
-    {
-        if (Random.Range(0f, 1f) > 0.5f)
-        {
-            _delayed = true;
-        }
-        else
-        {
-            _delayed = false;
-        }
-
-    }
 
     private void Update()
     {
@@ -87,15 +72,6 @@ public class RandomMoveState : State {
         if (Time.time >= _nextMoveTime)
         {
             _delayed = !_delayed;
-
-
-            if (Time.time >= _endState)
-            {
-                if (forceNextState != null)
-                    ChangeState(forceNextState);
-                else
-                    Next();
-            }
         }
 
     }

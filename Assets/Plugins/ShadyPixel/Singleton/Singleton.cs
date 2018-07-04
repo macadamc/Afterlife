@@ -23,10 +23,10 @@ namespace ShadyPixel.Singleton
             }
         }
 
-        [SerializeField]
-        [Tooltip("If the object will not be destroyed when changing scenes.")]
-        [TabGroup("Settings")]
+        [SerializeField, TabGroup("Settings"), Tooltip("If the object will not be destroyed when changing scenes.")]
         bool dontDestroyOnLoad;
+        [SerializeField, TabGroup("Settings"), Tooltip("Should copys of this object be deleted.")]
+        bool allowMoreThanOne;
         static T _instance;
 
         /// <summary>
@@ -52,14 +52,22 @@ namespace ShadyPixel.Singleton
         /// <param name="instance"></param>
         protected void Initialize(T instance)
         {
-            if (dontDestroyOnLoad)
+            if(_instance == null)
             {
-                //don't destroy on load only works on root objects so let's force this transform to be a root object:
-                transform.parent = null;
-                DontDestroyOnLoad(gameObject);
+                if (dontDestroyOnLoad)
+                {
+                    //don't destroy on load only works on root objects so let's force this transform to be a root object:
+                    transform.parent = null;
+                    DontDestroyOnLoad(gameObject);
+                }
+                _instance = instance;
+                OnRegistration();
             }
-            _instance = instance;
-            OnRegistration();
+            else if(!allowMoreThanOne)
+            {
+                Debug.Log("There is already an instance of [" + name + "]. Destroying copy...");
+                Destroy(gameObject);
+            }
         }
     }
 }

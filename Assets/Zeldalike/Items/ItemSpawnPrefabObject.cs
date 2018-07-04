@@ -11,11 +11,11 @@ public class ItemSpawnPrefabObject : Item
     public float moveSpeedPercent;
     public float itemCooldownTime;
     public float itemMoveStunTime;
+
     private GameObject heldItem;
 
     public override void Begin(ItemController user)
     {
-
         if (itemToHold != null)
         {
             if(user.MovementController!=null)
@@ -26,6 +26,8 @@ public class ItemSpawnPrefabObject : Item
 
             //  spawns object and sets parent
             heldItem = Instantiate(itemToHold, user.SpawnTransform);
+
+            CheckForDamageComponent(heldItem, user);
 
             //  sets transform of spawned object
             heldItem.transform.position = (Vector2)user.SpawnTransform.position;
@@ -54,6 +56,12 @@ public class ItemSpawnPrefabObject : Item
 
     public override void End(ItemController user)
     {
+        if (heldItem != null)
+        {
+            Destroy(heldItem.gameObject);
+            heldItem = null;
+        }
+
         if (user.MovementController != null)
         {
             user.MovementController.moveSpeed.Value = user.MovementController.oldMoveSpeed.Value;
@@ -61,6 +69,8 @@ public class ItemSpawnPrefabObject : Item
 
         //  spawns object and sets parent
         GameObject spawnObject = Instantiate(itemToSpawnOnUse, user.SpawnTransform);
+
+        CheckForDamageComponent(spawnObject, user);
 
         //  sets transform of spawned object, user direction is used to place it on one of the entitys sides
         spawnObject.transform.position = (Vector2)user.SpawnTransform.position + user.lookDirection.normalized;
@@ -84,11 +94,14 @@ public class ItemSpawnPrefabObject : Item
 
         // apply movement stun
         user.ApplyMoveStun(itemMoveStunTime);
+    }
 
-        if (heldItem != null)
+    private void CheckForDamageComponent(GameObject objToCheck, ItemController user)
+    {
+        ChangeHealthOnTriggerEnter changeHealth = objToCheck.GetComponentInChildren<ChangeHealthOnTriggerEnter>();
+        if (changeHealth != null)
         {
-            Destroy(heldItem.gameObject);
-            heldItem = null;
+            changeHealth.ignoreObject = user.gameObject;
         }
     }
 

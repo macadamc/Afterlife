@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PickupItem : MonoBehaviour
+public class PickupItem : TriggerZone
 {
     public Item pickup;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnEnter(Collider2D collision)
     {
         Inventory inventory = collision.gameObject.GetComponent<Inventory>();
 

@@ -15,15 +15,24 @@ public class TriggerZone : MonoBehaviour
 
     [Tooltip("List of tags that can trigger this object. If blank it will use any OnTriggerEnter calls it receives.")]
     public List<string> triggerTags = new List<string>();
+    [Tooltip("List of tags that this trigger will ignore collisions with.")]
+    public List<string> ignoreTags = new List<string>();
+    public GameObject ignoreObject;
+    public bool addPlayerTag = false;
     [DrawWithUnity]
     public Events events;
 
-    protected bool HasTag(GameObject go)
+    private void OnEnable()
     {
+        if (addPlayerTag && !triggerTags.Contains("Player"))
+            triggerTags.Add("Player");
+    }
 
+    protected bool HasTag(GameObject go, List<string> tags)
+    {
         bool _hasTag = false;
 
-        foreach (string tag in triggerTags)
+        foreach (string tag in tags)
         {
             if (tag == go.tag)
                 _hasTag = true;
@@ -32,27 +41,91 @@ public class TriggerZone : MonoBehaviour
         return _hasTag;
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if(triggerTags.Count > 0)
+        //if doesnt have trigger tags return out
+        if (triggerTags.Count > 0)
         {
-            if (HasTag(collision.gameObject) == false)
+            if (HasTag(collision.gameObject, triggerTags) == false)
                 return;
         }
+
+        //if has ignore tags return out
+        if (ignoreTags.Count > 0)
+        {
+            if (HasTag(collision.gameObject, ignoreTags) == true)
+                return;
+        }
+
+        if (ignoreObject != null && collision.gameObject == ignoreObject)
+            return;
+
+        OnEnter(collision);
 
         if(events.onTrigger != null)
             events.onTrigger.Invoke();
     }
 
-    protected virtual void OnTriggerExit2D(Collider2D collision)
+    protected void OnTriggerStay2D(Collider2D collision)
     {
+        //if doesnt have trigger tags return out
         if (triggerTags.Count > 0)
         {
-            if (HasTag(collision.gameObject) == false)
+            if (HasTag(collision.gameObject, triggerTags) == false)
                 return;
         }
 
+        //if has ignore tags return out
+        if (ignoreTags.Count > 0)
+        {
+            if (HasTag(collision.gameObject, ignoreTags) == true)
+                return;
+        }
+
+
+        if (ignoreObject != null && collision.gameObject == ignoreObject)
+            return;
+
+        OnStay(collision);
+    }
+
+    protected void OnTriggerExit2D(Collider2D collision)
+    {
+        //if doesnt have trigger tags return out
+        if (triggerTags.Count > 0)
+        {
+            if (HasTag(collision.gameObject, triggerTags) == false)
+                return;
+        }
+
+        //if has ignore tags return out
+        if (ignoreTags.Count > 0)
+        {
+            if (HasTag(collision.gameObject, ignoreTags) == true)
+                return;
+        }
+
+        if (ignoreObject != null && collision.gameObject == ignoreObject)
+            return;
+
+        OnExit(collision);
+
         if (events.onTrigger != null)
             events.onTrigger.Invoke();
+    }
+
+    protected virtual void OnEnter(Collider2D collision)
+    {
+
+    }
+
+    protected virtual void OnStay(Collider2D collision)
+    {
+
+    }
+
+    protected virtual void OnExit(Collider2D collision)
+    {
+
     }
 }

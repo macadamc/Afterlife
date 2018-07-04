@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraZone : TriggerZone
 {
+    public Transform cameraZoneTriggerEvents;
+
     CameraFollow _camFollow;
     CameraFollow CameraFollow
     {
@@ -28,19 +30,23 @@ public class CameraZone : TriggerZone
         }
     }
 
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
+    CameraZoneEvent[] zoneEvents;
 
-        base.OnTriggerEnter2D(collision);
-        if (triggerTags.Count > 0)
-        {
-            if (HasTag(collision.gameObject) == false)
-                return;
-        }
-        CameraFollow.SetBounds(Collider.bounds);
+    private void OnEnable()
+    {
+        if(cameraZoneTriggerEvents !=null)
+            zoneEvents = cameraZoneTriggerEvents.GetComponentsInChildren<CameraZoneEvent>();
+        else
+            zoneEvents = GetComponentsInChildren<CameraZoneEvent>();
     }
 
-    private void OnTriggerStay(Collider other)
+    protected override void OnEnter(Collider2D collision)
+    {
+        CameraFollow.SetBounds(Collider.bounds);
+        TriggerEnterEvents();
+    }
+
+    protected override void OnStay(Collider2D collision)
     {
         if(CameraFollow._bounds != Collider.bounds)
         {
@@ -48,14 +54,37 @@ public class CameraZone : TriggerZone
         }
     }
 
-    protected override void OnTriggerExit2D(Collider2D collision)
+    protected override void OnExit(Collider2D collision)
     {
-        base.OnTriggerExit2D(collision);
+        TriggerExitEvents();
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireCube(Collider.bounds.center, Collider.bounds.size);
+    }
+
+
+    private void TriggerEnterEvents()
+    {
+        if (zoneEvents == null || zoneEvents.Length == 0)
+            return;
+
+        foreach (CameraZoneEvent e in zoneEvents)
+        {
+            e.CheckTriggerEventKeys();
+        }
+    }
+
+    private void TriggerExitEvents()
+    {
+        if (zoneEvents == null || zoneEvents.Length == 0)
+            return;
+
+        foreach (CameraZoneEvent e in zoneEvents)
+        {
+            e.TriggerExitEvent();
+        }
     }
 }

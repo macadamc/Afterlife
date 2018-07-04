@@ -2,20 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyKnockback : MonoBehaviour
+public class ApplyKnockback : TriggerZone
 {
     public float knockbackForce = 5f;
     public bool useRotation = true;
     //public float useRotationPercent = 0.5f;
 
-    // solid collisions
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Knockback(collision.gameObject);
-    }
-
     // trigger collisions
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnEnter(Collider2D collision)
     {
         Knockback(collision.gameObject);
     }

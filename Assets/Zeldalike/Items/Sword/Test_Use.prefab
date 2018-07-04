@@ -245,6 +245,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f8b712c4b5c3409fc40f65285b11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerTags: []
+  ignoreTags: []
+  addPlayerTag: 0
+  addOwnTagToIgnore: 0
+  events:
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onExit:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   knockbackForce: 10
   useRotation: 1
 --- !u!114 &114615438489822036
@@ -258,6 +273,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f7cf850ab442040b87729e84cf4cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerTags: []
+  ignoreTags: []
+  addPlayerTag: 0
+  addOwnTagToIgnore: 0
+  events:
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onExit:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   change:
     type: 0
     ConstantValue: -1

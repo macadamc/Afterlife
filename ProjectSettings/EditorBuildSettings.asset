@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Zeldalike/Scenes/Title.unity
+    guid: 773d5bf514f633a4bbf20ddb84ca60b7
+  - enabled: 1
+    path: Assets/Zeldalike/Scenes/Chris.unity
+    guid: db86d606dd3263e4ab115a666ff1536e
+  - enabled: 1
+    path: Assets/Zeldalike/Scenes/Mike.unity
+    guid: a13f147dc51301f429bdfef0f6495947
   m_configObjects: {}

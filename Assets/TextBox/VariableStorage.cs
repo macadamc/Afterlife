@@ -255,7 +255,7 @@ public class VariableStorage : VariableStorageBehaviour
             data.Add(
                 new DefaultVariable()
                 {
-                    name = keyVal.Key.Remove(0,1),
+                    name = keyVal.Key,
                     value = val.AsString,
                     valueType = val.type,
                 });
@@ -266,27 +266,7 @@ public class VariableStorage : VariableStorageBehaviour
             formatter.Serialize(fs, data);
         }
     }
-    public void SaveDefaultOlny()
-    {
-        List<DefaultVariable> data = new List<DefaultVariable>();
-        BinaryFormatter formatter = new BinaryFormatter();
-        using (FileStream fs = File.Open($"{Application.persistentDataPath}/Variables.data", FileMode.OpenOrCreate))
-        {
-            foreach (var v in defaultVariables)
-            {
-                Yarn.Value val = GetValue($"${v.name}");
-                data.Add(
-                    new DefaultVariable()
-                    {
-                        name = v.name,
-                        value = val.AsString,
-                        valueType = val.type,
-                    });
-            }
 
-            formatter.Serialize(fs, data);
-        }
-    }
     [Button]
     public void Load()
     {
@@ -340,7 +320,7 @@ public class VariableStorage : VariableStorageBehaviour
 
             var v = new Yarn.Value(value);
 
-            SetValue("$" + variable.name, v);
+            SetValue(variable.name, v);
             Debug.Log($"{variable.name}: {variable.value}");
         }
     }
