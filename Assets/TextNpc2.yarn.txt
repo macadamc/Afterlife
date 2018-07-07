@@ -1,7 +1,7 @@
 title: TestNpc2.SimpleConditional
 tags: 
 colorID: 0
-position: 1060,276
+position: 1060,292
 ---
 <<if $Count is null>>
     <<set $Count to 0>>
@@ -9,6 +9,7 @@ position: 1060,276
 <<if $Count < 5>>
     <<set $Count to $Count + 1>>
     TestNpc2:Yes?
+    TestNpc2:...
 <<else>>
     TestNpc2:Well Thats Enough..
 <<endif>>
@@ -39,7 +40,7 @@ Global:Two Pressed
 title: ChoiceTestAlt
 tags: 
 colorID: 0
-position: 795,530
+position: 807,294
 ---
 Global:Hello [PlayerName]!!
 <<SetTextBoxSettings Global NoDelay>>//Show text intantly

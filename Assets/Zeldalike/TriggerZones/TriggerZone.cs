@@ -41,77 +41,53 @@ public class TriggerZone : MonoBehaviour
         return _hasTag;
     }
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    protected virtual bool ConditionsMet(Collider2D collision)
     {
-        //if doesnt have trigger tags return out
+        //if doesnt have trigger tags
         if (triggerTags.Count > 0)
         {
             if (HasTag(collision.gameObject, triggerTags) == false)
-                return;
+                return false;
         }
 
-        //if has ignore tags return out
+        //if has ignore tags
         if (ignoreTags.Count > 0)
         {
             if (HasTag(collision.gameObject, ignoreTags) == true)
-                return;
+                return false;
         }
 
         if (ignoreObject != null && collision.gameObject == ignoreObject)
-            return;
+            return false;
 
-        OnEnter(collision);
+        return true;
+    }
 
-        if(events.onTrigger != null)
-            events.onTrigger.Invoke();
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (ConditionsMet(collision))
+        {
+            OnEnter(collision);
+
+            events?.onTrigger.Invoke();
+        }
     }
 
     protected void OnTriggerStay2D(Collider2D collision)
     {
-        //if doesnt have trigger tags return out
-        if (triggerTags.Count > 0)
+        if (ConditionsMet(collision))
         {
-            if (HasTag(collision.gameObject, triggerTags) == false)
-                return;
+            OnStay(collision);
         }
-
-        //if has ignore tags return out
-        if (ignoreTags.Count > 0)
-        {
-            if (HasTag(collision.gameObject, ignoreTags) == true)
-                return;
-        }
-
-
-        if (ignoreObject != null && collision.gameObject == ignoreObject)
-            return;
-
-        OnStay(collision);
     }
 
     protected void OnTriggerExit2D(Collider2D collision)
     {
-        //if doesnt have trigger tags return out
-        if (triggerTags.Count > 0)
+        if (ConditionsMet(collision))
         {
-            if (HasTag(collision.gameObject, triggerTags) == false)
-                return;
-        }
-
-        //if has ignore tags return out
-        if (ignoreTags.Count > 0)
-        {
-            if (HasTag(collision.gameObject, ignoreTags) == true)
-                return;
-        }
-
-        if (ignoreObject != null && collision.gameObject == ignoreObject)
-            return;
-
-        OnExit(collision);
-
-        if (events.onTrigger != null)
-            events.onTrigger.Invoke();
+            OnExit(collision);
+            events?.onExit.Invoke();
+        }            
     }
 
     protected virtual void OnEnter(Collider2D collision)
@@ -129,3 +105,4 @@ public class TriggerZone : MonoBehaviour
 
     }
 }
+

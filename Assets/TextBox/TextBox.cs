@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
+using Pixelplacement;
+using Pixelplacement.TweenSystem;
 
 public class TextBox : MonoBehaviour
 {
@@ -22,5 +24,19 @@ public class TextBox : MonoBehaviour
     [ShowIf("IsPassive")]
     public float passiveLineDelay;
     bool IsPassive() { return inputType == InputType.Passive; }
+
+    public TweenBase cTween = null;
+
+    public virtual void EnabledTextBox()
+    {
+        gameObject.SetActive(true);
+        cTween = Tween.LocalScale(GetComponent<RectTransform>(), Vector2.zero, Vector2.one, 0.5f, 0f, Tween.EaseSpring);
+    }
+    public virtual void DisableTextbox()
+    {
+        var rt = GetComponent<RectTransform>();
+        if(rt != null)
+            cTween = Tween.LocalScale(rt, Vector2.one, Vector2.zero, 0.5f, 0f, Tween.EaseIn, Tween.LoopType.None, null, () => { gameObject.SetActive(false); });
+    } 
 
 }
