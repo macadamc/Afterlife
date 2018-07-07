@@ -2,9 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ShadyPixel.Variables;
+using UnityEngine.Tilemaps;
+using Sirenix.OdinInspector;
+using UnityEngine.Events;
 
 public class MovementController : MonoBehaviour
 {
+    [System.Serializable]
+    public class Events
+    {
+        public UnityEvent onStep;
+        public UnityEvent onKnockback;
+    }
+    [DrawWithUnity]
+    public Events events;
+
     public InputController Ic
     {
         get
@@ -45,6 +57,16 @@ public class MovementController : MonoBehaviour
             return _rigidbody;
         }
     }
+    public Tilemap BackgroundTilemap
+    {
+        get
+        {
+            if (_tilemap == null)
+                _tilemap = GameObject.FindGameObjectWithTag("Tilemap_BG").GetComponent<Tilemap>();
+
+            return _tilemap;
+        }
+    }
     public bool Knockedback
     {
         get
@@ -65,7 +87,6 @@ public class MovementController : MonoBehaviour
         { return _stunned; }
     }
     
-
     public Transform moveTarget;
     public FloatReference moveSpeed = new FloatReference(5f);
     [HideInInspector]
@@ -74,12 +95,19 @@ public class MovementController : MonoBehaviour
     public float smoothing = 0.4f;
     public float knockbackDecel = 5f;
     public float knockbackDeadzone = 0.1f;
+    public AudioSource stepSoundSource;
+
+    [MinMaxSlider(0.1f,0.5f,true)]
+    public Vector2 stepLength = Vector2.one;
+
 
     InputController _inputController;
     Vector2 _moveVector;
     Vector2 _knockbackVector;
     Rigidbody2D _rigidbody;
+    Tilemap _tilemap;
     float _nextMoveTime;
+    float _nextStepTime;
     bool _stunned;
 
     /// <summary>
@@ -114,6 +142,16 @@ public class MovementController : MonoBehaviour
     {
         Rb.velocity = _moveVector + _knockbackVector;
         UpdateKnockback();
+
+
+        if (_moveVector.magnitude > 0.1)
+        {
+            if (Time.time > _nextStepTime)
+                GetTile();
+        }
+        else
+            _nextStepTime = Time.time;
+        
     }
 
     /// <summary>
@@ -187,6 +225,20 @@ public class MovementController : MonoBehaviour
             _nextMoveTime = Time.time + time;
         }
     }
+
+    public virtual void GetTile()
+    {
+        TileBase tile = BackgroundTilemap.GetTile(BackgroundTilemap.WorldToCell(transform.position));
+
+        if (AudioManager.Instance.tilemapSFX.soundEffects.ContainsKey(tile) && stepSoundSource!=null)
+        {
+            AudioManager.Instance.tilemapSFX.soundEffects[tile].Play(stepSoundSource);
+        }
+        _nextStepTime = Time.time + Random.Range(stepLength.x, stepLength.y);
+        events.onStep.Invoke();
+    }
+
+
 
 
 

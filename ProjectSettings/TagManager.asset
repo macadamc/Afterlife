@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraZone
   - Enemy
+  - Tilemap_BG
   layers:
   - Default
   - TransparentFX

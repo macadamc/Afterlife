@@ -7,6 +7,8 @@ TextureImporter:
     21300004: Base_2
     21300006: Base_3
     21300008: Base_Shadow
+    21300010: Base_4
+    21300012: Base_5
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -195,6 +197,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a61bd74c54daa3045bf811dc48c46a25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbf1c1ab2236c1438b1a625e5dba7b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36a04d7d933a0ee4aa3e1b3ec9b6a0b0
       vertices: []
       indices: 
       edges: []

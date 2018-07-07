@@ -118,6 +118,7 @@ public class ItemController : MonoBehaviour
             {
                 EndItem();
                 _usingItem = false;
+                _init = false;
             }
             else
                 HoldItem();

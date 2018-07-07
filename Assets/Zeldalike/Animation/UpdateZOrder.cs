@@ -1,28 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [ExecuteInEditMode]
+[RequireComponent(typeof(SortingGroup))]
 public class UpdateZOrder : MonoBehaviour
 {
-    public SpriteRenderer[] Sr
+    public SortingGroup SortingGroup
     {
         get
         {
-            if (_spriteRenderer == null || _spriteRenderer.Length == 0)
-                _spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
+            if (_sortingGroup == null)
+                _sortingGroup = GetComponent<SortingGroup>();
 
-            return _spriteRenderer;
-        }
-        set
-        {
-            _spriteRenderer = value;
+            return _sortingGroup;
         }
     }
+    
     public int ppu = 16;
-    public int offset;
     Vector2 _lastKnownPosition;
     SpriteRenderer[] _spriteRenderer;
+    SortingGroup _sortingGroup;
     bool _inEditor;
 
     private void Start()
@@ -50,10 +49,9 @@ public class UpdateZOrder : MonoBehaviour
     private void UpdateZ()
     {
         _lastKnownPosition = transform.position;
+        int n = -Mathf.RoundToInt(transform.position.y * ppu);
 
-        foreach(SpriteRenderer s in Sr)
-        {
-            s.sortingOrder = -Mathf.RoundToInt(transform.position.y * ppu) + offset;
-        }
+        if(SortingGroup != null)
+            SortingGroup.sortingOrder = n;
     }
 }

@@ -295,30 +295,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grass_05
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 393850cd7088cfc43912965fb8bf4030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Grass_01
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 0
         width: 16
         height: 16
@@ -338,7 +318,7 @@ TextureImporter:
       name: Grass_02
       rect:
         serializedVersion: 2
-        x: 16
+        x: 80
         y: 0
         width: 16
         height: 16

@@ -23,10 +23,10 @@ namespace Pixelplacement
 		/// </summary>
 		public enum TweenType { Position, Rotation, LocalScale, LightColor, LightIntensity, LightRange, FieldOfView, SpriteRendererColor, RawImageColor, ImageColor, AnchoredPosition, Size, Volume, Pitch, PanStereo, ShaderFloat, ShaderColor, ShaderInt, ShaderVector, Value, TextMeshColor, GUITextColor, TextColor, CanvasGroupAlpha, Spline };
 
-		/// <summary>
-		/// What style of loop, if any, should be applied to this tween.
-		/// </summary>
-		public enum LoopType { None, Loop, PingPong };
+        /// <summary>
+        /// What style of loop, if any, should be applied to this tween.
+        /// </summary>
+        public enum LoopType { None, Loop, PingPong };
 
 		/// <summary>
 		/// Used internally to identify the status of tween.
