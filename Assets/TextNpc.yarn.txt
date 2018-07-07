@@ -1,11 +1,21 @@
-title: TestNpc
+title: TestNpc.DefaultPassive
 tags: 
 colorID: 0
-position: 1178,609
+position: 932,585
 ---
-<<if visited("TestNpc") is true>>
-    TestNpc:Leave me be...
-<<else>>
-    TestNpc: What'cha want m'Boy?
-<<endif>>
+TestNpc:Leave me be...
+===
+title: TestNpc.DefaultPressed
+tags: 
+colorID: 0
+position: 1186,584
+---
+TestNpc:What'd I just Say...
+===
+title: TestNpc.Leave
+tags: 
+colorID: 0
+position: 456,562
+---
+TestNpc:.....
 ===

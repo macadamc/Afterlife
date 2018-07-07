@@ -29,6 +29,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using CsvHelper;
+using Sirenix.OdinInspector;
 
 namespace Yarn.Unity
 {
@@ -52,20 +53,23 @@ namespace Yarn.Unity
 
         /// Language debugging options
         public bool shouldOverrideLanguage = false;
-
+        [ShowIf("shouldOverrideLanguage")]
         public SystemLanguage overrideLanguage = SystemLanguage.English;
 
         /// Our variable storage
+        [System.NonSerialized]
         public Yarn.Unity.VariableStorageBehaviour variableStorage;
 
         /// The object that will handle the actual display and user input
+        [System.NonSerialized]
         public Yarn.Unity.DialogueUIBehaviour dialogueUI;
-
-        /// Which node to start from
-        public string startNode = Yarn.Dialogue.DEFAULT_START;
 
         /// Whether we should start dialogue when the scene starts
         public bool startAutomatically = true;
+
+        /// Which node to start from
+        [ShowIf("startAutomatically")]
+        public string startNode = Yarn.Dialogue.DEFAULT_START;
 
         /// Tests to see if the dialogue is running
         public bool isDialogueRunning { get; private set; }
@@ -99,18 +103,28 @@ namespace Yarn.Unity
         {
             // Ensure that we have our Implementation object
             if (dialogueUI == null) {
-                Debug.LogError ("Implementation was not set! Can't run the dialogue!");
-                return;
+                dialogueUI = FindObjectOfType<DialougeUI>();
+                if (dialogueUI == null)
+                {
+                    Debug.LogError("Implementation was not set! Can't run the dialogue!");
+                    return;
+                }
             }
 
             // And that we have our variable storage object
-            if (variableStorage == null) {
-                Debug.LogError ("Variable storage was not set! Can't run the dialogue!");
-                return;
+            if (variableStorage == null)
+            {
+                variableStorage = SaveLoadManager.Instance.savedVariables;
+
+                if (variableStorage == null)
+                {
+                    Debug.LogError("Variable storage was not set! Can't run the dialogue!");
+                    return;
+                }  
             }
 
             // Ensure that the variable storage has the right stuff in it
-            variableStorage.ResetToDefaults ();
+            //variableStorage.ResetToDefaults ();
 
             // Load all scripts
             if (sourceText != null) {

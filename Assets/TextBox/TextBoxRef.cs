@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using Pixelplacement;
+using System.Linq;
 
 public class TextBoxRef : MonoBehaviour {
 
+    [System.NonSerialized]
     public Canvas canvas;
 
     internal TextBox _textBox;
@@ -15,6 +18,7 @@ public class TextBoxRef : MonoBehaviour {
             if (_textBox == null)
             {
                 _textBox = Instantiate(TextBoxPrefab, canvas.transform, false).GetComponent<TextBox>();
+                _textBox.EnabledTextBox();
             }
             return _textBox;
         }
@@ -22,12 +26,16 @@ public class TextBoxRef : MonoBehaviour {
 
     public GameObject TextBoxPrefab;
     public Vector2 textBoxOffset;
+    [System.NonSerialized]
     public DialogueRunner dialogueRunner;
     public TextBoxSettings textBoxSettings;
     internal TextBoxSettings defaultSettings;
+    [System.NonSerialized]
+    public Interactable caller;
 
     private void Awake()
     {
+        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == RenderMode.WorldSpace; }).First();
         dialogueRunner = GetComponent<DialogueRunner>();
         defaultSettings = textBoxSettings;
     }
@@ -46,9 +54,27 @@ public class TextBoxRef : MonoBehaviour {
     [YarnCommand("CallTextBox")]
     public void CallTextBox(string startNode)
     {
+        if (dialogueRunner.isDialogueRunning)
+            return;
+
+        CallTextBoxInterrupt(startNode);
+    }
+    [YarnCommand("CallTextBoxInterrupt")]
+    public void CallTextBoxInterrupt(string startNode)
+    {
+
+        Clean();
         dialogueRunner.StartDialogue(startNode);
     }
 
+    private void Clean()
+    {
+        textBox.gameObject.SetActive(false);
+        textBox.cTween.Cancel();
+        SetTextBoxSettings("default");
+        if (caller == null)
+            caller = GetComponentInChildren<Interactable>();
+    }
     [YarnCommand("SetTextBoxSettings")]
     public void SetTextBoxSettings(string name)
     {
@@ -61,5 +87,10 @@ public class TextBoxRef : MonoBehaviour {
             textBoxSettings = Instantiate(Resources.Load<TextBoxSettings>($"TextBoxSettings/{name}"));
         }
         
+    }
+
+    private void OnDisable()
+    {
+        _textBox?.DisableTextbox();
     }
 }

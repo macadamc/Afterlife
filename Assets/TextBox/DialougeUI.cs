@@ -6,9 +6,11 @@ using Yarn;
 using Yarn.Unity;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Sirenix.OdinInspector;
 
 public class DialougeUI : DialogueUIBehaviour
 {
+    [System.NonSerialized]
     public VariableStorage variables;
     public GameObject choicePrefab;
     private OptionChooser SetSelectedOption;
@@ -17,10 +19,18 @@ public class DialougeUI : DialogueUIBehaviour
     private AudioSource audioSource;
     private TextBoxRef lastTextBox;
 
+    [DrawWithUnity]
+    public List<CommandHook> commands;
+
+    private void Start()
+    {
+        variables = SaveLoadManager.Instance.savedVariables;
+    }
+
     public override IEnumerator RunCommand(Command command)
     {
-        // "Perform" the command
-        Debug.Log("Command: " + command.text);
+        string[] strings = command.text.Split(' ');
+        commands.Find((CommandHook x) => { return x.name == strings[0]; })?.unityEvent.Invoke(strings);
         yield break;
     }
 
@@ -34,6 +44,7 @@ public class DialougeUI : DialogueUIBehaviour
 
         if (line.text.Contains(":") == false)
         {
+            yield break;
             throw new System.Exception("TextBox Has No Target.");
         }
 
@@ -70,7 +81,7 @@ public class DialougeUI : DialogueUIBehaviour
 
         if(textBox.gameObject.activeSelf == false)
         {
-            textBox.gameObject.SetActive(true);
+            textBox.EnabledTextBox();
         }
 
         if(tb.textBoxSettings.useDelay)
@@ -88,23 +99,24 @@ public class DialougeUI : DialogueUIBehaviour
             textBox.textComp.text = text;
             tb.textBoxSettings.sfx.Play(audioSource);
         }
-        
 
         if(textBox.inputType == TextBox.InputType.Player)
-            yield return new WaitWhile(() => { return Input.GetButtonDown("Fire1") == false; });
+            yield return new WaitWhile(() => { return SimpleInput.GetButtonDown("Fire1") == false; });
 
         else if (textBox.inputType == TextBox.InputType.Passive)
         {
             float nextTime = Time.time + textBox.passiveLineDelay;
             yield return new WaitWhile(() => { return Time.time < nextTime; });
         }
-        textBox.gameObject.SetActive(false);
+
+        textBox.DisableTextbox();
+        yield return new WaitWhile(() => { return textBox.gameObject.activeSelf; });
     }
 
     public override IEnumerator RunOptions(Options optionsCollection, OptionChooser optionChooser)
     {
         bool waitingForChoice = true;
-        lastTextBox.textBox.gameObject.SetActive(true);
+        lastTextBox.textBox.EnabledTextBox();
         lastTextBox.textBox.choiceContainer.SetActive(true);
 
         for (int i = 0; i < lastTextBox.textBox.choiceContainer.transform.childCount; i++)
@@ -124,7 +136,8 @@ public class DialougeUI : DialogueUIBehaviour
 
         yield return new WaitUntil(() => { return waitingForChoice == false;});
         lastTextBox.textBox.choiceContainer.SetActive(false);
-        lastTextBox.textBox.gameObject.SetActive(false);
+        lastTextBox.textBox.DisableTextbox();
+        yield return new WaitWhile(() => { return lastTextBox.textBox.enabled; });
     }
 
     public override IEnumerator DialogueStarted()
@@ -141,6 +154,7 @@ public class DialougeUI : DialogueUIBehaviour
         foreach(var tb in activeTextBoxes)
         {
             tb.textBoxSettings = tb.defaultSettings;
+            tb.caller.triggered = false;
         }
         yield return null;
     }
@@ -189,3 +203,14 @@ public class DialougeUI : DialogueUIBehaviour
         return ret;
     }
 }
+
+[System.Serializable]
+public class CommandEvent : UnityEngine.Events.UnityEvent<string[]> { }
+
+[System.Serializable]
+public class CommandHook
+{
+    public string name;
+    public CommandEvent unityEvent;
+}
+
