@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114213311449712570}
   - component: {fileID: 114040936678279138}
   m_Layer: 0
-  m_Name: Global
+  m_Name: GlobalDialouge
   m_TagString: GlobalTextbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f1d6e83a23b6e46b5240cffa916ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBoxKey: Global
   TextBoxPrefab: {fileID: 1099594120058366, guid: 2148f3e4fb497e049b0b120522a7b3a2,
     type: 2}
   textBoxOffset: {x: 0, y: 0}

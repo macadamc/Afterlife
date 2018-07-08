@@ -51,7 +51,7 @@ public class DialougeUI : DialogueUIBehaviour
         lineText = line.text.Split(':');
 
         tb = FindObjectsOfType<TextBoxRef>()
-            .Where((TextBoxRef s) => { return s.name == lineText[0]; })
+            .Where((TextBoxRef s) => { return s.textBoxKey == lineText[0];})
             .First();
 
         text = lineText[1];

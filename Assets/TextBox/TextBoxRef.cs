@@ -23,7 +23,7 @@ public class TextBoxRef : MonoBehaviour {
             return _textBox;
         }
     }
-
+    public string textBoxKey;
     public GameObject TextBoxPrefab;
     public Vector2 textBoxOffset;
     [System.NonSerialized]
