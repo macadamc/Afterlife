@@ -9,11 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d7d77f554118e94abaeea2e147942b3, type: 3}
-  m_Name: Slow
+  m_Name: DefaultNpc
   m_EditorClassIdentifier: 
   useDelay: 1
-  delay: 0.1
-  lineDelay: 1.5
+  delay: 0.05
   sfx: {fileID: 11400000, guid: defaeaf35e534e241a524754c49db636, type: 2}
   font: {fileID: 12800000, guid: 2734d75b269420044ade817b027e0d15, type: 3}
   fontSize: 8
+  inputType: 1
+  passiveLineDelay: 0.5
+  autoSize: 1
+  maxSize: {x: 300, y: 100}
+  padding: {x: 8, y: 8}
+  useTween: 1

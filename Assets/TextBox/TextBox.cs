@@ -10,33 +10,33 @@ public class TextBox : MonoBehaviour
 {
     public GameObject choiceContainer;
     public Text textComp;
-    public float delay;
-
-    public bool autoSize;
-    [ShowIf("autoSize"), Indent]
-    public Vector2 maxSize;
-    [ShowIf("autoSize"), Indent]
-    public Vector2 padding;
-
-    public enum InputType { Player, Passive }
-    public InputType inputType;
-
-    [ShowIf("IsPassive")]
-    public float passiveLineDelay;
-    bool IsPassive() { return inputType == InputType.Passive; }
-
     public TweenBase cTween = null;
 
-    public virtual void EnabledTextBox()
+    public virtual void EnabledTextBox(bool tween= true)
     {
         gameObject.SetActive(true);
-        cTween = Tween.LocalScale(GetComponent<RectTransform>(), Vector2.zero, Vector2.one, 0.5f, 0f, Tween.EaseSpring);
+        if(tween)
+            cTween = Tween.LocalScale(GetComponent<RectTransform>(), Vector2.zero, Vector2.one, 0.5f, 0f, Tween.EaseSpring);
+        else
+        {
+            transform.localScale = Vector3.one;
+        }
     }
-    public virtual void DisableTextbox()
+    public virtual void DisableTextbox(bool tween = true)
     {
         var rt = GetComponent<RectTransform>();
         if(rt != null)
-            cTween = Tween.LocalScale(rt, Vector2.one, Vector2.zero, 0.5f, 0f, Tween.EaseIn, Tween.LoopType.None, null, () => { gameObject.SetActive(false); });
+        {
+            if(tween)
+            {
+                cTween = Tween.LocalScale(rt, Vector2.one, Vector2.zero, 0.5f, 0f, Tween.EaseIn, Tween.LoopType.None, null, () => { gameObject.SetActive(false); });
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
+            
     } 
 
 }

@@ -72,7 +72,7 @@ public class TextBoxRef : MonoBehaviour {
     private void Clean()
     {
         textBox.gameObject.SetActive(false);
-        textBox.cTween.Cancel();
+        textBox?.cTween.Cancel();
         SetTextBoxSettings("default");
         if (caller == null)
             caller = GetComponentInChildren<Interactable>();
@@ -89,6 +89,15 @@ public class TextBoxRef : MonoBehaviour {
             textBoxSettings = Instantiate(Resources.Load<TextBoxSettings>($"TextBoxSettings/{name}"));
         }
         
+    }
+
+    public void ForceCloseTextbox()
+    {
+        if(textBoxSettings.inputType == TextBoxSettings.InputType.Player)
+        {
+            dialogueRunner.Stop();
+            _textBox?.DisableTextbox();
+        }
     }
 
     private void OnDisable()

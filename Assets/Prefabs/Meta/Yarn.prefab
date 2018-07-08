@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d51ca9af5e73c647857a62c31d76473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variables: {fileID: 0}
   choicePrefab: {fileID: 1640262551973172, guid: 1986392a496ec334b8fe5a0827da0ce5,
     type: 2}
   commands:

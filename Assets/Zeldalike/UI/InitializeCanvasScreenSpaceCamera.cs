@@ -8,7 +8,7 @@ public class InitializeCanvasScreenSpaceCamera : MonoBehaviour
     public string sortingLayer = "FG";
     public int orderInLayer;
 
-	void Start ()
+	void Awake ()
     {
         Canvas canvas = GetComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceCamera;

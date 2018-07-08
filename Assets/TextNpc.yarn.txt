@@ -1,7 +1,7 @@
 title: TestNpc.DefaultPassive
 tags: 
 colorID: 0
-position: 932,585
+position: 870,587
 ---
 TestNpc:Leave me be...
 ===
@@ -15,7 +15,7 @@ TestNpc:What'd I just Say...
 title: TestNpc.Leave
 tags: 
 colorID: 0
-position: 456,562
+position: 572,586
 ---
 TestNpc:.....
 ===

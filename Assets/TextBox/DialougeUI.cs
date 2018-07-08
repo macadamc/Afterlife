@@ -68,20 +68,18 @@ public class DialougeUI : DialogueUIBehaviour
 
         textBox.textComp.font = tb.textBoxSettings.font;
         textBox.textComp.fontSize = tb.textBoxSettings.fontSize;
-        textBox.delay = tb.textBoxSettings.delay;
-        textBox.passiveLineDelay = tb.textBoxSettings.lineDelay;
 
-        if (textBox.autoSize)
+        if (tb.textBoxSettings.autoSize)
         {
-            TextGenerationSettings settings = textBox.textComp.GetGenerationSettings(textBox.autoSize ? textBox.maxSize : textBox.GetComponent<RectTransform>().sizeDelta);
+            TextGenerationSettings settings = textBox.textComp.GetGenerationSettings(tb.textBoxSettings.autoSize ? tb.textBoxSettings.maxSize : textBox.GetComponent<RectTransform>().sizeDelta);
             generator.Populate(text, settings);
             Vector2 textBoxSize = GetPageSize(settings);
-            textBox.GetComponent<RectTransform>().sizeDelta = textBoxSize + textBox.padding;
+            textBox.GetComponent<RectTransform>().sizeDelta = textBoxSize + tb.textBoxSettings.padding;
         }
 
         if(textBox.gameObject.activeSelf == false)
         {
-            textBox.EnabledTextBox();
+            textBox.EnabledTextBox(tb.textBoxSettings.useTween);
         }
 
         if(tb.textBoxSettings.useDelay)
@@ -90,7 +88,7 @@ public class DialougeUI : DialogueUIBehaviour
             {
                 textBox.textComp.text += text[i];
                 tb.textBoxSettings.sfx.Play(audioSource);
-                yield return new WaitForSeconds(textBox.delay);
+                yield return new WaitForSeconds(tb.textBoxSettings.delay * (Input.GetButton("Interact") ? .5f : 1f));
                 i++;
             }
         }
@@ -100,16 +98,15 @@ public class DialougeUI : DialogueUIBehaviour
             tb.textBoxSettings.sfx.Play(audioSource);
         }
 
-        if(textBox.inputType == TextBox.InputType.Player)
-            yield return new WaitWhile(() => { return SimpleInput.GetButtonDown("Fire1") == false; });
-
-        else if (textBox.inputType == TextBox.InputType.Passive)
+        if(tb.textBoxSettings.inputType == TextBoxSettings.InputType.Player)
+            yield return new WaitWhile(() => { return SimpleInput.GetButtonDown("Interact") == false; });
+        else if (tb.textBoxSettings.inputType == TextBoxSettings.InputType.Passive)
         {
-            float nextTime = Time.time + textBox.passiveLineDelay;
+            float nextTime = Time.time + tb.textBoxSettings.passiveLineDelay;
             yield return new WaitWhile(() => { return Time.time < nextTime; });
         }
 
-        textBox.DisableTextbox();
+        textBox.DisableTextbox(tb.textBoxSettings.useTween);
         yield return new WaitWhile(() => { return textBox.gameObject.activeSelf; });
     }
 

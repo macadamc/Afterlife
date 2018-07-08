@@ -15,10 +15,11 @@ public class Interactable : TriggerZone
     public InteractableEvents ev;
     [HideInInspector]
     public bool triggered;
+    
 
     protected override void OnStay(Collider2D collision)
     {
-        if (SimpleInput.GetButtonDown("Fire1") && triggered == false)
+        if (SimpleInput.GetButtonDown("Interact") && triggered == false)
         {
             triggered = true;
             ev?.onInteract?.Invoke();
