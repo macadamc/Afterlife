@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 58357354822785182}
   - component: {fileID: 114355891300799086}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

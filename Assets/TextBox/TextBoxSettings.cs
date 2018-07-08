@@ -8,13 +8,15 @@ using Pixelplacement.TweenSystem;
 [CreateAssetMenu()]
 public class TextBoxSettings : ScriptableObject
 {
-
     public bool useDelay;
     [ShowIf("useDelay")]
     public float delay;
+
     public SoundEffect sfx;
+
     public Font font;
     public int fontSize;
+
     public enum InputType { Player, Passive }
     public InputType inputType;
 
