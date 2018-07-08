@@ -32,10 +32,12 @@ public class TextBoxRef : MonoBehaviour {
     internal TextBoxSettings defaultSettings;
     [System.NonSerialized]
     public Interactable caller;
+    public bool useWorldSpaceCanvas = true;
 
-    private void Awake()
+    private void Start()
     {
-        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == RenderMode.WorldSpace; }).First();
+        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceCamera); }).First();
+
         dialogueRunner = GetComponent<DialogueRunner>();
         defaultSettings = textBoxSettings;
     }

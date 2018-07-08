@@ -154,7 +154,8 @@ public class DialougeUI : DialogueUIBehaviour
         foreach(var tb in activeTextBoxes)
         {
             tb.textBoxSettings = tb.defaultSettings;
-            tb.caller.triggered = false;
+            if(tb.caller != null)
+                tb.caller.triggered = false;
         }
         yield return null;
     }

@@ -217,7 +217,7 @@ MonoBehaviour:
   autoSize: 0
   maxSize: {x: 600, y: 75}
   padding: {x: 16, y: 16}
-  inputType: 1
+  inputType: 0
   passiveLineDelay: 0.75
 --- !u!114 &114280018764788766
 MonoBehaviour:

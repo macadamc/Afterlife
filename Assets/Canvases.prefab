@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114040936678279138}
   m_Layer: 0
   m_Name: Global
-  m_TagString: Untagged
+  m_TagString: GlobalTextbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bec29c0a230741bdac901dba8da47ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceText: []
+  sourceText:
+  - {fileID: 4900000, guid: 3942d879156174a4bb58189eef243c31, type: 3}
   stringGroups: []
   shouldOverrideLanguage: 0
   overrideLanguage: 10
@@ -161,6 +162,7 @@ MonoBehaviour:
     type: 2}
   textBoxOffset: {x: 0, y: 0}
   textBoxSettings: {fileID: 11400000, guid: 81e255ef1fa2b7448bdfc6ea4a11033a, type: 2}
+  useWorldSpaceCanvas: 0
 --- !u!114 &114247744609449816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,8 +253,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 132986697
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &224478663367867236
 RectTransform:
