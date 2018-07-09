@@ -68,8 +68,7 @@ public class TriggerZone : MonoBehaviour
         if (ConditionsMet(collision))
         {
             OnEnter(collision);
-
-            events?.onTrigger.Invoke();
+            events.onTrigger?.Invoke();
         }
     }
 
@@ -86,7 +85,7 @@ public class TriggerZone : MonoBehaviour
         if (ConditionsMet(collision))
         {
             OnExit(collision);
-            events?.onExit.Invoke();
+            events.onExit?.Invoke();
         }            
     }
 

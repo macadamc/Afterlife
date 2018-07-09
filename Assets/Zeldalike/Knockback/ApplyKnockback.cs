@@ -28,11 +28,11 @@ public class ApplyKnockback : TriggerZone
         {
             knockback += transform.rotation * Vector3.right;
         }
+        else
+        {
 
-        knockback += (knockbackObj.transform.position - transform.position).normalized;
-
-        if (useRotation)
-            knockback /= 2f;
+            knockback += (knockbackObj.transform.position - transform.position).normalized;
+        }
 
         // multiplies direction by the force of the knockback
         knockback *= knockbackForce;
