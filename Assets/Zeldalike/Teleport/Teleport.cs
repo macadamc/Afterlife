@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pixelplacement;
+using UnityEngine.SceneManagement;
 
 public class Teleport : TriggerZone
 {
+    public enum Type
+    {
+        Local, ChangeScene
+    }
+
+    public Type type;
     public Transition transition;
     public string doorTag;
+    public string sceneName;
     public Transform enterTransform;
     MovementController mc;
 
@@ -43,8 +51,18 @@ public class Teleport : TriggerZone
 
     public void OnFadeOut()
     {
-        TeleportToTag(_teleportObj, this, doorTag);
         TransitionManager.Instance.onTransitionEnd -= OnFadeOut;
+        if (type == Type.ChangeScene)
+        {
+            // changing scenes
+            Player.Instance.doorTag = doorTag;
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        }
+        else if (type == Type.Local)
+        {
+            // in scene teleport
+            TeleportToTag(_teleportObj, this, doorTag);
+        }
     }
 
     public void OnFadeIn()

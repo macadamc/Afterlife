@@ -1,95 +1,23 @@
 fileFormatVersion: 2
-guid: b7ab175ed4a27454d918ec36e0974b24
+guid: e1689ce001b36be4a9884291cfc7e827
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Rock_TL
-    21300002: Rock_Mid
-    21300004: Rock_TR
-    21300006: Tree_Top
-    21300008: Tree_TL
-    21300010: Tree_TR
-    21300012: DeadTree_Big
-    21300014: BasicTiles_7
-    21300016: BasicTiles_8
-    21300018: Rock_Single
-    21300020: Rock_BL
-    21300022: BasicTiles_11
-    21300024: Rock_BR
-    21300026: Tree_Single
-    21300028: Tree_Bot
-    21300030: Tree_BL
-    21300032: Tree_BR
-    21300034: BasicTiles_17
-    21300036: BasicTiles_18
-    21300038: BasicTiles_19
-    21300040: BasicTiles_20
-    21300042: BasicTiles_21
-    21300044: BasicTiles_22
-    21300046: BasicTiles_23
-    21300048: BasicTiles_24
-    21300050: Grass_05
-    21300052: BasicTiles_26
-    21300054: Grass_01
-    21300056: Grass_02
-    21300058: Grass_03
-    21300060: Grass_04
-    21300062: BasicTiles_31
-    21300064: BasicTiles_32
-    21300066: BasicTiles_33
-    21300068: BasicTiles_34
-    21300070: BasicTiles_35
-    21300072: BasicTiles_36
-    21300074: BasicTiles_37
-    21300076: BasicTiles_38
-    21300078: BasicTiles_39
-    21300080: BasicTiles_40
-    21300082: BasicTiles_41
-    21300084: BasicTiles_42
-    21300086: BasicTiles_43
-    21300088: BasicTiles_44
-    21300090: BasicTiles_45
-    21300092: BasicTiles_46
-    21300094: BasicTiles_47
-    21300096: BasicTiles_48
-    21300098: BasicTiles_49
-    21300100: BasicTiles_50
-    21300102: BasicTiles_51
-    21300104: BasicTiles_52
-    21300106: BasicTiles_53
-    21300108: BasicTiles_54
-    21300110: BasicTiles_55
-    21300112: BasicTiles_56
-    21300114: BasicTiles_57
-    21300116: BasicTiles_58
-    21300118: BasicTiles_59
-    21300120: BasicTiles_60
-    21300122: BasicTiles_61
-    21300124: BasicTiles_62
-    21300126: BasicTiles_63
-    21300128: BasicTiles_64
-    21300130: BasicTiles_65
-    21300132: BasicTiles_66
-    21300134: BasicTiles_67
-    21300136: BasicTiles_68
-    21300138: BasicTiles_69
-    21300140: BasicTiles_70
-    21300142: BasicTiles_71
-    21300144: BasicTiles_72
-    21300146: BasicTiles_73
-    21300148: Tree2_Single
-    21300150: Tree2_Bot
-    21300152: Tree2_Top
-    21300154: BasicTiles_0
-    21300156: BasicTiles_1
-    21300158: DeadTree_Sml2
-    21300160: BasicTiles_3
-    21300162: BasicTiles_4
-    21300164: BasicTiles_5
-    21300166: DeadTree_Big2
-    21300168: DeadTree_Med
-    21300170: Shadow_Big
-    21300172: Shadow_Med
-    21300174: DeadTree_Sml
+    21300000: Fence_Hor_L
+    21300002: Fence_Hor_M
+    21300004: Fence_Hor_R
+    21300006: Fence_Single
+    21300008: Fence_Ver_T
+    21300010: Fence_TL
+    21300012: Fence_TM
+    21300014: Fence_TR
+    21300016: Fence_Ver_M
+    21300018: Fence_ML
+    21300020: Fence_MM
+    21300022: Fence_MR
+    21300024: Fence_Ver_B
+    21300026: Fence_BL
+    21300028: Fence_BM
+    21300030: Fence_BR
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -130,12 +58,12 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -148,7 +76,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -159,7 +87,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -170,7 +98,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -183,221 +111,321 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tree2_Single
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 176
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb939faddba005c40897e14d205faf61
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BasicTiles_0
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 176
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b332f102167804146b6b273b2aaf93b0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BasicTiles_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 176
-        width: 16
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.03125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8735d68058259bb4a90394c417a6ced5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DeadTree_Sml2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 16
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0158f620dec3f6f4987351724ac6bd8e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BasicTiles_3
+      name: Fence_Hor_L
       rect:
         serializedVersion: 2
         x: 0
         y: 48
         width: 16
         height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c353f4bc44faf504abd29009712065b7
+      spriteID: 980ad1e2470e9be4a9a8a63cb0dc46b4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicTiles_4
+      name: Fence_Hor_M
       rect:
         serializedVersion: 2
         x: 16
-        y: 64
+        y: 48
         width: 16
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb7fba09da818ff4bbc69167859b9f0a
+      spriteID: c97ddb8a135eb014fa787d488cb73750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicTiles_5
+      name: Fence_Hor_R
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d727e8c979a7d94a836b582a51c7c09
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence_Single
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50cd07979fe65cd45b7fae386ef49ef4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence_Ver_T
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d5b663cd221074eae97e118bc3a320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence_TL
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fdf55274796a1d4faf68aa117415eb0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence_TM
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e520833305ae64498e83a9b2836e07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence_TR
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6a687e89ea79c54295cdddc380f021c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence_Ver_M
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58df8d21a15ded74b84d6fa4249d61ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence_ML
       rect:
         serializedVersion: 2
         x: 16
         y: 16
         width: 16
         height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71ae4ffdce6920543b4fa98baa685267
+      spriteID: ae4338cd75f0f2a4db0ce8175b0f87c8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeadTree_Big
+      name: Fence_MM
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
-        width: 48
-        height: 72
-      alignment: 9
-      pivot: {x: 0.5, y: 0.055555556}
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fda75be1d93a44343903f1e0636f2ddc
+      spriteID: 36ceab5d77ab30d4b835e9bd90d9c6ef
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeadTree_Big2
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 96
-        width: 48
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d29b48744d890054d8352d1c95a17584
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DeadTree_Med
+      name: Fence_MR
       rect:
         serializedVersion: 2
         x: 48
-        y: 96
-        width: 32
-        height: 48
-      alignment: 9
-      pivot: {x: 0.5, y: 0.041666668}
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc057cd0f65c41408c4c944c39bdb21
+      spriteID: d5d4f866cafcc674299e090558c6e4d6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeadTree_Sml
+      name: Fence_Ver_B
       rect:
         serializedVersion: 2
-        x: 16
-        y: 96
+        x: 0
+        y: 0
         width: 16
-        height: 24
-      alignment: 9
-      pivot: {x: 0.5, y: 0.083333336}
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96f8ffbb9b4342c41b90e1fb659a733e
+      spriteID: db8cbc5e52add4144930b9bf1c05a215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence_BL
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b580924c16239245967f789e245f13b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence_BM
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ad5ec4cfed3d849948d7667407cd24
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence_BR
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 357efc9bbf2953f44aee245baa674889
       vertices: []
       indices: 
       edges: []
@@ -405,7 +433,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1764a0482f20d754e8a4895eb10b581d
+    spriteID: 8a8a95d0d41c1554d9bd0678094720f2
     vertices: []
     indices: 
     edges: []

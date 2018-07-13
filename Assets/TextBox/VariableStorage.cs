@@ -141,7 +141,7 @@ public class VariableStorage2 : VariableStorageBehaviour
 public class VariableStorage : VariableStorageBehaviour
 {
     /// Where we actually keeping our variables
-    Dictionary<string, Yarn.Value> variables = new Dictionary<string, Yarn.Value>();
+    public Dictionary<string, Yarn.Value> variables;
     /// A default value to apply when the object wakes up, or
     /// when ResetToDefaults is called
     [System.Serializable]
@@ -161,6 +161,9 @@ public class VariableStorage : VariableStorageBehaviour
     /// Reset to our default values when the game starts
     void Awake()
     {
+        if (variables == null)
+            variables = new Dictionary<string, Yarn.Value>();
+
         ResetToDefaults();
     }
 

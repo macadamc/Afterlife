@@ -57,14 +57,14 @@ public class MovementController : MonoBehaviour
             return _rigidbody;
         }
     }
-    public Tilemap BackgroundTilemap
+    public TileRef TileReference
     {
         get
         {
-            if (_tilemap == null)
-                _tilemap = GameObject.FindGameObjectWithTag("Tilemap_BG").GetComponent<Tilemap>();
+            if (_tileRef == null)
+                _tileRef = GetComponent<TileRef>();
 
-            return _tilemap;
+            return _tileRef;
         }
     }
     public bool Knockedback
@@ -96,7 +96,7 @@ public class MovementController : MonoBehaviour
     public float knockbackDecel = 5f;
     public float knockbackDeadzone = 0.1f;
     public AudioSource stepSoundSource;
-
+    public TileList waterTiles;
     [MinMaxSlider(0.1f,0.5f,true)]
     public Vector2 stepLength = Vector2.one;
 
@@ -105,7 +105,8 @@ public class MovementController : MonoBehaviour
     Vector2 _moveVector;
     Vector2 _knockbackVector;
     Rigidbody2D _rigidbody;
-    Tilemap _tilemap;
+    TileRef _tileRef;
+    TileBase _tile;
     float _nextMoveTime;
     float _nextStepTime;
     bool _stunned;
@@ -140,18 +141,22 @@ public class MovementController : MonoBehaviour
     /// </summary>
     public virtual void FixedUpdate()
     {
-        Rb.velocity = _moveVector + _knockbackVector;
-        UpdateKnockback();
-
+        if (TileReference != null)
+        {
+            _tile = TileReference.GetTile(transform.position);
+        }
 
         if (_moveVector.magnitude > 0.1)
         {
             if (Time.time > _nextStepTime)
-                GetTile();
+                Step();
         }
         else
             _nextStepTime = Time.time;
-        
+
+        Rb.velocity = _moveVector + _knockbackVector;
+        UpdateKnockback();
+
     }
 
     /// <summary>
@@ -226,17 +231,20 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    public virtual void GetTile()
+    public virtual void Step()
     {
-        TileBase tile = BackgroundTilemap.GetTile(BackgroundTilemap.WorldToCell(transform.position));
-
-        if (AudioManager.Instance.tilemapSFX.soundEffects.ContainsKey(tile) && stepSoundSource!=null)
-        {
-            AudioManager.Instance.tilemapSFX.soundEffects[tile].Play(stepSoundSource);
-        }
-        _nextStepTime = Time.time + Random.Range(stepLength.x, stepLength.y);
         events.onStep.Invoke();
+        _nextStepTime = Time.time + Random.Range(stepLength.x, stepLength.y);
+
+        if(_tile!=null)
+        {
+            if (AudioManager.Instance.tilemapSFX.soundEffects.ContainsKey(_tile) && stepSoundSource != null)
+            {
+                AudioManager.Instance.tilemapSFX.soundEffects[_tile].Play(stepSoundSource);
+            }
+        }
     }
+
 
 
 

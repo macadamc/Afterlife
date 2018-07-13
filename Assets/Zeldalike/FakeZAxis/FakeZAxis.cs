@@ -3,19 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class FakeZAxis : MonoBehaviour {
-
-    public Tilemap BackgroundTilemap
-    {
-        get
-        {
-            if (_tilemap == null)
-                _tilemap = GameObject.FindGameObjectWithTag("Tilemap_BG").GetComponent<Tilemap>();
-
-            return _tilemap;
-        }
-    }
-
+public class FakeZAxis : MonoBehaviour
+{
     public Transform objectToMove;
     public float height;
     public float velocity;
@@ -24,19 +13,25 @@ public class FakeZAxis : MonoBehaviour {
     public string inAirLayerName;
     public float waterOffset = 0.2f;
     public float baseOffset = 0.0f;
+    TileRef _tileRef;
     public TileList waterTiles;
 
 
     Vector3 targetPos;
-    Tilemap _tilemap;
     float _currentOffset;
+
+    private void Awake()
+    {
+        _tileRef = GetComponent<TileRef>();   
+    }
 
     private void LateUpdate()
     {
-        if (waterTiles != null && InWater())
+        if (waterTiles != null && _tileRef != null && InWater())
             _currentOffset = waterOffset;
         else
             _currentOffset = baseOffset;
+            
 
         targetPos.y = height + _currentOffset;
         targetPos.x = 0.0f;
@@ -69,7 +64,7 @@ public class FakeZAxis : MonoBehaviour {
 
     public bool InWater()
     {
-        TileBase tile = BackgroundTilemap.GetTile(BackgroundTilemap.WorldToCell(transform.position));
+        TileBase tile = _tileRef.GetTile(transform.position);
         return waterTiles.tiles.Contains(tile);
     }
 }

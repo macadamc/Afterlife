@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 114549514352350412}
   - component: {fileID: 114894406519852498}
   - component: {fileID: 114303517441802148}
+  - component: {fileID: 114849971391359868}
   - component: {fileID: 81339451054353742}
   - component: {fileID: 210836967896204298}
   m_Layer: 0
@@ -278,11 +279,11 @@ GameObject:
   - component: {fileID: 58195352946009914}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1932248909881248
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,10 +996,10 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 0}
   smoothing: 0.4
-  knockbackDecel: 10
+  knockbackDecel: 5
   knockbackDeadzone: 0.1
   stepSoundSource: {fileID: 82242506836216094}
-  stepLength: {x: 0.25, y: 0.25}
+  stepLength: {x: 0.35, y: 0.35}
 --- !u!114 &114660438413745306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1059,6 +1060,17 @@ MonoBehaviour:
     pressed: 0
     held: 0
     released: 0
+--- !u!114 &114849971391359868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229734471394682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd275d9fba9ae04293fa6837ac0bf68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114894406519852498
 MonoBehaviour:
   m_ObjectHideFlags: 1

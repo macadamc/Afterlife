@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
-
     public Item currentItem;
     public SpriteRenderer heldItemSpriteRend;
     public Transform itemSpawnTransform;

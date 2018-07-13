@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class CameraZoneEvent : MonoBehaviour
 {
     public List<string> triggerKeys = new List<string>();
     public List<string> ignoreKeys = new List<string>();
+    [InlineButton("Reset")]
+    public string guid;
+
+    private void Reset()
+    {
+        guid = System.Guid.NewGuid().ToString();
+    }
+
 
     public void CheckTriggerEventKeys()
     {
         //Debug.Log(Mathf.Abs(GetInstanceID()).ToString());
-        if (SaveLoadManager.Instance.tempVariables.HasKey(Mathf.Abs(GetInstanceID()).ToString()) || SaveLoadManager.Instance.savedVariables.HasKey(Mathf.Abs(GetInstanceID()).ToString()))
+        if (SaveLoadManager.Instance.tempVariables.HasKey(guid) || SaveLoadManager.Instance.savedVariables.HasKey(guid))
         {
             return;
         }

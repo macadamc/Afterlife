@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Name: WaterTiles
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: 28792d1d224b8b141b681cb28046d6d7, type: 2}
   - {fileID: 11400000, guid: 551a7d56148865b49a55e523920a1bd5, type: 2}
