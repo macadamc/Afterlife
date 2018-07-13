@@ -1,0 +1,23 @@
+title: SavePrompt
+tags: 
+colorID: 0
+position: 978,603
+---
+Global:Save?
+    ->Save
+        <<SaveGame SaveLoadManager>>
+    ->Cancel
+===
+title: QuitPrompt
+tags: 
+colorID: 0
+position: 720,604
+---
+Global:Exit Game?
+    ->Exit
+        Global: Art Thou Certian?
+            ->Yup
+                <<ExitToMainMenu>>
+            ->Eh, maybe later
+    ->Cancel
+===

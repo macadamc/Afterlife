@@ -2,34 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using ShadyPixel.Audio;
 
-public class TrapBase : MonoBehaviour
+
+public class SpikeTrapBehaviour : MonoBehaviour
 {
     public enum BehaviourType { FixedTime, Triggered }
     public BehaviourType behaviourType;
 
     public bool IsFixedTime { get { return behaviourType == BehaviourType.FixedTime; } }
-    public bool IsTriggered { get { return behaviourType == BehaviourType.Triggered; } }
 
-    public float delay;
+    public float upDelay;
+    public float downDelay;
 
     [ShowIf("IsFixedTime")]
     public float StartOffset;
 
+    bool isUp;
     float NextStateChangeTime;
 
     Animator anim;
+    public BoxCollider2D hurtbox;
     Coroutine coroutine;
-
-    [DrawWithUnity]
-    public UnityEngine.Events.UnityEvent onTriggered;
 
     private void OnEnable()
     {
-        anim = GetComponent<Animator>();
         if (behaviourType == BehaviourType.FixedTime)
             coroutine = StartCoroutine(DoFixedTime());
-        
+        anim = GetComponent<Animator>();
     }
 
     IEnumerator DoFixedTime()
@@ -48,20 +48,22 @@ public class TrapBase : MonoBehaviour
         {
             if (NextStateChangeTime == 0)
             {
+                float delay = isUp ? upDelay : downDelay;
                 NextStateChangeTime = delay + Time.time;
             }
 
             if (Time.time >= NextStateChangeTime)
             {
+                isUp = !isUp;
+                string trigger = isUp ? "Trigger_Up" : "Trigger_Down";
+                anim.SetTrigger(trigger);
                 NextStateChangeTime = 0;
-                DoTriggered();
-                onTriggered?.Invoke();
+                hurtbox.gameObject.SetActive(isUp);
             }
             yield return null;
         }
     }
 
-    [Button, ShowIf("IsTriggered")]
     public void Trigger()
     {
         if (coroutine != null || behaviourType != BehaviourType.Triggered)
@@ -70,20 +72,18 @@ public class TrapBase : MonoBehaviour
         coroutine = StartCoroutine(DoTriggered());
     }
 
-    public virtual void OnTriggered() { }
-
     IEnumerator DoTriggered()
     {
-        NextStateChangeTime = Time.time + delay;
+        NextStateChangeTime = Time.time + upDelay;
         yield return new WaitUntil(() => { return Time.time >= NextStateChangeTime; });
+        anim.SetTrigger("Trigger_Up");
+        hurtbox.gameObject.SetActive(true);
 
-        OnTriggered();
-        onTriggered?.Invoke();
+        NextStateChangeTime = Time.time + downDelay;
+        yield return new WaitUntil(() => { return Time.time >= NextStateChangeTime; });
+        anim.SetTrigger("Trigger_Down");
+        hurtbox.gameObject.SetActive(false);
 
         coroutine = null;
-    }
-    public void print(string str)
-    {
-        Debug.Log(str);
     }
 }
