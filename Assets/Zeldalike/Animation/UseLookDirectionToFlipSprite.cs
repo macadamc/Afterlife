@@ -20,19 +20,9 @@ public class UseLookDirectionToFlipSprite : MonoBehaviour
             _inputController = value;
         }
     }
-    public ItemController Itc
-    {
-        get
-        {
-            if (_itemController == null)
-                _itemController = GetComponent<ItemController>();
 
-            return _itemController;
-        }
-    }
 
     InputController _inputController;
-    ItemController _itemController;
     SpriteRenderer[] _spriteRenderers;
 
     private void Start()
@@ -45,30 +35,16 @@ public class UseLookDirectionToFlipSprite : MonoBehaviour
         if (PauseManager.Instance.Paused)
             return;
 
-        if (Itc != null)
+
+        if (Inc.lookDirection.x > 0 || Inc.lookDirection.x < 0)
         {
             foreach (SpriteRenderer s in _spriteRenderers)
             {
-                if (Itc.lastX > 0)
+                if (Inc.lookDirection.x > 0)
                     s.flipX = false;
 
-                if (Itc.lastX < 0)
+                if (Inc.lookDirection.x < 0)
                     s.flipX = true;
-            }
-        }
-        else
-        {
-            // if item controller is null this gets called
-            if (Inc.joystick.x > 0 || Inc.joystick.x < 0)
-            {
-                foreach (SpriteRenderer s in _spriteRenderers)
-                {
-                    if (Inc.joystick.x > 0)
-                        s.flipX = false;
-
-                    if (Inc.joystick.x < 0)
-                        s.flipX = true;
-                }
             }
         }
 

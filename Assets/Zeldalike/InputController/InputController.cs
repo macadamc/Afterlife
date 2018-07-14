@@ -26,6 +26,28 @@ public class InputController : MonoBehaviour
     }
 
     public Vector2 joystick;
+    public Vector2 lookDirection;
+    public bool strafe;
     public Button input;
+
+    public void SetLookDirection()
+    {
+        if (joystick.magnitude == 0.0f || strafe)
+            return;
+
+        lookDirection = joystick.normalized;
+
+    }
+
+    public void SetLookDirection(Vector2 dir)
+    {
+        if (joystick.magnitude == 0.0f || strafe)
+            return;
+
+        lookDirection = dir.normalized;
+
+    }
+
+
 
 }

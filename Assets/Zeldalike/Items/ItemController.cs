@@ -7,11 +7,11 @@ public class ItemController : MonoBehaviour
     public Item currentItem;
     public SpriteRenderer heldItemSpriteRend;
     public Transform itemSpawnTransform;
+    [Range(0,360)]
+    public int angleSnap = 0;
     public bool logToConsole;
     public Animator animator;
-    public bool lockToCardinalDirections;
     public bool lockDirectionWhenUsingItem;
-    public Vector2 lookDirection = Vector2.right;
     [HideInInspector]
     public float lastX;
 
@@ -89,12 +89,6 @@ public class ItemController : MonoBehaviour
         if (PauseManager.Instance.Paused)
             return;
 
-        if (InputController.joystick.magnitude > 0.0f)
-        {
-            if ((lockDirectionWhenUsingItem && !_usingItem) || !lockDirectionWhenUsingItem)
-                SetLookDirection();
-        }
-
         if (currentItem == null)
             return;
 
@@ -125,6 +119,8 @@ public class ItemController : MonoBehaviour
     }
     private void StartItem()
     {
+        if (lockDirectionWhenUsingItem)
+            InputController.strafe = true;
         Log("Start Item [" + currentItem.name + "]");
         heldItemSpriteRend.enabled = false;
         currentItem.Begin(this);
@@ -136,6 +132,8 @@ public class ItemController : MonoBehaviour
     }
     private void EndItem()
     {
+        if (lockDirectionWhenUsingItem)
+            InputController.strafe = false;
         Log("End Item [" + currentItem.name + "]");
         currentItem.End(this);
         SetAttackTrigger();
@@ -148,26 +146,6 @@ public class ItemController : MonoBehaviour
     private void SetAttackTrigger()
     {
         animator.SetTrigger("attack");
-    }
-    private void SetLookDirection()
-    {
-        lastX = InputController.joystick.x;
-
-        if (lockToCardinalDirections)
-        {
-            Vector2 cardinalDirection = InputController.joystick;
-            if (Mathf.Abs(cardinalDirection.x) >= Mathf.Abs(cardinalDirection.y))
-                cardinalDirection.y = 0;
-            else
-            if (Mathf.Abs(cardinalDirection.y) >= Mathf.Abs(cardinalDirection.x))
-                cardinalDirection.x = 0;
-
-            lookDirection = cardinalDirection.normalized;
-        }
-        else
-        {
-            lookDirection = InputController.joystick.normalized;
-        }
     }
     private void Init()
     {

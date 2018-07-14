@@ -20,3 +20,4 @@ MonoBehaviour:
   moveSpeedPercent: 0.5
   itemCooldownTime: 0.25
   itemMoveStunTime: 0.25
+  angleSnap: 45
