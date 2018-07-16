@@ -165,13 +165,14 @@ GameObject:
   - component: {fileID: 114539188557673104}
   - component: {fileID: 114768513746313216}
   - component: {fileID: 114984650990419952}
+  - component: {fileID: 114416755206010446}
   m_Layer: 11
   m_Name: SimpleNPCMatchMovementOnAttack
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1788917438821988
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +309,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745643173448592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.22, y: 8.780001, z: 0}
+  m_LocalPosition: {x: 3.58, y: 8.780001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4208070322856016}
@@ -623,6 +624,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ppu: 16
+--- !u!114 &114416755206010446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745643173448592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformRuntimeSet: {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac,
+    type: 2}
 --- !u!114 &114433835243665206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -858,6 +872,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transforms: []
+  enemys:
+  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
 --- !u!114 &114850767574356552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -929,7 +945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth:
     type: 0
-    ConstantValue: 3
+    ConstantValue: 10
     Variable: {fileID: 0}
   damageFlashAmount: 3
   spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,

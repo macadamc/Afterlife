@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 114022444513011724}
   - component: {fileID: 114037612635643866}
   - component: {fileID: 114818782453561770}
+  - component: {fileID: 114483123466466730}
   m_Layer: 11
   m_Name: SimpleNPCWithDash
   m_TagString: Enemy
@@ -408,7 +409,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1517035811230268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.47, y: 5.45, z: 0}
+  m_LocalPosition: {x: 10.57, y: 1.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4276963887994452}
@@ -628,7 +629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth:
     type: 0
-    ConstantValue: 3
+    ConstantValue: 10
     Variable: {fileID: 0}
   damageFlashAmount: 3
   spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
@@ -668,6 +669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transforms: []
+  enemys:
+  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
 --- !u!114 &114135200100253334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -726,6 +729,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ppu: 16
+--- !u!114 &114483123466466730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1517035811230268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformRuntimeSet: {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac,
+    type: 2}
 --- !u!114 &114502927181743444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -893,7 +909,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  targetDistance: 4
+  targetDistance: 2.5
   inputController: {fileID: 0}
   changeStateOnFinish: 1
 --- !u!114 &114811489459073396

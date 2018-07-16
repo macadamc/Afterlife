@@ -115,13 +115,14 @@ GameObject:
   - component: {fileID: 114674412686596126}
   - component: {fileID: 114440049377620648}
   - component: {fileID: 114369970604564092}
+  - component: {fileID: 114712607148067158}
   m_Layer: 11
   m_Name: SimpleNPCWithClosinOnAttack
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1527679400372972
 GameObject:
   m_ObjectHideFlags: 1
@@ -308,7 +309,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484698986971486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.64, y: 8.71, z: 0}
+  m_LocalPosition: {x: 12.94, y: 8.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4361155057073202}
@@ -692,7 +693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth:
     type: 0
-    ConstantValue: 3
+    ConstantValue: 10
     Variable: {fileID: 0}
   damageFlashAmount: 3
   spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
@@ -777,6 +778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transforms: []
+  enemys:
+  - {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac, type: 2}
 --- !u!114 &114466309284881390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -911,6 +914,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd275d9fba9ae04293fa6837ac0bf68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114712607148067158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1484698986971486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformRuntimeSet: {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5,
+    type: 2}
 --- !u!114 &114716776475819172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -994,7 +1010,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -139
+  m_SortingOrder: -141
 --- !u!212 &212549883584418350
 SpriteRenderer:
   m_ObjectHideFlags: 1

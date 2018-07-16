@@ -228,13 +228,14 @@ GameObject:
   - component: {fileID: 114373020940188054}
   - component: {fileID: 114014379849743494}
   - component: {fileID: 114346685618868396}
+  - component: {fileID: 114764851627376112}
   m_Layer: 11
   m_Name: SimpleNPCWithDodge
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1976123068940264
 GameObject:
   m_ObjectHideFlags: 1
@@ -422,7 +423,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889601012561406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.61, y: 7.55, z: 0}
+  m_LocalPosition: {x: 12.12, y: 2.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4631852255047364}
@@ -617,6 +618,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transforms: []
+  enemys:
+  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
 --- !u!114 &114039141645319126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -919,7 +922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth:
     type: 0
-    ConstantValue: 3
+    ConstantValue: 10
     Variable: {fileID: 0}
   damageFlashAmount: 3
   spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
@@ -947,6 +950,19 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!114 &114764851627376112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889601012561406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformRuntimeSet: {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac,
+    type: 2}
 --- !u!114 &114796661296001092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1050,7 +1066,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -48
+  m_SortingOrder: -47
 --- !u!212 &212068657774354252
 SpriteRenderer:
   m_ObjectHideFlags: 1

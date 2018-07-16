@@ -55,7 +55,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1245145323179136
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transforms: []
+  enemys: []
 --- !u!114 &114743016403249600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -901,7 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth:
     type: 0
-    ConstantValue: 3
+    ConstantValue: 10
     Variable: {fileID: 0}
   damageFlashAmount: 3
   spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
