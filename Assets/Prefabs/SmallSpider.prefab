@@ -403,7 +403,9 @@ MonoBehaviour:
   gravity: 15
   onGroundLayerName: Default
   inAirLayerName: HighObstacle
-  baseOffset: {x: 0, y: 0, z: 0}
+  waterOffset: 0.2
+  baseOffset: 0
+  waterTiles: {fileID: 0}
 --- !u!114 &114322325423080422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,6 +442,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03eba1f55077fcb47812ba284ced3f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  events:
+    onStep:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onKnockback:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
@@ -452,6 +465,9 @@ MonoBehaviour:
   smoothing: 0.4
   knockbackDecel: 5
   knockbackDeadzone: 0.1
+  stepSoundSource: {fileID: 0}
+  waterTiles: {fileID: 0}
+  stepLength: {x: 1, y: 1}
 --- !u!114 &114560428774056664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -464,6 +480,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {x: 0, y: 0}
+  lookDirection: {x: 0, y: 0}
+  strafe: 0
   input:
     pressed: 0
     held: 0
@@ -661,7 +679,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ppu: 16
-  offset: 0
 --- !u!212 &212584206989404140
 SpriteRenderer:
   m_ObjectHideFlags: 1

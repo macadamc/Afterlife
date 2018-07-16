@@ -11,7 +11,7 @@ public class MoveTowardTargetState : State
     bool _running;
     Transform _target;
     Coroutine coroutine;
-
+    public bool changeStateOnFinish = true;
 
     protected override void OnEnable()
     {
@@ -33,6 +33,8 @@ public class MoveTowardTargetState : State
         if(_running)
             StopCoroutine(coroutine);
         coroutine = null;
+
+        inputController.joystick = Vector2.zero;
     }
 
     private IEnumerator MoveTowardTarget()
@@ -47,6 +49,7 @@ public class MoveTowardTargetState : State
 
         _running = false;
         yield return null;
-        Next();
+        if(changeStateOnFinish)
+            Next();
     }
 }
