@@ -88,7 +88,12 @@ public class DialougeUI : DialogueUIBehaviour
             {
                 textBox.textComp.text += text[i];
                 tb.textBoxSettings.sfx.Play(audioSource);
-                yield return new WaitForSeconds(tb.textBoxSettings.delay * (Input.GetButton("Interact") ? .5f : 1f));
+
+                if(textBox.useTimeScale)
+                    yield return new WaitForSeconds(tb.textBoxSettings.delay * (Input.GetButton("Interact") ? .5f : 1f));
+                else
+                    yield return new WaitForSecondsRealtime(tb.textBoxSettings.delay * (Input.GetButton("Interact") ? .5f : 1f));
+
                 i++;
             }
         }

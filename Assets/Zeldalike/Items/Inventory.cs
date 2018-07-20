@@ -51,8 +51,8 @@ public class Inventory : MonoBehaviour
         aboveHeadSpriteRenderer.sprite = item.aboveHeadSprite;
         aboveHeadSpriteRenderer.gameObject.SetActive(true);
         item.pickupSfx.Play(inventoryAudioSource);
-        ItemController.MovementController.Stun(1.0f);
-        yield return new WaitForSecondsRealtime(1.0f);
+        //ItemController.MovementController.Stun(1.0f);
+        yield return new WaitForSeconds(0.1f);
         aboveHeadSpriteRenderer.gameObject.SetActive(false);
         // if there is only one item, equip the item
         if (activeItems.Count == 1)

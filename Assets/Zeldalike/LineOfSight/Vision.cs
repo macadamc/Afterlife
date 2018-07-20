@@ -62,7 +62,10 @@ public class Vision : MonoBehaviour {
 
     private void Update()
     {
-        if(setRotationToInputController && ic!=null)
+        if (PauseManager.Instance != null && PauseManager.Instance.Paused)
+            return;
+
+        if (setRotationToInputController && ic!=null)
         {
             if(angleSnap > 0)
                 RotateObj(angleSnap);

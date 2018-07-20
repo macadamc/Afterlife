@@ -119,6 +119,9 @@ public class MovementController : MonoBehaviour
         if (Ic == null)
             return;
 
+        if (PauseManager.Instance != null && PauseManager.Instance.Paused)
+            return;
+
         if (Knockedback || _stunned )
         {
             // sets move vector to zero
@@ -141,6 +144,9 @@ public class MovementController : MonoBehaviour
     /// </summary>
     public virtual void FixedUpdate()
     {
+        if (PauseManager.Instance != null && PauseManager.Instance.Paused)
+            return;
+
         if (TileReference != null)
         {
             _tile = TileReference.GetTile(transform.position);

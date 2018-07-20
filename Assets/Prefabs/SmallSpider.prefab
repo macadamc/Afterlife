@@ -30,7 +30,8 @@ GameObject:
   - component: {fileID: 114318633111459278}
   - component: {fileID: 82209535671478792}
   - component: {fileID: 114572262810893798}
-  m_Layer: 0
+  - component: {fileID: 114235091904700148}
+  m_Layer: 11
   m_Name: SmallSpider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -46,7 +47,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4590355312222958}
   - component: {fileID: 114903729041098692}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: StateMachine
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -63,7 +64,7 @@ GameObject:
   - component: {fileID: 4360763676611142}
   - component: {fileID: 212744956558631916}
   - component: {fileID: 95254272944638914}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -81,7 +82,7 @@ GameObject:
   - component: {fileID: 61198781935711174}
   - component: {fileID: 114783807450795640}
   - component: {fileID: 114880688766809610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DamageObject
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -97,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4620976788918782}
   - component: {fileID: 212584206989404140}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shadow
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -113,7 +114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4116651091402714}
   - component: {fileID: 114322325423080422}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RandomMoveInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,6 +387,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114235091904700148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161385815100468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformRuntimeSet: {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac,
+    type: 2}
 --- !u!114 &114318633111459278
 MonoBehaviour:
   m_ObjectHideFlags: 1

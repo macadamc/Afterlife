@@ -32,6 +32,9 @@ public class SetAnimationValues : MonoBehaviour
 
     private void Update()
     {
+        if (PauseManager.Instance != null && PauseManager.Instance.Paused)
+            return;
+
         Animator.SetBool("isMoving", Mc.IsMoving);
     }
 }

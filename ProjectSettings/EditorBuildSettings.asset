@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Zeldalike/Scenes/TestQuest/TitleTitle.unity
+    guid: 4b31850281586884ebe7dce0638c3dc7
+  - enabled: 1
     path: Assets/Zeldalike/Scenes/Title.unity
     guid: 773d5bf514f633a4bbf20ddb84ca60b7
   - enabled: 1
@@ -14,10 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Zeldalike/Scenes/Chris_Indoor.unity
     guid: 833c1fe72a69e3244a9dac258beb38f8
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Zeldalike/Scenes/TestQuest/TestQuest.unity
+    guid: efa1896cd524fb343b65e435b2154b4c
   m_configObjects: {}

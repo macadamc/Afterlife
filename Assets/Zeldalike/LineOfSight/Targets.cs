@@ -10,7 +10,7 @@ public class Targets : MonoBehaviour
 
     public void Add(Transform transform)
     {
-        if (!transforms.Contains(transform) && (enemys == null || enemysContains(transform)))
+        if (!transforms.Contains(transform) && (enemys == null || enemys.Count == 0|| enemysContains(transform)))
             transforms.Add(transform);
     }
 

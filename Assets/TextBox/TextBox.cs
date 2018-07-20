@@ -8,6 +8,7 @@ using Pixelplacement.TweenSystem;
 
 public class TextBox : MonoBehaviour
 {
+    public bool useTimeScale = true;
     public GameObject choiceContainer;
     public Text textComp;
     public TweenBase cTween = null;

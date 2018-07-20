@@ -86,7 +86,7 @@ public class ItemController : MonoBehaviour
     }
     private void Update()
     {
-        if (PauseManager.Instance.Paused)
+        if (PauseManager.Instance != null && PauseManager.Instance.Paused)
             return;
 
         if (currentItem == null)

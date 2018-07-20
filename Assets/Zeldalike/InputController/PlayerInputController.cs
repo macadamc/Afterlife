@@ -31,6 +31,9 @@ public class PlayerInputController : MonoBehaviour
 
     private void Update()
     {
+        if (PauseManager.Instance != null && PauseManager.Instance.Paused)
+            return;
+
         // creats new vector 2 out of input axis
         inputController.joystick = new Vector2(SimpleInput.GetAxisRaw(horizontalAxisName), SimpleInput.GetAxisRaw(verticalAxisName));
 

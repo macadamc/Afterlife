@@ -41,7 +41,7 @@ public class InputController : MonoBehaviour
 
     public void SetLookDirection(Vector2 dir)
     {
-        if (joystick.magnitude == 0.0f || strafe)
+        if (strafe)
             return;
 
         lookDirection = dir.normalized;
