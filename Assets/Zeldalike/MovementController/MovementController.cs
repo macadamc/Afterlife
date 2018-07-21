@@ -101,15 +101,15 @@ public class MovementController : MonoBehaviour
     public Vector2 stepLength = Vector2.one;
 
 
-    InputController _inputController;
-    Vector2 _moveVector;
-    Vector2 _knockbackVector;
-    Rigidbody2D _rigidbody;
-    TileRef _tileRef;
-    TileBase _tile;
-    float _nextMoveTime;
-    float _nextStepTime;
-    bool _stunned;
+    protected InputController _inputController;
+    protected Vector2 _moveVector;
+    protected Vector2 _knockbackVector;
+    protected Rigidbody2D _rigidbody;
+    protected TileRef _tileRef;
+    protected TileBase _tile;
+    protected float _nextMoveTime;
+    protected float _nextStepTime;
+    protected bool _stunned;
 
     /// <summary>
     /// movement logic should go here.

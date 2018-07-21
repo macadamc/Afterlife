@@ -132,7 +132,8 @@ GameObject:
   - component: {fileID: 114394638150690948}
   - component: {fileID: 82751084165053352}
   - component: {fileID: 210508564316722346}
-  m_Layer: 0
+  - component: {fileID: 114709093203507456}
+  m_Layer: 11
   m_Name: SimpleNpcWithDialouge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +267,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396285781715434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.5, y: -2.5, z: 0}
+  m_LocalPosition: {x: 16.5, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4927261838776336}
@@ -654,6 +655,7 @@ MonoBehaviour:
   knockbackDecel: 5
   knockbackDeadzone: 0.1
   stepSoundSource: {fileID: 0}
+  waterTiles: {fileID: 0}
   stepLength: {x: 1, y: 1}
 --- !u!114 &114316774252813758
 MonoBehaviour:
@@ -667,6 +669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {x: 0, y: 0}
+  lookDirection: {x: 0, y: 0}
+  strafe: 0
   input:
     pressed: 0
     held: 0
@@ -760,11 +764,10 @@ MonoBehaviour:
   currentItem: {fileID: 11400000, guid: f9a3ee6ba59a5c44fbcb6852d64d2c48, type: 2}
   heldItemSpriteRend: {fileID: 212835269432088738}
   itemSpawnTransform: {fileID: 4380491650999262}
+  angleSnap: 0
   logToConsole: 0
   animator: {fileID: 95252998776146510}
-  lockToCardinalDirections: 1
   lockDirectionWhenUsingItem: 1
-  lookDirection: {x: 1, y: 0}
   lastX: 0
 --- !u!114 &114510133079073296
 MonoBehaviour:
@@ -847,7 +850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth:
     type: 0
-    ConstantValue: 3
+    ConstantValue: 10
     Variable: {fileID: 0}
   damageFlashAmount: 3
   spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
@@ -922,6 +925,20 @@ MonoBehaviour:
   moveTime: {x: 0.25, y: 2}
   delayTime: {x: 0.5, y: 5}
   inputController: {fileID: 114316774252813758}
+  nextState: {fileID: 0}
+--- !u!114 &114709093203507456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396285781715434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformRuntimeSets:
+  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
 --- !u!114 &114746562492798748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -972,7 +989,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: 40
+  m_SortingOrder: 72
 --- !u!212 &212186456196442372
 SpriteRenderer:
   m_ObjectHideFlags: 1

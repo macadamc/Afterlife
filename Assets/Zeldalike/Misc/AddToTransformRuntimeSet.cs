@@ -5,15 +5,22 @@ using ShadyPixel.RuntimeSets;
 
 public class AddToTransformRuntimeSet : MonoBehaviour
 {
-    public TransformRuntimeSet transformRuntimeSet;
+    public TransformRuntimeSet[] transformRuntimeSets;
 
     private void OnEnable()
     {
-        transformRuntimeSet.Add(transform);
+        foreach(TransformRuntimeSet set in transformRuntimeSets)
+        {
+            set.Add(transform);
+        }
+        
     }
 
     private void OnDisable()
     {
-        transformRuntimeSet.Remove(transform);
+        foreach (TransformRuntimeSet set in transformRuntimeSets)
+        {
+            set.Remove(transform);
+        }
     }
 }

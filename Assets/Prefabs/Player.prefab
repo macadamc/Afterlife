@@ -80,11 +80,11 @@ GameObject:
   - component: {fileID: 114660438413745306}
   - component: {fileID: 114549514352350412}
   - component: {fileID: 114894406519852498}
-  - component: {fileID: 114303517441802148}
   - component: {fileID: 114849971391359868}
   - component: {fileID: 81339451054353742}
   - component: {fileID: 210836967896204298}
   - component: {fileID: 114019308813315376}
+  - component: {fileID: 114484647101051046}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -258,7 +258,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229734471394682}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2261271, y: -0.7549275, z: 0}
+  m_LocalPosition: {x: 19, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4302901983180290}
@@ -721,19 +721,6 @@ MonoBehaviour:
   verticalAxisName: Vertical
   inputButtonName: Fire1
   inputController: {fileID: 114790050958086834}
---- !u!114 &114303517441802148
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1229734471394682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transformRuntimeSet: {fileID: 11400000, guid: becdcda472c925d46b8fcc821c933818,
-    type: 2}
 --- !u!114 &114323597077020408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -745,6 +732,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9940ad27dd357dc46b46610f4b36e8d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114484647101051046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229734471394682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformRuntimeSets:
+  - {fileID: 11400000, guid: becdcda472c925d46b8fcc821c933818, type: 2}
+  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
 --- !u!114 &114548543231284982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -762,7 +763,7 @@ MonoBehaviour:
   angleSnap: 0
   logToConsole: 0
   animator: {fileID: 95071801391454948}
-  lockDirectionWhenUsingItem: 1
+  lockDirectionWhenUsingItem: 0
   lastX: 0
 --- !u!114 &114549514352350412
 MonoBehaviour:
@@ -801,7 +802,7 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
-    ConstantValue: 4
+    ConstantValue: 6
     Variable: {fileID: 0}
   oldMoveSpeed:
     type: 0
@@ -5574,7 +5575,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: 12
+  m_SortingOrder: -8
 --- !u!212 &212526678671209042
 SpriteRenderer:
   m_ObjectHideFlags: 1

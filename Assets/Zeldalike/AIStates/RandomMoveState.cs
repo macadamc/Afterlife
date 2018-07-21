@@ -13,6 +13,7 @@ public class RandomMoveState : State {
     public Vector2 delayTime;
 
     public InputController inputController;
+    public GameObject nextState;
 
     private float _nextMoveTime;
     private bool _delayed;

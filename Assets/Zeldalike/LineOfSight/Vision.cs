@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ShadyPixel.RuntimeSets;
+using System.Linq;
 
 public class Vision : MonoBehaviour {
-
     public float viewRadius;
     [Range(0, 360)]
     public float viewAngle;
@@ -121,6 +122,8 @@ public class Vision : MonoBehaviour {
                     targets.Add(targetsInViewRadius[i].transform);
             }
         }
+
+        targets.transforms = targets.transforms.OrderBy(t => Vector2.Distance(t.position, transform.position)).ToList();
     }
 
     private void OnDrawGizmosSelected()

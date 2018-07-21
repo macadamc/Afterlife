@@ -8,6 +8,7 @@ public class MatchTargetMovement : State
     InputController inputController;
     InputController target_InputController;
     Vision _vision;
+    public bool invert;
 
     protected override void OnEnable()
     {
@@ -33,5 +34,7 @@ public class MatchTargetMovement : State
     {
         if(target_InputController != null)
             inputController.joystick = target_InputController.joystick;
+        if (invert)
+            inputController.joystick = inputController.joystick * -1;
     }
 }

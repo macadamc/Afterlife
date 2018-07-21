@@ -56,7 +56,9 @@ GameObject:
   - component: {fileID: 4904124883449128}
   - component: {fileID: 114767740564479650}
   - component: {fileID: 114703181980488308}
+  - component: {fileID: 114753929034300670}
   - component: {fileID: 114919279420139182}
+  - component: {fileID: 114736880792731496}
   m_Layer: 0
   m_Name: UseItem
   m_TagString: Untagged
@@ -169,7 +171,7 @@ GameObject:
   - component: {fileID: 114545467077841782}
   m_Layer: 11
   m_Name: SimpleNPCMatchMovementOnAttack
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,7 +312,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745643173448592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.58, y: 8.780001, z: 0}
+  m_LocalPosition: {x: 22.75, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4208070322856016}
@@ -602,6 +604,7 @@ MonoBehaviour:
   moveTime: {x: 0.25, y: 0.8879408}
   delayTime: {x: 0.30632004, y: 1.5083363}
   inputController: {fileID: 114512449667502732}
+  nextState: {fileID: 0}
 --- !u!114 &114168255573229354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -636,8 +639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformRuntimeSet: {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5,
-    type: 2}
+  transformRuntimeSets:
+  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
 --- !u!114 &114433835243665206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -779,6 +782,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 0}
   _vision: {fileID: 0}
+--- !u!114 &114736880792731496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192036328115876}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b461abbd4e03b9e4ca5f7573eab43e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+    onEnterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onExitEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  targetDistance: 0.5
+  inputController: {fileID: 0}
+  changeStateOnFinish: 0
 --- !u!114 &114737930599311720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -791,6 +819,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 0}
+--- !u!114 &114753929034300670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192036328115876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efcf63b6a10f58840b262b24a27b395a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whilePressed: {fileID: 114919279420139182}
+  whileReleased: {fileID: 114736880792731496}
 --- !u!114 &114754675300164368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -888,7 +929,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transforms: []
-  enemys: []
+  enemys:
+  - {fileID: 11400000, guid: 6251c7a529581474ea52082e3b44e6f8, type: 2}
+  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
 --- !u!114 &114850767574356552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -931,7 +974,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192036328115876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da311c366fb80994b9bb43a57f34c64e, type: 3}
   m_Name: 
@@ -947,6 +990,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  invert: 0
 --- !u!114 &114953316120409980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -976,6 +1020,17 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 82977477025702612}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 114149966267157324}
+          m_MethodName: ChangeState
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1032353894644934}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1011,8 +1066,7 @@ MonoBehaviour:
   setRotationToInputController: 1
   angleSnap: 180
   ic: {fileID: 114512449667502732}
-  visionTags:
-  - Enemy
+  visionTags: []
   targets: {fileID: 114768513746313216}
 --- !u!210 &210757364019404006
 SortingGroup:
@@ -1023,7 +1077,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -140
+  m_SortingOrder: -16
 --- !u!212 &212010833743030372
 SpriteRenderer:
   m_ObjectHideFlags: 1

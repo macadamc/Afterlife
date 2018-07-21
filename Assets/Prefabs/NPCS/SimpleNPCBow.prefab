@@ -602,7 +602,7 @@ MonoBehaviour:
   currentItem: {fileID: 11400000, guid: 385e639199383014a8dabb6a94ece675, type: 2}
   heldItemSpriteRend: {fileID: 212529777349699612}
   itemSpawnTransform: {fileID: 4661819289302332}
-  angleSnap: 25
+  angleSnap: 0
   logToConsole: 0
   animator: {fileID: 95037052430935566}
   lockDirectionWhenUsingItem: 0
@@ -675,7 +675,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   inputController: {fileID: 114700931904902386}
-  holdTime: {x: 0.5041234, y: 1.5017292}
+  holdTime: {x: 0.5041234, y: 5}
   changeStateOnFinish: 1
 --- !u!114 &114157804528849766
 MonoBehaviour:
@@ -787,8 +787,7 @@ MonoBehaviour:
   setRotationToInputController: 1
   angleSnap: 0
   ic: {fileID: 114700931904902386}
-  visionTags:
-  - Enemy
+  visionTags: []
   targets: {fileID: 114801831984892366}
 --- !u!114 &114379959277197088
 MonoBehaviour:
@@ -815,6 +814,7 @@ MonoBehaviour:
   moveTime: {x: 0.25, y: 2}
   delayTime: {x: 0.5, y: 5}
   inputController: {fileID: 114700931904902386}
+  nextState: {fileID: 0}
 --- !u!114 &114475819156830480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -905,6 +905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transforms: []
   enemys:
+  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
   - {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac, type: 2}
 --- !u!114 &114805312671702342
 MonoBehaviour:
@@ -917,8 +918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformRuntimeSet: {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5,
-    type: 2}
+  transformRuntimeSets:
+  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
 --- !u!114 &114832752368265544
 MonoBehaviour:
   m_ObjectHideFlags: 1
