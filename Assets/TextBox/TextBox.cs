@@ -17,7 +17,7 @@ public class TextBox : MonoBehaviour
     {
         gameObject.SetActive(true);
         if(tween)
-            cTween = Tween.LocalScale(GetComponent<RectTransform>(), Vector2.zero, Vector2.one, 0.5f, 0f, Tween.EaseSpring);
+            cTween = Tween.LocalScale(GetComponent<RectTransform>(), Vector2.zero, Vector2.one, 0.5f, 0f, Tween.EaseInOut);
         else
         {
             transform.localScale = Vector3.one;
@@ -30,7 +30,7 @@ public class TextBox : MonoBehaviour
         {
             if(tween)
             {
-                cTween = Tween.LocalScale(rt, Vector2.one, Vector2.zero, 0.5f, 0f, Tween.EaseIn, Tween.LoopType.None, null, () => { gameObject.SetActive(false); });
+                cTween = Tween.LocalScale(rt, Vector2.one, Vector2.zero, 0.5f, 0f, Tween.EaseInOut, Tween.LoopType.None, null, () => { gameObject.SetActive(false); });
             }
             else
             {

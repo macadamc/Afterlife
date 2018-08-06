@@ -104,4 +104,9 @@ public class TextBoxRef : MonoBehaviour {
     {
         _textBox?.DisableTextbox();
     }
+
+    private void OnApplicationQuit()
+    {
+        _textBox = null;
+    }
 }

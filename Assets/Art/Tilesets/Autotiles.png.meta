@@ -102,6 +102,25 @@ TextureImporter:
     21300194: Dirt_Ver_B
     21300196: Dirt_BL
     21300198: Dirt_BM
+    21300200: HighDirt_Hor_L
+    21300202: HighDirt_Hor_M
+    21300204: HighDirt_Hor_R
+    21300206: HighDirt_Single
+    21300208: HighDirt_Ver_T
+    21300210: HighDirt_Ver_M
+    21300212: HighDirt_Ver_B
+    21300214: HighDirt_TL
+    21300216: HighDirt_TM
+    21300218: HighDirt_TR
+    21300220: HighDirt_ML
+    21300222: HighDirt_MM
+    21300224: HighDirt_MR
+    21300226: HighDirt_BL
+    21300228: HighDirt_BM
+    21300230: HighDirt_BR
+    21300232: HighDirt_Wall_L
+    21300234: HighDirt_Wall_M
+    21300236: HighDirt_Wall_R
   externalObjects: {}
   serializedVersion: 6
   mipmaps:

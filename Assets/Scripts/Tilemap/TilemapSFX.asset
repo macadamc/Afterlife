@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a698c018f169d7d48b7fe5b043afe84c, type: 3}
+  m_Name: TilemapSFX
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 3e21921d2e16b684aa5ecd9b01d23b39, type: 2}
+    - {fileID: 11400000, guid: 9ae641cef2f59e14e8ee896f1f6b2c75, type: 2}
+    - {fileID: 11400000, guid: 49248ac44ad37624180a751f81723339, type: 2}
+    - {fileID: 11400000, guid: f3237a00df33d8f4e91f6e01814f8722, type: 2}
+    - {fileID: 11400000, guid: 28792d1d224b8b141b681cb28046d6d7, type: 2}
+    - {fileID: 11400000, guid: 08ab51e885bd72e45b99911858a4d77b, type: 2}
+    - {fileID: 11400000, guid: dff38d36c9fd767488cd2a26ee08a6be, type: 2}
+    - {fileID: 11400000, guid: 8ac18ed3e8b713e4189c8713c9aa2d6b, type: 2}
+    - {fileID: 11400000, guid: b1709834832450543ba7b0bd12c1de68, type: 2}
+    - {fileID: 11400000, guid: 551a7d56148865b49a55e523920a1bd5, type: 2}
+    SerializedBytesString: AQAMAAAAc291bmRFZmZlY3RzLwAAAAAAnQAAAFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkRpY3Rpb25hcnlgMltbVW5pdHlFbmdpbmUuVGlsZW1hcHMuVGlsZUJhc2UsIFVuaXR5RW5naW5lLlRpbGVtYXBNb2R1bGVdLFtTaGFkeVBpeGVsLkF1ZGlvLlNvdW5kRWZmZWN0LCBBc3NlbWJseS1DU2hhcnBdXSwgbXNjb3JsaWIAAAAAAQAIAAAAY29tcGFyZXIvAQAAAAB5AAAAU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuT2JqZWN0RXF1YWxpdHlDb21wYXJlcmAxW1tVbml0eUVuZ2luZS5UaWxlbWFwcy5UaWxlQmFzZSwgVW5pdHlFbmdpbmUuVGlsZW1hcE1vZHVsZV1dLCBtc2NvcmxpYgEAAAAFBgYAAAAAAAAABC4MAAAAAAwBAAAABQQuDAIAAAAMAwAAAAUELgwEAAAADAUAAAAFBC4MBgAAAAwHAAAABQQuDAgAAAAMAwAAAAUELgwJAAAADAUAAAAFBwU=
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []

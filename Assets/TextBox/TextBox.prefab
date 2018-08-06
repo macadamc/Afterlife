@@ -233,14 +233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46d2587f69151342a0d552f562b55e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useTimeScale: 1
   choiceContainer: {fileID: 1225349679947588}
   textComp: {fileID: 114813480346837132}
-  delay: 0.1
-  autoSize: 1
-  maxSize: {x: 600, y: 75}
-  padding: {x: 16, y: 16}
-  inputType: 1
-  passiveLineDelay: 0.75
 --- !u!114 &114813480346837132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,11 +257,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2734d75b269420044ade817b027e0d15, type: 3}
-    m_FontSize: 32
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 64
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
