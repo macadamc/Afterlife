@@ -485,9 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformRuntimeSets:
-  - {fileID: 11400000, guid: 6251c7a529581474ea52082e3b44e6f8, type: 2}
-  - {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac, type: 2}
+  transformRuntimeSet: {fileID: 0}
 --- !u!114 &114318633111459278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -581,7 +579,6 @@ MonoBehaviour:
   knockbackDecel: 5
   knockbackDeadzone: 0.1
   stepSoundSource: {fileID: 82209535671478792}
-  waterTiles: {fileID: 0}
   stepLength: {x: 1, y: 1}
   groundedWaitTime: {x: 0, y: 0.24231465}
   airWaitTime: {x: 2, y: 2}
@@ -652,9 +649,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989db5ac4e126a344aa62febf2454d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth:
+  currentHealth:
     type: 0
-    ConstantValue: 3
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  maxHealth:
+    type: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   damageFlashAmount: 3
   spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
@@ -724,6 +725,7 @@ MonoBehaviour:
     type: 0
     ConstantValue: -1
     Variable: {fileID: 0}
+  freezeFrameOnHit: 0
 --- !u!114 &114814936823957346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -829,12 +831,12 @@ MonoBehaviour:
     OnStateEnter:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp-firstpass, Version=0.0.0.0,
+      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     OnStateExit:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp-firstpass, Version=0.0.0.0,
+      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   states: []
 --- !u!114 &114911806443773738

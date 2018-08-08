@@ -9,6 +9,7 @@ TagManager:
   - Tilemap_BG
   - GlobalTextbox
   - Projectile
+  - LightCamera
   layers:
   - Default
   - TransparentFX

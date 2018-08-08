@@ -38,4 +38,12 @@ public class PauseManager : Singleton<PauseManager>
     {
         Initialize(this);
     }
+
+    public IEnumerator FreezeFrame(float scale, float time)
+    {
+        ChangeTimeScale(scale);
+        yield return new WaitForSecondsRealtime(time);
+        ChangeTimeScale(1f);
+    }
+
 }

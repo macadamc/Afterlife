@@ -56,6 +56,16 @@ public class ItemController : MonoBehaviour
     bool _usingItem;
     bool _init;
 
+    private void OnEnable()
+    {
+        heldItemSpriteRend.enabled = true;
+    }
+
+    private void OnDisable()
+    {
+        heldItemSpriteRend.enabled = false;
+    }
+
     public void EquipItem(Item item)
     {
         currentItem = Instantiate(item);

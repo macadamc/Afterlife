@@ -2,13 +2,14 @@ fileFormatVersion: 2
 guid: 12fb70dd53ed45c41ad673e1752f224a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Base_0
-    21300002: Base_1
-    21300004: Base_2
-    21300006: Base_3
+    21300000: Base_Walk_0
+    21300002: Base_Walk_1
+    21300004: Base_Attack_0
+    21300006: Base_Attack_1
     21300008: Base_Shadow
-    21300010: Base_4
-    21300012: Base_5
+    21300010: Base_Die_1
+    21300012: Base_Die_0
+    21300014: Base_Die_2
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -102,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Base_0
+      name: Base_Walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -122,7 +123,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base_1
+      name: Base_Walk_1
       rect:
         serializedVersion: 2
         x: 16
@@ -142,11 +143,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base_2
+      name: Base_Attack_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
+        x: 0
+        y: 32
         width: 16
         height: 16
       alignment: 7
@@ -162,11 +163,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base_3
+      name: Base_Attack_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
+        x: 16
+        y: 32
         width: 16
         height: 16
       alignment: 7
@@ -186,7 +187,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 0
         width: 16
         height: 16
       alignment: 9
@@ -202,41 +203,61 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base_4
+      name: Base_Die_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
+        x: 0
+        y: 16
         width: 16
         height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1875}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cbf1c1ab2236c1438b1a625e5dba7b9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Base_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1875}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 36a04d7d933a0ee4aa3e1b3ec9b6a0b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base_Die_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba67b6f2f515a0d40b632a5294ef32e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base_Die_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66d075f5f055d149873d593822f8de4
       vertices: []
       indices: 
       edges: []

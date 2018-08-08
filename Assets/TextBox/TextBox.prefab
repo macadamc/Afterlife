@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224691002219470140}
   - component: {fileID: 114115103090783720}
   - component: {fileID: 82376125198925458}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: TextBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224291633919086780}
   - component: {fileID: 114102079205264594}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: ChoiceContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 224129301231632424}
   - component: {fileID: 222334793250490386}
   - component: {fileID: 114045039253960812}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 224954523504783910}
   - component: {fileID: 222440547054467976}
   - component: {fileID: 114813480346837132}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SetAnimationValues : MonoBehaviour
 {
+
+
     public Animator Animator
     {
         get
@@ -30,11 +32,46 @@ public class SetAnimationValues : MonoBehaviour
 
     MovementController _movementController;
 
+    public Health Health
+    {
+        get
+        {
+            if (_health == null)
+                _health = GetComponentInChildren<Health>();
+
+            return _health;
+        }
+    }
+
+    Health _health;
+
+    private void OnEnable()
+    {
+        Health.onHealthChanged += OnHealthChange;
+    }
+
+    private void OnDisable()
+    {
+        Health.onHealthChanged -= OnHealthChange;
+    }
+
+    public void OnHealthChange(int change)
+    {
+        if(change < 0)
+        {
+            Animator.SetTrigger("hurt");
+        }
+
+    }
+
     private void Update()
     {
         if (PauseManager.Instance != null && PauseManager.Instance.Paused)
             return;
 
         Animator.SetBool("isMoving", Mc.IsMoving);
+
+        if (Health.currentHealth.Value <= 0)
+            Animator.SetTrigger("death");
     }
 }

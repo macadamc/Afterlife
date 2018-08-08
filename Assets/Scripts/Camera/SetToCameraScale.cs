@@ -12,13 +12,13 @@ public class SetToCameraScale : MonoBehaviour {
         thisCam = GetComponent<Camera>();
     }
 
-    private void OnPostRender()
+    private void LateUpdate()
     {
         if (cam == null || thisCam == null)
             return;
 
         thisCam.orthographicSize = cam.orthographicSize;
-        thisCam.rect = cam.rect;
+        thisCam.pixelRect = cam.pixelRect;
     }
 
 }

@@ -14,14 +14,18 @@ public class Health : MonoBehaviour
         public UnityEvent onDeath;
     }
 
-    public IntReference startingHealth;
+    public delegate void OnHealthChanged(int change);
+    public OnHealthChanged onHealthChanged;
+
+    public IntReference currentHealth;
+    public IntReference maxHealth;
     public int damageFlashAmount = 3;
-    public GameObject spawnOnDeath;
+    //public GameObject spawnOnDeath;
     public bool deactivateRootObjectOnDeath;
     [DrawWithUnity]
     public Events events;
 
-    int _currentHealth;
+    //int _currentHealth;
     bool _initialized;
     bool _flashing;
     SpriteRenderer[] _sprites;
@@ -31,12 +35,18 @@ public class Health : MonoBehaviour
         if (_flashing)
             return;
 
-        _currentHealth += change;
+        currentHealth.Value += change;
+
+        if (currentHealth.Value > maxHealth.Value)
+            currentHealth.Value = maxHealth.Value;
 
         if (change < 0)
             events.onHurt.Invoke();
 
         StartCoroutine(DamageFlash(damageFlashAmount));
+
+        if (onHealthChanged != null)
+            onHealthChanged.Invoke(change);
     }
 
     protected IEnumerator DamageFlash(int flashes)
@@ -62,10 +72,12 @@ public class Health : MonoBehaviour
 
     protected void CheckHealth()
     {
-        if (_currentHealth <= 0)
+        if (currentHealth.Value <= 0)
         {
+            /*
             if (spawnOnDeath != null)
                 Instantiate(spawnOnDeath, transform.position, Quaternion.identity);
+                */
 
             events.onDeath.Invoke();
 
@@ -76,7 +88,7 @@ public class Health : MonoBehaviour
 
     protected virtual void Initialize()
     {
-        _currentHealth = startingHealth;
+        currentHealth.Value = maxHealth.Value;
         _initialized = true;
         _sprites = GetComponentsInChildren<SpriteRenderer>();
     }
@@ -85,5 +97,11 @@ public class Health : MonoBehaviour
     {
         if (!_initialized)
             Initialize();
+    }
+
+    [Button]
+    public void Damage()
+    {
+        ChangeHealth(-1);
     }
 }

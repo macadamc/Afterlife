@@ -7,23 +7,33 @@ using UnityEngine.SceneManagement;
 public class Player : Singleton<Player> {
 
     public string doorTag;
-
-
+    Health health;
 
     private void OnEnable()
     {
+        health = GetComponent<Health>();
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+        health.onHealthChanged += PlayerHealthChanged;
         Initialize(this);
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+        health.onHealthChanged -= PlayerHealthChanged;
+    }
+
+    void PlayerHealthChanged(int change)
+    {
+        if(change < 0)
+        {
+            CameraShake.Instance.SmallShake();
+            PauseManager.Instance.StartCoroutine(PauseManager.Instance.FreezeFrame(0.2f,0.3f));
+        }
     }
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        PrintVar();
         Teleport[] teleporters = FindObjectsOfType<Teleport>();
         foreach(Teleport t in teleporters)
         {
@@ -35,14 +45,5 @@ public class Player : Singleton<Player> {
                 return;
             }
         }
-    }
-
-    void PrintVar()
-    {
-        foreach(var item in SaveLoadManager.Instance.savedVariables.variables)
-        {
-            Debug.Log($"{item.Key} {item.Value}");
-        }
-        Debug.Log(SaveLoadManager.Instance.savedVariables.variables.Count);
     }
 }

@@ -324,7 +324,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747217673039194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.43, y: -11.03, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4604300690912258}
@@ -720,10 +720,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989db5ac4e126a344aa62febf2454d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth:
-    type: 0
+  currentHealth:
+    type: 1
     ConstantValue: 3
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 03ac54f73c2d4444789ed980a212f576, type: 2}
+  maxHealth:
+    type: 1
+    ConstantValue: 3
+    Variable: {fileID: 11400000, guid: a905607507a372a4eb8db4b8b345fd82, type: 2}
   damageFlashAmount: 3
   spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
     type: 2}
@@ -834,6 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac183f8b52a4ca4db79dcd2cbf083fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugKey: 32
 --- !u!114 &114626265650684692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5611,7 +5616,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: 176
+  m_SortingOrder: -16
 --- !u!212 &212329305435466154
 SpriteRenderer:
   m_ObjectHideFlags: 1

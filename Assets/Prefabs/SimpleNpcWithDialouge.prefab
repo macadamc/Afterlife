@@ -127,7 +127,6 @@ GameObject:
   - component: {fileID: 114839758235363956}
   - component: {fileID: 114912332034685336}
   - component: {fileID: 114431672404921662}
-  - component: {fileID: 114599815949040196}
   - component: {fileID: 114140933736916636}
   - component: {fileID: 114394638150690948}
   - component: {fileID: 82751084165053352}
@@ -135,22 +134,6 @@ GameObject:
   - component: {fileID: 114709093203507456}
   m_Layer: 11
   m_Name: SimpleNpcWithDialouge
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1477057258937898
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4841377079173912}
-  - component: {fileID: 114056778987693714}
-  m_Layer: 0
-  m_Name: StateMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,22 +186,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1931361794187738
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4746859279724728}
-  - component: {fileID: 114624323418065386}
-  m_Layer: 0
-  m_Name: RandomMoveInput
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &4101151154664706
 Transform:
   m_ObjectHideFlags: 1
@@ -232,7 +199,7 @@ Transform:
   - {fileID: 4994694174788066}
   - {fileID: 4321950763195214}
   m_Father: {fileID: 4369960966262018}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4260105035046142
 Transform:
@@ -267,12 +234,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396285781715434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.5, y: -4.5, z: 0}
+  m_LocalPosition: {x: -1.9043682, y: 4.24092, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4927261838776336}
   - {fileID: 4957974605519196}
-  - {fileID: 4841377079173912}
   - {fileID: 4101151154664706}
   - {fileID: 4379056215130350}
   m_Father: {fileID: 0}
@@ -289,7 +255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4369960966262018}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4380491650999262
 Transform:
@@ -316,33 +282,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4957974605519196}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4746859279724728
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931361794187738}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4841377079173912}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4841377079173912
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477057258937898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4746859279724728}
-  m_Father: {fileID: 4369960966262018}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4927261838776336
 Transform:
@@ -574,40 +513,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114056778987693714
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477057258937898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787802ab2173b0240bbd57b7f3608395, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultState: {fileID: 1931361794187738}
-  loopStates: 1
-  logToConsole: 1
-  allowStateReentry: 0
-  returnToDefaultOnDisable: 1
-  currentState: {fileID: 0}
-  events:
-    OnStart:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    OnStateEnter:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp-firstpass, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    OnStateExit:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp-firstpass, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  states: []
 --- !u!114 &114140933736916636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -655,7 +560,6 @@ MonoBehaviour:
   knockbackDecel: 5
   knockbackDeadzone: 0.1
   stepSoundSource: {fileID: 0}
-  waterTiles: {fileID: 0}
   stepLength: {x: 1, y: 1}
 --- !u!114 &114316774252813758
 MonoBehaviour:
@@ -749,7 +653,7 @@ MonoBehaviour:
   inAirLayerName: HighObstacle
   waterOffset: -0.2
   baseOffset: 0
-  waterTiles: {fileID: 11400000, guid: 72ef561d195d86345a8d77e25a3d05c0, type: 2}
+  waterTiles: {fileID: 0}
 --- !u!114 &114431672404921662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -820,23 +724,9 @@ MonoBehaviour:
   textBoxKey: TestNpc
   TextBoxPrefab: {fileID: 1099594120058366, guid: eaf826e24266406459a8122848f74599,
     type: 2}
-  textBoxOffset: {x: 0, y: 1.35}
+  textBoxOffset: {x: 0, y: 2}
   textBoxSettings: {fileID: 11400000, guid: f1b05e89f73d9f640971ef0827303c99, type: 2}
   useWorldSpaceCanvas: 1
---- !u!114 &114599815949040196
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1396285781715434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa06865d22a08cb4cb6f960e9eecd3dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeItems: []
-  aboveHeadSpriteRenderer: {fileID: 212399300732716188}
-  inventoryAudioSource: {fileID: 82751084165053352}
 --- !u!114 &114608073881349390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -848,9 +738,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989db5ac4e126a344aa62febf2454d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth:
+  currentHealth:
     type: 0
-    ConstantValue: 10
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  maxHealth:
+    type: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   damageFlashAmount: 3
   spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
@@ -900,32 +794,6 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
---- !u!114 &114624323418065386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931361794187738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bfdb99a1bcd7564a8f1a68028034d88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  events:
-    onEnterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExitEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  moveTime: {x: 0.25, y: 2}
-  delayTime: {x: 0.5, y: 5}
-  inputController: {fileID: 114316774252813758}
-  nextState: {fileID: 0}
 --- !u!114 &114709093203507456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -937,8 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformRuntimeSets:
-  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
+  transformRuntimeSet: {fileID: 0}
 --- !u!114 &114746562492798748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -989,7 +856,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: 72
+  m_SortingOrder: -68
 --- !u!212 &212186456196442372
 SpriteRenderer:
   m_ObjectHideFlags: 1

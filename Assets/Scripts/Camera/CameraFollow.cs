@@ -14,7 +14,6 @@ public class CameraFollow : Singleton<CameraFollow>
     public TransformRuntimeSet transformRuntimeSet;
 
     private Camera _camera;
-
     private bool _hasBounds;
     public Bounds _bounds;
     private Vector2 _size;

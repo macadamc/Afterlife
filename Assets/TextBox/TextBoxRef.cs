@@ -36,7 +36,7 @@ public class TextBoxRef : MonoBehaviour {
 
     private void Start()
     {
-        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceCamera); }).First();
+        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceOverlay); }).First();
 
         dialogueRunner = GetComponent<DialogueRunner>();
         defaultSettings = textBoxSettings;

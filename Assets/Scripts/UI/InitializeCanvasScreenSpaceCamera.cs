@@ -10,9 +10,11 @@ public class InitializeCanvasScreenSpaceCamera : MonoBehaviour
 
 	void Awake ()
     {
+        Camera cam = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
+
         Canvas canvas = GetComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
-        canvas.worldCamera = Camera.main;
+        canvas.worldCamera = cam;
         canvas.sortingLayerID = SortingLayer.NameToID(sortingLayer);
         canvas.sortingOrder = orderInLayer;
 		
