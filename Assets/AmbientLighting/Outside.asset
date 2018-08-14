@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abc14e7eea1afc449635617548c297e, type: 3}
   m_Name: Outside
   m_EditorClassIdentifier: 
-  lightColor: {r: 0.77254903, g: 0.77254903, b: 0.77254903, a: 0}
+  lightColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0}
   lightIntensity: 2
