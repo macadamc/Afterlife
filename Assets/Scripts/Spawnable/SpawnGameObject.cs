@@ -6,15 +6,22 @@ using Sirenix.OdinInspector;
 public class SpawnGameObject : CameraZoneEvent
 {
     public GameObject prefabToSpawn;
+
     public bool isLocal;
+
     public bool persistant;
+    public bool IsPersistant { get { return persistant; } }
+
     GameObject spawnedObject;
+
     [Range(0,20)]
     public float randomSpawnRange;
 
+    public bool rotateSpawnedObject = true;
+
     protected override void OnTrigger()
     {
-        spawnedObject = Instantiate(prefabToSpawn, transform.position + (Vector3)Random.insideUnitCircle*randomSpawnRange, Quaternion.identity);
+        spawnedObject = Instantiate(prefabToSpawn, transform.position + (Vector3)Random.insideUnitCircle*randomSpawnRange, rotateSpawnedObject ? Quaternion.identity : prefabToSpawn.transform.rotation);
         Spawnable spawnable = spawnedObject.GetComponent<Spawnable>();
         spawnable.spawner = this;
         spawnable.isLocal = isLocal;

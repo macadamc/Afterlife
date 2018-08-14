@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 82209535671478792}
   - component: {fileID: 114572262810893798}
   - component: {fileID: 114235091904700148}
+  - component: {fileID: 114709946540568072}
   - component: {fileID: 114991140046528740}
   - component: {fileID: 114856644095555950}
   m_Layer: 11
@@ -485,7 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformRuntimeSet: {fileID: 0}
+  transformRuntimeSet: {fileID: 11400000, guid: 72b1ebd919831ef40920740bdd26172a,
+    type: 2}
 --- !u!114 &114318633111459278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -658,8 +660,6 @@ MonoBehaviour:
     ConstantValue: 1
     Variable: {fileID: 0}
   damageFlashAmount: 3
-  spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
-    type: 2}
   deactivateRootObjectOnDeath: 1
   events:
     onHurt:
@@ -694,6 +694,19 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!114 &114709946540568072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161385815100468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformRuntimeSet: {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac,
+    type: 2}
 --- !u!114 &114783807450795640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -725,7 +738,6 @@ MonoBehaviour:
     type: 0
     ConstantValue: -1
     Variable: {fileID: 0}
-  freezeFrameOnHit: 0
 --- !u!114 &114814936823957346
 MonoBehaviour:
   m_ObjectHideFlags: 1

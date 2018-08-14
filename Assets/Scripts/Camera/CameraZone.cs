@@ -18,7 +18,7 @@ public class CameraZone : TriggerZone
         }
     }
 
-    BoxCollider2D col;
+    public BoxCollider2D col;
     BoxCollider2D Collider
     {
         get
@@ -36,8 +36,6 @@ public class CameraZone : TriggerZone
     {
         if(cameraZoneTriggerEvents !=null)
             zoneEvents = cameraZoneTriggerEvents.GetComponentsInChildren<CameraZoneEvent>();
-        else
-            zoneEvents = GetComponentsInChildren<CameraZoneEvent>();
     }
 
     protected override void OnEnter(Collider2D collision)

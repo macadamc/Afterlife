@@ -9,21 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/TestQuest/TitleTitle.unity
     guid: 4b31850281586884ebe7dce0638c3dc7
   - enabled: 1
-    path: Assets/Scenes/Title.unity
-    guid: 773d5bf514f633a4bbf20ddb84ca60b7
-  - enabled: 1
-    path: Assets/Scenes/Chris.unity
-    guid: 35f5707fd267eb44ca7c42e653cfa425
-  - enabled: 1
-    path: Assets/Scenes/Chris_Indoor.unity
-    guid: 833c1fe72a69e3244a9dac258beb38f8
-  - enabled: 1
-    path: Assets/Scenes/TestQuest/TestQuest.unity
-    guid: efa1896cd524fb343b65e435b2154b4c
-  - enabled: 1
     path: Assets/Scenes/TestQuest/TestQuest_Island.unity
     guid: 36b5c775237d71f4d991b5f9643784df
   - enabled: 1
     path: Assets/Scenes/TestQuest/TestQuest_Cave.unity
     guid: 584ec3637a8316043a5a5cac57dd732a
+  - enabled: 1
+    path: Assets/Scenes/TestQuest 1/TestQuestAlpha_Bar.unity
+    guid: f9d4334b441d66c479c4c9d0701a2d9f
+  - enabled: 1
+    path: Assets/Scenes/TestQuest 1/TestQuestAlpha_Cave.unity
+    guid: 2386d127190ebdd4d908635ca50a2edc
+  - enabled: 1
+    path: Assets/Scenes/TestQuest 1/TestQuestAlpha_Island.unity
+    guid: e20662566a7bb26478358db0a1f73cc2
+  - enabled: 1
+    path: Assets/Scenes/TestQuest 1/TestQuestAlpha_Title.unity
+    guid: 34a4a59060e54514b9be25692fdaa44f
   m_configObjects: {}

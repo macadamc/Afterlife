@@ -9,7 +9,6 @@ public class CameraZoneEvent : MonoBehaviour
     public List<string> ignoreKeys = new List<string>();
     [InlineButton("Reset")]
     public string guid;
-
     private void Reset()
     {
         guid = System.Guid.NewGuid().ToString();
@@ -34,7 +33,7 @@ public class CameraZoneEvent : MonoBehaviour
 
         foreach(string s in ignoreKeys)
         {
-            if (SaveLoadManager.Instance.tempVariables.HasKey(s) || SaveLoadManager.Instance.savedVariables.HasKey(s))
+            if (SaveLoadManager.Instance.tempVariables.HasKey(s)|| SaveLoadManager.Instance.savedVariables.HasKey(s))
             {
                 return;
             }
