@@ -10,8 +10,10 @@ public class ChangeHealthOnTriggerEnter : TriggerZone {
 
     protected override void OnEnter(Collider2D collision)
     {
+        Health self = GetComponentInParent<Health>();
         Health healthComponenet = collision.gameObject.GetComponentInChildren<Health>();
-        if(healthComponenet!=null)
+
+        if(healthComponenet != null && ((self != null && self != healthComponenet) || self == null))
         {
             healthComponenet.ChangeHealth(change.Value);
         }

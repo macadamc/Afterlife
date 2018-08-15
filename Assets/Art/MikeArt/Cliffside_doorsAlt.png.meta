@@ -4,6 +4,7 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: Cliffside_SewerGrate
     21300002: Cliffside_LockedLargeDoor
+    21300004: Cliffside_LargeLockedAlt
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -132,6 +133,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f71581b6591c27b419e881c26fb4bd6a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliffside_LargeLockedAlt
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 769fc4402a8c97e4c80af1aeb8fb5a64
       vertices: []
       indices: 
       edges: []
