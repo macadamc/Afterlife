@@ -20,7 +20,6 @@ public class InventoryController : MonoBehaviour, IDataPersister
         public Events events;
     }
 
-
     [System.Serializable]
     public class InventoryChecker
     {
@@ -52,40 +51,28 @@ public class InventoryController : MonoBehaviour, IDataPersister
         }
     }
 
-
     public InventoryEvent[] inventoryEvents;
     public event System.Action OnInventoryLoaded;
 
     public DataSettings dataSettings;
 
-    HashSet<string> m_InventoryItems = new HashSet<string>();
-
+    public InventorySO inventory;
 
     //Debug function useful in editor during play mode to print in console all objects in that InventoyController
     [ContextMenu("Dump")]
     void Dump()
     {
-        foreach (var item in m_InventoryItems)
+        foreach (var item in inventory.m_InventoryItems)
         {
             Debug.Log(item);
         }
     }
 
-    void OnEnable()
-    {
-        PersistentDataManager.RegisterPersister(this);
-    }
-
-    void OnDisable()
-    {
-        PersistentDataManager.UnregisterPersister(this);
-    }
-
     public void AddItem(string key)
     {
-        if (!m_InventoryItems.Contains(key))
+        if (!inventory.Contains(key))
         {
-            m_InventoryItems.Add(key);
+            inventory.Add(key);
             var ev = GetInventoryEvent(key);
             if (ev != null) ev.events.OnAdd.Invoke();
         }
@@ -93,22 +80,22 @@ public class InventoryController : MonoBehaviour, IDataPersister
 
     public void RemoveItem(string key)
     {
-        if (m_InventoryItems.Contains(key))
+        if (inventory.Contains(key))
         {
             var ev = GetInventoryEvent(key);
             if (ev != null) ev.events.OnRemove.Invoke();
-            m_InventoryItems.Remove(key);
+            inventory.Remove(key);
         }
     }
 
     public bool HasItem(string key)
     {
-        return m_InventoryItems.Contains(key);
+        return inventory.Contains(key);
     }
 
     public void Clear()
     {
-        m_InventoryItems.Clear();
+        inventory.m_InventoryItems.Clear();
     }
 
     InventoryEvent GetInventoryEvent(string key)
@@ -133,7 +120,7 @@ public class InventoryController : MonoBehaviour, IDataPersister
 
     public Data SaveData()
     {
-        return new Data<HashSet<string>>(m_InventoryItems);
+        return new Data<HashSet<string>>(inventory.m_InventoryItems);
     }
 
     public void LoadData(Data data)

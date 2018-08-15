@@ -12,10 +12,6 @@ public class TriggerZone : MonoBehaviour
         public UnityEvent onTrigger;
         public UnityEvent onExit;
     }
-
-    public bool triggerOnceWhileActive;
-    bool triggered;
-
     [Tooltip("List of tags that can trigger this object. If blank it will use any OnTriggerEnter calls it receives.")]
     public List<string> triggerTags = new List<string>();
     [Tooltip("List of tags that this trigger will ignore collisions with.")]
@@ -29,9 +25,6 @@ public class TriggerZone : MonoBehaviour
     {
         if (addPlayerTag && !triggerTags.Contains("Player"))
             triggerTags.Add("Player");
-
-        if(triggered && triggerOnceWhileActive)
-            triggered = false;
     }
 
     protected bool HasTag(GameObject go, List<string> tags)
@@ -73,18 +66,14 @@ public class TriggerZone : MonoBehaviour
     {
         if (ConditionsMet(collision))
         {
-            if (triggerOnceWhileActive && !triggered || !triggerOnceWhileActive)
-            {
-                OnEnter(collision);
-                events.onTrigger?.Invoke();
-                triggered = true;
-            }
+            OnEnter(collision);
+            events.onTrigger?.Invoke();
         }
     }
 
     protected void OnTriggerStay2D(Collider2D collision)
     {
-        if (ConditionsMet(collision) && triggered)
+        if (ConditionsMet(collision))
         {
             OnStay(collision);
         }
@@ -96,8 +85,6 @@ public class TriggerZone : MonoBehaviour
         {
             OnExit(collision);
             events.onExit?.Invoke();
-            if (triggerOnceWhileActive == false)
-                triggered = false;
         }            
     }
 

@@ -30,6 +30,7 @@ public class TriggerOnNoEnemys : MonoBehaviour
             events = spawnerTransform.GetComponentsInChildren<CameraZoneEvent>();
     }
 
+
     public void Update()
     {
         if(activeEnemys.Items.Count == 0 && triggered == false && CameraFollow.Instance?._bounds == targetCameraZone?.col.bounds)

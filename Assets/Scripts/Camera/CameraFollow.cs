@@ -64,7 +64,7 @@ public class CameraFollow : Singleton<CameraFollow>
 
             if (!_initialized && Application.isPlaying)
             {
-                Initialize(pos);
+                Init(pos);
             }
 
             return pos;
@@ -249,11 +249,12 @@ public class CameraFollow : Singleton<CameraFollow>
 
     }
 
+
     /// <summary>
     /// Initialize object. Sets starting position and size of camera.
     /// </summary>
     /// <param name="pos"></param>
-    private void Initialize(Vector3 pos)
+    private void Init(Vector3 pos)
     {
         _initialized = true;
         _targetPos = pos;
@@ -262,6 +263,11 @@ public class CameraFollow : Singleton<CameraFollow>
          SetCameraSizeValues();
 
         Initialize(this);
+    }
+
+    private void OnEnable()
+    {
+        Init(transform.position);
     }
 
     private void SetCameraSizeValues()
