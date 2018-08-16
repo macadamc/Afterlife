@@ -3,8 +3,9 @@ guid: dcf95d73c272f2542b5f9ffb8debf203
 TextureImporter:
   fileIDToRecycleName:
     21300000: Cliffside_SewerGrate
-    21300002: Cliffside_LockedLargeDoor
-    21300004: Cliffside_LargeLockedAlt
+    21300002: Cliffside_LockedLargeSmallKey
+    21300004: Cliffside_LargeLockedTriggered
+    21300006: Cliffside_LargeLockedOneWay
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -118,7 +119,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cliffside_LockedLargeDoor
+      name: Cliffside_LockedLargeSmallKey
       rect:
         serializedVersion: 2
         x: 0
@@ -138,10 +139,30 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cliffside_LargeLockedAlt
+      name: Cliffside_LargeLockedTriggered
       rect:
         serializedVersion: 2
         x: 32
+        y: 0
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 769fc4402a8c97e4c80af1aeb8fb5a64
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliffside_LargeLockedOneWay
+      rect:
+        serializedVersion: 2
+        x: 64
         y: 0
         width: 32
         height: 31
@@ -152,7 +173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 769fc4402a8c97e4c80af1aeb8fb5a64
+      spriteID: 04844b69da36d3c42aa88dd6b527e702
       vertices: []
       indices: 
       edges: []
