@@ -52,9 +52,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4646335259261278}
-  - component: {fileID: 114379959277197088}
-  - component: {fileID: 114157804528849766}
+  - component: {fileID: 114464788856077796}
   - component: {fileID: 114258704261403078}
+  - component: {fileID: 114157804528849766}
   m_Layer: 0
   m_Name: LookForTarget
   m_TagString: Untagged
@@ -380,7 +380,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1826403442561994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16, y: -6, z: 0}
+  m_LocalPosition: {x: 29.97267, y: 16.895765, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4902289421872890}
@@ -633,12 +633,12 @@ MonoBehaviour:
     OnStateEnter:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp-firstpass, Version=0.0.0.0,
+      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     OnStateExit:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp-firstpass, Version=0.0.0.0,
+      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   states: []
 --- !u!114 &114094637609650206
@@ -675,7 +675,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   inputController: {fileID: 114700931904902386}
-  holdTime: {x: 0.5041234, y: 5}
+  holdTime: {x: 0.5041234, y: 2.0005744}
   changeStateOnFinish: 1
 --- !u!114 &114157804528849766
 MonoBehaviour:
@@ -711,13 +711,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989db5ac4e126a344aa62febf2454d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth:
+  currentHealth:
     type: 0
-    ConstantValue: 10
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  maxHealth:
+    type: 0
+    ConstantValue: 0
     Variable: {fileID: 0}
   damageFlashAmount: 3
-  spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
-    type: 2}
   deactivateRootObjectOnDeath: 1
   events:
     onHurt:
@@ -789,7 +791,7 @@ MonoBehaviour:
   ic: {fileID: 114700931904902386}
   visionTags: []
   targets: {fileID: 114801831984892366}
---- !u!114 &114379959277197088
+--- !u!114 &114464788856077796
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -797,7 +799,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1114060371799242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bfdb99a1bcd7564a8f1a68028034d88, type: 3}
+  m_Script: {fileID: 11500000, guid: c24fa6c478ed7d94991161b2ef2a4b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   events:
@@ -811,8 +813,8 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  moveTime: {x: 0.25, y: 2}
-  delayTime: {x: 0.5, y: 5}
+  moveTime: {x: 0.5, y: 0.5}
+  delayTime: {x: 0, y: 2}
   inputController: {fileID: 114700931904902386}
   nextState: {fileID: 0}
 --- !u!114 &114475819156830480
@@ -859,7 +861,7 @@ MonoBehaviour:
   inAirLayerName: HighObstacle
   waterOffset: -0.2
   baseOffset: 0
-  waterTiles: {fileID: 11400000, guid: 72ef561d195d86345a8d77e25a3d05c0, type: 2}
+  waterTiles: {fileID: 0}
 --- !u!114 &114643671793307366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -918,8 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21dd660808631e2488226118f9b323f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformRuntimeSets:
-  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
+  transformRuntimeSet: {fileID: 0}
 --- !u!114 &114832752368265544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -991,7 +992,6 @@ MonoBehaviour:
   knockbackDecel: 5
   knockbackDeadzone: 0.1
   stepSoundSource: {fileID: 82571123577050344}
-  waterTiles: {fileID: 0}
   stepLength: {x: 1, y: 1}
 --- !u!210 &210589808558293932
 SortingGroup:
@@ -1002,7 +1002,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: 96
+  m_SortingOrder: -270
 --- !u!212 &212352085093070082
 SpriteRenderer:
   m_ObjectHideFlags: 1

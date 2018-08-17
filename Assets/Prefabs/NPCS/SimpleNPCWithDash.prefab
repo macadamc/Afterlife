@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4642154404701900}
-  - component: {fileID: 114933656697879174}
+  - component: {fileID: 114457074661488282}
   - component: {fileID: 114329674096046448}
   - component: {fileID: 114882876315761716}
   m_Layer: 0
@@ -186,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1668161774214280
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +409,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1517035811230268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.57, y: 1.78, z: 0}
+  m_LocalPosition: {x: 3.2626343, y: -1.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4276963887994452}
@@ -627,13 +627,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989db5ac4e126a344aa62febf2454d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth:
+  currentHealth:
     type: 0
-    ConstantValue: 10
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  maxHealth:
+    type: 0
+    ConstantValue: 0
     Variable: {fileID: 0}
   damageFlashAmount: 3
-  spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
-    type: 2}
   deactivateRootObjectOnDeath: 1
   events:
     onHurt:
@@ -682,8 +684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea6bf20ca94de44ca6af49e26bd0594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputController: {fileID: 0}
-  _vision: {fileID: 0}
+  inputController: {fileID: 114611072303188288}
+  _vision: {fileID: 114818782453561770}
 --- !u!114 &114213536474958452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -730,6 +732,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ppu: 16
+--- !u!114 &114457074661488282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1469835818127566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24fa6c478ed7d94991161b2ef2a4b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+    onEnterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onExitEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  moveTime: {x: 0.25, y: 0.25}
+  delayTime: {x: 0, y: 0.25}
+  inputController: {fileID: 114611072303188288}
+  nextState: {fileID: 0}
 --- !u!114 &114483123466466730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -769,12 +797,12 @@ MonoBehaviour:
     OnStateEnter:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp-firstpass, Version=0.0.0.0,
+      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     OnStateExit:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp-firstpass, Version=0.0.0.0,
+      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   states: []
 --- !u!114 &114514259287137338
@@ -831,7 +859,6 @@ MonoBehaviour:
   knockbackDecel: 5
   knockbackDeadzone: 0.1
   stepSoundSource: {fileID: 82308489764942892}
-  waterTiles: {fileID: 0}
   stepLength: {x: 1, y: 1}
 --- !u!114 &114611072303188288
 MonoBehaviour:
@@ -873,7 +900,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  inputController: {fileID: 0}
+  inputController: {fileID: 114611072303188288}
   holdTime: {x: 0.8933979, y: 0.9903089}
   changeStateOnFinish: 1
 --- !u!114 &114684278458437962
@@ -887,7 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016d2b421a536834abe31616f336336a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputController: {fileID: 0}
+  inputController: {fileID: 114611072303188288}
 --- !u!114 &114750445488058750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -911,7 +938,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   targetDistance: 2.5
-  inputController: {fileID: 0}
+  inputController: {fileID: 114611072303188288}
   changeStateOnFinish: 1
 --- !u!114 &114811489459073396
 MonoBehaviour:
@@ -960,7 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016d2b421a536834abe31616f336336a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputController: {fileID: 0}
+  inputController: {fileID: 114611072303188288}
 --- !u!114 &114933479206287492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -986,31 +1013,6 @@ MonoBehaviour:
   vision: {fileID: 114818782453561770}
   dashForce: {x: 10, y: 10}
   dashDelay: {x: 0, y: 0}
---- !u!114 &114933656697879174
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1469835818127566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bfdb99a1bcd7564a8f1a68028034d88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  events:
-    onEnterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExitEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  moveTime: {x: 0.25, y: 2}
-  delayTime: {x: 0.5, y: 5}
-  inputController: {fileID: 114611072303188288}
 --- !u!114 &114992070327390628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1030,7 +1032,7 @@ MonoBehaviour:
   inAirLayerName: HighObstacle
   waterOffset: -0.2
   baseOffset: 0
-  waterTiles: {fileID: 11400000, guid: 72ef561d195d86345a8d77e25a3d05c0, type: 2}
+  waterTiles: {fileID: 0}
 --- !u!210 &210277146840166056
 SortingGroup:
   m_ObjectHideFlags: 1
@@ -1040,7 +1042,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -87
+  m_SortingOrder: -244
 --- !u!212 &212282800244098354
 SpriteRenderer:
   m_ObjectHideFlags: 1
