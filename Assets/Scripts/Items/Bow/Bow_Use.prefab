@@ -215,7 +215,6 @@ MonoBehaviour:
   knockbackDecel: 15
   knockbackDeadzone: 0.1
   stepSoundSource: {fileID: 0}
-  waterTiles: {fileID: 0}
   stepLength: {x: 1, y: 1}
 --- !u!114 &114340067795590922
 MonoBehaviour:
@@ -306,6 +305,7 @@ MonoBehaviour:
   triggerTags: []
   ignoreTags:
   - Projectile
+  - Enemy
   ignoreObject: {fileID: 0}
   addPlayerTag: 0
   events:
@@ -333,7 +333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerTags: []
-  ignoreTags: []
+  ignoreTags:
+  - Enemy
   ignoreObject: {fileID: 0}
   addPlayerTag: 0
   events:

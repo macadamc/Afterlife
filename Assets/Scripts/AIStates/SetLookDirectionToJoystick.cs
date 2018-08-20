@@ -6,6 +6,8 @@ public class SetLookDirectionToJoystick : MonoBehaviour {
 
     public InputController inputController;
 
+    public bool useOrthognial;
+
     private void OnEnable()
     {
         if (inputController == null)
@@ -14,6 +16,18 @@ public class SetLookDirectionToJoystick : MonoBehaviour {
 
     private void Update()
     {
-        inputController.SetLookDirection();
+        if(useOrthognial)
+        {
+            if (Mathf.Abs(inputController.joystick.x) > Mathf.Abs(inputController.joystick.y))
+            {
+                inputController.joystick.y = 0;
+            }
+            else
+            {
+                inputController.joystick.x = 0;
+            }
+        }
+       
+        inputController.SetLookDirection(inputController.joystick.normalized);
     }
 }

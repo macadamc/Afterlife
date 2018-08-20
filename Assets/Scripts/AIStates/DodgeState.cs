@@ -34,7 +34,7 @@ public class DodgeState : State
         if (vision.targets.transforms != null && vision.targets.transforms.Count > 0)
             target_IC = vision.targets.transforms[0].GetComponent<InputController>();
 
-        if ((coroutine == null && target_IC != null && (target_IC.input.held || target_IC.input.pressed || target_IC.input.released)))
+        if ((target_IC != null && (target_IC.input.pressed || target_IC.input.released)))
         {
 
             coroutine = StartCoroutine(Dodge(target_IC));
@@ -55,6 +55,7 @@ public class DodgeState : State
         yield return new WaitUntil(() => { return movementController.Knockedback == false; });
 
         coroutine = null;
-        StateMachine.ChangeState(onDodge);
+        if(onDodge != null)
+            StateMachine.ChangeState(onDodge);
     }
 }

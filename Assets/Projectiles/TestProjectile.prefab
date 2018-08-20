@@ -166,7 +166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerTags: []
-  ignoreTags: []
+  ignoreTags:
+  - Enemy
   ignoreObject: {fileID: 0}
   addPlayerTag: 1
   events:
@@ -196,6 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {x: 0, y: 0}
+  lookDirection: {x: 0, y: 0}
+  strafe: 0
   input:
     pressed: 0
     held: 0

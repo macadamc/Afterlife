@@ -5,6 +5,7 @@ using ShadyPixel.StateMachine;
 
 public class MoveTowardTargetState : State
 {
+    public bool invert;
     public float targetDistance = 2.0f;
     public InputController inputController;
     Vision _vision;
@@ -19,7 +20,10 @@ public class MoveTowardTargetState : State
             inputController = GetComponentInParent<InputController>();
 
         _vision = GetComponentInParent<Vision>();
-        _target = _vision.targets.transforms[0];
+
+        if(_vision.targets.transforms.Count > 0)
+            _target = _vision.targets.transforms[0];
+
         base.OnEnable();
 
         if(_target != null && coroutine == null)
@@ -37,13 +41,30 @@ public class MoveTowardTargetState : State
         inputController.joystick = Vector2.zero;
     }
 
+    bool TestState
+    {
+        get
+        {
+            if (invert)
+            {
+                return Vector2.Distance(transform.position, _target.position) < targetDistance && _vision.targets.Contains(_target);
+            }
+            else
+            {
+                return Vector2.Distance(transform.position, _target.position) > targetDistance && _vision.targets.Contains(_target);
+            }
+        }
+    }
     private IEnumerator MoveTowardTarget()
     {
-        _running = true;
+        _running = true;        
 
-        while(Vector2.Distance(transform.position, _target.position) > targetDistance && _vision.targets.Contains(_target))
+        while (TestState)
         {
             inputController.joystick = (_target.position - transform.position).normalized;
+            if (invert)
+                inputController.joystick = -inputController.joystick;
+
             yield return null;
         }
 

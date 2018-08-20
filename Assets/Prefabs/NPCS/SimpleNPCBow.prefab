@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4210569548348866}
-  - component: {fileID: 114475819156830480}
+  - component: {fileID: 114461107320116646}
   - component: {fileID: 114157742188118546}
   m_Layer: 0
   m_Name: UseItem
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 114643671793307366}
   m_Layer: 11
   m_Name: SimpleNPCBow
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,7 +380,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1826403442561994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.97267, y: 16.895765, z: 0}
+  m_LocalPosition: {x: -8.879999, y: 4.0099998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4902289421872890}
@@ -588,6 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114700931904902386}
+  useOrthognial: 1
 --- !u!114 &114052240460439420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -755,6 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114700931904902386}
+  useOrthognial: 0
 --- !u!114 &114300051870643264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -791,6 +793,19 @@ MonoBehaviour:
   ic: {fileID: 114700931904902386}
   visionTags: []
   targets: {fileID: 114801831984892366}
+--- !u!114 &114461107320116646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129367793577856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6bf20ca94de44ca6af49e26bd0594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputController: {fileID: 114700931904902386}
+  _vision: {fileID: 114318138398173248}
 --- !u!114 &114464788856077796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -817,19 +832,6 @@ MonoBehaviour:
   delayTime: {x: 0, y: 2}
   inputController: {fileID: 114700931904902386}
   nextState: {fileID: 0}
---- !u!114 &114475819156830480
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1129367793577856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6bf20ca94de44ca6af49e26bd0594, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputController: {fileID: 114700931904902386}
-  _vision: {fileID: 114318138398173248}
 --- !u!114 &114529101192370840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -982,7 +984,7 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
-    ConstantValue: 3
+    ConstantValue: 1
     Variable: {fileID: 0}
   oldMoveSpeed:
     type: 0
@@ -1002,7 +1004,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -270
+  m_SortingOrder: -64
 --- !u!212 &212352085093070082
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1039,7 +1041,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 12fb70dd53ed45c41ad673e1752f224a, type: 3}
-  m_Color: {r: 0.23563749, g: 0, b: 0.38679248, a: 1}
+  m_Color: {r: 1, g: 0.6112393, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
