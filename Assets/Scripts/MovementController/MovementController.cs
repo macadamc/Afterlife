@@ -110,6 +110,20 @@ public class MovementController : MonoBehaviour
     protected float _nextMoveTime;
     protected float _nextStepTime;
     protected bool _stunned;
+    protected bool _initialized;
+    protected Vector2 _startPosition;
+
+    public virtual void OnEnable()
+    {
+        //sets the startposition of this object. if already set will reset to it when re enabled
+        if (!_initialized)
+        {
+            _initialized = true;
+            _startPosition = transform.position;
+        }
+        else
+            transform.position = _startPosition;
+    }
 
     /// <summary>
     /// movement logic should go here.
@@ -250,10 +264,4 @@ public class MovementController : MonoBehaviour
             }
         }
     }
-
-
-
-
-
-
 }

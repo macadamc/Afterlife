@@ -86,18 +86,20 @@ public class Health : MonoBehaviour
         }
     }
 
-    protected virtual void Initialize()
+    private void OnEnable()
     {
         currentHealth.Value = maxHealth.Value;
-        _initialized = true;
+        //_initialized = true;
         _sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
+    /*
     protected virtual void Start()
     {
         if (!_initialized)
             Initialize();
     }
+    */
 
     [Button]
     public void Damage()

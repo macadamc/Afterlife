@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraZone : TriggerZone
+[RequireComponent(typeof(BoxCollider2D))]
+public class CameraZone : InteractOnTrigger2D
 {
     public Transform cameraZoneTriggerEvents;
 
@@ -18,71 +19,51 @@ public class CameraZone : TriggerZone
         }
     }
 
-    public BoxCollider2D col;
-    BoxCollider2D Collider
-    {
-        get
-        {
-            if (col == null)
-                col = GetComponent<BoxCollider2D>();
+    public Bounds bounds;
 
-            return col;
+    bool m_InBounds;
+
+    protected override void Reset()
+    {
+        base.Reset();
+        bounds = GetComponent<BoxCollider2D>().bounds;
+    }
+
+    protected override void ExecuteOnEnter(Collider2D other)
+    {
+        //base.ExecuteOnEnter(other);
+        if(other.gameObject.CompareTag("Player"))
+        {
+            OnEnter.Invoke();
+            DoInventoryChecks(other);
+            CameraFollow.SetBounds(bounds);
+            m_InBounds = true;
         }
     }
 
-    CameraZoneEvent[] zoneEvents;
-
-    private void OnEnable()
+    void Update()
     {
-        if(cameraZoneTriggerEvents !=null)
-            zoneEvents = cameraZoneTriggerEvents.GetComponentsInChildren<CameraZoneEvent>();
-    }
-
-    protected override void OnEnter(Collider2D collision)
-    {
-        CameraFollow.SetBounds(Collider.bounds);
-        TriggerEnterEvents();
-    }
-
-    protected override void OnStay(Collider2D collision)
-    {
-        if(CameraFollow._bounds != Collider.bounds)
+        if(m_InBounds)
         {
-            CameraFollow.SetBounds(Collider.bounds);
+            if (CameraFollow._bounds != bounds)
+            {
+                CameraFollow.SetBounds(bounds);
+            }
         }
     }
 
-    protected override void OnExit(Collider2D collision)
+    protected override void ExecuteOnExit(Collider2D other)
     {
-        TriggerExitEvents();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            OnExit.Invoke();
+            m_InBounds = false;
+        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireCube(Collider.bounds.center, Collider.bounds.size);
-    }
-
-
-    private void TriggerEnterEvents()
-    {
-        if (zoneEvents == null || zoneEvents.Length == 0)
-            return;
-
-        foreach (CameraZoneEvent e in zoneEvents)
-        {
-            e.CheckTriggerEventKeys();
-        }
-    }
-
-    private void TriggerExitEvents()
-    {
-        if (zoneEvents == null || zoneEvents.Length == 0)
-            return;
-
-        foreach (CameraZoneEvent e in zoneEvents)
-        {
-            e.TriggerExitEvent();
-        }
+        Gizmos.DrawWireCube(bounds.center, bounds.size);
     }
 }

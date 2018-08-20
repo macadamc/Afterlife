@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class PersistentDataManager : MonoBehaviour
 {
@@ -72,11 +73,15 @@ public class PersistentDataManager : MonoBehaviour
         }
     }
 
+    [Button]
+    [ShowIf("IsGameRunning")]
     public static void SaveAllData()
     {
         Instance.SaveAllDataInternal();
     }
 
+    [Button]
+    [ShowIf("IsGameRunning")]
     public static void LoadAllData()
     {
         Instance.LoadAllDataInternal();
@@ -141,6 +146,11 @@ public class PersistentDataManager : MonoBehaviour
                 }
             }
         };
+    }
+
+    bool IsGameRunning()
+    {
+        return Application.isPlaying;
     }
 
 }

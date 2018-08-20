@@ -33,7 +33,7 @@ public class TriggerOnNoEnemys : MonoBehaviour
 
     public void Update()
     {
-        if(activeEnemys.Items.Count == 0 && triggered == false && CameraFollow.Instance?._bounds == targetCameraZone?.col.bounds)
+        if(activeEnemys.Items.Count == 0 && triggered == false && CameraFollow.Instance?._bounds == targetCameraZone?.bounds)
         {
             onTriggered.ev.Invoke();
             triggered = true;

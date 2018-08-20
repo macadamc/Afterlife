@@ -7,26 +7,21 @@ using Sirenix.OdinInspector;
 [RequireComponent(typeof(Collider2D))]
 public class InteractOnTrigger2D : MonoBehaviour
 {
-    [System.Serializable]
-    public class Events
-    {
-        public UnityEvent OnEnter, OnExit;
-    }
-
+    public UnityEvent OnEnter, OnExit;
     public LayerMask layers;
-    [DrawWithUnity]
-    public Events events;
     public InventoryController.InventoryChecker[] inventoryChecks;
 
     protected Collider2D m_Collider;
 
-    void Reset()
+    // called from unity editor dropdown menu and when component is created
+    protected virtual void Reset()
     {
         layers = LayerMask.NameToLayer("Everything");
         m_Collider = GetComponent<Collider2D>();
         m_Collider.isTrigger = true;
     }
 
+    // checks layer that other gameobject is on compared to layermask.
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!enabled)
@@ -49,18 +44,26 @@ public class InteractOnTrigger2D : MonoBehaviour
         }
     }
 
-    protected virtual void ExecuteOnEnter(Collider2D other)
+    // loops through inventory checks and calls function on them
+    protected void DoInventoryChecks(Collider2D other)
     {
-        events.OnEnter.Invoke();
         for (int i = 0; i < inventoryChecks.Length; i++)
         {
             inventoryChecks[i].CheckInventory(other.GetComponentInChildren<InventoryController>());
         }
     }
 
+    // when entering trigger and passes layermask check
+    protected virtual void ExecuteOnEnter(Collider2D other)
+    {
+        OnEnter.Invoke();
+        DoInventoryChecks(other);
+    }
+
+    // when leaving trigger and passes layermask check
     protected virtual void ExecuteOnExit(Collider2D other)
     {
-        events.OnExit.Invoke();
+        OnExit.Invoke();
     }
 
     void OnDrawGizmos()

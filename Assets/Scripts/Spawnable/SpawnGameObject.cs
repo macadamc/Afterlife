@@ -3,51 +3,65 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class SpawnGameObject : CameraZoneEvent
+public class SpawnGameObject : MonoBehaviour
 {
     public GameObject prefabToSpawn;
-
-    public bool isLocal;
-
-    public bool persistant;
-    public bool IsPersistant { get { return persistant; } }
-
-    GameObject spawnedObject;
-
     [Range(0,20)]
-    public float randomSpawnRange;
+    public float randomSpawnRange = 0;
+    public float initialDelay = 0.0f;
+    public int amount = 1;
 
-    public bool rotateSpawnedObject = true;
+    List<GameObject> m_spawnedObjects = new List<GameObject>();
+    float m_timer;
+    bool m_spawned;
 
-    protected override void OnTrigger()
+    private void OnEnable()
     {
-        spawnedObject = Instantiate(prefabToSpawn, transform.position + (Vector3)Random.insideUnitCircle*randomSpawnRange, rotateSpawnedObject ? Quaternion.identity : prefabToSpawn.transform.rotation);
-        Spawnable spawnable = spawnedObject.GetComponent<Spawnable>();
-        spawnable.spawner = this;
-        spawnable.isLocal = isLocal;
-        spawnable.persistant = persistant;
+        m_timer = initialDelay;
+        m_spawned = false;
     }
 
-    protected override void OnExit()
+    private void OnDisable()
     {
-        if(spawnedObject != null)
+        DeSpawn();
+    }
+
+    private void Update()
+    {
+        if(m_timer > 0)
         {
-            Destroy(spawnedObject);
-            spawnedObject = null;
+            m_timer -= Time.deltaTime;
+        }
+        else if(!m_spawned)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                Spawn(prefabToSpawn, (Vector2)transform.position + Random.insideUnitCircle * randomSpawnRange);
+            }
+            m_spawned = true;
         }
     }
 
-    private void OnDrawGizmos()
+    protected void Spawn(GameObject prefab, Vector2 position)
+    {
+        GameObject go = Instantiate(prefab, position, Quaternion.identity);
+        m_spawnedObjects.Add(go);
+    }
+
+    protected void DeSpawn()
+    {
+        for (int i = m_spawnedObjects.Count - 1; i >= 0; i--)
+        {
+            Destroy(m_spawnedObjects[i]);
+        }
+        m_spawnedObjects.Clear();
+    }
+
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        if(randomSpawnRange == 0.0f)
-        {
-            Gizmos.DrawLine(transform.position - Vector3.right / 2, transform.position + Vector3.right / 2);
-            Gizmos.DrawLine(transform.position - Vector3.up / 2, transform.position + Vector3.up / 2);
-        }
-        else
-        {
-            Gizmos.DrawWireSphere(transform.position, randomSpawnRange);
-        }
+
+        Gizmos.DrawWireSphere(transform.position, randomSpawnRange);
+        
     }
 }
