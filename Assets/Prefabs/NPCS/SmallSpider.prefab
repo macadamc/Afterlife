@@ -29,7 +29,6 @@ GameObject:
   - component: {fileID: 114973487979168350}
   - component: {fileID: 114318633111459278}
   - component: {fileID: 82209535671478792}
-  - component: {fileID: 114572262810893798}
   - component: {fileID: 114235091904700148}
   - component: {fileID: 114709946540568072}
   - component: {fileID: 114991140046528740}
@@ -132,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4116651091402714}
-  - component: {fileID: 114322325423080422}
+  - component: {fileID: 114338323889705124}
   - component: {fileID: 114414000693556482}
   - component: {fileID: 114209885644590680}
   m_Layer: 11
@@ -191,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1161385815100468}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.5, y: -4.25, z: 0}
+  m_LocalPosition: {x: 33.30687, y: -31.639267, z: 2.7109375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4620976788918782}
@@ -508,7 +507,7 @@ MonoBehaviour:
   waterOffset: 0.2
   baseOffset: 0
   waterTiles: {fileID: 0}
---- !u!114 &114322325423080422
+--- !u!114 &114338323889705124
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -516,7 +515,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1686250629273054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bfdb99a1bcd7564a8f1a68028034d88, type: 3}
+  m_Script: {fileID: 11500000, guid: c24fa6c478ed7d94991161b2ef2a4b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   events:
@@ -530,9 +529,9 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  moveTime: {x: 0.25, y: 0.5}
-  delayTime: {x: 0.5, y: 3}
-  inputController: {fileID: 114560428774056664}
+  moveTime: {x: 1.0633302, y: 3.0119274}
+  delayTime: {x: 0, y: 3.1463134}
+  inputController: {fileID: 0}
   nextState: {fileID: 0}
 --- !u!114 &114414000693556482
 MonoBehaviour:
@@ -546,6 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114560428774056664}
+  useOrthognial: 0
 --- !u!114 &114484955346934168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -626,20 +626,6 @@ MonoBehaviour:
     pressed: 0
     held: 0
     released: 0
---- !u!114 &114572262810893798
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1161385815100468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f62f95963aebf43a23756111b3dfe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  isLocal: 0
-  persistant: 0
 --- !u!114 &114664526462020404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -681,7 +667,7 @@ MonoBehaviour:
     onDeath:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114572262810893798}
+        - m_Target: {fileID: 0}
           m_MethodName: SetVar
           m_Mode: 6
           m_Arguments:

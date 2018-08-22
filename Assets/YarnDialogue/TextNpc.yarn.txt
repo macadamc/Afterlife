@@ -3,10 +3,10 @@ tags:
 colorID: 0
 position: 870,587
 ---
-<<if $hasitem is true>>
-    TestNpc:I told you not to go in to the cave.
+<<if $Has_Sword is false>>
+	TestNpc:Hey, Stay out of that cave.
 <<else>>
-    TestNpc:Stay out of that cave.
+     TestNpc:I told you not to go in to the cave {PlayerName}
 <<endif>>
 ===
 title: TestNpc.DefaultPressed

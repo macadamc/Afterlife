@@ -7,8 +7,8 @@ using Sirenix.OdinInspector;
 [CreateAssetMenu(menuName ="ShadyPixel/Inventory")]
 public class InventorySO : ScriptableObject
 {
-    public HashSet<string> m_InventoryItems = new HashSet<string>();
-
+    public List<string> m_InventoryItems = new List<string>();
+    
     public void Add(string key)
     {
         if (!m_InventoryItems.Contains(key))
@@ -23,6 +23,7 @@ public class InventorySO : ScriptableObject
     {
         return m_InventoryItems.Contains(key);
     }
+
     public void Clear()
     {
         m_InventoryItems.Clear();

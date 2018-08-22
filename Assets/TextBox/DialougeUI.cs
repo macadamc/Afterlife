@@ -10,8 +10,6 @@ using Sirenix.OdinInspector;
 
 public class DialougeUI : DialogueUIBehaviour
 {
-    [System.NonSerialized]
-    public VariableStorage variables;
     public GameObject choicePrefab;
     private OptionChooser SetSelectedOption;
     private TextGenerator generator;
@@ -24,7 +22,7 @@ public class DialougeUI : DialogueUIBehaviour
 
     private void Start()
     {
-        variables = SaveLoadManager.Instance.savedVariables;
+        //variables = SaveLoadManager.Instance.savedVariables;
     }
 
     public override IEnumerator RunCommand(Command command)
@@ -36,7 +34,6 @@ public class DialougeUI : DialogueUIBehaviour
 
     public override IEnumerator RunLine(Line line)
     {
-        line.text = ParseVariables(line.text);
         TextBoxRef tb = null;
         TextBox textBox = null;
         string text = string.Empty;
@@ -129,7 +126,7 @@ public class DialougeUI : DialogueUIBehaviour
         foreach(string option in optionsCollection.options)
         {
             Button choice = Instantiate(choicePrefab, lastTextBox.textBox.choiceContainer.transform, false).GetComponent<Button>();
-            choice.GetComponentInChildren<Text>().text = ParseVariables(option);
+            choice.GetComponentInChildren<Text>().text = option;
             choice.onClick.AddListener(() => {
                 waitingForChoice = false;
                 optionChooser(choice.transform.GetSiblingIndex());
@@ -182,26 +179,6 @@ public class DialougeUI : DialogueUIBehaviour
 
             if (ret.x < lineWidth)
                 ret.x = lineWidth;
-        }
-        return ret;
-    }
-
-    public string ParseVariables(string text)
-    {
-        string ret = text;
-        Regex varcheck = new Regex("\\[.*\\]");
-        foreach(var match in varcheck.Matches(text))
-        {
-            string str = match.ToString();
-            string key = $"${str.Substring(1, str.Length - 2)}";
-
-            if(variables.HasKey(key))
-            {
-                string value = variables.GetValue(key).AsString;
-                //Debug.Log($"{key}: {value}");
-                ret = ret.Replace(str, value);
-            }
-            
         }
         return ret;
     }

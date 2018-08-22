@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class PersistentDataManager : MonoBehaviour
 {
@@ -32,6 +34,7 @@ public class PersistentDataManager : MonoBehaviour
     }
 
     protected HashSet<IDataPersister> m_DataPersisters = new HashSet<IDataPersister>();
+    [ShowInInspector]
     protected Dictionary<string, Data> m_Store = new Dictionary<string, Data>();
     event System.Action schedule = null;
 
@@ -73,15 +76,13 @@ public class PersistentDataManager : MonoBehaviour
         }
     }
 
-    [Button]
-    [ShowIf("IsGameRunning")]
+    [Button("Write Objects to Storage")]
     public static void SaveAllData()
     {
         Instance.SaveAllDataInternal();
     }
 
-    [Button]
-    [ShowIf("IsGameRunning")]
+    [Button("Load Objects from Storage")]
     public static void LoadAllData()
     {
         Instance.LoadAllDataInternal();
@@ -153,4 +154,30 @@ public class PersistentDataManager : MonoBehaviour
         return Application.isPlaying;
     }
 
+    [Button]
+    public void SaveExternal()
+    {
+        string fileName = "testSave.bin";
+
+        SaveAllDataInternal();
+        FileStream stream = File.Open(Application.persistentDataPath + "/" + fileName, FileMode.OpenOrCreate);
+        var formatter = new BinaryFormatter();
+        formatter.Serialize(stream, m_Store);
+        stream.Close();
+
+        // Restore from file
+        
+
+    }
+    [Button]
+    public void LoadExternal()
+    {
+        string fileName = "testSave.bin";
+
+        FileStream stream = File.OpenRead(Application.persistentDataPath + "/" + fileName);
+        var formatter = new BinaryFormatter();
+        m_Store = (Dictionary<string, Data>)formatter.Deserialize(stream);
+        stream.Close();
+        LoadAllDataInternal();
+    }
 }

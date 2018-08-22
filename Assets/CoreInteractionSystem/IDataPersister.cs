@@ -37,12 +37,15 @@ public class DataSettings
     }
 }
 
+
+[Serializable]
 public class Data
 {
 
 }
 
 
+[Serializable]
 public class Data<T> : Data
 {
     public T value;
@@ -54,6 +57,7 @@ public class Data<T> : Data
 }
 
 
+[Serializable]
 public class Data<T0, T1> : Data
 {
     public T0 value0;
@@ -67,6 +71,7 @@ public class Data<T0, T1> : Data
 }
 
 
+[Serializable]
 public class Data<T0, T1, T2> : Data
 {
     public T0 value0;
@@ -82,6 +87,7 @@ public class Data<T0, T1, T2> : Data
 }
 
 
+[Serializable]
 public class Data<T0, T1, T2, T3> : Data
 {
     public T0 value0;
@@ -99,6 +105,7 @@ public class Data<T0, T1, T2, T3> : Data
 }
 
 
+[Serializable]
 public class Data<T0, T1, T2, T3, T4> : Data
 {
     public T0 value0;

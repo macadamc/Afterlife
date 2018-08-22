@@ -120,12 +120,12 @@ public class InventoryController : MonoBehaviour, IDataPersister
 
     public Data SaveData()
     {
-        return new Data<HashSet<string>>(inventory.m_InventoryItems);
+        return new Data<List<string>>(inventory.m_InventoryItems);
     }
 
     public void LoadData(Data data)
     {
-        Data<HashSet<string>> inventoryData = (Data<HashSet<string>>)data;
+        Data<List<string>> inventoryData = (Data<List<string>>)data;
         foreach (var i in inventoryData.value)
             AddItem(i);
         if (OnInventoryLoaded != null) OnInventoryLoaded();

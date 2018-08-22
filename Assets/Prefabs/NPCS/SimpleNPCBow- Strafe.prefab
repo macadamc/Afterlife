@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 114873650403934526}
   - component: {fileID: 114225275157408522}
   - component: {fileID: 114239645548925482}
-  - component: {fileID: 114929144166115128}
   m_Layer: 11
   m_Name: SimpleNPCBow- Strafe
   m_TagString: Enemy
@@ -744,6 +743,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  invert: 0
   targetDistance: 5
   inputController: {fileID: 114492238867360988}
   changeStateOnFinish: 0
@@ -847,6 +847,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  invert: 0
   targetDistance: 5
   inputController: {fileID: 114492238867360988}
   changeStateOnFinish: 1
@@ -1011,20 +1012,6 @@ MonoBehaviour:
   enemys:
   - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
   - {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac, type: 2}
---- !u!114 &114929144166115128
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1377579201720136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f62f95963aebf43a23756111b3dfe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  isLocal: 0
-  persistant: 0
 --- !u!114 &114980186620116832
 MonoBehaviour:
   m_ObjectHideFlags: 1

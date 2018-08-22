@@ -116,7 +116,6 @@ GameObject:
   - component: {fileID: 114440049377620648}
   - component: {fileID: 114369970604564092}
   - component: {fileID: 114712607148067158}
-  - component: {fileID: 114523048274379134}
   m_Layer: 11
   m_Name: SimpleNPCWithClosinOnAttack
   m_TagString: Untagged
@@ -589,6 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114595139553942712}
+  useOrthognial: 0
 --- !u!114 &114172462544123876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -636,6 +636,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  invert: 0
   targetDistance: 2
   inputController: {fileID: 114595139553942712}
   changeStateOnFinish: 1
@@ -819,20 +820,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 114595139553942712}
   _vision: {fileID: 114369970604564092}
---- !u!114 &114523048274379134
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1484698986971486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f62f95963aebf43a23756111b3dfe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  isLocal: 0
-  persistant: 0
 --- !u!114 &114544819479657278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -855,6 +842,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  invert: 0
   targetDistance: 0.5
   inputController: {fileID: 114595139553942712}
   changeStateOnFinish: 0
@@ -922,6 +910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114595139553942712}
+  useOrthognial: 0
 --- !u!114 &114651454405775438
 MonoBehaviour:
   m_ObjectHideFlags: 1

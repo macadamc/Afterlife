@@ -1,9 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ShadyPixel.RuntimeSets;
+using ShadyPixel;
+using System.Linq;
+using System;
+using System.Reflection;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IDataPersister
 {
+    public DataSettings dataSettings;
+
+    static List<Type> types;
+
     public ItemController ItemController
     {
         get
@@ -61,7 +70,7 @@ public class Inventory : MonoBehaviour
     }
 
     private void Start()
-    {
+    {        
         itemSet.Items.Clear();
 
         if(aboveHeadSpriteRenderer!=null)
@@ -69,14 +78,73 @@ public class Inventory : MonoBehaviour
 
         InventoryManager.Instance.onEquipItem += OnEquipItem;
     }
+    private void OnEnable()
+    {
+        PersistentDataManager.RegisterPersister(this);
+    }
 
     private void OnDisable()
     {
         InventoryManager.Instance.onEquipItem -= OnEquipItem;
+        PersistentDataManager.UnregisterPersister(this);
     }
 
     private void OnEquipItem(Item item)
     {
         ItemController.EquipItem(item);
+    }
+
+    public DataSettings GetDataSettings()
+    {
+        return dataSettings;
+    }
+
+    public void SetDataSettings(string dataTag, DataSettings.PersistenceType persistenceType)
+    {
+        dataSettings.dataTag = dataTag;
+        dataSettings.persistenceType = persistenceType;
+    }
+
+    public Data SaveData()
+    {
+        return new Data<List<string>>(itemSet.Items.Select(N => N.name).ToList());
+    }
+
+    public void LoadData(Data data)
+    {
+       foreach(string itemName in ((Data<List<string>>)data).value)
+        {
+            itemSet.Items.Add(Resources.Load<Item>(itemName));
+            Debug.Log(itemName);
+
+            /*
+            itemSet.Items.Add(ScriptableObject.CreateInstance(
+                types.Where(T => T.Name == itemName).FirstOrDefault().Name) as Item
+                );
+
+            */
+        }
+
+        if (itemSet.Items.Count > 0)
+            OnEquipItem(itemSet.Items[0]);
+
+        Debug.Log("Loaded");
+    }
+
+    public static List<Type> FindAllDerivedTypes<T>()
+    {
+        return FindAllDerivedTypes<T>(Assembly.GetAssembly(typeof(Item)));
+    }
+
+    public static List<Type> FindAllDerivedTypes<T>(Assembly assembly)
+    {
+        var derivedType = typeof(T);
+        return assembly
+            .GetTypes()
+            .Where(t =>
+                t != derivedType &&
+                derivedType.IsAssignableFrom(t)
+                ).ToList();
+
     }
 }

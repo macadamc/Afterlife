@@ -9,7 +9,7 @@ public class InteractOnTrigger2D : MonoBehaviour
 {
     public UnityEvent OnEnter, OnExit;
     public LayerMask layers;
-    public InventoryController.InventoryChecker[] inventoryChecks;
+    public PersistentVariableStoreage.VariableStorageChecker[] inventoryChecks;
 
     protected Collider2D m_Collider;
 
@@ -49,7 +49,7 @@ public class InteractOnTrigger2D : MonoBehaviour
     {
         for (int i = 0; i < inventoryChecks.Length; i++)
         {
-            inventoryChecks[i].CheckInventory(other.GetComponentInChildren<InventoryController>());
+            inventoryChecks[i].CheckInventory(other.GetComponentInChildren<PersistentVariableStoreage>());
         }
     }
 

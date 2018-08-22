@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class KeyItem : MonoBehaviour, IDataPersister
+public class KeyItem : InteractOnTrigger2D, IDataPersister
 {
-    public string inventoryKey = "";
-    public LayerMask layers;
     public bool disableOnEnter = false;
 
     [HideInInspector]
@@ -26,7 +24,7 @@ public class KeyItem : MonoBehaviour, IDataPersister
         PersistentDataManager.UnregisterPersister(this);
     }
 
-    void Reset()
+    protected override void Reset()
     {
         layers = LayerMask.NameToLayer("Everything");
         collider = GetComponent<CircleCollider2D>();
@@ -35,21 +33,18 @@ public class KeyItem : MonoBehaviour, IDataPersister
         dataSettings = new DataSettings();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    protected override void ExecuteOnEnter(Collider2D other)
     {
-        if (layers.Contains(other.gameObject))
+        var ic = other.GetComponent<PersistentVariableStoreage>();
+        if (disableOnEnter)
         {
-            var ic = other.GetComponent<InventoryController>();
-            ic.AddItem(inventoryKey);
-            if (disableOnEnter)
-            {
-                gameObject.SetActive(false);
-                Save();
-            }
-
-            if (clip) AudioSource.PlayClipAtPoint(clip, transform.position);
-
+            gameObject.SetActive(false);
+            Save();
         }
+
+        if (clip) AudioSource.PlayClipAtPoint(clip, transform.position);
+
+        base.ExecuteOnEnter(other);
     }
 
     public void Save()

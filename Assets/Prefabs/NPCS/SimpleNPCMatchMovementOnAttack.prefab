@@ -168,7 +168,6 @@ GameObject:
   - component: {fileID: 114768513746313216}
   - component: {fileID: 114984650990419952}
   - component: {fileID: 114416755206010446}
-  - component: {fileID: 114545467077841782}
   m_Layer: 11
   m_Name: SimpleNPCMatchMovementOnAttack
   m_TagString: Untagged
@@ -719,20 +718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd275d9fba9ae04293fa6837ac0bf68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114545467077841782
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1745643173448592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f62f95963aebf43a23756111b3dfe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  isLocal: 0
-  persistant: 0
 --- !u!114 &114556147559724676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -791,6 +776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114512449667502732}
+  useOrthognial: 0
 --- !u!114 &114703181980488308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -826,6 +812,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  invert: 0
   targetDistance: 0.5
   inputController: {fileID: 0}
   changeStateOnFinish: 0
@@ -841,6 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114512449667502732}
+  useOrthognial: 0
 --- !u!114 &114753929034300670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -986,6 +974,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  invert: 0
   targetDistance: 2
   inputController: {fileID: 114512449667502732}
   changeStateOnFinish: 1

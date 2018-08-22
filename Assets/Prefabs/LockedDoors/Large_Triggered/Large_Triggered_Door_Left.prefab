@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4459740139014416}
   - component: {fileID: 212612677307793956}
-  - component: {fileID: 114833173975412390}
   - component: {fileID: 61266993176515154}
+  - component: {fileID: 114680472349103308}
   m_Layer: 0
   m_Name: Large_Triggered_Door_Left
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &114833173975412390
+--- !u!114 &114680472349103308
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,12 +75,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1664650726947864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f62f95963aebf43a23756111b3dfe3, type: 3}
+  m_Script: {fileID: 11500000, guid: b9c428ad486b80246846ba9977118e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  isLocal: 0
-  persistant: 0
+  dataSettings:
+    dataTag: 5c8501d4-00ea-46f1-8072-f33a83fddc64
+    persistenceType: 3
+  initalState: 1
 --- !u!212 &212612677307793956
 SpriteRenderer:
   m_ObjectHideFlags: 1

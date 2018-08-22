@@ -29,7 +29,6 @@ GameObject:
   - component: {fileID: 114577854289939368}
   - component: {fileID: 114950374907397392}
   - component: {fileID: 82135638462713864}
-  - component: {fileID: 114095216049507730}
   - component: {fileID: 114587759814881978}
   - component: {fileID: 114168196431236812}
   - component: {fileID: 114496446605929034}
@@ -483,20 +482,6 @@ MonoBehaviour:
     type: 0
     ConstantValue: -1
     Variable: {fileID: 0}
---- !u!114 &114095216049507730
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1166971563007944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f62f95963aebf43a23756111b3dfe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  isLocal: 0
-  persistant: 0
 --- !u!114 &114147229612044152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,7 +523,7 @@ MonoBehaviour:
     onDeath:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114095216049507730}
+        - m_Target: {fileID: 0}
           m_MethodName: SetVar
           m_Mode: 6
           m_Arguments:
@@ -594,6 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114203623006506344}
+  useOrthognial: 0
 --- !u!114 &114263321591532212
 MonoBehaviour:
   m_ObjectHideFlags: 1

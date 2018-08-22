@@ -57,8 +57,8 @@ namespace Yarn.Unity
         public SystemLanguage overrideLanguage = SystemLanguage.English;
 
         /// Our variable storage
-        [System.NonSerialized]
-        public Yarn.Unity.VariableStorageBehaviour variableStorage;
+        //[System.NonSerialized]
+        public YarnStorageWrapper wrappedGlobalStore;
 
         /// The object that will handle the actual display and user input
         [System.NonSerialized]
@@ -84,7 +84,7 @@ namespace Yarn.Unity
             get {
                 if (_dialogue == null) {
                     // Create the main Dialogue runner, and pass our variableStorage to it
-                    _dialogue = new Yarn.Dialogue (variableStorage);
+                    _dialogue = new Yarn.Dialogue (wrappedGlobalStore);
 
                     // Set up the logging system.
                     _dialogue.LogDebugMessage = delegate (string message) {
@@ -112,11 +112,11 @@ namespace Yarn.Unity
             }
 
             // And that we have our variable storage object
-            if (variableStorage == null)
+            if (wrappedGlobalStore == null)
             {
-                variableStorage = SaveLoadManager.Instance.savedVariables;
+                //variableStorage = SaveLoadManager.Instance.savedVariables;
 
-                if (variableStorage == null)
+                if (wrappedGlobalStore == null)
                 {
                     Debug.LogError("Variable storage was not set! Can't run the dialogue!");
                     return;
@@ -199,7 +199,7 @@ namespace Yarn.Unity
         /// Destroy the variable store and start again
         public void ResetDialogue ()
         {
-            variableStorage.ResetToDefaults ();
+            //variableStorage.ResetToDefaults ();
             StartDialogue ();
         }
 
@@ -220,6 +220,25 @@ namespace Yarn.Unity
             StartCoroutine (RunDialogue (startNode));
         }
 
+        public string ParseVariables(string text)
+        {
+            string ret = text;
+            Regex varcheck = new Regex("\\{.*\\}");
+            foreach (var match in varcheck.Matches(text))
+            {
+                string str = match.ToString();
+                string key = $"${str.Substring(1, str.Length - 2)}";
+
+                if (wrappedGlobalStore.storage.Contains(key))
+                {
+                    string value = wrappedGlobalStore.storage.GetFirstOrNull(key).ToString();
+                    ret = ret.Replace(str, value);
+                }
+
+            }
+            return ret;
+        }
+
         IEnumerator RunDialogue (string startNode = "Start")
         {
             // Mark that we're in conversation.
@@ -236,12 +255,18 @@ namespace Yarn.Unity
 
                     // Wait for line to finish displaying
                     var lineResult = step as Yarn.Dialogue.LineResult;
+                    //Parse Variables.
+                    lineResult.line.text = ParseVariables(lineResult.line.text);
                     yield return StartCoroutine (this.dialogueUI.RunLine (lineResult.line));
 
                 } else if (step is Yarn.Dialogue.OptionSetResult) {
 
                     // Wait for user to finish picking an option
                     var optionSetResult = step as Yarn.Dialogue.OptionSetResult;
+                    for(int i = 0; i> optionSetResult.options.options.Count;i++)
+                    {
+                        optionSetResult.options.options[i] = ParseVariables(optionSetResult.options.options[i]);
+                    }
                     yield return StartCoroutine (
                         this.dialogueUI.RunOptions (
                         optionSetResult.options,
@@ -507,4 +532,5 @@ namespace Yarn.Unity
 
     }
 
+ 
 }

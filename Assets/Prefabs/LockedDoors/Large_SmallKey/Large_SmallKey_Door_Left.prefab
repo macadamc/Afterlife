@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4459740139014416}
   - component: {fileID: 212612677307793956}
-  - component: {fileID: 114833173975412390}
   - component: {fileID: 61266993176515154}
   - component: {fileID: 61086974058235644}
   - component: {fileID: 114875922921268364}
+  - component: {fileID: 114043461882507334}
   m_Layer: 10
   m_Name: Large_SmallKey_Door_Left
   m_TagString: Untagged
@@ -94,7 +94,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8, y: 1.8}
   m_EdgeRadius: 0
---- !u!114 &114833173975412390
+--- !u!114 &114043461882507334
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,12 +102,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1664650726947864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f62f95963aebf43a23756111b3dfe3, type: 3}
+  m_Script: {fileID: 11500000, guid: b9c428ad486b80246846ba9977118e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  isLocal: 0
-  persistant: 0
+  dataSettings:
+    dataTag: a1c95276-e3a8-4e0b-b8a5-3203045fa185
+    persistenceType: 3
+  initalState: 1
 --- !u!114 &114875922921268364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,20 +120,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b181452bffb2c949886c435eb396509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   layers:
     serializedVersion: 2
     m_Bits: 7991
-  events:
-    OnEnter:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    OnExit:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
   inventoryChecks:
   - inventoryItems:
     - Key
@@ -149,6 +149,17 @@ MonoBehaviour:
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: 8be92d1a9bd143f40aa8e10c192835be, type: 2}
+            m_MethodName: Remove
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Key
               m_BoolArgument: 0
             m_CallState: 2
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,

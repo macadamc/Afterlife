@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365eed95bf299e24caa12f2a5eb85122, type: 3}
+  m_Name: GlobalStorageObject
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: AQAHAAAAc3RyaW5ncy8AAAAAAGYAAABTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5EaWN0aW9uYXJ5YDJbW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliXSxbU3lzdGVtLlN0cmluZywgbXNjb3JsaWJdXSwgbXNjb3JsaWIAAAAAAQAIAAAAY29tcGFyZXIvAQAAAABZAAAAU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuR2VuZXJpY0VxdWFsaXR5Q29tcGFyZXJgMVtbU3lzdGVtLlN0cmluZywgbXNjb3JsaWJdXSwgbXNjb3JsaWIBAAAABQYBAAAAAAAAAAQuKAAKAAAAUGxheWVyTmFtZSgACAAAAFRlc3ROYW1lBQcFAQAGAAAAZmxvYXRzLwIAAAAAZgAAAFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkRpY3Rpb25hcnlgMltbU3lzdGVtLlN0cmluZywgbXNjb3JsaWJdLFtTeXN0ZW0uU2luZ2xlLCBtc2NvcmxpYl1dLCBtc2NvcmxpYgIAAAAJAAgAAABjb21wYXJlcgEAAAAGAgAAAAAAAAAELigABAAAAEtleXMgAAAAAAUELigABQAAAE1vbmV5IAA8HEYFBwUBAAUAAABib29scy8DAAAAAGcAAABTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5EaWN0aW9uYXJ5YDJbW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliXSxbU3lzdGVtLkJvb2xlYW4sIG1zY29ybGliXV0sIG1zY29ybGliAwAAAAkACAAAAGNvbXBhcmVyAQAAAAYGAAAAAAAAAAQuKAARAAAARHVuZ2Vvbl9YX0Jvc3NLZXksAAUELigAEgAAAER1bmdlb25fWF9Db21wbGV0ZSwABQQuKAADAAAAS2V5LAEFBC4oAAoAAABkZmRzZnNkZnNkLAEFBC4oAAkAAABIYXNfU3dvcmQsAQUELigAEwAAAFlhcm4uU2h1ZmZsZU9wdGlvbnMsAAUHBS0ABQAAAE9uQWRkLQAIAAAAT25DaGFuZ2UtAAgAAABPblJlbW92ZQ==
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []

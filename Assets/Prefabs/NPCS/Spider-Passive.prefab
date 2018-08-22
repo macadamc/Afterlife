@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 114798426115397882}
   - component: {fileID: 114177917253303066}
   - component: {fileID: 82282017479812126}
-  - component: {fileID: 114748953031648136}
   - component: {fileID: 114602327389431910}
   - component: {fileID: 114359005828226296}
   - component: {fileID: 114371515145094798}
@@ -633,6 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114396205339560526}
+  useOrthognial: 0
 --- !u!114 &114542447058232694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -706,20 +706,6 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   WaitTime: {x: 0.50824654, y: 1.4843489}
---- !u!114 &114748953031648136
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874669080378772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f62f95963aebf43a23756111b3dfe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  isLocal: 0
-  persistant: 0
 --- !u!114 &114751512969350456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -807,7 +793,7 @@ MonoBehaviour:
     onDeath:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114748953031648136}
+        - m_Target: {fileID: 0}
           m_MethodName: SetVar
           m_Mode: 6
           m_Arguments:

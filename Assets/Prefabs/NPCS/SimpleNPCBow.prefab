@@ -198,7 +198,6 @@ GameObject:
   - component: {fileID: 114801831984892366}
   - component: {fileID: 114318138398173248}
   - component: {fileID: 114805312671702342}
-  - component: {fileID: 114643671793307366}
   m_Layer: 11
   m_Name: SimpleNPCBow
   m_TagString: Enemy
@@ -864,20 +863,6 @@ MonoBehaviour:
   waterOffset: -0.2
   baseOffset: 0
   waterTiles: {fileID: 0}
---- !u!114 &114643671793307366
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1826403442561994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f62f95963aebf43a23756111b3dfe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  isLocal: 0
-  persistant: 0
 --- !u!114 &114700931904902386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -956,6 +941,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  invert: 0
   targetDistance: 5
   inputController: {fileID: 114700931904902386}
   changeStateOnFinish: 1

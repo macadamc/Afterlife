@@ -11,3 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0216369d7bf2353479836bdd63d1fec9, type: 3}
   m_Name: PlayerProgressionKeys
   m_EditorClassIdentifier: 
+  m_InventoryItems:
+  - HasSword
+  - Key
+  - HasItem
