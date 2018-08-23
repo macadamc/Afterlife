@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61716332998657606}
   - component: {fileID: 114197458279835466}
   - component: {fileID: 114108271905146334}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Large_SmallKey_Door_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,6 +120,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b181452bffb2c949886c435eb396509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1664650726947864}
+    - {fileID: 0}
+    - {fileID: 11400000, guid: 66883d7ae0345824a860ef8f7a7a76be, type: 2}
+    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYBAAAAAAAAAAIvAQAAAAAnAAAAVmFyaWFibGVTdG9yYWdlQ2hlY2tlciwgQXNzZW1ibHktQ1NoYXJwAQAAAAEABgAAAGNoZWNrcy8CAAAAAE0AAABTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0NvbXBhcmVPYmplY3QsIEFzc2VtYmx5LUNTaGFycF1dLCBtc2NvcmxpYgIAAAAGAQAAAAAAAAACLwMAAAAAHQAAAEZsb2F0Q29tcGFyZSwgQXNzZW1ibHktQ1NoYXJwAwAAACcAAwAAAGtleQAJAAAAU21hbGxLZXlzAQAFAAAAT3RoZXIvBAAAAAA0AAAAU2hhZHlQaXhlbC5WYXJpYWJsZXMuRmxvYXRSZWZlcmVuY2UsIEFzc2VtYmx5LUNTaGFycAQAAAAdAAQAAAB0eXBlAAAAAAAAAAAfAA0AAABDb25zdGFudFZhbHVlAAAAAC0ACAAAAFZhcmlhYmxlBR0ADgAAAGNvbXBhcmlzb25UeXBlAQAAAAAAAAAFBwUBAAYAAABldmVudHMvBQAAAAAuAAAAVmFyaWFibGVTdG9yYWdlQ2hlY2tlcitFdmVudHMsIEFzc2VtYmx5LUNTaGFycAUAAAABAAkAAABPbkhhc0l0ZW0vBgAAAAA1AAAAVW5pdHlFbmdpbmUuRXZlbnRzLlVuaXR5RXZlbnQsIFVuaXR5RW5naW5lLkNvcmVNb2R1bGUGAAAAAQARAAAAbV9QZXJzaXN0ZW50Q2FsbHMvBwAAAAA+AAAAVW5pdHlFbmdpbmUuRXZlbnRzLlBlcnNpc3RlbnRDYWxsR3JvdXAsIFVuaXR5RW5naW5lLkNvcmVNb2R1bGUHAAAAAQAHAAAAbV9DYWxscy8IAAAAAGgAAABTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1VuaXR5RW5naW5lLkV2ZW50cy5QZXJzaXN0ZW50Q2FsbCwgVW5pdHlFbmdpbmUuQ29yZU1vZHVsZV1dLCBtc2NvcmxpYggAAAAGAgAAAAAAAAACLwkAAAAAOQAAAFVuaXR5RW5naW5lLkV2ZW50cy5QZXJzaXN0ZW50Q2FsbCwgVW5pdHlFbmdpbmUuQ29yZU1vZHVsZQkAAAALAAgAAABtX1RhcmdldAAAAAAnAAwAAABtX01ldGhvZE5hbWUACQAAAFNldEFjdGl2ZR0ABgAAAG1fTW9kZQYAAAAAAAAAAQALAAAAbV9Bcmd1bWVudHMvCgAAAAA4AAAAVW5pdHlFbmdpbmUuRXZlbnRzLkFyZ3VtZW50Q2FjaGUsIFVuaXR5RW5naW5lLkNvcmVNb2R1bGUKAAAACwAQAAAAbV9PYmplY3RBcmd1bWVudAEAAAAnACAAAABtX09iamVjdEFyZ3VtZW50QXNzZW1ibHlUeXBlTmFtZQAfAAAAVW5pdHlFbmdpbmUuT2JqZWN0LCBVbml0eUVuZ2luZRcADQAAAG1fSW50QXJndW1lbnQAAAAAHwAPAAAAbV9GbG9hdEFyZ3VtZW50AAAAACcAEAAAAG1fU3RyaW5nQXJndW1lbnQAAAAAACsADgAAAG1fQm9vbEFyZ3VtZW50AAUdAAsAAABtX0NhbGxTdGF0ZQIAAAAAAAAABQIwCQAAAAsAAAALAAgAAABtX1RhcmdldAIAAAAnAAwAAABtX01ldGhvZE5hbWUADwAAAFN1Yk9uZUZyb21GbG9hdB0ABgAAAG1fTW9kZQUAAAAAAAAAAQALAAAAbV9Bcmd1bWVudHMwCgAAAAwAAAALABAAAABtX09iamVjdEFyZ3VtZW50AQAAACcAIAAAAG1fT2JqZWN0QXJndW1lbnRBc3NlbWJseVR5cGVOYW1lAB8AAABVbml0eUVuZ2luZS5PYmplY3QsIFVuaXR5RW5naW5lFwANAAAAbV9JbnRBcmd1bWVudAAAAAAfAA8AAABtX0Zsb2F0QXJndW1lbnQAAAAAJwAQAAAAbV9TdHJpbmdBcmd1bWVudAAJAAAAU21hbGxLZXlzKwAOAAAAbV9Cb29sQXJndW1lbnQABR0ACwAAAG1fQ2FsbFN0YXRlAgAAAAAAAAAFBwUFJwAKAAAAbV9UeXBlTmFtZQBsAAAAVW5pdHlFbmdpbmUuRXZlbnRzLlVuaXR5RXZlbnQsIFVuaXR5RW5naW5lLkNvcmVNb2R1bGUsIFZlcnNpb249MC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAEQAAAE9uRG9lc05vdEhhdmVJdGVtMAYAAAANAAAAAQARAAAAbV9QZXJzaXN0ZW50Q2FsbHMwBwAAAA4AAAABAAcAAABtX0NhbGxzMAgAAAAPAAAABgAAAAAAAAAABwUFJwAKAAAAbV9UeXBlTmFtZQBsAAAAVW5pdHlFbmdpbmUuRXZlbnRzLlVuaXR5RXZlbnQsIFVuaXR5RW5naW5lLkNvcmVNb2R1bGUsIFZlcnNpb249MC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQUFBwU=
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -133,42 +145,6 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 7991
-  inventoryChecks:
-  - inventoryItems:
-    - Key
-    events:
-      OnHasItem:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 1664650726947864}
-            m_MethodName: SetActive
-            m_Mode: 6
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: 8be92d1a9bd143f40aa8e10c192835be, type: 2}
-            m_MethodName: Remove
-            m_Mode: 5
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: Key
-              m_BoolArgument: 0
-            m_CallState: 2
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      OnDoesNotHaveItem:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
 --- !u!212 &212612677307793956
 SpriteRenderer:
   m_ObjectHideFlags: 1

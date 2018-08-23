@@ -3,10 +3,110 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine.Events;
+using ShadyPixel.Variables;
+
+public class FloatCompare : CompareObject
+{
+    public FloatReference Other;
+
+    public enum ComparisonType { Equals, GreaterThan, GreaterOrEqual, LessThan, LessOrEqual, NotEqual }
+    public ComparisonType comparisonType;
+
+    public override bool Check(GlobalStorageObject storageObject)
+    {
+        if (storageObject.floats.ContainsKey(key))
+        {
+            switch (comparisonType)
+            {
+                case ComparisonType.Equals:
+                    return storageObject.GetFloat(key) == Other.Value;
+                case ComparisonType.NotEqual:
+                    return storageObject.GetFloat(key) != Other.Value;
+                case ComparisonType.GreaterThan:
+                    return storageObject.GetFloat(key) > Other.Value;
+                case ComparisonType.LessThan:
+                    return storageObject.GetFloat(key) < Other.Value;
+                case ComparisonType.GreaterOrEqual:
+                    return storageObject.GetFloat(key) >= Other.Value;
+                case ComparisonType.LessOrEqual:
+                    return storageObject.GetFloat(key) <= Other.Value;
+            }
+        }
+
+        return false;
+    }
+}
+
+public class BoolCompare : CompareObject
+{
+    public override bool Check(GlobalStorageObject storage)
+    {
+        return storage.bools.ContainsKey(key) && storage.bools[key];
+    }
+}
+
+public abstract class CompareObject
+{
+    public string key;
+    public virtual bool Check(GlobalStorageObject storage)
+    {
+        throw new System.NotImplementedException();
+    }
+}
+
+public class VariableStorageChecker
+{
+
+    public VariableStorageChecker()
+    {
+        checks = new List<CompareObject>();
+        events = new Events();
+    }
+    [OdinSerialize]
+    public List<CompareObject> checks;
+
+    //public string[] inventoryItems;
+
+    [System.Serializable]
+    public class Events
+    {
+        public Events()
+        {
+            OnHasItem = new UnityEvent();
+            OnDoesNotHaveItem = new UnityEvent();
+        }
+
+        public UnityEvent OnHasItem, OnDoesNotHaveItem;
+    }
+
+    public Events events;
+
+
+    public bool DoChecks(PersistentVariableStoreage storage)
+    {
+        if (storage != null)
+        {
+            for (var i = 0; i < checks.Count; i++)
+            {
+                if (checks[i].Check(storage.storage) == false)
+                {
+                    events.OnDoesNotHaveItem.Invoke();
+                    return false;
+                }
+            }
+            events.OnHasItem.Invoke();
+            return true;
+        }
+        return false;
+    }
+
+}
 
 public class PersistentVariableStoreage : SerializedMonoBehaviour, IDataPersister
 {
+
     private void OnEnable()
     {
         storage.OnAdd += DoOnAdd;
@@ -29,8 +129,6 @@ public class PersistentVariableStoreage : SerializedMonoBehaviour, IDataPersiste
         PersistentDataManager.UnregisterPersister(this);
     }
 
-    //public YarnStorageWrapper yarnStorageWrapper;
-
     [CustomContextMenu("SceneOlnyStorage", "CreateSceneOlnyStorage")]
     public GlobalStorageObject storage;
 
@@ -45,37 +143,6 @@ public class PersistentVariableStoreage : SerializedMonoBehaviour, IDataPersiste
         public string key;
         [DrawWithUnity]
         public UnityEvent OnAdd, OnChange, OnRemove;
-    }
-
-    [System.Serializable]
-    public class VariableStorageChecker
-    {
-        [System.Serializable]
-        public class Events
-        { public UnityEvent OnHasItem, OnDoesNotHaveItem; }
-
-
-        public string[] inventoryItems;
-        [DrawWithUnity]
-        public Events events;
-
-        public bool CheckInventory(PersistentVariableStoreage storage)
-        {
-            if (storage != null)
-            {
-                for (var i = 0; i < inventoryItems.Length; i++)
-                {
-                    if (!storage.storage.bools.ContainsKey(inventoryItems[i]) || storage.storage.bools[inventoryItems[i]] == false)
-                    {
-                        events.OnDoesNotHaveItem.Invoke();
-                        return false;
-                    }
-                }
-                events.OnHasItem.Invoke();
-                return true;
-            }
-            return false;
-        }
     }
 
     void IDataPersister.LoadData(Data data)

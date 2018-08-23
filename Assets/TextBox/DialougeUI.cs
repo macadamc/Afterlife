@@ -20,11 +20,6 @@ public class DialougeUI : DialogueUIBehaviour
     [DrawWithUnity]
     public List<CommandHook> commands;
 
-    private void Start()
-    {
-        //variables = SaveLoadManager.Instance.savedVariables;
-    }
-
     public override IEnumerator RunCommand(Command command)
     {
         string[] strings = command.text.Split(' ');

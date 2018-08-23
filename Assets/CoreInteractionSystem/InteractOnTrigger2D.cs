@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
-[RequireComponent(typeof(Collider2D))]
-public class InteractOnTrigger2D : MonoBehaviour
+[RequireComponent(typeof(Collider2D)), ShowOdinSerializedPropertiesInInspector]
+public class InteractOnTrigger2D : SerializedMonoBehaviour
 {
     public UnityEvent OnEnter, OnExit;
     public LayerMask layers;
-    public PersistentVariableStoreage.VariableStorageChecker[] inventoryChecks;
+
+    
+    public VariableStorageChecker[] inventoryChecks;
 
     protected Collider2D m_Collider;
 
@@ -19,6 +22,7 @@ public class InteractOnTrigger2D : MonoBehaviour
         layers = LayerMask.NameToLayer("Everything");
         m_Collider = GetComponent<Collider2D>();
         m_Collider.isTrigger = true;
+        inventoryChecks = new VariableStorageChecker[0];
     }
 
     // checks layer that other gameobject is on compared to layermask.
@@ -49,7 +53,7 @@ public class InteractOnTrigger2D : MonoBehaviour
     {
         for (int i = 0; i < inventoryChecks.Length; i++)
         {
-            inventoryChecks[i].CheckInventory(other.GetComponentInChildren<PersistentVariableStoreage>());
+            inventoryChecks[i].DoChecks(other.GetComponentInChildren<PersistentVariableStoreage>());
         }
     }
 

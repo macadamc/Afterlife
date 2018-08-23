@@ -16,7 +16,6 @@ public class GlobalStorageObject : SerializedScriptableObject
     [HideInInspector]
     public VariableStorageEvent OnAdd, OnChange, OnRemove;
 
-    //Internal Storage.
     public bool Contains(string key)
     {
         return strings.ContainsKey(TrimStart(key)) || floats.ContainsKey(TrimStart(key)) || bools.ContainsKey(TrimStart(key));
@@ -59,17 +58,14 @@ public class GlobalStorageObject : SerializedScriptableObject
         {
             strings.Add(key, value);
             OnAdd?.Invoke(key);
-            //GetInventoryEvent(key)?.OnAdd.Invoke();
         }
         else
         {
-            bool changed = value != strings[key];
-            strings[key] = value;
-
-            if(changed)
+            if(value != strings[key])
+            {
+                strings[key] = value;
                 OnChange?.Invoke(key);
-
-            //GetInventoryEvent(key)?.OnChange.Invoke();
+            }
         }
 
     }
@@ -83,11 +79,12 @@ public class GlobalStorageObject : SerializedScriptableObject
         }
         else
         {
-            bool changed = value != floats[key];
-            floats[key] = value;
-
-            if(changed)
+            if(value != floats[key])
+            {
+                floats[key] = value;
                 OnChange?.Invoke(key);
+            }
+
         }
 
     }
@@ -100,16 +97,44 @@ public class GlobalStorageObject : SerializedScriptableObject
             OnAdd?.Invoke(key);
         }
         else
-        {
-            bool changed = value != bools[key];
-            bools[key] = value;
-            if(changed)
+        {            
+            if(value != bools[key])
+            {
+                bools[key] = value;
                 OnChange?.Invoke(key);
+            }
+                
         }
     }
+
     public void SetBool(string key)
     {
         SetValue(TrimStart(key), true);
+    }
+    public void ToggleBool(string key)
+    {
+        key = TrimStart(key);
+        if (Contains(key) == false)
+            return;
+        SetValue(key, !GetBool(key));
+    }
+
+    public void ChangeNumber(string key, float amount)
+    {
+        key = TrimStart(key);
+
+        if (floats.ContainsKey(key))
+            amount += GetFloat(key);
+
+        SetValue(key, amount);
+    }
+    public void AddOneToFloat(string key)
+    {
+        ChangeNumber(key, 1);
+    }
+    public void SubOneFromFloat(string key)
+    {
+        ChangeNumber(key, -1);
     }
 
     public void RemoveValue(string key)
