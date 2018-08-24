@@ -10,14 +10,14 @@ public class InteractOnInteractButton2D : InteractOnTrigger2D
     */
     public UnityEvent OnButtonPress;
 
-    bool m_CanExecuteButtons;
+    bool m_InZone;
     InputController m_InputController;
     Collider2D m_InteractingCollider;
 
     // gets ref and sets m_CanExecuteButtons to true
     protected override void ExecuteOnEnter(Collider2D other)
     {
-        m_CanExecuteButtons = true;
+        m_InZone = true;
         m_InputController = other.gameObject.GetComponent<InputController>();
         m_InteractingCollider = other;
         OnEnter.Invoke();
@@ -27,7 +27,7 @@ public class InteractOnInteractButton2D : InteractOnTrigger2D
     // cleans up and sets m_CanExecuteButtons to false
     protected override void ExecuteOnExit(Collider2D other)
     {
-        m_CanExecuteButtons = false;
+        m_InZone = false;
         m_InputController = null;
         m_InteractingCollider = null;
         OnExit.Invoke();
@@ -37,14 +37,19 @@ public class InteractOnInteractButton2D : InteractOnTrigger2D
     // waits for input from m_InputController and checks m_CanExecuteButtons
     void Update()
     {
-        if (m_CanExecuteButtons)
+        if(m_InZone)
         {
             if (m_InputController.input.pressed)
             {
-                OnButtonPress.Invoke();
-                DoInventoryChecks(m_InteractingCollider);
-                Debug.Log("["+name + "] Triggered by [" + m_InteractingCollider.gameObject.name+"]");
+                OnInteractButtonPress();
             }
         }
+    }
+
+    protected virtual void OnInteractButtonPress()
+    {
+        OnButtonPress.Invoke();
+        DoInventoryChecks(m_InteractingCollider);
+        Debug.Log("[" + name + "] Triggered by [" + m_InteractingCollider.gameObject.name + "]");
     }
 }

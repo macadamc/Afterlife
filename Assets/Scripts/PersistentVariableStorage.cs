@@ -84,7 +84,7 @@ public class VariableStorageChecker
     public Events events;
 
 
-    public bool DoChecks(PersistentVariableStoreage storage)
+    public bool DoChecks(PersistentVariableStorage storage)
     {
         if (storage != null)
         {
@@ -104,7 +104,7 @@ public class VariableStorageChecker
 
 }
 
-public class PersistentVariableStoreage : SerializedMonoBehaviour, IDataPersister
+public class PersistentVariableStorage : SerializedMonoBehaviour, IDataPersister
 {
 
     private void OnEnable()

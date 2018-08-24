@@ -4,18 +4,21 @@ using UnityEngine;
 using ShadyPixel.Variables;
 using ShadyPixel.Audio;
 
-public class ChangeHealthOnTriggerEnter : TriggerZone {
+public class ChangeHealthOnTriggerEnter : InteractOnTrigger2D {
 
     public IntReference change = new IntReference(-1);
 
-    protected override void OnEnter(Collider2D collision)
+    protected override void ExecuteOnEnter(Collider2D other)
     {
-        Health self = GetComponentInParent<Health>();
-        Health healthComponenet = collision.gameObject.GetComponentInChildren<Health>();
+        base.ExecuteOnEnter(other);
 
-        if(healthComponenet != null && ((self != null && self != healthComponenet) || self == null))
+        Health self = GetComponentInParent<Health>();
+        Health hp = other.gameObject.GetComponentInChildren<Health>();
+
+        if (hp != null && ((self != null && self != hp) || self == null))
         {
-            healthComponenet.ChangeHealth(change.Value);
+            hp.ChangeHealth(change.Value);
         }
+
     }
 }

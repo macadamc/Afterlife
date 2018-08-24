@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class CameraZone : InteractOnTrigger2D
 {
+    /*
     public Transform cameraZoneTriggerEvents;
-
     CameraFollow _camFollow;
     CameraFollow CameraFollow
     {
@@ -18,15 +18,22 @@ public class CameraZone : InteractOnTrigger2D
             return _camFollow;
         }
     }
-
-    public Bounds bounds;
-
+*/
+    public BoxCollider2D BoxCollider2D
+    {
+        get
+        {
+            if (col == null)
+                col = GetComponent<BoxCollider2D>();
+            return col;
+        }
+    }
+    BoxCollider2D col;
     bool m_InBounds;
 
     protected override void Reset()
     {
         base.Reset();
-        bounds = GetComponent<BoxCollider2D>().bounds;
     }
 
     protected override void ExecuteOnEnter(Collider2D other)
@@ -36,7 +43,7 @@ public class CameraZone : InteractOnTrigger2D
         {
             OnEnter.Invoke();
             DoInventoryChecks(other);
-            CameraFollow.SetBounds(bounds);
+            CameraFollow.Instance.SetBounds(BoxCollider2D.bounds);
             m_InBounds = true;
         }
     }
@@ -45,9 +52,9 @@ public class CameraZone : InteractOnTrigger2D
     {
         if(m_InBounds)
         {
-            if (CameraFollow._bounds != bounds)
+            if (CameraFollow.Instance._bounds != BoxCollider2D.bounds)
             {
-                CameraFollow.SetBounds(bounds);
+                CameraFollow.Instance.SetBounds(BoxCollider2D.bounds);
             }
         }
     }
@@ -64,6 +71,6 @@ public class CameraZone : InteractOnTrigger2D
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireCube(bounds.center, bounds.size);
+        Gizmos.DrawWireCube(BoxCollider2D.bounds.center, BoxCollider2D.bounds.size);
     }
 }

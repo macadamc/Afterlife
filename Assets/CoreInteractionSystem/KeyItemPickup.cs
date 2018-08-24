@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class KeyItem : InteractOnTrigger2D, IDataPersister
+public class KeyItemPickup : InteractOnTrigger2D, IDataPersister
 {
     public bool disableOnEnter = false;
 
@@ -28,14 +28,13 @@ public class KeyItem : InteractOnTrigger2D, IDataPersister
     {
         layers = LayerMask.NameToLayer("Everything");
         collider = GetComponent<CircleCollider2D>();
-        collider.radius = 5;
         collider.isTrigger = true;
         dataSettings = new DataSettings();
     }
 
     protected override void ExecuteOnEnter(Collider2D other)
     {
-        var ic = other.GetComponent<PersistentVariableStoreage>();
+        var ic = other.GetComponent<PersistentVariableStorage>();
         if (disableOnEnter)
         {
             gameObject.SetActive(false);
@@ -52,10 +51,6 @@ public class KeyItem : InteractOnTrigger2D, IDataPersister
         PersistentDataManager.SetDirty(this);
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.DrawIcon(transform.position, "InventoryItem", false);
-    }
 
     public DataSettings GetDataSettings()
     {

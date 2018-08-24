@@ -149,7 +149,7 @@ public class DialougeUI : DialogueUIBehaviour
         {
             tb.textBoxSettings = tb.defaultSettings;
             if(tb.caller != null)
-                tb.caller.triggered = false;
+                tb.caller.executing = false;
         }
         yield return null;
     }

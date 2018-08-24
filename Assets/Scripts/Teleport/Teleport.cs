@@ -4,7 +4,7 @@ using UnityEngine;
 using Pixelplacement;
 using UnityEngine.SceneManagement;
 
-public class Teleport : TriggerZone
+public class Teleport : InteractOnTrigger2D
 {
     public enum Type
     {
@@ -34,9 +34,10 @@ public class Teleport : TriggerZone
 
     GameObject _teleportObj;
 
-    protected override void OnEnter(Collider2D collision)
+    protected override void ExecuteOnEnter(Collider2D other)
     {
-        mc = collision.gameObject.GetComponent<MovementController>();
+        base.ExecuteOnEnter(other);
+        mc = other.gameObject.GetComponent<MovementController>();
         if (mc != null)
         {
             mc.Stun( (transition.startDelay*2.0f) + (transition.transitionTime*2.0f) + 0.25f);
@@ -45,7 +46,7 @@ public class Teleport : TriggerZone
         TransitionManager.Instance.onTransitionEnd += OnFadeOut;
         TransitionManager.Instance.FadeOut(transition);
 
-        _teleportObj = collision.gameObject;
+        _teleportObj = other.gameObject;
         //PauseManager.Instance.Paused = true;
     }
 

@@ -23,7 +23,8 @@ public class HealthBar : MonoBehaviour {
 
     private void OnDisable()
     {
-        Player.Instance.GetComponent<Health>().onHealthChanged -= UpdateHealthBar;
+        if(Player.Instance != null)
+            Player.Instance.GetComponent<Health>().onHealthChanged -= UpdateHealthBar;
     }
 
     public void UpdateHealthBar()

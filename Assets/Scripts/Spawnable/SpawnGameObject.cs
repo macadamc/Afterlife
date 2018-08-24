@@ -6,8 +6,7 @@ using Sirenix.OdinInspector;
 public class SpawnGameObject : MonoBehaviour
 {
     public GameObject prefabToSpawn;
-    [Range(0,20)]
-    public float randomSpawnRange = 0;
+    public float spawnRange;
     public float initialDelay = 0.0f;
     public int amount = 1;
 
@@ -36,7 +35,7 @@ public class SpawnGameObject : MonoBehaviour
         {
             for (int i = 0; i < amount; i++)
             {
-                Spawn(prefabToSpawn, (Vector2)transform.position + Random.insideUnitCircle * randomSpawnRange);
+                Spawn(prefabToSpawn, (Vector2)transform.position + Random.insideUnitCircle * spawnRange);
             }
             m_spawned = true;
         }
@@ -60,8 +59,6 @@ public class SpawnGameObject : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-
-        Gizmos.DrawWireSphere(transform.position, randomSpawnRange);
-        
+        Gizmos.DrawWireSphere(transform.position, spawnRange);
     }
 }

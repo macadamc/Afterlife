@@ -27,7 +27,7 @@ public class ItemSpawnPrefabObject : Item
             }
 
             heldItem = Instantiate(itemToHold, user.SpawnTransform);
-            CheckForDamageComponent(heldItem, user);
+            //CheckForDamageComponent(heldItem, user);
             heldItem.transform.position = (Vector2)user.SpawnTransform.position;
 
             if (angleSnap == 0)
@@ -64,7 +64,7 @@ public class ItemSpawnPrefabObject : Item
         }
 
         GameObject spawnObject = Instantiate(itemToSpawnOnUse, user.SpawnTransform);
-        CheckForDamageComponent(spawnObject, user);
+        //CheckForDamageComponent(spawnObject, user);
 
         if (angleSnap == 0)
             RotateObject(spawnObject.transform, user.InputController.lookDirection);
@@ -110,6 +110,7 @@ public class ItemSpawnPrefabObject : Item
         transformToRotate.eulerAngles = vec;
     }
 
+    /*
     private void CheckForDamageComponent(GameObject objToCheck, ItemController user)
     {
         ChangeHealthOnTriggerEnter changeHealth = objToCheck.GetComponentInChildren<ChangeHealthOnTriggerEnter>();
@@ -118,5 +119,6 @@ public class ItemSpawnPrefabObject : Item
             changeHealth.ignoreObject = user.gameObject;
         }
     }
+    */
 
 }

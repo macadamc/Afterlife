@@ -53,7 +53,7 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
     {
         for (int i = 0; i < inventoryChecks.Length; i++)
         {
-            inventoryChecks[i].DoChecks(other.GetComponentInChildren<PersistentVariableStoreage>());
+            inventoryChecks[i].DoChecks(other.GetComponentInChildren<PersistentVariableStorage>());
         }
     }
 

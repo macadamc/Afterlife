@@ -62,7 +62,7 @@ public class Inventory : MonoBehaviour, IDataPersister
         aboveHeadSpriteRenderer.gameObject.SetActive(true);
         item.pickupSfx.Play(inventoryAudioSource);
         //ItemController.MovementController.Stun(1.0f);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         aboveHeadSpriteRenderer.gameObject.SetActive(false);
         // if there is only one item, equip the item
         if (itemSet.Items.Count == 1)

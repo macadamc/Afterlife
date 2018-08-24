@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyKnockback : TriggerZone
+public class ApplyKnockback : InteractOnTrigger2D
 {
     public float knockbackForce = 5f;
     public bool useRotation = true;
     //public float useRotationPercent = 0.5f;
 
     // trigger collisions
-    protected override void OnEnter(Collider2D collision)
+    protected override void ExecuteOnEnter(Collider2D other)
     {
-        Knockback(collision.gameObject);
+        base.ExecuteOnEnter(other);
+        Knockback(other.gameObject);
     }
 
     private void Knockback(GameObject knockbackObj)
