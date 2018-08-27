@@ -8,9 +8,10 @@ public class FakeZAxis : MonoBehaviour
     public Transform objectToMove;
     public float height;
     public float velocity;
-    public float gravity = 7.0f;
+    public float gravity = 15;
     public string onGroundLayerName;
     public string inAirLayerName;
+    public float maxOnGroungHeight = 0.75f;
     public float waterOffset = 0.2f;
     public float baseOffset = 0.0f;
     TileRef _tileRef;
@@ -46,16 +47,22 @@ public class FakeZAxis : MonoBehaviour
     {
         if(height != 0f || velocity != 0f)
         {
-            gameObject.layer = LayerMask.NameToLayer(inAirLayerName);
+            if(height >= maxOnGroungHeight)
+                gameObject.layer = LayerMask.NameToLayer(inAirLayerName);
+            else
+            {
+                gameObject.layer = LayerMask.NameToLayer(onGroundLayerName);
+            }
+
             velocity += gravity * Time.deltaTime;
 
             height -= velocity * Time.deltaTime;
 
-            if (height < 0f)
+            if (height <= 0f)
             {
                 height = 0f;
                 velocity = 0f;
-                gameObject.layer = LayerMask.NameToLayer(onGroundLayerName);
+                
             }
         }
 
@@ -67,4 +74,6 @@ public class FakeZAxis : MonoBehaviour
         TileBase tile = _tileRef.GetTile(transform.position);
         return waterTiles.Items.Contains(tile);
     }
+
+    public bool InAir { get { return height >= maxOnGroungHeight; } }
 }

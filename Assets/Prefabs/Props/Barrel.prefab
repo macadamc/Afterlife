@@ -35,9 +35,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4090974103212046}
-  - component: {fileID: 61558912232664624}
   - component: {fileID: 210962229334133406}
   - component: {fileID: 114041320365442650}
+  - component: {fileID: 58504333588110802}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -72,8 +72,8 @@ Transform:
   m_Father: {fileID: 4090974103212046}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61558912232664624
-BoxCollider2D:
+--- !u!58 &58504333588110802
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -85,18 +85,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!114 &114041320365442650
 MonoBehaviour:
   m_ObjectHideFlags: 1

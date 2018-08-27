@@ -4,6 +4,8 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
+
 
 public class PersistentDataManager : MonoBehaviour
 {
@@ -51,7 +53,15 @@ public class PersistentDataManager : MonoBehaviour
     {
         if (Instance != this)
             Destroy(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
+    protected void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Writing To persistent Objects");
+        LoadAllData();
+    }
+
 
     void OnDestroy()
     {

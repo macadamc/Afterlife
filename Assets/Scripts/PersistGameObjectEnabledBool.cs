@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 public class PersistGameObjectEnabledBool : MonoBehaviour, IDataPersister
 {
     public DataSettings dataSettings;
-    public bool initalState;
+
+    public List<GameObject>objectsToPersist;
 
     DataSettings IDataPersister.GetDataSettings()
     {
@@ -15,13 +17,24 @@ public class PersistGameObjectEnabledBool : MonoBehaviour, IDataPersister
 
     void IDataPersister.LoadData(Data data)
     {
-        Data<bool> inventoryItemData = (Data<bool>)data;
-        gameObject.SetActive(inventoryItemData.value);
+        var loadedData = (Data<List<bool>>)data;
+
+        for (int i = 0;i < objectsToPersist.Count; i++)
+        {
+            objectsToPersist[i].SetActive(loadedData.value[i]);
+        }
     }
 
     Data IDataPersister.SaveData()
     {
-        return new Data<bool>(gameObject.activeSelf);
+        List<bool> saveData = new List<bool>();
+
+        foreach(GameObject go in objectsToPersist)
+        {
+            saveData.Add(go.activeSelf);
+        }
+
+        return new Data<List<bool>>(saveData);
     }
 
     void IDataPersister.SetDataSettings(string dataTag, DataSettings.PersistenceType persistenceType)
@@ -33,8 +46,13 @@ public class PersistGameObjectEnabledBool : MonoBehaviour, IDataPersister
     private void Awake()
     {
         PersistentDataManager.RegisterPersister(this);
-        gameObject.SetActive(initalState);
     }
+
+    private void OnEnable()
+    {
+        PersistentDataManager.RegisterPersister(this);
+    }
+
     private void OnDestroy()
     {
         PersistentDataManager.UnregisterPersister(this);

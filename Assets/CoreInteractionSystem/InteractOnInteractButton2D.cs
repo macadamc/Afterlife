@@ -39,7 +39,7 @@ public class InteractOnInteractButton2D : InteractOnTrigger2D
     {
         if(m_InZone)
         {
-            if (m_InputController.input.pressed)
+            if (m_InputController != null && SimpleInput.GetButtonDown("Interact")) //m_InputController.input.pressed)
             {
                 OnInteractButtonPress();
             }

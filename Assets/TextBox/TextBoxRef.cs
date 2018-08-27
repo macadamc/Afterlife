@@ -61,10 +61,10 @@ public class TextBoxRef : MonoBehaviour {
 
         CallTextBoxInterrupt(startNode);
     }
+
     [YarnCommand("CallTextBoxInterrupt")]
     public void CallTextBoxInterrupt(string startNode)
     {
-
         Clean();
         dialogueRunner.StartDialogue(startNode);
     }

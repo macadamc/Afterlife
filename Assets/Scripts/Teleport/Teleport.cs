@@ -56,6 +56,7 @@ public class Teleport : InteractOnTrigger2D
         if (type == Type.ChangeScene)
         {
             // changing scenes
+            PersistentDataManager.SaveAllData();
             Player.Instance.doorTag = doorTag;
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
@@ -69,6 +70,7 @@ public class Teleport : InteractOnTrigger2D
     public void OnFadeIn()
     {
         //PauseManager.Instance.Paused = false;
+        
         TransitionManager.Instance.onTransitionEnd -= OnFadeIn;
     }
 

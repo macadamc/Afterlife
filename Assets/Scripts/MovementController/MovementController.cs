@@ -74,7 +74,7 @@ public class MovementController : MonoBehaviour
             return _knockbackVector.magnitude > knockbackDeadzone;
         }
     }
-    public bool IsMoving
+    public virtual bool IsMoving
     {
         get
         {
@@ -86,18 +86,18 @@ public class MovementController : MonoBehaviour
         get
         { return _stunned; }
     }
-    
+
     public Transform moveTarget;
     public FloatReference moveSpeed = new FloatReference(5f);
     [HideInInspector]
     public FloatReference oldMoveSpeed;
-    [Range(0.01f,1f)]
+    [Range(0.01f, 1f)]
     public float smoothing = 0.4f;
     public float knockbackDecel = 5f;
     public float knockbackDeadzone = 0.1f;
     public AudioSource stepSoundSource;
     //public TileList waterTiles;
-    [MinMaxSlider(0.1f,0.5f,true)]
+    [MinMaxSlider(0.1f, 0.5f, true)]
     public Vector2 stepLength = Vector2.one;
 
 
@@ -113,6 +113,8 @@ public class MovementController : MonoBehaviour
     protected bool _initialized;
     protected Vector2 _startPosition;
 
+
+    public Vector2 GetMoveVector {get {return _moveVector;}}
     public virtual void OnEnable()
     {
         //sets the startposition of this object. if already set will reset to it when re enabled

@@ -713,11 +713,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     type: 0
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   maxHealth:
     type: 0
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   damageFlashAmount: 3
   deactivateRootObjectOnDeath: 1

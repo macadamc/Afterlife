@@ -13,6 +13,11 @@ public class KeyItemPickup : InteractOnTrigger2D, IDataPersister
     public AudioClip clip;
     public DataSettings dataSettings;
 
+    private void Awake()
+    {
+        PersistentDataManager.RegisterPersister(this);
+    }
+
     void OnEnable()
     {
         collider = GetComponent<CircleCollider2D>();
@@ -20,6 +25,11 @@ public class KeyItemPickup : InteractOnTrigger2D, IDataPersister
     }
 
     void OnDisable()
+    {
+        PersistentDataManager.UnregisterPersister(this);
+    }
+
+    private void OnDestroy()
     {
         PersistentDataManager.UnregisterPersister(this);
     }
@@ -70,7 +80,11 @@ public class KeyItemPickup : InteractOnTrigger2D, IDataPersister
 
     public void LoadData(Data data)
     {
-        Data<bool> inventoryItemData = (Data<bool>)data;
-        gameObject.SetActive(inventoryItemData.value);
+        if(data != null)
+        {
+            Data<bool> inventoryItemData = (Data<bool>)data;
+            gameObject.SetActive(inventoryItemData.value);
+        }
+        
     }
 }

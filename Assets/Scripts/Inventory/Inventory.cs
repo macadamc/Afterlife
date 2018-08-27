@@ -112,39 +112,13 @@ public class Inventory : MonoBehaviour, IDataPersister
 
     public void LoadData(Data data)
     {
+        itemSet.Items.Clear();
        foreach(string itemName in ((Data<List<string>>)data).value)
         {
             itemSet.Items.Add(Resources.Load<Item>(itemName));
-            Debug.Log(itemName);
-
-            /*
-            itemSet.Items.Add(ScriptableObject.CreateInstance(
-                types.Where(T => T.Name == itemName).FirstOrDefault().Name) as Item
-                );
-
-            */
         }
 
         if (itemSet.Items.Count > 0)
             OnEquipItem(itemSet.Items[0]);
-
-        Debug.Log("Loaded");
-    }
-
-    public static List<Type> FindAllDerivedTypes<T>()
-    {
-        return FindAllDerivedTypes<T>(Assembly.GetAssembly(typeof(Item)));
-    }
-
-    public static List<Type> FindAllDerivedTypes<T>(Assembly assembly)
-    {
-        var derivedType = typeof(T);
-        return assembly
-            .GetTypes()
-            .Where(t =>
-                t != derivedType &&
-                derivedType.IsAssignableFrom(t)
-                ).ToList();
-
     }
 }

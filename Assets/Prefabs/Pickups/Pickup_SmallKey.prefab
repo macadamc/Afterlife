@@ -128,6 +128,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f77928a8cc7f5f4cad6caf98bd98c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: LQAPAAAAaW52ZW50b3J5Q2hlY2tz
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   OnEnter:
     m_PersistentCalls:
       m_Calls:
@@ -152,7 +161,6 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
-  inventoryChecks: []
   disableOnEnter: 1
   collider: {fileID: 58218547120053586}
   clip: {fileID: 0}

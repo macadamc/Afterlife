@@ -629,11 +629,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     type: 0
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   maxHealth:
     type: 0
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   damageFlashAmount: 3
   deactivateRootObjectOnDeath: 1
@@ -915,6 +915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114611072303188288}
+  useOrthognial: 0
 --- !u!114 &114750445488058750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -937,6 +938,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  invert: 0
   targetDistance: 2.5
   inputController: {fileID: 114611072303188288}
   changeStateOnFinish: 1
@@ -988,6 +990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114611072303188288}
+  useOrthognial: 0
 --- !u!114 &114933479206287492
 MonoBehaviour:
   m_ObjectHideFlags: 1
