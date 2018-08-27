@@ -10,11 +10,27 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
 {
     public UnityEvent OnEnter, OnExit;
     public LayerMask layers;
+    public bool addPlayerTag = true;
+    public List<string> interactableTags;
 
     
     public VariableStorageChecker[] inventoryChecks;
 
     protected Collider2D m_Collider;
+    protected bool CheckTags (Collider2D other)
+    {
+        if (interactableTags.Count == 0)
+            return true;
+
+        return interactableTags.Contains(other.tag);
+
+    }
+
+    private void Awake()
+    {
+        if (addPlayerTag && interactableTags.Contains("Player") == false)
+            interactableTags.Add("Player");
+    }
 
     // called from unity editor dropdown menu and when component is created
     protected virtual void Reset()
@@ -31,7 +47,7 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
         if (!enabled)
             return;
 
-        if (layers.Contains(other.gameObject))
+        if (layers.Contains(other.gameObject) && CheckTags(other))
         {
             ExecuteOnEnter(other);
         }
@@ -42,7 +58,7 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
         if (!enabled)
             return;
 
-        if (layers.Contains(other.gameObject))
+        if (layers.Contains(other.gameObject) && CheckTags(other))
         {
             ExecuteOnExit(other);
         }
@@ -51,9 +67,11 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
     // loops through inventory checks and calls function on them
     protected void DoInventoryChecks(Collider2D other)
     {
+        PersistentVariableStorage store = other.GetComponentInChildren<PersistentVariableStorage>();
+
         for (int i = 0; i < inventoryChecks.Length; i++)
         {
-            inventoryChecks[i].DoChecks(other.GetComponentInChildren<PersistentVariableStorage>());
+            inventoryChecks[i].DoChecks(store);
         }
     }
 

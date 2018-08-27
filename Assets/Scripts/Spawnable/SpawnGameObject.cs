@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class SpawnGameObject : MonoBehaviour
 {
+    public Color GizmoColor = Color.yellow;
+
     public GameObject prefabToSpawn;
     public float spawnRange;
     public float initialDelay = 0.0f;
@@ -84,7 +86,7 @@ public class SpawnGameObject : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = GizmoColor;
         Gizmos.DrawWireSphere(transform.position, spawnRange);
     }
 }

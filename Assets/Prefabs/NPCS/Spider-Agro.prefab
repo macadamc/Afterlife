@@ -33,6 +33,7 @@ GameObject:
   - component: {fileID: 114168196431236812}
   - component: {fileID: 114496446605929034}
   - component: {fileID: 114969906963261422}
+  - component: {fileID: 114720915188212234}
   m_Layer: 11
   m_Name: Spider-Agro
   m_TagString: Enemy
@@ -484,10 +485,14 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
+  addPlayerTag: 1
+  interactableTags: []
   change:
     type: 0
     ConstantValue: -1
     Variable: {fileID: 0}
+  onlyHitTargets: 1
+  targets: {fileID: 114969906963261422}
 --- !u!114 &114147229612044152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -501,11 +506,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     type: 0
-    ConstantValue: 1
+    ConstantValue: 2
     Variable: {fileID: 0}
   maxHealth:
     type: 0
-    ConstantValue: 1
+    ConstantValue: 2
     Variable: {fileID: 0}
   damageFlashAmount: 3
   deactivateRootObjectOnDeath: 1
@@ -619,7 +624,9 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
-  knockbackForce: 20
+  addPlayerTag: 1
+  interactableTags: []
+  knockbackForce: 5
   useRotation: 0
 --- !u!114 &114300672562206002
 MonoBehaviour:
@@ -665,8 +672,8 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  moveTime: {x: 0.6765401, y: 1.5516663}
-  delayTime: {x: 0.6092227, y: 0.6092227}
+  moveTime: {x: 0.5, y: 0.5}
+  delayTime: {x: 0, y: 2.0191817}
   inputController: {fileID: 114203623006506344}
   nextState: {fileID: 0}
 --- !u!114 &114496446605929034
@@ -803,9 +810,19 @@ MonoBehaviour:
   knockbackDeadzone: 0.1
   stepSoundSource: {fileID: 82135638462713864}
   stepLength: {x: 1, y: 1}
-  groundedWaitTime: {x: 0, y: 0.24231465}
-  airWaitTime: {x: 2, y: 2}
-  actionTime: 0
+  jumpStrength: 5
+--- !u!114 &114720915188212234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1166971563007944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5bcfef20797ce4790c73618042bcb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hurtbox: {fileID: 1326896953698294}
 --- !u!114 &114870937074431504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -877,9 +894,10 @@ MonoBehaviour:
   objectToMove: {fileID: 4157176604606098}
   height: 0
   velocity: 0
-  gravity: 15
-  onGroundLayerName: Default
-  inAirLayerName: HighObstacle
+  gravity: 20
+  onGroundLayerName: Entity
+  inAirLayerName: Flying
+  maxOnGroungHeight: 0.75
   waterOffset: 0.2
   baseOffset: 0
   waterTiles: {fileID: 0}

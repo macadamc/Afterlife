@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 114359005828226296}
   - component: {fileID: 114371515145094798}
   - component: {fileID: 114337934757693610}
+  - component: {fileID: 114894789737132304}
   m_Layer: 11
   m_Name: Spider-Passive
   m_TagString: Enemy
@@ -446,8 +447,9 @@ MonoBehaviour:
   height: 0
   velocity: 0
   gravity: 15
-  onGroundLayerName: Default
-  inAirLayerName: HighObstacle
+  onGroundLayerName: Entity
+  inAirLayerName: Flying
+  maxOnGroungHeight: 0.75
   waterOffset: 0.2
   baseOffset: 0
   waterTiles: {fileID: 0}
@@ -462,23 +464,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f8b712c4b5c3409fc40f65285b11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerTags: []
-  ignoreTags:
-  - Projectile
-  ignoreObject: {fileID: 0}
-  addPlayerTag: 0
-  events:
-    onTrigger:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExit:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  knockbackForce: 7
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: LQAPAAAAaW52ZW50b3J5Q2hlY2tz
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  layers:
+    serializedVersion: 2
+    m_Bits: 0
+  addPlayerTag: 1
+  interactableTags: []
+  knockbackForce: 5
   useRotation: 0
 --- !u!114 &114337934757693610
 MonoBehaviour:
@@ -543,9 +553,7 @@ MonoBehaviour:
   knockbackDeadzone: 0.1
   stepSoundSource: {fileID: 82282017479812126}
   stepLength: {x: 1, y: 1}
-  groundedWaitTime: {x: 0, y: 0.24231465}
-  airWaitTime: {x: 2, y: 2}
-  actionTime: 0
+  jumpStrength: 2.5
 --- !u!114 &114371515145094798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -569,7 +577,8 @@ MonoBehaviour:
   setRotationToInputController: 0
   angleSnap: 0
   ic: {fileID: 114396205339560526}
-  visionTags: []
+  visionTags:
+  - Player
   targets: {fileID: 114337934757693610}
 --- !u!114 &114396205339560526
 MonoBehaviour:
@@ -600,26 +609,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f7cf850ab442040b87729e84cf4cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerTags: []
-  ignoreTags:
-  - Enemy
-  ignoreObject: {fileID: 0}
-  addPlayerTag: 0
-  events:
-    onTrigger:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExit:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  layers:
+    serializedVersion: 2
+    m_Bits: 2048
+  addPlayerTag: 1
+  interactableTags: []
   change:
     type: 0
     ConstantValue: -1
     Variable: {fileID: 0}
+  onlyHitTargets: 1
+  targets: {fileID: 114337934757693610}
 --- !u!114 &114503492014631154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -765,11 +784,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     type: 0
-    ConstantValue: 1
+    ConstantValue: 2
     Variable: {fileID: 0}
   maxHealth:
     type: 0
-    ConstantValue: 1
+    ConstantValue: 2
     Variable: {fileID: 0}
   damageFlashAmount: 3
   deactivateRootObjectOnDeath: 1
@@ -806,6 +825,18 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!114 &114894789737132304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874669080378772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5bcfef20797ce4790c73618042bcb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hurtbox: {fileID: 1404586985448818}
 --- !u!212 &212191112061396026
 SpriteRenderer:
   m_ObjectHideFlags: 1

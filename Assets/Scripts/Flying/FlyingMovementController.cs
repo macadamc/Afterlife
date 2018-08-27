@@ -26,8 +26,6 @@ public class FlyingMovementController : MovementController
 
     public override void FixedUpdate()
     {
-        if(Ic.joystick != Vector2.zero) { }
-
         m_FakeZAxis.velocity = PID.Seek(targetFlyingHeight, m_FakeZAxis.height) * force;
 
         base.FixedUpdate();

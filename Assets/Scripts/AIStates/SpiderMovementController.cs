@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
-
+/*
 public class SpiderMovementController : MovementController
 {
     public bool Grounded { get; private set; }
@@ -89,5 +89,40 @@ public class SpiderMovementController : MovementController
         {
             setActionTime(airWaitTime);
         }
+    }
+}
+*/
+
+public class SpiderMovementController : MovementController
+{
+    FakeZAxis m_fakeZ;
+    bool m_LockInput;
+    Vector2 m_LockedInput;
+
+    public float jumpStrength;
+
+    private void Awake()
+    {
+        m_fakeZ = GetComponent<FakeZAxis>();
+    }
+
+    public bool OnGround { get { return m_fakeZ.height <= .1f; } }
+
+    public override void FixedUpdate()
+    {
+        if(OnGround && Ic.joystick != Vector2.zero && m_LockInput == false)
+        {
+            m_LockInput = true;
+            m_LockedInput = Ic.joystick;
+            m_fakeZ.velocity = -jumpStrength;
+        }
+        base.FixedUpdate();
+    }
+    private void LateUpdate()
+    {
+        if(OnGround && m_LockInput & m_fakeZ.velocity == 0f)
+            m_LockInput = false;
+
+        base.Update();
     }
 }

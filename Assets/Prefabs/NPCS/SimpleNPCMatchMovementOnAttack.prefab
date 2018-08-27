@@ -761,6 +761,7 @@ MonoBehaviour:
   gravity: 15
   onGroundLayerName: Default
   inAirLayerName: HighObstacle
+  maxOnGroungHeight: 0.75
   waterOffset: -0.2
   baseOffset: 0
   waterTiles: {fileID: 0}
@@ -991,11 +992,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     type: 0
-    ConstantValue: 1
+    ConstantValue: 4
     Variable: {fileID: 0}
   maxHealth:
     type: 0
-    ConstantValue: 1
+    ConstantValue: 4
     Variable: {fileID: 0}
   damageFlashAmount: 3
   deactivateRootObjectOnDeath: 1

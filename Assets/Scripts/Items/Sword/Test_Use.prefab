@@ -266,6 +266,8 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
+  addPlayerTag: 0
+  interactableTags: []
   knockbackForce: 10
   useRotation: 1
 --- !u!114 &114615438489822036
@@ -301,10 +303,14 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
+  addPlayerTag: 0
+  interactableTags: []
   change:
     type: 0
     ConstantValue: -1
     Variable: {fileID: 0}
+  onlyHitTargets: 0
+  targets: {fileID: 0}
 --- !u!212 &212402025767800840
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -553,7 +553,7 @@ MonoBehaviour:
     m_Bits: 2048
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   visionTransform: {fileID: 4696034424728826}
   setRotationToInputController: 1
   angleSnap: 180
@@ -655,11 +655,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     type: 0
-    ConstantValue: 1
+    ConstantValue: 2
     Variable: {fileID: 0}
   maxHealth:
     type: 0
-    ConstantValue: 1
+    ConstantValue: 2
     Variable: {fileID: 0}
   damageFlashAmount: 3
   deactivateRootObjectOnDeath: 1
@@ -749,7 +749,7 @@ MonoBehaviour:
   velocity: 0
   gravity: 20
   onGroundLayerName: Entity
-  inAirLayerName: HighObstacle
+  inAirLayerName: Flying
   maxOnGroungHeight: 1
   waterOffset: -0.2
   baseOffset: 0
@@ -855,10 +855,14 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
+  addPlayerTag: 1
+  interactableTags: []
   change:
     type: 0
     ConstantValue: -1
     Variable: {fileID: 0}
+  onlyHitTargets: 1
+  targets: {fileID: 114657554452811974}
 --- !u!114 &114839934293593122
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -38,14 +38,10 @@ public class CameraZone : InteractOnTrigger2D
 
     protected override void ExecuteOnEnter(Collider2D other)
     {
-        //base.ExecuteOnEnter(other);
-        if(other.gameObject.CompareTag("Player"))
-        {
-            OnEnter.Invoke();
-            DoInventoryChecks(other);
-            CameraFollow.Instance.SetBounds(BoxCollider2D.bounds);
-            m_InBounds = true;
-        }
+        OnEnter.Invoke();
+        DoInventoryChecks(other);
+        CameraFollow.Instance.SetBounds(BoxCollider2D.bounds);
+        m_InBounds = true;
     }
 
     void Update()
@@ -61,11 +57,10 @@ public class CameraZone : InteractOnTrigger2D
 
     protected override void ExecuteOnExit(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            OnExit.Invoke();
-            m_InBounds = false;
-        }
+
+        OnExit.Invoke();
+        m_InBounds = false;
+
     }
 
     private void OnDrawGizmos()
