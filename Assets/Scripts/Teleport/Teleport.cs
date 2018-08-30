@@ -30,7 +30,7 @@ public class Teleport : InteractOnTrigger2D
         }
     }
 
-    public Collider2D cameraZone;
+    public CameraZone cameraZone;
 
     GameObject _teleportObj;
 
@@ -84,7 +84,7 @@ public class Teleport : InteractOnTrigger2D
             {
                 TransitionManager.Instance.onTransitionEnd += OnFadeIn;
                 objectToTeleport.transform.position = t.TeleportTransform.position;
-                CameraFollow.Instance.SetPosition( t.TeleportTransform.position , t.cameraZone.bounds );
+                CameraFollow.Instance.SetPosition( t.TeleportTransform.position , t.cameraZone );
                 TransitionManager.Instance.FadeIn(transition);
                 if (mc!=null)
                 {

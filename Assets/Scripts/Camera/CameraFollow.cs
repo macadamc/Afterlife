@@ -15,7 +15,7 @@ public class CameraFollow : Singleton<CameraFollow>
 
     private Camera _camera;
     private bool _hasBounds;
-    public Bounds _bounds;
+    public CameraZone _cameraZone;
     private Vector2 _size;
     private Vector2 _radius;
     private float _orthoSize;
@@ -59,7 +59,7 @@ public class CameraFollow : Singleton<CameraFollow>
 
             if(_hasBounds)
             {
-                pos = ClampPositionInsideBounds(pos, _bounds);
+                pos = ClampPositionInsideBounds(pos, _cameraZone.BoxCollider2D.bounds);
             }
 
             if (!_initialized && Application.isPlaying)
@@ -113,22 +113,22 @@ public class CameraFollow : Singleton<CameraFollow>
         {
             SetCameraSizeValues();
 
-            if (transform.position.x > _bounds.center.x + _bounds.extents.x)
+            if (transform.position.x > _cameraZone.BoxCollider2D.bounds.center.x + _cameraZone.BoxCollider2D.bounds.extents.x)
             {
                 return false;
             }
 
-            if (transform.position.x < _bounds.center.x - _bounds.extents.x)
+            if (transform.position.x < _cameraZone.BoxCollider2D.bounds.center.x - _cameraZone.BoxCollider2D.bounds.extents.x)
             {
                 return false;
             }
 
-            if (transform.position.y > _bounds.center.y + _bounds.extents.y)
+            if (transform.position.y > _cameraZone.BoxCollider2D.bounds.center.y + _cameraZone.BoxCollider2D.bounds.extents.y)
             {
                 return false;
             }
 
-            if (transform.position.y < _bounds.center.y - _bounds.extents.y)
+            if (transform.position.y < _cameraZone.BoxCollider2D.bounds.center.y - _cameraZone.BoxCollider2D.bounds.extents.y)
             {
                 return false;
             }
@@ -148,16 +148,16 @@ public class CameraFollow : Singleton<CameraFollow>
         _following = false;
     }
 
-    public void SetPosition(Vector2 pos, Bounds bounds)
+    public void SetPosition(Vector2 pos, CameraZone cameraZone)
     {
         Vector3 position = pos;
-        position = ClampPositionInsideBounds(position, bounds);
+        position = ClampPositionInsideBounds(position, cameraZone.BoxCollider2D.bounds);
         position.z = -10f;
         transform.position = position;
         _targetPos = position;
         _velocity = Vector2.zero;
         _following = false;
-        SetBounds(bounds);
+        SetBounds(cameraZone);
     }
 
     public Vector2 ClampPositionInsideBounds(Vector2 position, Bounds bounds)
@@ -169,17 +169,17 @@ public class CameraFollow : Singleton<CameraFollow>
         return newPos;
     }
 
-    public void SetBounds(Bounds bounds)
+    public void SetBounds(CameraZone cameraZone)
     {
-        _bounds = bounds;
+        _cameraZone = cameraZone;
         _hasBounds = true;
         _currentMoveTime = transitionMovetime;
-        _targetPos = ClampPositionInsideBounds(_targetPos, _bounds);
+        _targetPos = ClampPositionInsideBounds(_targetPos, _cameraZone.BoxCollider2D.bounds);
     }
 
-    public void RemoveBounds(Bounds bounds)
+    public void RemoveBounds(CameraZone cameraZone)
     {
-        if(_bounds == bounds)
+        if(_cameraZone == cameraZone)
         {
             _hasBounds = false;
         }
@@ -244,7 +244,7 @@ public class CameraFollow : Singleton<CameraFollow>
         if(_hasBounds)
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireCube(_bounds.center, _bounds.size);
+            Gizmos.DrawWireCube(_cameraZone.BoxCollider2D.bounds.center, _cameraZone.BoxCollider2D.bounds.size);
         }
 
     }

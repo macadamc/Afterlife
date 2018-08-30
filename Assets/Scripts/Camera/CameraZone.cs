@@ -5,20 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class CameraZone : InteractOnTrigger2D
 {
-    /*
-    public Transform cameraZoneTriggerEvents;
-    CameraFollow _camFollow;
-    CameraFollow CameraFollow
-    {
-        get
-        {
-            if (_camFollow == null)
-                _camFollow = Camera.main.GetComponent<CameraFollow>();
-
-            return _camFollow;
-        }
-    }
-*/
     public BoxCollider2D BoxCollider2D
     {
         get
@@ -30,37 +16,53 @@ public class CameraZone : InteractOnTrigger2D
     }
     BoxCollider2D col;
     bool m_InBounds;
+    public List<GameObject> GameObjectsToChangeStateWhileEnteringAndExitingCameraZone = new List<GameObject>();
 
     protected override void Reset()
     {
         base.Reset();
     }
 
+    private void OnEnable()
+    {
+        UpdateStates(false);
+    }
+
     protected override void ExecuteOnEnter(Collider2D other)
     {
         OnEnter.Invoke();
         DoInventoryChecks(other);
-        CameraFollow.Instance.SetBounds(BoxCollider2D.bounds);
+        CameraFollow.Instance.SetBounds(this);
         m_InBounds = true;
+        UpdateStates(true);
     }
 
     void Update()
     {
         if(m_InBounds)
         {
-            if (CameraFollow.Instance._bounds != BoxCollider2D.bounds)
+            if (CameraFollow.Instance._cameraZone != this)
             {
-                CameraFollow.Instance.SetBounds(BoxCollider2D.bounds);
+                CameraFollow.Instance.SetBounds(this);
             }
         }
     }
 
     protected override void ExecuteOnExit(Collider2D other)
     {
-
         OnExit.Invoke();
         m_InBounds = false;
+        UpdateStates(false);
+    }
 
+    void UpdateStates(bool state)
+    {
+        if (GameObjectsToChangeStateWhileEnteringAndExitingCameraZone == null)
+            return;
+        foreach(GameObject go in GameObjectsToChangeStateWhileEnteringAndExitingCameraZone)
+        {
+            go.SetActive(state);
+        }
     }
 
     private void OnDrawGizmos()

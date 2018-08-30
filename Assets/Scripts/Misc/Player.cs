@@ -41,7 +41,7 @@ public class Player : Singleton<Player> {
             {
                 transform.position = t.enterTransform.position;
                 doorTag = null;
-                CameraFollow.Instance.SetPosition(t.TeleportTransform.position, t.cameraZone.bounds);
+                CameraFollow.Instance.SetPosition(t.TeleportTransform.position, t.cameraZone);
                 return;
             }
         }
