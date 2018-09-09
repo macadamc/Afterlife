@@ -26,7 +26,7 @@ public class ItemSpawnPrefabObject : Item
                 user.MovementController.moveSpeed.Value = user.MovementController.moveSpeed.Value * moveSpeedPercent;
             }
 
-            heldItem = Instantiate(itemToHold, user.SpawnTransform);
+            heldItem = Instantiate(itemToHold,user.transform);
             //CheckForDamageComponent(heldItem, user);
             heldItem.transform.position = (Vector2)user.SpawnTransform.position;
 
@@ -93,7 +93,7 @@ public class ItemSpawnPrefabObject : Item
         float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
 
         //  rotates object to face the new angle
-        transformToRotate.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transformToRotate.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     protected virtual void RotateObject(Transform transformToRotate, Vector2 _direction, int _angleSnap)
@@ -101,7 +101,7 @@ public class ItemSpawnPrefabObject : Item
         //  gets the angle from the look direction
         float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
         //  rotates object to face the new angle
-        transformToRotate.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transformToRotate.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         var vec = transformToRotate.eulerAngles;
         vec.x = Mathf.Round(vec.x / _angleSnap) * _angleSnap;

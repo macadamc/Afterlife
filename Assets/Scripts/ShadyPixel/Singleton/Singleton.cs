@@ -68,6 +68,11 @@ namespace ShadyPixel.Singleton
                 Debug.Log("There is already an instance of [" + name + "]. Destroying copy...");
                 Destroy(gameObject);
             }
+            else
+            {
+                _instance = instance;
+                OnRegistration();
+            }
         }
 
         Transform FindRootObject()

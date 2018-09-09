@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestQuest 1/TestQuestAlpha_Title.unity
     guid: 34a4a59060e54514b9be25692fdaa44f
+  - enabled: 1
+    path: Assets/Scenes/TestQuest/TestQuest_ForestTest2.unity
+    guid: b1e7668ada1eaba43a4334c5720bf393
+  - enabled: 1
+    path: Assets/Scenes/TestQuest/TestQuest_ForestTest_Cinemachine.unity
+    guid: fe3c66a13d534e64c959c51865c66511
   m_configObjects: {}

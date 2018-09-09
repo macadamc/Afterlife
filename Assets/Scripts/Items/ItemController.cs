@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemController : MonoBehaviour
+public class ItemController : MonoBehaviour, IDataPersister
 {
     public Item currentItem;
+    public int itemIndex = -1;
     public SpriteRenderer heldItemSpriteRend;
     public Transform itemSpawnTransform;
     [Range(0,360)]
@@ -14,6 +15,8 @@ public class ItemController : MonoBehaviour
     public bool lockDirectionWhenUsingItem;
     [HideInInspector]
     public float lastX;
+
+    public DataSettings dataSettings;
 
     public Transform SpawnTransform
     {
@@ -59,11 +62,13 @@ public class ItemController : MonoBehaviour
     private void OnEnable()
     {
         heldItemSpriteRend.enabled = true;
+        PersistentDataManager.RegisterPersister(this);
     }
 
     private void OnDisable()
     {
         heldItemSpriteRend.enabled = false;
+        PersistentDataManager.UnregisterPersister(this);
     }
 
     public void EquipItem(Item item)
@@ -161,5 +166,34 @@ public class ItemController : MonoBehaviour
     {
         heldItemSpriteRend.enabled = true;
         _init = true;
+    }
+
+    public DataSettings GetDataSettings()
+    {
+        return dataSettings;
+    }
+
+    public void SetDataSettings(string dataTag, DataSettings.PersistenceType persistenceType)
+    {
+        dataSettings.dataTag = dataTag;
+        dataSettings.persistenceType = persistenceType;
+    }
+
+    public Data SaveData()
+    {
+        return new Data<int>(itemIndex);
+    }
+
+    public void LoadData(Data data)
+    {
+        Data<int> loadedData = data as Data<int>;
+
+        if (loadedData == null)
+            return;
+
+        Inventory inventory = GetComponent<Inventory>();
+        Item item = inventory.itemSet.Items[loadedData.value];
+        InventoryManager.Instance.Equip(item);
+        itemIndex = loadedData.value;
     }
 }

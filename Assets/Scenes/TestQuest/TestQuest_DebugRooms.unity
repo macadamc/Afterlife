@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd61ba701f285547961a5a9ad76b172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: a886adea655572047b5bd4002607df5e, type: 2}
+  settings: {fileID: 11400000, guid: 6f1a2a569da5d6749897d47d67707013, type: 2}
 --- !u!4 &31822719
 Transform:
   m_ObjectHideFlags: 0
@@ -305,37 +305,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!84 &213357759
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: SpriteLightKit RT
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 851
-  m_Height: 532
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &313606787
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +370,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b3001097263a50242ab476c90d5020e5, type: 3}
-  m_Color: {r: 0.5377358, g: 0.4696485, b: 0.06848522, a: 1}
+  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6344,7 +6313,6 @@ GameObject:
   - component: {fileID: 804684741}
   - component: {fileID: 804684743}
   - component: {fileID: 804684742}
-  - component: {fileID: 804684744}
   m_Layer: 0
   m_Name: LightCamera
   m_TagString: LightCamera
@@ -6374,7 +6342,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.23051465, g: 0.15873086, b: 0.2735849, a: 1}
+  m_BackGroundColor: {r: 0.012600005, g: 0.012600005, b: 0.08235294, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -6395,7 +6363,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4096
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 213357759}
+  m_TargetTexture: {fileID: 1665532849}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -6425,18 +6393,6 @@ MonoBehaviour:
   rtFilterMode: 0
   rtSizeMultiplier: 1
   _spriteLightCamera: {fileID: 804684742}
---- !u!114 &804684744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 804684740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: aac5cab3b55662b468e0cf1f8ce38417, type: 2}
 --- !u!1 &841410826
 GameObject:
   m_ObjectHideFlags: 0
@@ -6866,7 +6822,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b3001097263a50242ab476c90d5020e5, type: 3}
-  m_Color: {r: 0.509434, g: 0.14658241, b: 0.46532258, a: 1}
+  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7479,8 +7435,8 @@ GameObject:
   - component: {fileID: 1549161297}
   - component: {fileID: 1549161293}
   - component: {fileID: 1549161292}
-  - component: {fileID: 1549161298}
   - component: {fileID: 1549161299}
+  - component: {fileID: 1549161298}
   m_Layer: 0
   m_Name: GameCamera
   m_TagString: MainCamera
@@ -7512,7 +7468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 09755a4891f8d4526a7e0690a23dec7b, type: 3}
-  spriteLightRT: {fileID: 213357759}
+  spriteLightRT: {fileID: 1665532849}
   intensity: 2
 --- !u!114 &1549161294
 MonoBehaviour:
@@ -7740,6 +7696,37 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
+--- !u!84 &1665532849
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SpriteLightKit RT
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 882
+  m_Height: 551
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1676277508
 GameObject:
   m_ObjectHideFlags: 0
@@ -17344,7 +17331,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b3001097263a50242ab476c90d5020e5, type: 3}
-  m_Color: {r: 0.19263972, g: 0.3490566, b: 0.25459307, a: 1}
+  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -92,6 +92,13 @@ public class Inventory : MonoBehaviour, IDataPersister
     private void OnEquipItem(Item item)
     {
         ItemController.EquipItem(item);
+        for (int i = 0; i < itemSet.Items.Count; i++)
+        {
+            if(item.name == itemSet.Items[i].name)
+            {
+                ItemController.itemIndex = i;
+            }
+        }
     }
 
     public DataSettings GetDataSettings()

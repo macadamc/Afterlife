@@ -5,7 +5,7 @@ using ShadyPixel.Variables;
 using UnityEngine.Events;
 using Sirenix.OdinInspector;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDataPersister
 {
     [System.Serializable]
     public class Events
@@ -24,6 +24,8 @@ public class Health : MonoBehaviour
     public bool deactivateRootObjectOnDeath;
     [DrawWithUnity]
     public Events events;
+
+    public DataSettings dataSettings;
 
     //int _currentHealth;
     bool _initialized;
@@ -88,9 +90,15 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        currentHealth.Value = maxHealth.Value;
+        //currentHealth.Value = maxHealth.Value;
         //_initialized = true;
         _sprites = GetComponentsInChildren<SpriteRenderer>();
+        PersistentDataManager.RegisterPersister(this);
+    }
+
+    private void OnDisable()
+    {
+        PersistentDataManager.UnregisterPersister(this);
     }
 
     /*
@@ -105,5 +113,32 @@ public class Health : MonoBehaviour
     public void Damage()
     {
         ChangeHealth(-1);
+    }
+
+    public DataSettings GetDataSettings()
+    {
+        return dataSettings;
+    }
+
+    public void SetDataSettings(string dataTag, DataSettings.PersistenceType persistenceType)
+    {
+        dataSettings.dataTag = dataTag;
+        dataSettings.persistenceType = persistenceType;
+    }
+
+    public Data SaveData()
+    {
+        return new Data<int, int>(currentHealth.Value, maxHealth.Value);
+    }
+
+    public void LoadData(Data data)
+    {
+        Data<int, int> loadedData = data as Data<int,int>;
+
+        if (loadedData == null)
+            return;
+
+        currentHealth.Value = loadedData.value0;
+        maxHealth.Value = loadedData.value1;
     }
 }

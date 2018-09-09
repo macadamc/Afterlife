@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class Player : Singleton<Player> {
 
-    public string doorTag;
+    PersistentVariableStorage pvs;
+    //public string doorTag;
     Health health;
 
     private void OnEnable()
     {
         health = GetComponent<Health>();
+        pvs = GetComponent<PersistentVariableStorage>();
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         health.onHealthChanged += PlayerHealthChanged;
         Initialize(this);
@@ -34,15 +36,28 @@ public class Player : Singleton<Player> {
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
+        Debug.Log("Scene Loaded, trying to teleport");
         Teleport[] teleporters = FindObjectsOfType<Teleport>();
         foreach(Teleport t in teleporters)
         {
-            if(doorTag == t.doorTag)
+            if (pvs.storage.strings.ContainsKey("doorTag"))
             {
-                transform.position = t.enterTransform.position;
-                doorTag = null;
-                CameraFollow.Instance.SetPosition(t.TeleportTransform.position, t.cameraZone);
-                return;
+                if(pvs.storage.strings["doorTag"] == t.doorTag)
+                {
+                    Debug.Log("Found doortag");
+                    transform.position = t.enterTransform.position;
+                    //CameraFollow.Instance.SetPosition(t.TeleportTransform.position, t.cameraZone);
+                    return;
+                }
+                else
+                {
+                    Debug.Log("Could not find corrent door tag in scene.");
+                }
+            }
+            else
+            {
+                Debug.Log("No Door Tag in Persistant Variable Storage");
+                //CameraFollow.Instance.SetPosition(transform.position);
             }
         }
     }

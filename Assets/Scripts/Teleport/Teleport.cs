@@ -15,6 +15,7 @@ public class Teleport : InteractOnTrigger2D
     public Transition transition;
     public string doorTag;
     public string sceneName;
+    
     public Transform enterTransform;
     MovementController mc;
 
@@ -55,9 +56,12 @@ public class Teleport : InteractOnTrigger2D
         TransitionManager.Instance.onTransitionEnd -= OnFadeOut;
         if (type == Type.ChangeScene)
         {
+            PersistentVariableStorage pvs = Player.Instance.gameObject.GetComponent<PersistentVariableStorage>();
+
             // changing scenes
+            pvs.storage.strings["doorTag"] = doorTag;
             PersistentDataManager.SaveAllData();
-            Player.Instance.doorTag = doorTag;
+            //Player.Instance.doorTag = doorTag;
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
         else if (type == Type.Local)
@@ -84,7 +88,7 @@ public class Teleport : InteractOnTrigger2D
             {
                 TransitionManager.Instance.onTransitionEnd += OnFadeIn;
                 objectToTeleport.transform.position = t.TeleportTransform.position;
-                CameraFollow.Instance.SetPosition( t.TeleportTransform.position , t.cameraZone );
+                //CameraFollow.Instance.SetPosition( t.TeleportTransform.position , t.cameraZone );
                 TransitionManager.Instance.FadeIn(transition);
                 if (mc!=null)
                 {

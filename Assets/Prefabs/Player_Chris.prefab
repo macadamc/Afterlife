@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 114451312751791208}
   - component: {fileID: 114042986886767670}
   - component: {fileID: 114565254229820494}
+  - component: {fileID: 114483365830791534}
   m_Layer: 11
   m_Name: Player_Chris
   m_TagString: Player
@@ -324,7 +325,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747217673039194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4604300690912258}
@@ -706,7 +707,8 @@ MonoBehaviour:
   gravity: 15
   onGroundLayerName: Default
   inAirLayerName: HighObstacle
-  waterOffset: -0.2
+  maxOnGroungHeight: 0.75
+  waterOffset: -0.3125
   baseOffset: 0
   waterTiles: {fileID: 11400000, guid: 88de7c50d24c7db449adb2f9321512aa, type: 2}
 --- !u!114 &114256738459749560
@@ -729,9 +731,7 @@ MonoBehaviour:
     ConstantValue: 3
     Variable: {fileID: 11400000, guid: a905607507a372a4eb8db4b8b345fd82, type: 2}
   damageFlashAmount: 3
-  spawnOnDeath: {fileID: 1599533999888472, guid: 45c1c60007d676644a0b51ad3005e481,
-    type: 2}
-  deactivateRootObjectOnDeath: 1
+  deactivateRootObjectOnDeath: 0
   events:
     onHurt:
       m_PersistentCalls:
@@ -740,9 +740,67 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
     onDeath:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 114626265650684692}
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 114720998394926712}
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 114108585924785506}
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 50354483339719376}
+          m_MethodName: set_simulated
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 114361942929999516}
+          m_MethodName: Exit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  dataSettings:
+    dataTag: PlayerHealth
+    persistenceType: 3
 --- !u!114 &114265016254833902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -754,6 +812,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa06865d22a08cb4cb6f960e9eecd3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataSettings:
+    dataTag: PlayerInventory
+    persistenceType: 3
   itemSet: {fileID: 11400000, guid: f102289cd8630f74dad4d71713f1cc29, type: 2}
   aboveHeadSpriteRenderer: {fileID: 212472265932423400}
   inventoryAudioSource: {fileID: 82846626994341580}
@@ -824,9 +885,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fae2f29500969740bf526e0462ca4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 1
-  allowMoreThanOne: 0
-  doorTag: 
+  dontDestroyOnLoad: 0
+  allowMoreThanOne: 1
+--- !u!114 &114483365830791534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1747217673039194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877e5fe501b710b41848b6c520d224fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  storage: {fileID: 11400000, guid: 66883d7ae0345824a860ef8f7a7a76be, type: 2}
+  dataSettings:
+    dataTag: PlayerPersistantStorage
+    persistenceType: 3
+  inventoryEvents: []
 --- !u!114 &114565254229820494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -898,6 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 0}
+  useOrthognial: 0
 --- !u!114 &114710091932633576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -923,6 +1009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentItem: {fileID: 0}
+  itemIndex: -1
   heldItemSpriteRend: {fileID: 212953699551470014}
   itemSpawnTransform: {fileID: 4590298502738490}
   angleSnap: 0
@@ -930,6 +1017,9 @@ MonoBehaviour:
   animator: {fileID: 95456276724869522}
   lockDirectionWhenUsingItem: 0
   lastX: 0
+  dataSettings:
+    dataTag: PlayerItemController
+    persistenceType: 3
 --- !u!114 &114737526251307570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5616,7 +5706,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -16
+  m_SortingOrder: -170
 --- !u!212 &212329305435466154
 SpriteRenderer:
   m_ObjectHideFlags: 1
