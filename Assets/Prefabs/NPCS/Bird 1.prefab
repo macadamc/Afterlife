@@ -592,19 +592,20 @@ MonoBehaviour:
     type: 0
     ConstantValue: 0
     Variable: {fileID: 0}
-  smoothing: 0.1
+  smoothing: 1
   knockbackDecel: 5
   knockbackDeadzone: 0.1
   stepSoundSource: {fileID: 82763501860191632}
   stepLength: {x: 1, y: 1}
   PID:
     pCoeff: 0.8
-    iCoeff: 0.0002
+    iCoeff: 0.25
     dCoeff: 0.2
     minimum: -1
     maximum: 1
   targetFlyingHeight: 3
   force: -2
+  PlayMovingAnimationOnFlying: 1
 --- !u!114 &114122078590532750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -630,7 +631,12 @@ MonoBehaviour:
   moveTime: {x: 0, y: 5.067649}
   delayTime: {x: 0, y: 5.0333967}
   inputController: {fileID: 114523318657643230}
+  movementControler: {fileID: 114090772191994092}
   nextState: {fileID: 0}
+  useRaycasting: 0
+  physicsLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114143579009757596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -719,9 +725,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0364212c19b519d4c8f7b0a3678246ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  events:
+    onEnterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onExitEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   mc: {fileID: 114090772191994092}
+  fakeZ: {fileID: 114387463006008200}
   useSpeedPercentage: 0
+  SetLastTargetHeightOnDisable: 0
   newHeight: 0.75
+  changeStateAtTargetHeight: 0
+  maxHeight: 0
 --- !u!114 &114379300336643824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -788,9 +809,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0364212c19b519d4c8f7b0a3678246ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  events:
+    onEnterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onExitEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   mc: {fileID: 114090772191994092}
+  fakeZ: {fileID: 114387463006008200}
   useSpeedPercentage: 1
+  SetLastTargetHeightOnDisable: 1
   newHeight: 0
+  changeStateAtTargetHeight: 0
+  maxHeight: 2.5
 --- !u!114 &114523318657643230
 MonoBehaviour:
   m_ObjectHideFlags: 1

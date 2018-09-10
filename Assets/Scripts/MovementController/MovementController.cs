@@ -86,6 +86,10 @@ public class MovementController : MonoBehaviour
         get
         { return _stunned; }
     }
+    public Vector2 GetMoveVector
+    {
+        get { return _moveVector; }
+    }
 
     public Transform moveTarget;
     public FloatReference moveSpeed = new FloatReference(5f);
@@ -113,8 +117,6 @@ public class MovementController : MonoBehaviour
     protected bool _initialized;
     protected Vector2 _startPosition;
 
-
-    public Vector2 GetMoveVector {get {return _moveVector;}}
     public virtual void OnEnable()
     {
         //sets the startposition of this object. if already set will reset to it when re enabled

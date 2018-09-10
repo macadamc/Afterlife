@@ -17,6 +17,9 @@ public class Hover : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Hurtbox == null)
+            return;
+
         if (Hurtbox?.activeSelf != !m_FakeZAxis.InAir)
             Hurtbox.SetActive(!m_FakeZAxis.InAir);
     }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717b6c33ec131034e94bea173754c3dc, type: 3}
+  m_Name: Bomb
+  m_EditorClassIdentifier: 
+  description: A Powerful Bomb.
+  onBackSprite: {fileID: 21300000, guid: 552720d463d7ed84186a3d17383785e8, type: 3}
+  aboveHeadSprite: {fileID: 21300000, guid: 552720d463d7ed84186a3d17383785e8, type: 3}
+  pickupSfx: {fileID: 11400000, guid: b8b6c0a40a450c746a102a8adc0ec08b, type: 2}
+  itemToHold: {fileID: 1896612975887056, guid: ff3d9c3c3075ecf4081c85f470729601, type: 2}
+  itemToSpawnOnUse: {fileID: 1890711879721496, guid: 5c7c9ddcc1583484b837a8faa640ff2a,
+    type: 2}
+  moveSpeedPercent: 0.5
+  itemCooldownTime: 1.5
+  itemMoveStunTime: 0.3
+  angleSnap: 45

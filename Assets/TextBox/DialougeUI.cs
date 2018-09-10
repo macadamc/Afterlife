@@ -7,6 +7,7 @@ using Yarn.Unity;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Sirenix.OdinInspector;
+using UnityEngine.Events;
 
 public class DialougeUI : DialogueUIBehaviour
 {
@@ -16,6 +17,8 @@ public class DialougeUI : DialogueUIBehaviour
     private List<TextBoxRef> activeTextBoxes;
     private AudioSource audioSource;
     private TextBoxRef lastTextBox;
+
+    public UnityEvent OnStart, onEnd;
 
     [DrawWithUnity]
     public List<CommandHook> commands;
@@ -140,6 +143,7 @@ public class DialougeUI : DialogueUIBehaviour
 
         if (generator == null)
             generator = new TextGenerator();
+        OnStart?.Invoke();
         yield return null;
     }
 
@@ -151,6 +155,7 @@ public class DialougeUI : DialogueUIBehaviour
             if(tb.caller != null)
                 tb.caller.executing = false;
         }
+        onEnd?.Invoke();
         yield return null;
     }
 

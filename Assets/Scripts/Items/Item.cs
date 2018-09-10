@@ -10,6 +10,7 @@ public class Item : ScriptableObject
     public Sprite onBackSprite;
     public Sprite aboveHeadSprite;
     public SoundEffect pickupSfx;
+    public bool strafeLockedWhileHeld;
     public virtual void Begin(ItemController user) { }
     public virtual void Hold(ItemController user) { }
     public virtual void End(ItemController user) { }

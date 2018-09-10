@@ -192,8 +192,14 @@ public class ItemController : MonoBehaviour, IDataPersister
             return;
 
         Inventory inventory = GetComponent<Inventory>();
-        Item item = inventory.itemSet.Items[loadedData.value];
-        InventoryManager.Instance.Equip(item);
+
+        if(loadedData.value >= 0 && inventory.itemSet.Items.Count > loadedData.value)
+        {
+
+            Item item = inventory.itemSet.Items[loadedData.value];
+            InventoryManager.Instance.Equip(item);
+        }
+        
         itemIndex = loadedData.value;
     }
 }

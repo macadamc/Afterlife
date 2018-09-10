@@ -24,13 +24,12 @@ GameObject:
   - component: {fileID: 114340067795590922}
   - component: {fileID: 82903527643428568}
   - component: {fileID: 114487350631293860}
-  - component: {fileID: 114615438489822036}
-  - component: {fileID: 114594863985685206}
   - component: {fileID: 58887229355139438}
   - component: {fileID: 114081494881286712}
   - component: {fileID: 114571692558423054}
   - component: {fileID: 50710441743371986}
-  m_Layer: 10
+  - component: {fileID: 114278915041569268}
+  m_Layer: 0
   m_Name: Bow_Use2
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -44,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1640222530503160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.63, y: 5.35, z: -0.15000598}
+  m_LocalPosition: {x: -10, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +83,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.25
 --- !u!82 &82903527643428568
 AudioSource:
   m_ObjectHideFlags: 1
@@ -205,18 +204,28 @@ MonoBehaviour:
   moveTarget: {fileID: 4559693867508916}
   moveSpeed:
     type: 0
-    ConstantValue: 15
+    ConstantValue: 20
     Variable: {fileID: 0}
   oldMoveSpeed:
     type: 0
     ConstantValue: 0
     Variable: {fileID: 0}
-  smoothing: 0.4
-  knockbackDecel: 15
-  knockbackDeadzone: 0.1
+  smoothing: 1
+  knockbackDecel: 0
+  knockbackDeadzone: 1
   stepSoundSource: {fileID: 0}
-  waterTiles: {fileID: 0}
   stepLength: {x: 1, y: 1}
+--- !u!114 &114278915041569268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1640222530503160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbb678eb71b50244a79ced61fd33670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114340067795590922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,65 +301,6 @@ MonoBehaviour:
     pressed: 0
     held: 0
     released: 0
---- !u!114 &114594863985685206
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640222530503160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c7f8b712c4b5c3409fc40f65285b11c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerTags: []
-  ignoreTags:
-  - Projectile
-  ignoreObject: {fileID: 0}
-  addPlayerTag: 0
-  events:
-    onTrigger:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExit:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  knockbackForce: 10
-  useRotation: 1
---- !u!114 &114615438489822036
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640222530503160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f7cf850ab442040b87729e84cf4cc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerTags: []
-  ignoreTags: []
-  ignoreObject: {fileID: 0}
-  addPlayerTag: 0
-  events:
-    onTrigger:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExit:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  change:
-    type: 0
-    ConstantValue: -1
-    Variable: {fileID: 0}
 --- !u!212 &212402025767800840
 SpriteRenderer:
   m_ObjectHideFlags: 1

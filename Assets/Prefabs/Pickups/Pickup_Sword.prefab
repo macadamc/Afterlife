@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1909610655404828}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9, y: -0.5, z: 0}
+  m_LocalPosition: {x: 1.69, y: -1.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4259690516204398}
@@ -150,6 +150,8 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
+  addPlayerTag: 1
+  interactableTags: []
   disableOnEnter: 1
   collider: {fileID: 58662729816687822}
   clip: {fileID: 8300000, guid: a1a8acb2df1b4874a9cced61b3644beb, type: 3}
@@ -247,8 +249,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1223979617
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300010, guid: 70c3e630ef6678041bc528511d92d9bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

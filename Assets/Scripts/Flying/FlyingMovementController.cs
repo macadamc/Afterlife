@@ -11,6 +11,8 @@ public class FlyingMovementController : MovementController
     public PIDController PID;
     public float targetFlyingHeight = 1f;
     public float force;
+    public bool PlayMovingAnimationOnFlying;
+
 
     FakeZAxis m_FakeZAxis;
 
@@ -22,7 +24,16 @@ public class FlyingMovementController : MovementController
     [ShowInInspector]
     public float SpeedPercentage { get {  return Mathf.Clamp(Mathf.Abs(_moveVector.x) + Mathf.Abs(_moveVector.y), 0, moveSpeed.Value) / moveSpeed.Value; } }
 
-    public override bool IsMoving{ get {return base.IsMoving || m_FakeZAxis.height > 0.1f;}}
+    public override bool IsMoving
+    {
+        get
+        {
+            if(PlayMovingAnimationOnFlying)
+                return base.IsMoving || m_FakeZAxis.height > 0.1f;
+
+            return base.IsMoving;
+        }
+    }
 
     public override void FixedUpdate()
     {
