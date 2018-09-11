@@ -5,12 +5,15 @@ using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using Pixelplacement;
 using Pixelplacement.TweenSystem;
+using TMPro;
 
 public class TextBox : MonoBehaviour
 {
     public bool useTimeScale = true;
     public GameObject choiceContainer;
-    public Text textComp;
+    public TextMeshProUGUI text;
+    public RectTransform bg;
+
     public TweenBase cTween = null;
 
     public virtual void EnabledTextBox(bool tween= true)

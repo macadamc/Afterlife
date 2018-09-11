@@ -61,7 +61,6 @@ namespace Yarn.Unity
         public YarnStorageWrapper wrappedGlobalStore;
 
         /// The object that will handle the actual display and user input
-        [System.NonSerialized]
         public Yarn.Unity.DialogueUIBehaviour dialogueUI;
 
         /// Whether we should start dialogue when the scene starts
@@ -114,17 +113,12 @@ namespace Yarn.Unity
             // And that we have our variable storage object
             if (wrappedGlobalStore == null)
             {
-                //variableStorage = SaveLoadManager.Instance.savedVariables;
-
-                if (wrappedGlobalStore == null)
-                {
-                    Debug.LogError("Variable storage was not set! Can't run the dialogue!");
-                    return;
-                }  
+                Debug.LogError("Variable storage was not set! Can't run the dialogue!");
+                return;
             }
 
             // Ensure that the variable storage has the right stuff in it
-            //variableStorage.ResetToDefaults ();
+            //variableStorage.ResetToDefaults();
 
             // Load all scripts
             if (sourceText != null) {

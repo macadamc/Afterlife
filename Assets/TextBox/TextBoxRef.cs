@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
-using Pixelplacement;
 using System.Linq;
 
 public class TextBoxRef : MonoBehaviour {

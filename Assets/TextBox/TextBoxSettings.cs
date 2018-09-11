@@ -4,6 +4,7 @@ using UnityEngine;
 using ShadyPixel.Audio;
 using Sirenix.OdinInspector;
 using Pixelplacement.TweenSystem;
+using TMPro;
 
 [CreateAssetMenu()]
 public class TextBoxSettings : ScriptableObject
@@ -14,6 +15,7 @@ public class TextBoxSettings : ScriptableObject
 
     public SoundEffect sfx;
 
+    public TMP_FontAsset TMP_Font;
     public Font font;
     public int fontSize;
 
