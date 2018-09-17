@@ -1,0 +1,12 @@
+{
+    "name": "MinibufferConsoleEditor",
+    "references": [
+        "MinibufferConsole"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

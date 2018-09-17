@@ -106,7 +106,6 @@ public class VariableStorageChecker
 
 public class PersistentVariableStorage : SerializedMonoBehaviour, IDataPersister
 {
-
     private void OnEnable()
     {
         storage.OnAdd += DoOnAdd;
@@ -114,6 +113,7 @@ public class PersistentVariableStorage : SerializedMonoBehaviour, IDataPersister
         storage.OnRemove += DoOnRemove;
         PersistentDataManager.RegisterPersister(this);
     }
+
     private void OnDisable()
     {
         storage.OnAdd -= DoOnAdd;
@@ -142,7 +142,11 @@ public class PersistentVariableStorage : SerializedMonoBehaviour, IDataPersister
     {
         public string key;
         [DrawWithUnity]
-        public UnityEvent OnAdd, OnChange, OnRemove;
+        public UnityEvent OnAdd;
+        [DrawWithUnity]
+        public UnityEvent OnChange;
+        [DrawWithUnity]
+        public UnityEvent OnRemove;
     }
 
     void IDataPersister.LoadData(Data data)
@@ -178,15 +182,15 @@ public class PersistentVariableStorage : SerializedMonoBehaviour, IDataPersister
         return null;
     }
 
-    public void DoOnAdd(string key)
+    public void DoOnAdd(string key, GlobalStorageObject.VarType type)
     {
         GetInventoryEvent(key)?.OnAdd.Invoke();
     }
-    public void DoOnChange(string key)
+    public void DoOnChange(string key, GlobalStorageObject.VarType type)
     {
         GetInventoryEvent(key)?.OnChange.Invoke();
     }
-    public void DoOnRemove(string key)
+    public void DoOnRemove(string key, GlobalStorageObject.VarType type)
     {
         GetInventoryEvent(key)?.OnRemove.Invoke();
     }
@@ -196,7 +200,6 @@ public class PersistentVariableStorage : SerializedMonoBehaviour, IDataPersister
         storage = ScriptableObject.CreateInstance<GlobalStorageObject>();
         storage.name = $"{gameObject.name}_TempStorage";
     }
-
 }
 
 [System.Serializable]

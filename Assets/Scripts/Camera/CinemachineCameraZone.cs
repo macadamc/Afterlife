@@ -7,7 +7,6 @@ public class CinemachineCameraZone : InteractOnTrigger2D
 {
     // this object gets enabled / disabled as the player enters and exits the trigger.
     CinemachineVirtualCamera vCam;
-
     private void Start()
     {
         vCam = GetComponentInChildren<CinemachineVirtualCamera>();

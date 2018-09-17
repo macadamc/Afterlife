@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 using System.Linq;
+using SeawispHunter.MinibufferConsole;
 
 public class TextBoxRef : MonoBehaviour {
 
@@ -39,6 +40,7 @@ public class TextBoxRef : MonoBehaviour {
 
         dialogueRunner = GetComponent<DialogueRunner>();
         defaultSettings = textBoxSettings;
+        Minibuffer.Register(this);
     }
 
     private void LateUpdate()
@@ -66,6 +68,38 @@ public class TextBoxRef : MonoBehaviour {
     {
         Clean();
         dialogueRunner.StartDialogue(startNode);
+    }
+
+    public void CallTextBoxString(string text)
+    {
+        CallTextBoxString(dialogueRunner, text);
+    }
+
+    [Command]
+    public static void CallTextBoxString(DialogueRunner runner, string text)
+    {
+        if (runner.isDialogueRunning)
+            return;
+
+        string prefix = 
+            @"title:Inline
+---
+";
+        string node = prefix + text + System.Environment.NewLine + "===";
+        runner.Clear();
+
+        runner.AddScript(node);
+        // Load all scripts
+        if (runner.sourceText != null)
+        {
+            foreach (var source in runner.sourceText)
+            {
+                // load and compile the text
+                runner.AddScript(source.text);
+            }
+        }
+
+        runner.StartDialogue("Inline");
     }
 
     private void Clean()
@@ -102,6 +136,8 @@ public class TextBoxRef : MonoBehaviour {
     private void OnDisable()
     {
         _textBox?.DisableTextbox();
+
+        Minibuffer.Unregister(this);
     }
 
     private void OnApplicationQuit()

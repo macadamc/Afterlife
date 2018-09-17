@@ -1,0 +1,8 @@
+{
+    "name": "MinibufferConsole",
+    "references": [
+        "NewAssembly"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}

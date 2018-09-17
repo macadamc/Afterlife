@@ -555,6 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentItem: {fileID: 11400000, guid: 385e639199383014a8dabb6a94ece675, type: 2}
+  itemIndex: -1
   heldItemSpriteRend: {fileID: 212529777349699612}
   itemSpawnTransform: {fileID: 4661819289302332}
   angleSnap: 0
@@ -562,6 +563,9 @@ MonoBehaviour:
   animator: {fileID: 95037052430935566}
   lockDirectionWhenUsingItem: 0
   lastX: 0
+  dataSettings:
+    dataTag: aac48444-b103-47b8-8cb1-2e46e8ad5dde
+    persistenceType: 3
 --- !u!114 &114081571481428910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -575,7 +579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultState: {fileID: 1114060371799242}
   loopStates: 1
-  logToConsole: 1
+  logToConsole: 0
   allowStateReentry: 0
   returnToDefaultOnDisable: 1
   currentState: {fileID: 0}
@@ -675,6 +679,9 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  dataSettings:
+    dataTag: a8c6bdf9-4174-47e8-92c4-31e33a1651ef
+    persistenceType: 3
 --- !u!114 &114258704261403078
 MonoBehaviour:
   m_ObjectHideFlags: 1

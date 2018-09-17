@@ -53,14 +53,14 @@ public class TitleScreen : MonoBehaviour
     private void NewGame()
     {
         TransitionManager.Instance.onTransitionEnd -= NewGame;
-        SaveLoadManager.Instance.Save();
+        //SaveLoadManager.Instance.Save();
         SceneManager.LoadScene(newGameSceneName, LoadSceneMode.Single);
     }
 
     private void LoadGame()
     {
         TransitionManager.Instance.onTransitionEnd -= LoadGame;
-        SaveLoadManager.Instance.Load();
+        //SaveLoadManager.Instance.Load();
         SceneManager.LoadScene(newGameSceneName, LoadSceneMode.Single);
     }
 

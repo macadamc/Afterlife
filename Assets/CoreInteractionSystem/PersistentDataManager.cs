@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SceneManagement;
+using SeawispHunter.MinibufferConsole;
 
 
 public class PersistentDataManager : MonoBehaviour
@@ -40,6 +41,15 @@ public class PersistentDataManager : MonoBehaviour
     protected Dictionary<string, Data> m_Store = new Dictionary<string, Data>();
     event System.Action schedule = null;
 
+    private void OnEnable()
+    {
+        Minibuffer.Register(this);
+    }
+    private void OnDisable()
+    {
+        Minibuffer.Register(this);
+    }
+
     void Update()
     {
         if (schedule != null)
@@ -61,7 +71,6 @@ public class PersistentDataManager : MonoBehaviour
         Debug.Log("Writing To persistent Objects");
         LoadAllData();
     }
-
 
     void OnDestroy()
     {
@@ -165,14 +174,15 @@ public class PersistentDataManager : MonoBehaviour
     }
 
     [Button]
-    public void SaveExternal()
+    [Command("SaveGame", description = "Save GameState to a file.")]
+    public static void SaveExternal(string saveName)
     {
-        string fileName = "testSave.bin";
+        string fileName = $"{saveName}.bin";
 
-        SaveAllDataInternal();
+        instance.SaveAllDataInternal();
         FileStream stream = File.Open(Application.persistentDataPath + "/" + fileName, FileMode.OpenOrCreate);
         var formatter = new BinaryFormatter();
-        formatter.Serialize(stream, m_Store);
+        formatter.Serialize(stream, instance.m_Store);
         stream.Close();
 
         // Restore from file
@@ -180,14 +190,15 @@ public class PersistentDataManager : MonoBehaviour
 
     }
     [Button]
-    public void LoadExternal()
+    [Command("LoadGame", description ="Load GameState From a File.")]
+    public static void LoadExternal(string saveName)
     {
-        string fileName = "testSave.bin";
+        string fileName = $"{saveName}.bin";
 
         FileStream stream = File.OpenRead(Application.persistentDataPath + "/" + fileName);
         var formatter = new BinaryFormatter();
-        m_Store = (Dictionary<string, Data>)formatter.Deserialize(stream);
+        instance.m_Store = (Dictionary<string, Data>)formatter.Deserialize(stream);
         stream.Close();
-        LoadAllDataInternal();
+        instance.LoadAllDataInternal();
     }
 }

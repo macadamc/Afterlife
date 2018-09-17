@@ -7,14 +7,19 @@ using Sirenix.OdinInspector;
 [CreateAssetMenu]
 public class GlobalStorageObject : SerializedScriptableObject
 {
+    public enum VarType { FLOAT, STRING, BOOL};
     public Dictionary<string, string> strings = new Dictionary<string, string>();
     public Dictionary<string, float> floats = new Dictionary<string, float>();
     public Dictionary<string, bool> bools = new Dictionary<string, bool>();
 
-    public delegate void VariableStorageEvent(string key);
+    public delegate void VariableStorageEvent(string key, VarType type);
 
-    [HideInInspector]
-    public VariableStorageEvent OnAdd, OnChange, OnRemove;
+    [System.NonSerialized]
+    public VariableStorageEvent OnAdd;
+    [System.NonSerialized]
+    public VariableStorageEvent OnChange;
+    [System.NonSerialized]
+    public VariableStorageEvent OnRemove;
 
     public bool Contains(string key)
     {
@@ -57,14 +62,14 @@ public class GlobalStorageObject : SerializedScriptableObject
         if (strings.ContainsKey(key) == false)
         {
             strings.Add(key, value);
-            OnAdd?.Invoke(key);
+            OnAdd?.Invoke(key, VarType.STRING);
         }
         else
         {
             if(value != strings[key])
             {
                 strings[key] = value;
-                OnChange?.Invoke(key);
+                OnChange?.Invoke(key, VarType.STRING);
             }
         }
 
@@ -75,14 +80,14 @@ public class GlobalStorageObject : SerializedScriptableObject
         if (floats.ContainsKey(key) == false)
         {
             floats.Add(key, value);
-            OnAdd?.Invoke(key);
+            OnAdd?.Invoke(key, VarType.FLOAT);
         }
         else
         {
             if(value != floats[key])
             {
                 floats[key] = value;
-                OnChange?.Invoke(key);
+                OnChange?.Invoke(key, VarType.FLOAT);
             }
 
         }
@@ -94,14 +99,14 @@ public class GlobalStorageObject : SerializedScriptableObject
         if (bools.ContainsKey(key) == false)
         {
             bools.Add(key, value);
-            OnAdd?.Invoke(key);
+            OnAdd?.Invoke(key, VarType.BOOL);
         }
         else
         {            
             if(value != bools[key])
             {
                 bools[key] = value;
-                OnChange?.Invoke(key);
+                OnChange?.Invoke(key, VarType.BOOL);
             }
                 
         }
@@ -141,16 +146,29 @@ public class GlobalStorageObject : SerializedScriptableObject
     {
         key = TrimStart(key);
         bool contains = Contains(key);
+        VarType varType = VarType.BOOL;
 
         if (strings.ContainsKey(key))
+        {
             strings.Remove(key);
+            varType = VarType.STRING;
+        }
+            
         if (floats.ContainsKey(key))
+        {
+            varType = VarType.FLOAT;
             floats.Remove(key);
+        }
+            
         if (bools.ContainsKey(key))
+        {
+            varType = VarType.BOOL;
             bools.Remove(key);
+        }
+            
 
         if (contains)
-            OnRemove?.Invoke(key);
+            OnRemove?.Invoke(key, varType);
         //GetInventoryEvent(key)?.OnRemove.Invoke();
     }
 

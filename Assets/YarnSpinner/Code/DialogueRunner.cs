@@ -71,6 +71,7 @@ namespace Yarn.Unity
         public string startNode = Yarn.Dialogue.DEFAULT_START;
 
         /// Tests to see if the dialogue is running
+        [ShowInInspector]
         public bool isDialogueRunning { get; private set; }
 
         public bool automaticCommands = true;
