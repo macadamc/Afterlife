@@ -8,17 +8,18 @@ using SeawispHunter.MinibufferConsole.Extensions;
 
 public class Player : Singleton<Player> {
 
-    PersistentVariableStorage pvs;
-
+    public PersistentVariableStorage pvs;
     Health health;
-
-    private void OnEnable()
+    private void Awake()
     {
         health = GetComponent<Health>();
         pvs = GetComponent<PersistentVariableStorage>();
+        Initialize(this);
+    }
+    private void OnEnable()
+    {
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         health.onHealthChanged += PlayerHealthChanged;
-        Initialize(this);
     }
 
     private void Start()

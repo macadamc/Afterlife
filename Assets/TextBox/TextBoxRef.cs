@@ -34,11 +34,16 @@ public class TextBoxRef : MonoBehaviour {
     public Interactable caller;
     public bool useWorldSpaceCanvas = true;
 
+
+    private void Awake()
+    {
+        dialogueRunner = GetComponentInChildren<DialogueRunner>();
+    }
     private void Start()
     {
         canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceOverlay); }).First();
 
-        dialogueRunner = GetComponent<DialogueRunner>();
+        
         defaultSettings = textBoxSettings;
         Minibuffer.Register(this);
     }

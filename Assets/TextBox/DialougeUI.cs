@@ -291,9 +291,7 @@ public class DialougeUI : DialogueUIBehaviour
             }            
 
             textBox.text.rectTransform.sizeDelta = pSize;
-            textBox.bg.sizeDelta = pSize;
-            print(pSize);
-            
+            textBox.bg.sizeDelta = pSize;            
         }
 
         textBox.text.ForceMeshUpdate();

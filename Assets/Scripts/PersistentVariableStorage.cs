@@ -41,9 +41,10 @@ public class FloatCompare : CompareObject
 
 public class BoolCompare : CompareObject
 {
+    public bool isTrue = true;
     public override bool Check(GlobalStorageObject storage)
     {
-        return storage.bools.ContainsKey(key) && storage.bools[key];
+        return storage.GetBool(key) == isTrue;// && storage.bools[key] == isTrue;
     }
 }
 

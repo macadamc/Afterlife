@@ -47,37 +47,32 @@ public class TriggerDialogueBehaviour : PlayableBehaviour
             m_textBoxRef = playerData as TextBoxRef;
 
         if (!m_textBoxRef)
-            return;
-
-        if (began == false)
         {
-            if (m_textBoxRef.dialogueRunner?.isDialogueRunning == false)
+            return;
+        }
+
+        if (Application.isPlaying && began == false)
+        {
+            if (m_textBoxRef.dialogueRunner.isDialogueRunning == false)
             {
                 began = true;
                 Debug.Log("<color=green>TEXTBOX STARTED</color>");
 
                 m_textBoxRef.dialogueRunner.Clear();// UNLOADS ALL LOADED YARN FILES.
 
-                //shouldnt do this.
-                try
-                {
-                    if (useInlineDialogue)
-                        m_textBoxRef.dialogueRunner.AddScript(inlineDialogue);
-                    else if (dialogueAsset != null)
-                        m_textBoxRef.dialogueRunner.AddScript(dialogueAsset);
-                }
-                finally
-                {
-                    m_dialougeUI.onEnd.AddListener(m_onEnd);
-                    m_textBoxRef.CallTextBox(startNode);
+                if (useInlineDialogue)
+                    m_textBoxRef.dialogueRunner.AddScript(inlineDialogue);
+                else if (dialogueAsset != null)
+                    m_textBoxRef.dialogueRunner.AddScript(dialogueAsset);
 
-                    //Pause without breaking the current animation states. Work around for 2018.2
-                    if (pauseTimeline)
-                        m_graph.GetRootPlayable(0).SetSpeed(0);
-                    else if (jumpToEndOfClip)
-                        JumpToEndofPlayable();
-                }
+                m_dialougeUI.onEnd.AddListener(m_onEnd);
+                m_textBoxRef.CallTextBox(startNode);
 
+                //Pause without breaking the current animation states. Work around for 2018.2
+                if (pauseTimeline)
+                    m_graph.GetRootPlayable(0).SetSpeed(0);
+                if (jumpToEndOfClip)
+                    JumpToEndofPlayable();
             }
 
         }

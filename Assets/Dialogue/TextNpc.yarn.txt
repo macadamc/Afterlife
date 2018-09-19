@@ -1,0 +1,28 @@
+title: TestNpc.Leave
+tags: 
+colorID: 0
+position: 572,586
+parent: Root
+---
+TestNpc:.....
+===
+title: TestNpc.DefaultPressed
+tags: 
+colorID: 0
+position: 1186,584
+parent: Root
+---
+TestNpc:There is nothing but evil waiting for you.
+===
+title: TestNpc.DefaultPassive
+tags: 
+colorID: 0
+position: 870,587
+parent: Root
+---
+<<if $Has_Sword is false>>
+TestNpc:Hey, Stay out of that cave.
+<<else>>
+TestNpc:I told you not to go in to the cave {PlayerName}
+<<endif>>
+===

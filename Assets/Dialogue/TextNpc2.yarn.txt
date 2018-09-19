@@ -1,0 +1,53 @@
+title: TestNpc2.SimpleConditional
+tags: 
+colorID: 0
+position: 1060,292
+---
+<<if $Count is null>>
+    <<set $Count to 0>>
+<<endif>>
+<<if $Count < 5>>
+    <<set $Count to $Count + 1>>
+    TestNpc2:Yes?
+    TestNpc2:...
+<<else>>
+    TestNpc2:Well Thats Enough..
+<<endif>>
+===
+title: ChoiceTest
+tags: 
+colorID: 0
+position: 1058,528
+---
+Global: Heres a Choice!
+[[Option 1|Option1]]
+[[Option 2|Option2]]
+===
+title: Option1
+tags: 
+colorID: 0
+position: 925,763
+---
+Global:One Pressed
+===
+title: Option2
+tags: 
+colorID: 0
+position: 1175,763
+---
+Global:Two Pressed
+===
+title: ChoiceTestAlt
+tags: 
+colorID: 0
+position: 807,294
+---
+Global:Hello [PlayerName]!!
+<<SetTextBoxSettings Global NoDelay>>//Show text intantly
+Global:Make a Choice.
+<<SetTextBoxSettings Global default>>//use default textSettings
+->Option 1
+    Global:[PlayerName] Picked Option 1!!!
+->Option 2
+    Global:[PlayerName] Picked Option 2...
+===

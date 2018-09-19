@@ -1,7 +1,0 @@
-title: Sword_Pickup
-tags: 
-colorID: 0
-position: 860,408
----
-Global:You found a sword!
-===

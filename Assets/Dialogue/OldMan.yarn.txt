@@ -1,0 +1,38 @@
+title: NoQuest
+tags: 
+colorID: 0
+position: 0,0
+parent: Root
+---
+<<if visited("NoQuest") is false>>
+OldMan:Leave me be..
+OldMan:Sometimes I like come out here for some peace and quiet.
+<<else>>
+OldMan:The sounds of the forest have the most soothing effect on me it seems.
+<<endif>>
+===
+title: TalkedToWife
+tags: 
+colorID: 0
+position: 0,0
+parent: Root
+---
+<<if visited("TalkedToWife") is false>>
+OldMan:Oh? whats that you say? My wife sent you?
+OldMan:....
+<<endif>>
+OldMan:Well so much for my peaceful afternoon...
+OldMan:Thank you my boy.
+===
+title: TestQuestCutScene
+tags: 
+colorID: 0
+position: 0,0
+parent: Root
+---
+OldMan:Ha! so simple. I should have seen it sooner..
+OldMan:hmmm..... Oh My! this is troublinng...yes, hmmmm.
+OldMan:I must contact church... they will want to hear of this.
+OldMan:eh?
+OldMan:Who's there? Im just an old man! Leave Me BE!!
+===

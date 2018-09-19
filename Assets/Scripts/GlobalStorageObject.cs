@@ -44,15 +44,28 @@ public class GlobalStorageObject : SerializedScriptableObject
     }
     public string GetString(string key)
     {
-        return strings[TrimStart(key)];
+        string tKey = TrimStart(key);
+        if (strings.ContainsKey(tKey) == false)
+            SetValue(tKey, null);
+
+        return strings[tKey];
     }
     public float GetFloat(string key)
     {
-        return floats[TrimStart(key)];
+        string tKey = TrimStart(key);
+        if (floats.ContainsKey(tKey) == false)
+            SetValue(tKey, 0);
+
+        return floats[tKey];
     }
     public bool GetBool(string key)
     {
-        return bools[TrimStart(key)];
+        string tKey = TrimStart(key);
+
+        if (bools.ContainsKey(tKey) == false)
+            SetValue(tKey, false);
+
+        return bools[tKey];
     }
 
     public void SetValue(string key, string value)
