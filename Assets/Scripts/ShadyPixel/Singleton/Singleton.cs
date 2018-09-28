@@ -29,6 +29,14 @@ namespace ShadyPixel.Singleton
         bool allowMoreThanOne;
         static T _instance;
 
+        public Transform GetRootObject(Transform transformToCheck)
+        {
+            if (transformToCheck.parent == null)
+                return transformToCheck;
+            else
+                return GetRootObject(transformToCheck.parent);
+        }
+
         /// <summary>
         /// Override this method to call code when the Singleton gets registered.
         /// </summary>
@@ -58,7 +66,7 @@ namespace ShadyPixel.Singleton
                 {
                     //don't destroy on load only works on root objects so let's force this transform to be a root object:
                     //transform.parent = null;
-                    DontDestroyOnLoad( FindRootObject().gameObject );
+                    DontDestroyOnLoad(GetRootObject(transform).gameObject);
                 }
                 _instance = instance;
                 OnRegistration();
@@ -66,25 +74,13 @@ namespace ShadyPixel.Singleton
             else if(!allowMoreThanOne)
             {
                 Debug.Log("There is already an instance of [" + name + "]. Destroying copy...");
-                Destroy(gameObject);
+                Destroy(GetRootObject(transform).gameObject);
             }
             else
             {
                 _instance = instance;
                 OnRegistration();
             }
-        }
-
-        Transform FindRootObject()
-        {
-            Transform transformToCheck = this.transform;
-
-            while(transformToCheck.parent != null)
-            {
-                transformToCheck = transformToCheck.parent;
-            }
-
-            return transformToCheck;
         }
     }
 }

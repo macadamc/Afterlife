@@ -13,8 +13,9 @@ public class FlyingMovementController : MovementController
     public float force;
     public bool PlayMovingAnimationOnFlying;
 
-
+    
     FakeZAxis m_FakeZAxis;
+    
 
     public override void OnEnable()
     {

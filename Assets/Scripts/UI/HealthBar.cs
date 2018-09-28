@@ -7,34 +7,40 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour {
 
     [Header("Variable References")]
-    public IntReference currentHealth;
-    public IntReference maxHealth;
+    public IntVariable currentHealth;
+    public IntVariable maxHealth;
     public int tileSize = 16;
 
     [Header("HealthBar References")]
     public Image heartsBackground;
     public Image heartsForeground;
 
-    public void Start()
+    public void OnEnable()
     {
-        UpdateHealthBar();
-        Player.Instance.GetComponent<Health>().onHealthChanged += UpdateHealthBar;
+        currentHealth.onValueChanged += UpdateCurrentHealth;
+        maxHealth.onValueChanged += UpdateMaxHealth;
+        UpdateHealth();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
-        if(Player.Instance != null)
-            Player.Instance.GetComponent<Health>().onHealthChanged -= UpdateHealthBar;
+        currentHealth.onValueChanged -= UpdateCurrentHealth;
+        maxHealth.onValueChanged -= UpdateMaxHealth;
     }
 
-    public void UpdateHealthBar()
+    public void UpdateCurrentHealth()
     {
-        heartsBackground.rectTransform.sizeDelta = new Vector2(maxHealth.Value * tileSize, tileSize);
-        heartsForeground.rectTransform.sizeDelta = new Vector2(currentHealth.Value * tileSize, tileSize);
+        heartsForeground.rectTransform.sizeDelta = new Vector2(currentHealth.GetValue() * tileSize, tileSize);
     }
-    public void UpdateHealthBar(int change)
+
+    public void UpdateMaxHealth()
     {
-        heartsBackground.rectTransform.sizeDelta = new Vector2(maxHealth.Value * tileSize, tileSize);
-        heartsForeground.rectTransform.sizeDelta = new Vector2(currentHealth.Value * tileSize, tileSize);
+        heartsBackground.rectTransform.sizeDelta = new Vector2(maxHealth.GetValue() * tileSize, tileSize);
+    }
+
+    public void UpdateHealth()
+    {
+        UpdateCurrentHealth();
+        UpdateMaxHealth();
     }
 }

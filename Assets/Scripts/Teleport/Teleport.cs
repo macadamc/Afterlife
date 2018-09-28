@@ -31,8 +31,6 @@ public class Teleport : InteractOnTrigger2D
         }
     }
 
-    public CameraZone cameraZone;
-
     GameObject _teleportObj;
 
     protected override void ExecuteOnEnter(Collider2D other)

@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class ItemController : MonoBehaviour, IDataPersister
 {
+    public UnityEvent onAttack;
+
     public Item currentItem;
     public int itemIndex = -1;
     public SpriteRenderer heldItemSpriteRend;
@@ -11,7 +15,6 @@ public class ItemController : MonoBehaviour, IDataPersister
     [Range(0,360)]
     public int angleSnap = 0;
     public bool logToConsole;
-    public Animator animator;
     public bool lockDirectionWhenUsingItem;
     [HideInInspector]
     public float lastX;
@@ -160,7 +163,7 @@ public class ItemController : MonoBehaviour, IDataPersister
     }
     private void SetAttackTrigger()
     {
-        animator.SetTrigger("attack");
+        onAttack?.Invoke();
     }
     private void Init()
     {

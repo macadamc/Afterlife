@@ -18,14 +18,6 @@ public class TriggerOnNoEnemys : MonoBehaviour
     public NoEnemyEvent onTriggered;
 
     bool triggered = false;
-    public CameraZone targetCameraZone;
-
-    private void Awake()
-    {
-        if(targetCameraZone == null)
-            targetCameraZone = GetComponent<CameraZone>();
-    }
-
 
     public void Update()
     {

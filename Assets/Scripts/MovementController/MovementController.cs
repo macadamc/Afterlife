@@ -11,7 +11,6 @@ public class MovementController : MonoBehaviour
     [System.Serializable]
     public class Events
     {
-        public UnityEvent onStep;
         public UnityEvent onKnockback;
     }
     [DrawWithUnity]
@@ -57,16 +56,6 @@ public class MovementController : MonoBehaviour
             return _rigidbody;
         }
     }
-    public TileRef TileReference
-    {
-        get
-        {
-            if (_tileRef == null)
-                _tileRef = GetComponent<TileRef>();
-
-            return _tileRef;
-        }
-    }
     public bool Knockedback
     {
         get
@@ -90,7 +79,8 @@ public class MovementController : MonoBehaviour
     {
         get { return _moveVector; }
     }
-
+    public Animator anim;
+    public string setAnimationBoolToIsMoving = "isMoving";
     public Transform moveTarget;
     public FloatReference moveSpeed = new FloatReference(5f);
     [HideInInspector]
@@ -99,23 +89,14 @@ public class MovementController : MonoBehaviour
     public float smoothing = 0.4f;
     public float knockbackDecel = 5f;
     public float knockbackDeadzone = 0.1f;
-    public AudioSource stepSoundSource;
-    //public TileList waterTiles;
-    [MinMaxSlider(0.1f, 0.5f, true)]
-    public Vector2 stepLength = Vector2.one;
-
 
     protected InputController _inputController;
     protected Vector2 _moveVector;
     protected Vector2 _knockbackVector;
     protected Rigidbody2D _rigidbody;
-    protected TileRef _tileRef;
-    protected TileBase _tile;
     protected float _nextMoveTime;
-    protected float _nextStepTime;
     protected bool _stunned;
     protected bool _initialized;
-    protected Vector2 _startPosition;
 
     public virtual void OnEnable()
     {
@@ -123,10 +104,7 @@ public class MovementController : MonoBehaviour
         if (!_initialized)
         {
             _initialized = true;
-            _startPosition = transform.position;
         }
-        else
-            transform.position = _startPosition;
     }
 
     /// <summary>
@@ -142,6 +120,8 @@ public class MovementController : MonoBehaviour
 
         if (Knockedback || _stunned )
         {
+            anim?.SetBool(setAnimationBoolToIsMoving, false);
+
             // sets move vector to zero
             _moveVector = Vector2.Lerp(_moveVector, Vector2.zero * moveSpeed, smoothing);
 
@@ -153,6 +133,7 @@ public class MovementController : MonoBehaviour
         {
             // use normal input from InputController.joystick
             _moveVector = Vector2.Lerp(_moveVector, Ic.joystick * moveSpeed, smoothing);
+            anim?.SetBool(setAnimationBoolToIsMoving, IsMoving);
         }
     }
 
@@ -164,19 +145,6 @@ public class MovementController : MonoBehaviour
     {
         if (PauseManager.Instance != null && PauseManager.Instance.Paused)
             return;
-
-        if (TileReference != null)
-        {
-            _tile = TileReference.GetTile(transform.position);
-        }
-
-        if (_moveVector.magnitude > 0.1)
-        {
-            if (Time.time > _nextStepTime)
-                Step();
-        }
-        else
-            _nextStepTime = Time.time;
 
         Rb.velocity = _moveVector + _knockbackVector;
         UpdateKnockback();
@@ -255,6 +223,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
+    /*
     public virtual void Step()
     {
         events.onStep.Invoke();
@@ -268,4 +237,5 @@ public class MovementController : MonoBehaviour
             }
         }
     }
+    */
 }

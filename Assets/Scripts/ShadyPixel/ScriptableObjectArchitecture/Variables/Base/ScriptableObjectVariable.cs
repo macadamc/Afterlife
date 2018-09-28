@@ -11,6 +11,9 @@ namespace ShadyPixel.Variables
         [ReadOnly]
         public T RuntimeValue;
 
+        public delegate void OnValueChanged();
+        public OnValueChanged onValueChanged;
+
         [Button("Reset Value to Default", ButtonSizes.Large)]
         public void OnAfterDeserialize()
         {
@@ -27,6 +30,7 @@ namespace ShadyPixel.Variables
         public void SetValue(T value)
         {
             RuntimeValue = value;
+            onValueChanged?.Invoke();
         }
     }
 }

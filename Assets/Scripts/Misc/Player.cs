@@ -95,7 +95,7 @@ public class Player : Singleton<Player> {
     {
         if(change < 0)
         {
-            CameraShake.Instance.SmallShake();
+            //CameraShake.Instance.SmallShake();
             PauseManager.Instance.StartCoroutine(PauseManager.Instance.FreezeFrame(0.2f,0.3f));
         }
     }

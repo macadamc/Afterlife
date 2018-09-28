@@ -29,7 +29,8 @@ namespace ShadyPixel.Variables
         public IntVariable Variable;
 
         public IntReference()
-        { }
+        {
+        }
 
         public IntReference(int value)
         {
@@ -42,6 +43,7 @@ namespace ShadyPixel.Variables
             get { return type == Type.Constant ? ConstantValue : Variable.GetValue(); }
             set
             {
+
                 if (type == Type.Constant)
                 {
                     ConstantValue = value;
@@ -52,7 +54,6 @@ namespace ShadyPixel.Variables
                 }
             }
         }
-
 
         public static implicit operator int(IntReference reference)
         {
