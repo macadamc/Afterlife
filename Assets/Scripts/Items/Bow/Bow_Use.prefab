@@ -21,15 +21,14 @@ GameObject:
   - component: {fileID: 4559693867508916}
   - component: {fileID: 212402025767800840}
   - component: {fileID: 114501296808374582}
-  - component: {fileID: 114340067795590922}
   - component: {fileID: 82903527643428568}
   - component: {fileID: 114487350631293860}
   - component: {fileID: 114615438489822036}
   - component: {fileID: 114594863985685206}
   - component: {fileID: 58887229355139438}
-  - component: {fileID: 114081494881286712}
-  - component: {fileID: 114571692558423054}
   - component: {fileID: 50710441743371986}
+  - component: {fileID: 114343909082990718}
+  - component: {fileID: 114096321465659912}
   m_Layer: 10
   m_Name: Bow_Use
   m_TagString: Projectile
@@ -180,7 +179,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114081494881286712
+--- !u!114 &114096321465659912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1640222530503160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd5d24b45ce295419fee3c9c3a1ea6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {x: 0, y: 0}
+  lookDirection: {x: 0, y: 0}
+  strafe: 0
+  input:
+    pressed: 0
+    held: 0
+    released: 0
+--- !u!114 &114343909082990718
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,42 +209,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-    onStep:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
     onKnockback:
       m_PersistentCalls:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  moveTarget: {fileID: 4559693867508916}
+  anim: {fileID: 0}
+  setAnimationBoolToIsMoving: isMoving
+  moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
-    ConstantValue: 15
+    ConstantValue: 5
     Variable: {fileID: 0}
   oldMoveSpeed:
     type: 0
     ConstantValue: 0
     Variable: {fileID: 0}
-  smoothing: 0.4
-  knockbackDecel: 15
+  smoothing: 1
+  knockbackDecel: 5
   knockbackDeadzone: 0.1
-  stepSoundSource: {fileID: 0}
-  stepLength: {x: 1, y: 1}
---- !u!114 &114340067795590922
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640222530503160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a87427ccd751847a6358f922d4d037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ppu: 16
 --- !u!114 &114487350631293860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,25 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a626ebce01ccfee4cb5b53b7e8a19eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 5
---- !u!114 &114571692558423054
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640222530503160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd5d24b45ce295419fee3c9c3a1ea6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joystick: {x: 0, y: 0}
-  lookDirection: {x: 0, y: 0}
-  strafe: 0
-  input:
-    pressed: 0
-    held: 0
-    released: 0
+  time: 10
 --- !u!114 &114594863985685206
 MonoBehaviour:
   m_ObjectHideFlags: 1

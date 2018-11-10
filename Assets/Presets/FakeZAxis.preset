@@ -53,6 +53,10 @@ Preset:
     value: HighObstacle
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: maxOnGroungHeight
+    value: 0.75
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: waterOffset
     value: -0.2
     objectReference: {fileID: 0}
@@ -63,4 +67,4 @@ Preset:
   - target: {fileID: 0}
     propertyPath: waterTiles
     value: 
-    objectReference: {fileID: 11400000, guid: 72ef561d195d86345a8d77e25a3d05c0, type: 2}
+    objectReference: {fileID: 0}

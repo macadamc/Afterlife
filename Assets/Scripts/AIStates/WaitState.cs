@@ -7,7 +7,7 @@ using ShadyPixel.StateMachine;
 public class WaitState : State
 {
     GameObject ForcedState;
-    [MinMaxSlider(0, 10, true)]
+    [MinMaxSlider(0, 30, true)]
     public Vector2 WaitTime;
     protected float nextTime;
 

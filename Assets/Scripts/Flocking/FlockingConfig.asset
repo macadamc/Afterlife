@@ -15,14 +15,14 @@ MonoBehaviour:
   maxAcceleration: 20
   maxVelocity: 2
   wanderJitter: 10
-  wanderRadius: 2
-  wanderDistance: 2
-  wanderPriority: 10
+  wanderRadius: 3
+  wanderDistance: 3
+  wanderPriority: 2
   cohesionRadius: 6
   cohesionPriority: 10
   allignmentRadius: 2
-  allignmentPriority: 5
+  allignmentPriority: 2
   seperationRadius: 1.5
   seperationPriority: 15
-  avoidanceRadius: 1.5
-  avoidancePriority: 1
+  avoidanceRadius: 2
+  avoidancePriority: 10

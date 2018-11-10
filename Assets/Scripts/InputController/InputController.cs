@@ -25,8 +25,8 @@ public class InputController : MonoBehaviour
         }
     }
 
-    public Vector2 joystick;
-    public Vector2 lookDirection;
+    public Vector2 joystick = Vector2.zero;
+    public Vector2 lookDirection = Vector2.zero;
     public bool strafe;
     public Button input;
 

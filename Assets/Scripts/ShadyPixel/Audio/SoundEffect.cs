@@ -24,8 +24,11 @@ namespace ShadyPixel.Audio
         [PropertyTooltip("AudioMixerGroup that gets passed to the AudioSource.")]
         public AudioMixerGroup mixerGroup;
 
-
-        public AudioSource s;
+        [Button("DebugPlay", ButtonSizes.Large)]
+        public void DebugPlay()
+        {
+            FindObjectOfType<AudioManager>().PlaySFX(this);
+        }
 
         public void Play(AudioSource source)
         {
@@ -36,23 +39,8 @@ namespace ShadyPixel.Audio
             source.volume = Random.Range(volume.x, volume.y);
             source.pitch = Random.Range(pitch.x, pitch.y);
             source.outputAudioMixerGroup = mixerGroup;
+
             source.Play();
-        }
-
-        [Button("Play", ButtonSizes.Large)]
-        public void DebugPlay()
-        {
-            if (clip == null)
-                return;
-
-            if (s == null)
-                s = new AudioSource();
-
-            s.clip = clip;
-            s.volume = Random.Range(volume.x, volume.y);
-            s.pitch = Random.Range(pitch.x, pitch.y);
-            s.outputAudioMixerGroup = mixerGroup;
-            s.Play();
         }
     }
 }

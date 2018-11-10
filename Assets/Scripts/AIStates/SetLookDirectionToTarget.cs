@@ -5,7 +5,7 @@ using UnityEngine;
 public class SetLookDirectionToTarget : MonoBehaviour {
 
     public InputController inputController;
-    public Vision _vision;
+    public Targets targets;
     Transform _target;
 
     private void OnEnable()
@@ -29,11 +29,10 @@ public class SetLookDirectionToTarget : MonoBehaviour {
 
     private Transform GetTarget()
     {
-        if (_vision == null || _vision.targets.transforms.Count == 0)
+        if (targets == null || targets.transforms.Count == 0)
         {
             return null;
         }
-        Debug.Log(_vision.targets.transforms[0]);
-        return _vision.targets.transforms[0];
+        return targets.transforms[0];
     }
 }

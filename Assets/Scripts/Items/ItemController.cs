@@ -12,8 +12,10 @@ public class ItemController : MonoBehaviour, IDataPersister
     public int itemIndex = -1;
     public SpriteRenderer heldItemSpriteRend;
     public Transform itemSpawnTransform;
+    /*
     [Range(0,360)]
     public int angleSnap = 0;
+    */
     public bool logToConsole;
     public bool lockDirectionWhenUsingItem;
     [HideInInspector]

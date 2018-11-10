@@ -259,16 +259,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-    onStep:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
     onKnockback:
       m_PersistentCalls:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  anim: {fileID: 0}
+  setAnimationBoolToIsMoving: isMoving
   moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
@@ -281,8 +278,6 @@ MonoBehaviour:
   smoothing: 0.4
   knockbackDecel: 15
   knockbackDeadzone: 0.1
-  stepSoundSource: {fileID: 0}
-  stepLength: {x: 1, y: 1}
 --- !u!114 &114214594671699974
 MonoBehaviour:
   m_ObjectHideFlags: 1

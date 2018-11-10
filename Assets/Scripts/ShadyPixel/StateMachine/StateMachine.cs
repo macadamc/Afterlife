@@ -156,6 +156,17 @@ namespace ShadyPixel.StateMachine
             }
         }
 
+        protected virtual void Enter(GameObject state)
+        {
+            currentState = state;
+
+            Log("(+) " + name + " ENTERED state: " + state.name);
+
+            if (events.OnStateEnter != null) events.OnStateEnter.Invoke(currentState);
+
+            currentState.SetActive(true);
+        }
+
         #endregion
 
         #region Private Functions
@@ -191,17 +202,6 @@ namespace ShadyPixel.StateMachine
             }
         }
 
-        private void Enter(GameObject state)
-        {
-            currentState = state;
-
-            Log("(+) " + name + " ENTERED state: " + state.name);
-
-            if (events.OnStateEnter != null) events.OnStateEnter.Invoke(currentState);
-
-            currentState.SetActive(true);
-        }
-
         private void AddState(StateObject stateObject)
         {
             if (!states.Contains(stateObject))
@@ -214,7 +214,7 @@ namespace ShadyPixel.StateMachine
                 states.Remove(stateObject);
         }
 
-        private void Log(string message)
+        protected void Log(string message)
         {
             if (!logToConsole) return;
 

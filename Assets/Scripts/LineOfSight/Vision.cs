@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
+using UnityEngine.Events;
 
 public class Vision : MonoBehaviour {
 
@@ -13,14 +15,18 @@ public class Vision : MonoBehaviour {
 
     public Transform visionTransform;
 
-    public bool setRotationToInputController;
-    [Range(0,360)]
+    [Range(0, 360)]
     public int angleSnap = 0;
+    public bool useInputControllerForDirection;
     public InputController ic;
 
     public List<string> visionTags = new List<string>();
-
+    [Required]
     public Targets targets;
+
+    public UnityEvent onTargetSeen;
+    public UnityEvent onNoTargets;
+    bool hasTargets;
 
     /// <summary>
     /// If this vision object can see open ground at a position in the world.
@@ -54,18 +60,12 @@ public class Vision : MonoBehaviour {
         return new Vector2(Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), Mathf.Sin(angleInDegrees * Mathf.Deg2Rad));
     }
 
-    private void OnEnable()
-    {
-        if(targets == null)
-            targets = GetComponentInChildren<Targets>();
-    }
-
     private void Update()
     {
         if (PauseManager.Instance != null && PauseManager.Instance.Paused)
             return;
 
-        if (setRotationToInputController && ic!=null)
+        if (useInputControllerForDirection && ic != null)
         {
             if(angleSnap > 0)
                 RotateObj(angleSnap);
@@ -94,6 +94,7 @@ public class Vision : MonoBehaviour {
         visionTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
+    
     private void FindVisibleTargets()
     {
         targets.transforms.Clear();
@@ -121,7 +122,21 @@ public class Vision : MonoBehaviour {
                     targets.Add(targetsInViewRadius[i].transform);
             }
         }
+        if (targets.transforms.Count > 0)
+        {
+            onTargetSeen.Invoke();
+            hasTargets = true;
+        }
+        else
+        { 
+            if(hasTargets)
+            {
+                hasTargets = false;
+                onNoTargets.Invoke();
+            }
+        }
     }
+    
 
     private void OnDrawGizmosSelected()
     {
@@ -134,12 +149,14 @@ public class Vision : MonoBehaviour {
         Gizmos.DrawLine(transform.position, transform.position + viewAngleA * viewRadius);
         Gizmos.DrawLine(transform.position, transform.position + viewAngleB * viewRadius);
 
+        
         Gizmos.color = Color.red;
         if (targets == null)
-            return;
+        return;
         foreach (Transform visibleTarget in targets.transforms)
         {
-            Gizmos.DrawLine(visionTransform.position, visibleTarget.position);
+        Gizmos.DrawLine(visionTransform.position, visibleTarget.position);
         }
+        
     }
 }

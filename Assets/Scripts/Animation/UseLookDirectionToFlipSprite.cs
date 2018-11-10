@@ -4,30 +4,27 @@ using UnityEngine;
 
 public class UseLookDirectionToFlipSprite : MonoBehaviour
 {
-	public InputController Inc
+    public Transform FlipTransform
     {
         get
         {
-            if (_inputController == null)
-            {
-                _inputController = GetComponentInChildren<InputController>();
-            }
-
-            return _inputController;
-        }
-        set
-        {
-            _inputController = value;
+            if (transformToUse != null)
+                return transformToUse;
+            else
+                return transform;
         }
     }
 
 
-    InputController _inputController;
+    public InputController inputController;
+    public Transform transformToUse;
     SpriteRenderer[] _spriteRenderers;
 
     private void Start()
     {
-        _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        _spriteRenderers = FlipTransform.GetComponentsInChildren<SpriteRenderer>();
+        if (inputController == null)
+            inputController = GetComponentInChildren<InputController>();
     }
 
     private void Update()
@@ -35,18 +32,13 @@ public class UseLookDirectionToFlipSprite : MonoBehaviour
         if (PauseManager.Instance.Paused)
             return;
 
-
-        if (Inc.lookDirection.x > 0 || Inc.lookDirection.x < 0)
+        foreach (SpriteRenderer s in _spriteRenderers)
         {
-            foreach (SpriteRenderer s in _spriteRenderers)
-            {
-                if (Inc.lookDirection.x > 0)
-                    s.flipX = false;
+            if (inputController.lookDirection.x > 0)
+                s.flipX = false;
 
-                if (Inc.lookDirection.x < 0)
-                    s.flipX = true;
-            }
+            if (inputController.lookDirection.x < 0)
+                s.flipX = true;
         }
-
     }
 }

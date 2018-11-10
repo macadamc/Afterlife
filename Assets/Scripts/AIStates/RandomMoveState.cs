@@ -14,7 +14,6 @@ public class RandomMoveState : State {
 
     public InputController inputController;
     public MovementController movementControler;
-    public GameObject nextState;
 
     public bool useRaycasting;
     [ShowIf("useRaycasting")]

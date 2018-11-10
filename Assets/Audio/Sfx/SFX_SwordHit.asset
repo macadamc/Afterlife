@@ -11,8 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31806d1ac955fc34f8f9abcfd747797d, type: 3}
   m_Name: SFX_SwordHit
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 2e6f2186507a33e4796cdfaf7d8fe174, type: 3}
-  volume: {x: 0.8, y: 1}
+  clip: {fileID: 8300000, guid: 23028dc3e84ae5540a81b9b79b4850e0, type: 3}
+  volume: {x: 1, y: 1}
   pitch: {x: 1, y: 1}
   mixerGroup: {fileID: 0}
-  s: {fileID: 0}

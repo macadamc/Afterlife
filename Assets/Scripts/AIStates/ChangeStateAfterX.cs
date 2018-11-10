@@ -6,7 +6,7 @@ using ShadyPixel.StateMachine;
 
 public class ChangeStateAfterX : State {
 
-    [MinMaxSlider(0f, 5f)]
+    [MinMaxSlider(0f, 30f, true)]
     public Vector2 range;
     float nextTime;
 

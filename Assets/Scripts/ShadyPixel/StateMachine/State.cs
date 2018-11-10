@@ -8,15 +8,10 @@ namespace ShadyPixel.StateMachine
 {
     public class State : MonoBehaviour
     {
-        [System.Serializable]
-        public class Events
-        {
-            public UnityEvent onEnterEvent;
-            public UnityEvent onExitEvent;
-        }
-
-        [DrawWithUnity]
-        public Events events;
+        [TabGroup("Events")]
+        public UnityEvent onEnterEvent;
+        [TabGroup("Events")]
+        public UnityEvent onExitEvent;
 
         StateMachine _stateMachine;
 
@@ -60,14 +55,12 @@ namespace ShadyPixel.StateMachine
 
         protected virtual void OnEnable()
         {
-            if (events.onEnterEvent != null)
-                events.onEnterEvent.Invoke();
+            onEnterEvent?.Invoke();
         }
 
         protected virtual void OnDisable()
         {
-            if (events.onExitEvent != null)
-                events.onExitEvent.Invoke();
+            onExitEvent?.Invoke();
         }
     }
 }

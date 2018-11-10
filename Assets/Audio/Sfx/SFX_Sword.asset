@@ -11,8 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31806d1ac955fc34f8f9abcfd747797d, type: 3}
   m_Name: SFX_Sword
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 31f0e10367371274ba2394200d562411, type: 3}
-  volume: {x: 1, y: 1}
-  pitch: {x: 0.8, y: 1.2}
+  clip: {fileID: 8300000, guid: 20553699fa4ddd343ac7a696fa596200, type: 3}
+  volume: {x: 0.6, y: 1}
+  pitch: {x: 0.8, y: 1.1}
   mixerGroup: {fileID: 0}
-  s: {fileID: 0}

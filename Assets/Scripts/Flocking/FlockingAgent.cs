@@ -45,7 +45,8 @@ public class FlockingAgent : MovementController
 
         if (Knockedback || _stunned)
         {
-            anim?.SetBool(setAnimationBoolToIsMoving, false);
+            if (anim != null)
+                anim.SetBool(setAnimationBoolToIsMoving, false);
 
             // sets move vector to zero
             _moveVector = Vector2.Lerp(_moveVector, Vector2.zero, smoothing);
@@ -63,7 +64,9 @@ public class FlockingAgent : MovementController
 
             // use normal input from InputController.joystick
             _moveVector = Vector2.Lerp(_moveVector, velocity, smoothing);
-            anim?.SetBool(setAnimationBoolToIsMoving, IsMoving);
+
+            if(anim != null)
+                anim.SetBool(setAnimationBoolToIsMoving, IsMoving);
         }
         /*
         acceleration = Combine();

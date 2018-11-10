@@ -26,7 +26,6 @@ public class Inventory : MonoBehaviour, IDataPersister
     //public List<Item> activeItems = new List<Item>();
     public ItemRuntimeSet itemSet;
     public SpriteRenderer aboveHeadSpriteRenderer;
-    public AudioSource inventoryAudioSource;
 
     private ItemController _itemController;
 
@@ -60,7 +59,6 @@ public class Inventory : MonoBehaviour, IDataPersister
     {
         aboveHeadSpriteRenderer.sprite = item.aboveHeadSprite;
         aboveHeadSpriteRenderer.gameObject.SetActive(true);
-        item.pickupSfx.Play(inventoryAudioSource);
         //ItemController.MovementController.Stun(1.0f);
         yield return new WaitForSeconds(1f);
         aboveHeadSpriteRenderer.gameObject.SetActive(false);

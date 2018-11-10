@@ -15,6 +15,8 @@ TextureImporter:
     21300020: Bat_0
     21300022: Bat_1
     21300024: Bat_Idle
+    21300026: doodle3_0
+    21300028: doodle3_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -352,6 +354,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4d6cfe115c99f254599abe94393c5e10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doodle3_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3338707211d0f2546bff05fa0124bf5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doodle3_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.25, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ec3973576d1104ba870378cda07a9f
       vertices: []
       indices: 
       edges: []

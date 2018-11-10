@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SetAnimationValues : MonoBehaviour
 {
-
-
     public Animator Animator
     {
         get

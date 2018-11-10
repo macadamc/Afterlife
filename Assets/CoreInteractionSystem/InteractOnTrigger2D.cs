@@ -69,6 +69,9 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
     {
         PersistentVariableStorage store = other.GetComponentInChildren<PersistentVariableStorage>();
 
+        if (store == null || inventoryChecks == null || inventoryChecks.Length == 0)
+            return;
+
         for (int i = 0; i < inventoryChecks.Length; i++)
         {
             inventoryChecks[i].DoChecks(store);

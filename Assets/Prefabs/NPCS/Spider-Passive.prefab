@@ -11,22 +11,6 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1874669080378772}
   m_IsPrefabAsset: 1
---- !u!1 &1134573675868856
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4907073575766474}
-  - component: {fileID: 114653310764063834}
-  m_Layer: 11
-  m_Name: DelayState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1281125443572454
 GameObject:
   m_ObjectHideFlags: 1
@@ -36,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4512956186533574}
   - component: {fileID: 114542447058232694}
-  - component: {fileID: 114503492014631154}
   m_Layer: 11
   m_Name: RandomMove
   m_TagString: Untagged
@@ -105,9 +88,8 @@ GameObject:
   - component: {fileID: 61139738240432770}
   - component: {fileID: 50276905417838650}
   - component: {fileID: 114890670252561880}
-  - component: {fileID: 114371325192294748}
+  - component: {fileID: 114554138730495730}
   - component: {fileID: 114396205339560526}
-  - component: {fileID: 114104468628030822}
   - component: {fileID: 114652236655222564}
   - component: {fileID: 114798426115397882}
   - component: {fileID: 114177917253303066}
@@ -116,7 +98,6 @@ GameObject:
   - component: {fileID: 114359005828226296}
   - component: {fileID: 114371515145094798}
   - component: {fileID: 114337934757693610}
-  - component: {fileID: 114894789737132304}
   m_Layer: 11
   m_Name: Spider-Passive
   m_TagString: Enemy
@@ -165,7 +146,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4512956186533574}
-  - {fileID: 4907073575766474}
   m_Father: {fileID: 4558462888910310}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -211,19 +191,6 @@ Transform:
   - {fileID: 4421261887274860}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4907073575766474
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1134573675868856}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4334300909001232}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4927844595434972
 Transform:
@@ -421,17 +388,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114104468628030822
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874669080378772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9940ad27dd357dc46b46610f4b36e8d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114177917253303066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -517,38 +473,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformRuntimeSet: {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac,
     type: 2}
---- !u!114 &114371325192294748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874669080378772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a1ef5f58574ebf49ac3992b7a6e30f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  events:
-    onKnockback:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  anim: {fileID: 95049120905702678}
-  setAnimationBoolToIsMoving: isMoving
-  moveTarget: {fileID: 4558462888910310}
-  moveSpeed:
-    type: 0
-    ConstantValue: 5
-    Variable: {fileID: 0}
-  oldMoveSpeed:
-    type: 0
-    ConstantValue: 0
-    Variable: {fileID: 0}
-  smoothing: 1
-  knockbackDecel: 5
-  knockbackDeadzone: 0.1
-  jumpStrength: 2.5
 --- !u!114 &114371515145094798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -634,19 +558,6 @@ MonoBehaviour:
     Variable: {fileID: 0}
   onlyHitTargets: 1
   targets: {fileID: 114337934757693610}
---- !u!114 &114503492014631154
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281125443572454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016d2b421a536834abe31616f336336a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputController: {fileID: 114396205339560526}
-  useOrthognial: 0
 --- !u!114 &114542447058232694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -670,14 +581,47 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   moveTime: {x: 0.6765401, y: 1.5516663}
-  delayTime: {x: 0.6092227, y: 0.6092227}
+  delayTime: {x: 0, y: 0}
   inputController: {fileID: 114396205339560526}
-  movementControler: {fileID: 114371325192294748}
-  nextState: {fileID: 1134573675868856}
+  movementControler: {fileID: 0}
+  nextState: {fileID: 0}
   useRaycasting: 0
   physicsLayers:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &114554138730495730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874669080378772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491fbb570b30a8c408c9921cbd9de7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+    onKnockback:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  anim: {fileID: 95049120905702678}
+  setAnimationBoolToIsMoving: isMoving
+  moveTarget: {fileID: 0}
+  moveSpeed:
+    type: 0
+    ConstantValue: 5
+    Variable: {fileID: 0}
+  oldMoveSpeed:
+    type: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  smoothing: 1
+  knockbackDecel: 5
+  knockbackDeadzone: 0.1
+  stepLength: {x: 0.25, y: 0.6}
+  waitLength: {x: 0.25, y: 1}
 --- !u!114 &114602327389431910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -702,29 +646,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e681110564417ec46ae73c15bfca7289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114653310764063834
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1134573675868856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca75db5691efc2e4c806491128644398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  events:
-    onEnterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExitEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  WaitTime: {x: 0.50824654, y: 1.4843489}
 --- !u!114 &114751512969350456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -828,18 +749,6 @@ MonoBehaviour:
   dataSettings:
     dataTag: a54599e0-85cf-4b51-812c-a2092b519083
     persistenceType: 3
---- !u!114 &114894789737132304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874669080378772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b5bcfef20797ce4790c73618042bcb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hurtbox: {fileID: 1404586985448818}
 --- !u!212 &212191112061396026
 SpriteRenderer:
   m_ObjectHideFlags: 1

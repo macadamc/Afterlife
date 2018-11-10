@@ -42,7 +42,8 @@ GameObject:
   - component: {fileID: 58589426648975408}
   - component: {fileID: 114794634630077430}
   - component: {fileID: 50069264798286698}
-  - component: {fileID: 114112102814880640}
+  - component: {fileID: 114871390755154200}
+  - component: {fileID: 114890564644930292}
   m_Layer: 11
   m_Name: SmlMound
   m_TagString: Enemy
@@ -172,7 +173,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.3
 --- !u!58 &58589426648975408
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -187,7 +188,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.27
 --- !u!95 &95551249371874142
 Animator:
   serializedVersion: 3
@@ -259,42 +260,6 @@ MonoBehaviour:
     Variable: {fileID: 0}
   onlyHitTargets: 0
   targets: {fileID: 0}
---- !u!114 &114112102814880640
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1467201421957952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03eba1f55077fcb47812ba284ced3f09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  events:
-    onStep:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onKnockback:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  moveTarget: {fileID: 0}
-  moveSpeed:
-    type: 0
-    ConstantValue: 0.5
-    Variable: {fileID: 0}
-  oldMoveSpeed:
-    type: 0
-    ConstantValue: 0
-    Variable: {fileID: 0}
-  smoothing: 0.4
-  knockbackDecel: 5
-  knockbackDeadzone: 0.1
-  stepSoundSource: {fileID: 0}
-  stepLength: {x: 1, y: 1}
 --- !u!114 &114768212012649812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,6 +332,58 @@ MonoBehaviour:
   dataSettings:
     dataTag: d1ea8248-e085-457c-874b-01bd756a16ee
     persistenceType: 0
+--- !u!114 &114871390755154200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1467201421957952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddb431d61fb26e4f8e7df7bbac8e580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+    onKnockback:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  anim: {fileID: 0}
+  setAnimationBoolToIsMoving: 
+  moveTarget: {fileID: 0}
+  moveSpeed:
+    type: 0
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  oldMoveSpeed:
+    type: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  smoothing: 1
+  knockbackDecel: 5
+  knockbackDeadzone: 0.1
+  velocity: {x: 0, y: 0}
+  acceleration: {x: 0, y: 0}
+  config: {fileID: 11400000, guid: ff1ac45f83eb4124d9b2282c6574e343, type: 2}
+--- !u!114 &114890564644930292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1467201421957952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68cd5e2e2763e646a473242abd2306b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {x: 0, y: 0}
+  lookDirection: {x: 0, y: 0}
+  strafe: 0
+  input:
+    pressed: 0
+    held: 0
+    released: 0
 --- !u!210 &210726024376766480
 SortingGroup:
   m_ObjectHideFlags: 1

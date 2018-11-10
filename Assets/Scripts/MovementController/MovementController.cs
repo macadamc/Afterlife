@@ -120,7 +120,8 @@ public class MovementController : MonoBehaviour
 
         if (Knockedback || _stunned )
         {
-            anim?.SetBool(setAnimationBoolToIsMoving, false);
+            if(anim != null && setAnimationBoolToIsMoving.Length > 0)
+                anim.SetBool(setAnimationBoolToIsMoving, false);
 
             // sets move vector to zero
             _moveVector = Vector2.Lerp(_moveVector, Vector2.zero * moveSpeed, smoothing);
@@ -133,7 +134,8 @@ public class MovementController : MonoBehaviour
         {
             // use normal input from InputController.joystick
             _moveVector = Vector2.Lerp(_moveVector, Ic.joystick * moveSpeed, smoothing);
-            anim?.SetBool(setAnimationBoolToIsMoving, IsMoving);
+            if(anim!=null)
+                anim.SetBool(setAnimationBoolToIsMoving, IsMoving);
         }
     }
 

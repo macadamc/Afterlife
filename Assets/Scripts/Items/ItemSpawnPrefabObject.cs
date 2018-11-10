@@ -26,7 +26,9 @@ public class ItemSpawnPrefabObject : Item
                 user.MovementController.moveSpeed.Value = user.MovementController.moveSpeed.Value * moveSpeedPercent;
             }
 
-            heldItem = Instantiate(itemToHold,user.transform);
+            heldItem = Instantiate(itemToHold, user.SpawnTransform);
+
+            heldItem.transform.localScale = user.transform.localScale;
             //CheckForDamageComponent(heldItem, user);
             heldItem.transform.position = (Vector2)user.SpawnTransform.position;
 
@@ -43,10 +45,13 @@ public class ItemSpawnPrefabObject : Item
     {
         if (itemToHold != null && heldItem != null)
         {
+            heldItem.transform.localScale = user.transform.localScale;
+
             if (angleSnap == 0)
                 RotateObject(heldItem.transform, user.InputController.lookDirection);
             else
                 RotateObject(heldItem.transform, user.InputController.lookDirection, angleSnap);
+
         }
     }
 
@@ -64,6 +69,7 @@ public class ItemSpawnPrefabObject : Item
         }
 
         GameObject spawnObject = Instantiate(itemToSpawnOnUse, user.SpawnTransform);
+        spawnObject.transform.localScale = user.transform.localScale;
         //CheckForDamageComponent(spawnObject, user);
 
         if (angleSnap == 0)
@@ -72,6 +78,7 @@ public class ItemSpawnPrefabObject : Item
             RotateObject(spawnObject.transform, user.InputController.lookDirection, angleSnap);
 
         spawnObject.transform.position = (Vector2)user.SpawnTransform.position + (Vector2)spawnObject.transform.right;
+
 
         /*
         //  if object has a component that deals damage, make sure to set it so that it cant hurt itself.
@@ -93,7 +100,7 @@ public class ItemSpawnPrefabObject : Item
         float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
 
         //  rotates object to face the new angle
-        transformToRotate.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transformToRotate.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     protected virtual void RotateObject(Transform transformToRotate, Vector2 _direction, int _angleSnap)
@@ -101,7 +108,7 @@ public class ItemSpawnPrefabObject : Item
         //  gets the angle from the look direction
         float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
         //  rotates object to face the new angle
-        transformToRotate.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transformToRotate.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         var vec = transformToRotate.eulerAngles;
         vec.x = Mathf.Round(vec.x / _angleSnap) * _angleSnap;
