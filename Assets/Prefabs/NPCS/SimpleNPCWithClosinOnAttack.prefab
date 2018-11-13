@@ -310,7 +310,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484698986971486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4351425, y: -0.016992569, z: 0}
+  m_LocalPosition: {x: 2.6392262, y: -4.418953, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4361155057073202}
@@ -702,7 +702,7 @@ MonoBehaviour:
   lastX: 0
   dataSettings:
     dataTag: 0fdd3d1c-e71d-40ce-827c-41e4f0fd4350
-    persistenceType: 3
+    persistenceType: 0
 --- !u!114 &114333385352333502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -841,7 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114595139553942712}
-  targets: {fileID: 0}
+  targets: {fileID: 114846249145500890}
 --- !u!114 &114544819479657278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -898,7 +898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultState: {fileID: 1844431202413752}
   loopStates: 1
-  logToConsole: 1
+  logToConsole: 0
   allowStateReentry: 0
   returnToDefaultOnDisable: 1
   currentState: {fileID: 0}
@@ -1034,7 +1034,6 @@ MonoBehaviour:
   delayTime: {x: 0, y: 0.25}
   inputController: {fileID: 114595139553942712}
   movementControler: {fileID: 0}
-  nextState: {fileID: 0}
   useRaycasting: 0
   physicsLayers:
     serializedVersion: 2
@@ -1060,7 +1059,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 71
 --- !u!212 &212549883584418350
 SpriteRenderer:
   m_ObjectHideFlags: 1

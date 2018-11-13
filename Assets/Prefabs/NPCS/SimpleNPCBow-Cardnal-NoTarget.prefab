@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4533989047994978}
   - component: {fileID: 212352085093070082}
   - component: {fileID: 95037052430935566}
+  - component: {fileID: 114325379607221442}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -177,27 +178,10 @@ GameObject:
   - component: {fileID: 114621286597617666}
   - component: {fileID: 210589808558293932}
   - component: {fileID: 114094637609650206}
-  - component: {fileID: 114801831984892366}
-  - component: {fileID: 114318138398173248}
   - component: {fileID: 114805312671702342}
   m_Layer: 11
   m_Name: SimpleNPCBow-Cardnal-NoTarget
   m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1836621547672522
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4257684491068784}
-  m_Layer: 0
-  m_Name: VisionTransform
-  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,7 +226,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4880156922106244}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4210569548348866
 Transform:
@@ -256,19 +240,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4696751243787324}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4257684491068784
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1836621547672522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4880156922106244}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4518939023593606
 Transform:
@@ -347,14 +318,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1826403442561994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.43, y: 20.28, z: 0}
+  m_LocalPosition: {x: 2.7441463, y: -2.2156308, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4902289421872890}
   - {fileID: 4533989047994978}
   - {fileID: 4696751243787324}
   - {fileID: 4886516683875858}
-  - {fileID: 4257684491068784}
   - {fileID: 4189824987465002}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -554,18 +524,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be492470e006f524bb8f4560040fa0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAttack:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   currentItem: {fileID: 11400000, guid: 385e639199383014a8dabb6a94ece675, type: 2}
   itemIndex: -1
   heldItemSpriteRend: {fileID: 212529777349699612}
   itemSpawnTransform: {fileID: 4661819289302332}
-  angleSnap: 0
   logToConsole: 0
-  animator: {fileID: 95037052430935566}
   lockDirectionWhenUsingItem: 0
   lastX: 0
   dataSettings:
     dataTag: aac48444-b103-47b8-8cb1-2e46e8ad5dde
-    persistenceType: 3
+    persistenceType: 0
 --- !u!114 &114081571481428910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -622,17 +595,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a459264a6e431824f90a8b9a9b20f61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-    onEnterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExitEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   inputController: {fileID: 114700931904902386}
   holdTime: {x: 0.5041234, y: 1.5250521}
   changeStateOnFinish: 1
@@ -681,7 +653,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
   dataSettings:
     dataTag: a8c6bdf9-4174-47e8-92c4-31e33a1651ef
-    persistenceType: 3
+    persistenceType: 0
 --- !u!114 &114258704261403078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -706,17 +678,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08e9465cdf56a6499bb194df203caf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-    onEnterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExitEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   range: {x: 2.5984857, y: 4.6450963}
 --- !u!114 &114300051870643264
 MonoBehaviour:
@@ -729,31 +700,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e681110564417ec46ae73c15bfca7289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114318138398173248
+  inputController: {fileID: 0}
+  transformToUse: {fileID: 0}
+--- !u!114 &114325379607221442
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1826403442561994}
+  m_GameObject: {fileID: 1093386337601846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 029ff00bd1db97b4eb17cb9afdff5d25, type: 3}
+  m_Script: {fileID: 11500000, guid: fa7c5254e3cda7e46afa0f8d9b711b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 10
-  viewAngle: 220
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 2048
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 1
-  visionTransform: {fileID: 4257684491068784}
-  setRotationToInputController: 1
-  angleSnap: 0
-  ic: {fileID: 114700931904902386}
-  visionTags: []
-  targets: {fileID: 114801831984892366}
+  onTriggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114464788856077796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -765,22 +729,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24fa6c478ed7d94991161b2ef2a4b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-    onEnterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExitEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   moveTime: {x: 3.634956, y: 3.634956}
   delayTime: {x: 0, y: 0}
   inputController: {fileID: 114700931904902386}
   movementControler: {fileID: 0}
-  nextState: {fileID: 0}
   useRaycasting: 1
   physicsLayers:
     serializedVersion: 2
@@ -817,7 +779,7 @@ MonoBehaviour:
   maxOnGroungHeight: 0.75
   waterOffset: -0.2
   baseOffset: 0
-  waterTiles: {fileID: 0}
+  waterTiles: {fileID: 11400000, guid: 88de7c50d24c7db449adb2f9321512aa, type: 2}
 --- !u!114 &114700931904902386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -836,21 +798,6 @@ MonoBehaviour:
     pressed: 0
     held: 0
     released: 0
---- !u!114 &114801831984892366
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1826403442561994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9262dbab62a9c8b4db89cc64d803c2c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transforms: []
-  enemys:
-  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
-  - {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac, type: 2}
 --- !u!114 &114805312671702342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -886,16 +833,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-    onStep:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
     onKnockback:
       m_PersistentCalls:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  anim: {fileID: 0}
+  setAnimationBoolToIsMoving: isMoving
   moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
@@ -908,8 +852,6 @@ MonoBehaviour:
   smoothing: 0.4
   knockbackDecel: 5
   knockbackDeadzone: 0.1
-  stepSoundSource: {fileID: 82571123577050344}
-  stepLength: {x: 1, y: 1}
 --- !u!210 &210589808558293932
 SortingGroup:
   m_ObjectHideFlags: 1
@@ -919,7 +861,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -324
+  m_SortingOrder: 35
 --- !u!212 &212352085093070082
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -181,13 +181,13 @@ public class Player : Singleton<Player> {
         switch(varType)
         {
             case GlobalStorageObject.VarType.BOOL :
-                Minibuffer.instance.RegisterVariable(new Variable(key), () => { return pvs.storage.GetBool(key); }, (bool val) => { pvs.storage.SetValue(key, val); });
+                Minibuffer.instance?.RegisterVariable(new Variable(key), () => { return pvs.storage.GetBool(key); }, (bool val) => { pvs.storage.SetValue(key, val); });
                 break;
             case GlobalStorageObject.VarType.FLOAT:
-                Minibuffer.instance.RegisterVariable(new Variable(key), () => { return pvs.storage.GetFloat(key); }, (float val) => { pvs.storage.SetValue(key, val); });
+                Minibuffer.instance?.RegisterVariable(new Variable(key), () => { return pvs.storage.GetFloat(key); }, (float val) => { pvs.storage.SetValue(key, val); });
                 break;
             case GlobalStorageObject.VarType.STRING:
-                Minibuffer.instance.RegisterVariable(new Variable(key), () => { return pvs.storage.GetString(key); }, (string val) => { pvs.storage.SetValue(key, val); });
+                Minibuffer.instance?.RegisterVariable(new Variable(key), () => { return pvs.storage.GetString(key); }, (string val) => { pvs.storage.SetValue(key, val); });
                 break;
         }
 
@@ -195,6 +195,6 @@ public class Player : Singleton<Player> {
     }
     protected void OnRemove(string key, GlobalStorageObject.VarType varType)
     {
-        Minibuffer.instance.UnregisterVariable(key);
+        Minibuffer.instance?.UnregisterVariable(key);
     }
 }

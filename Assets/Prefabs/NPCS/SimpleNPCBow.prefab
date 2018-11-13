@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4533989047994978}
   - component: {fileID: 212352085093070082}
   - component: {fileID: 95037052430935566}
+  - component: {fileID: 114860331438775956}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -195,9 +196,9 @@ GameObject:
   - component: {fileID: 114621286597617666}
   - component: {fileID: 210589808558293932}
   - component: {fileID: 114094637609650206}
-  - component: {fileID: 114801831984892366}
   - component: {fileID: 114318138398173248}
   - component: {fileID: 114805312671702342}
+  - component: {fileID: 114764402366541110}
   m_Layer: 11
   m_Name: SimpleNPCBow
   m_TagString: Enemy
@@ -379,7 +380,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1826403442561994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.879999, y: 4.0099998, z: 0}
+  m_LocalPosition: {x: 3.4880948, y: -3.2400053, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4902289421872890}
@@ -599,14 +600,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be492470e006f524bb8f4560040fa0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAttack:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   currentItem: {fileID: 11400000, guid: 385e639199383014a8dabb6a94ece675, type: 2}
+  itemIndex: -1
   heldItemSpriteRend: {fileID: 212529777349699612}
   itemSpawnTransform: {fileID: 4661819289302332}
-  angleSnap: 0
   logToConsole: 0
-  animator: {fileID: 95037052430935566}
   lockDirectionWhenUsingItem: 0
   lastX: 0
+  dataSettings:
+    dataTag: 8e68d3ce-7692-42a0-b9f2-1552087274b6
+    persistenceType: 0
 --- !u!114 &114081571481428910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -620,7 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultState: {fileID: 1114060371799242}
   loopStates: 1
-  logToConsole: 1
+  logToConsole: 0
   allowStateReentry: 0
   returnToDefaultOnDisable: 1
   currentState: {fileID: 0}
@@ -663,17 +671,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a459264a6e431824f90a8b9a9b20f61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-    onEnterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExitEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   inputController: {fileID: 114700931904902386}
   holdTime: {x: 0.5041234, y: 2.0005744}
   changeStateOnFinish: 1
@@ -688,17 +695,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6069f6aa84c2483478110fe21aa9ea32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-    onEnterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExitEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   forceState: {fileID: 0}
 --- !u!114 &114204744958174834
 MonoBehaviour:
@@ -743,6 +749,9 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  dataSettings:
+    dataTag: 3d67872a-8644-4f02-a14d-e5a55352b2e5
+    persistenceType: 3
 --- !u!114 &114258704261403078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -767,6 +776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e681110564417ec46ae73c15bfca7289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputController: {fileID: 0}
+  transformToUse: {fileID: 0}
 --- !u!114 &114318138398173248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -787,11 +798,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   visionTransform: {fileID: 4257684491068784}
-  setRotationToInputController: 1
   angleSnap: 0
+  useInputControllerForDirection: 0
   ic: {fileID: 114700931904902386}
   visionTags: []
-  targets: {fileID: 114801831984892366}
+  targets: {fileID: 114764402366541110}
+  onTargetSeen:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onNoTargets:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114461107320116646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -804,7 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 114700931904902386}
-  _vision: {fileID: 114318138398173248}
+  targets: {fileID: 114764402366541110}
 --- !u!114 &114464788856077796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -816,21 +837,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24fa6c478ed7d94991161b2ef2a4b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-    onEnterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExitEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   moveTime: {x: 0.5, y: 0.5}
   delayTime: {x: 0, y: 2}
   inputController: {fileID: 114700931904902386}
-  nextState: {fileID: 0}
+  movementControler: {fileID: 0}
+  useRaycasting: 0
+  physicsLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114529101192370840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -882,7 +906,7 @@ MonoBehaviour:
     pressed: 0
     held: 0
     released: 0
---- !u!114 &114801831984892366
+--- !u!114 &114764402366541110
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -890,13 +914,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1826403442561994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9262dbab62a9c8b4db89cc64d803c2c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 27752e18603bdf7459cdc47f89f29bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   transforms: []
-  enemys:
-  - {fileID: 11400000, guid: c675c5f1ef65bd34a829cd5e985870a5, type: 2}
-  - {fileID: 11400000, guid: edd2101992335f64885f8853c82b7cac, type: 2}
 --- !u!114 &114805312671702342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -920,6 +941,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9940ad27dd357dc46b46610f4b36e8d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114860331438775956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093386337601846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7c5254e3cda7e46afa0f8d9b711b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114887240053207508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -931,17 +968,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b461abbd4e03b9e4ca5f7573eab43e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-    onEnterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onExitEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   invert: 0
   targetDistance: 5
   inputController: {fileID: 114700931904902386}
@@ -958,16 +994,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-    onStep:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
     onKnockback:
       m_PersistentCalls:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  anim: {fileID: 0}
+  setAnimationBoolToIsMoving: isMoving
   moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
@@ -980,8 +1013,6 @@ MonoBehaviour:
   smoothing: 0.4
   knockbackDecel: 5
   knockbackDeadzone: 0.1
-  stepSoundSource: {fileID: 82571123577050344}
-  stepLength: {x: 1, y: 1}
 --- !u!210 &210589808558293932
 SortingGroup:
   m_ObjectHideFlags: 1
@@ -991,7 +1022,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -64
+  m_SortingOrder: 52
 --- !u!212 &212352085093070082
 SpriteRenderer:
   m_ObjectHideFlags: 1

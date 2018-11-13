@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 4957974605519196}
   - component: {fileID: 212418130822085754}
   - component: {fileID: 95252998776146510}
+  - component: {fileID: 114485792181120806}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -234,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396285781715434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27, y: 11, z: 0}
+  m_LocalPosition: {x: 2.5925949, y: -2.4487867, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4927261838776336}
@@ -558,18 +559,20 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
+  addPlayerTag: 1
+  interactableTags: []
   OnButtonPress:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114584695890460896}
-        m_MethodName: CallTextBoxInterrupt
+        m_MethodName: CallTextBoxString
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TestNpc.DefaultPressed
+          m_StringArgument: TestNpc:Heres Some Flavor text!
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -586,16 +589,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-    onStep:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
     onKnockback:
       m_PersistentCalls:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  anim: {fileID: 0}
+  setAnimationBoolToIsMoving: isMoving
   moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
@@ -608,8 +608,6 @@ MonoBehaviour:
   smoothing: 0.4
   knockbackDecel: 5
   knockbackDeadzone: 0.1
-  stepSoundSource: {fileID: 0}
-  stepLength: {x: 1, y: 1}
 --- !u!114 &114316774252813758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -645,6 +643,7 @@ MonoBehaviour:
   gravity: 15
   onGroundLayerName: Default
   inAirLayerName: HighObstacle
+  maxOnGroungHeight: 0.75
   waterOffset: -0.2
   baseOffset: 0
   waterTiles: {fileID: 0}
@@ -659,14 +658,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be492470e006f524bb8f4560040fa0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAttack:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   currentItem: {fileID: 11400000, guid: f9a3ee6ba59a5c44fbcb6852d64d2c48, type: 2}
+  itemIndex: -1
   heldItemSpriteRend: {fileID: 212835269432088738}
   itemSpawnTransform: {fileID: 4380491650999262}
-  angleSnap: 0
   logToConsole: 0
-  animator: {fileID: 95252998776146510}
   lockDirectionWhenUsingItem: 1
   lastX: 0
+  dataSettings:
+    dataTag: 7950159a-c1d1-4e83-8817-1a7864a8c46b
+    persistenceType: 3
+--- !u!114 &114485792181120806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392260655746754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7c5254e3cda7e46afa0f8d9b711b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114584695890460896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -749,6 +771,9 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  dataSettings:
+    dataTag: bc9eb0ee-3695-45a4-840f-6abdab8d4070
+    persistenceType: 3
 --- !u!114 &114709093203507456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -772,13 +797,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bec29c0a230741bdac901dba8da47ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceText:
-  - {fileID: 4900000, guid: 6dff548152e3bb148a307a9f7bddeda1, type: 3}
+  sourceText: []
   stringGroups: []
   shouldOverrideLanguage: 0
   overrideLanguage: 10
-  wrappedGlobalStore:
-    storage: {fileID: 11400000, guid: 66883d7ae0345824a860ef8f7a7a76be, type: 2}
+  dialogueUI: {fileID: 0}
   startAutomatically: 0
   startNode: 
   automaticCommands: 1
@@ -806,14 +829,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114584695890460896}
-        m_MethodName: CallTextBox
+        m_MethodName: CallTextBoxString
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TestNpc.DefaultPassive
+          m_StringArgument: TestNpc:Can I help you?
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -837,6 +860,8 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
+  addPlayerTag: 1
+  interactableTags: []
 --- !u!114 &114839758235363956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -859,6 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e681110564417ec46ae73c15bfca7289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputController: {fileID: 0}
+  transformToUse: {fileID: 0}
 --- !u!210 &210508564316722346
 SortingGroup:
   m_ObjectHideFlags: 1
@@ -868,7 +895,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -40
+  m_SortingOrder: 39
 --- !u!212 &212186456196442372
 SpriteRenderer:
   m_ObjectHideFlags: 1

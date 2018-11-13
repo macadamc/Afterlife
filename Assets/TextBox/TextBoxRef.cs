@@ -41,8 +41,8 @@ public class TextBoxRef : MonoBehaviour {
     }
     private void Start()
     {
-        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceOverlay); }).First();
-
+        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceOverlay); }).FirstOrDefault();
+        Debug.Assert(canvas != null, "No canavas found with correct render mode set");
         
         defaultSettings = textBoxSettings;
         Minibuffer.Register(this);

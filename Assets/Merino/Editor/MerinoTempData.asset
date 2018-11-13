@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13981b66f67204744891820795ef4230, type: 3}
   m_Name: MerinoTempData
   m_EditorClassIdentifier: 
-  editedID: 1
-  timestamp: 210246.87970785104
+  editedID: 2
+  timestamp: 3770.0151873663276
   m_TreeElements:
   - m_ID: 0
     m_Name: Root
@@ -20,21 +20,6 @@ MonoBehaviour:
     nodePosition: {x: 0, y: 0}
     nodeTags: 
     nodeBody: 
-    enabled: 1
-  - m_ID: 3
-    m_Name: TestQuestCutScene
-    m_Depth: 0
-    nodePosition: {x: 0, y: 0}
-    nodeTags: 
-    nodeBody: 'OldMan:Ha! so simple. I should have seen it sooner..
-
-      OldMan:hmmm..... Oh My! this is troublinng...yes, hmmmm.
-
-      OldMan:I must contact church... they will want to hear of this.
-
-      OldMan:eh?
-
-      OldMan:Who''s there? Im just an old man! Leave Me BE!!'
     enabled: 1
   - m_ID: 1
     m_Name: NoQuest
@@ -69,4 +54,19 @@ MonoBehaviour:
       OldMan:Well so much for my peaceful afternoon...
 
       OldMan:Thank you my boy.'
+    enabled: 1
+  - m_ID: 3
+    m_Name: TestQuestCutScene
+    m_Depth: 0
+    nodePosition: {x: 0, y: 0}
+    nodeTags: 
+    nodeBody: 'OldMan:Ha! so simple. I should have seen it sooner..
+
+      OldMan:hmmm..... Oh My! this is troublinng...yes, hmmmm.
+
+      OldMan:I must contact church... they will want to hear of this.
+
+      OldMan:eh?
+
+      OldMan:Who''s there? Im just an old man! Leave Me BE!!'
     enabled: 1
