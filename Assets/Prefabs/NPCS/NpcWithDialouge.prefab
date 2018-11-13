@@ -778,8 +778,6 @@ MonoBehaviour:
   stringGroups: []
   shouldOverrideLanguage: 0
   overrideLanguage: 10
-  wrappedGlobalStore:
-    storage: {fileID: 11400000, guid: 66883d7ae0345824a860ef8f7a7a76be, type: 2}
   dialogueUI: {fileID: 0}
   startAutomatically: 0
   startNode: 
@@ -796,16 +794,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-    onStep:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
     onKnockback:
       m_PersistentCalls:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  anim: {fileID: 0}
+  setAnimationBoolToIsMoving: isMoving
   moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
@@ -818,8 +813,6 @@ MonoBehaviour:
   smoothing: 0.4
   knockbackDecel: 5
   knockbackDeadzone: 0.1
-  stepSoundSource: {fileID: 0}
-  stepLength: {x: 1, y: 1}
 --- !u!114 &114913233399015978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -831,13 +824,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be492470e006f524bb8f4560040fa0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAttack:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   currentItem: {fileID: 11400000, guid: f9a3ee6ba59a5c44fbcb6852d64d2c48, type: 2}
   itemIndex: -1
   heldItemSpriteRend: {fileID: 212254009202309824}
   itemSpawnTransform: {fileID: 4349544119266094}
-  angleSnap: 0
   logToConsole: 0
-  animator: {fileID: 95972667402437642}
   lockDirectionWhenUsingItem: 1
   lastX: 0
   dataSettings:
@@ -854,6 +850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e681110564417ec46ae73c15bfca7289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputController: {fileID: 0}
+  transformToUse: {fileID: 0}
 --- !u!114 &114985912589546358
 MonoBehaviour:
   m_ObjectHideFlags: 1

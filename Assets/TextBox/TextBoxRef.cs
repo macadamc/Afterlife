@@ -7,10 +7,9 @@ using SeawispHunter.MinibufferConsole;
 
 public class TextBoxRef : MonoBehaviour {
 
+    #region Public Vars
     [System.NonSerialized]
     public Canvas canvas;
-
-    internal TextBox _textBox;
     public TextBox textBox
     {
         get
@@ -29,21 +28,35 @@ public class TextBoxRef : MonoBehaviour {
     [System.NonSerialized]
     public DialogueRunner dialogueRunner;
     public TextBoxSettings textBoxSettings;
-    internal TextBoxSettings defaultSettings;
     [System.NonSerialized]
     public Interactable caller;
     public bool useWorldSpaceCanvas = true;
+    #endregion
 
+    #region Private Vars
+    internal TextBox _textBox;
+    internal TextBoxSettings defaultSettings;
+    #endregion
+
+    #region UnityMethods
+    private void Reset()
+    {
+        if (string.IsNullOrEmpty(textBoxKey))
+        {
+            textBoxKey = gameObject.transform.parent.name;
+        }
+    }
 
     private void Awake()
     {
         dialogueRunner = GetComponentInChildren<DialogueRunner>();
     }
+
     private void Start()
     {
         canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceOverlay); }).FirstOrDefault();
         Debug.Assert(canvas != null, "No canavas found with correct render mode set");
-        
+
         defaultSettings = textBoxSettings;
         Minibuffer.Register(this);
     }
@@ -58,6 +71,19 @@ public class TextBoxRef : MonoBehaviour {
                     transform.position.y + textBoxOffset.y,
                     transform.position.z);
     }
+
+    private void OnDisable()
+    {
+        _textBox?.DisableTextbox();
+
+        Minibuffer.Unregister(this);
+    }
+
+    private void OnApplicationQuit()
+    {
+        _textBox = null;
+    }
+    #endregion
 
     [YarnCommand("CallTextBox")]
     public void CallTextBox(string startNode)
@@ -115,6 +141,7 @@ public class TextBoxRef : MonoBehaviour {
         if (caller == null)
             caller = GetComponentInChildren<Interactable>();
     }
+
     [YarnCommand("SetTextBoxSettings")]
     public void SetTextBoxSettings(string name)
     {
@@ -138,15 +165,5 @@ public class TextBoxRef : MonoBehaviour {
         }
     }
 
-    private void OnDisable()
-    {
-        _textBox?.DisableTextbox();
 
-        Minibuffer.Unregister(this);
-    }
-
-    private void OnApplicationQuit()
-    {
-        _textBox = null;
-    }
 }

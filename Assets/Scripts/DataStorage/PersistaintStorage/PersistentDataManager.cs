@@ -8,12 +8,15 @@ using UnityEngine.SceneManagement;
 using SeawispHunter.MinibufferConsole;
 
 
+
+
 public class PersistentDataManager : MonoBehaviour
 {
     public static PersistentDataManager Instance
     {
         get
         {
+            
             if (instance != null)
                 return instance;
             instance = FindObjectOfType<PersistentDataManager>();
@@ -111,17 +114,10 @@ public class PersistentDataManager : MonoBehaviour
     {
         Instance.m_DataPersisters.Clear();
     }
+
     public static void SetDirty(IDataPersister dp)
     {
         Instance.Save(dp);
-    }
-
-    protected void SaveAllDataInternal()
-    {
-        foreach (var dp in m_DataPersisters)
-        {
-            Save(dp);
-        }
     }
 
     protected void Register(IDataPersister persister)
@@ -137,6 +133,8 @@ public class PersistentDataManager : MonoBehaviour
         schedule += () => m_DataPersisters.Remove(persister);
     }
 
+
+    //Writes a single IDataPersister into this object.
     protected void Save(IDataPersister dp)
     {
         var dataSettings = dp.GetDataSettings();
@@ -148,6 +146,16 @@ public class PersistentDataManager : MonoBehaviour
         }
     }
 
+    //Saves all IDataPeresisters in the current scene into this object.
+    protected void SaveAllDataInternal()
+    {
+        foreach (var dp in m_DataPersisters)
+        {
+            Save(dp);
+        }
+    }
+
+    //Loads all the data saved in this object INTO the IDataPersisters in the Scene.
     protected void LoadAllDataInternal()
     {
         schedule += () =>
@@ -174,7 +182,7 @@ public class PersistentDataManager : MonoBehaviour
     }
 
     [Button]
-    [Command("SaveGame", description = "Save GameState to a file.")]
+    [Command("SaveExternal", description = "Save GameState to a file.")]
     public static void SaveExternal(string saveName)
     {
         string fileName = $"{saveName}.bin";
@@ -190,7 +198,7 @@ public class PersistentDataManager : MonoBehaviour
 
     }
     [Button]
-    [Command("LoadGame", description ="Load GameState From a File.")]
+    [Command("LoadExternal", description ="Load GameState From a File.")]
     public static void LoadExternal(string saveName)
     {
         string fileName = $"{saveName}.bin";
@@ -201,4 +209,13 @@ public class PersistentDataManager : MonoBehaviour
         stream.Close();
         instance.LoadAllDataInternal();
     }
+
+    #if UNITY_EDITOR
+    [Button("Show In Explorer")]
+    void Show()
+    {
+        string SavePath = $"{Application.persistentDataPath}/";
+        UnityEditor.EditorUtility.RevealInFinder(SavePath);
+    }
+    #endif
 }
