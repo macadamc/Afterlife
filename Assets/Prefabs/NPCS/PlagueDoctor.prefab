@@ -11,23 +11,6 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1490296443223304}
   m_IsPrefabAsset: 1
---- !u!1 &1007978145698172
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4742116099096150}
-  - component: {fileID: 114474879088270062}
-  - component: {fileID: 114591342719838544}
-  m_Layer: 11
-  m_Name: Wait 2 Seconds
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &1035863889976604
 GameObject:
   m_ObjectHideFlags: 1
@@ -40,7 +23,7 @@ GameObject:
   - component: {fileID: 114287588630481466}
   - component: {fileID: 114749572385384052}
   m_Layer: 11
-  m_Name: Wait 4 Seconds
+  m_Name: Wait 3 Seconds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,23 +60,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1100369042372566
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4789522485778688}
-  - component: {fileID: 114952708646076778}
-  - component: {fileID: 114349155736869368}
-  m_Layer: 0
-  m_Name: Attack (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &1100462902875934
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,40 +92,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1123732496341212
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4422646703757208}
-  - component: {fileID: 114057221609039738}
-  - component: {fileID: 114668913917682650}
-  m_Layer: 0
-  m_Name: Attack (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!1 &1141618691815728
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4087489874533138}
-  - component: {fileID: 114676233272966596}
-  - component: {fileID: 114288683925439212}
-  m_Layer: 0
-  m_Name: Attack (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &1274318659243570
 GameObject:
   m_ObjectHideFlags: 1
@@ -170,9 +102,8 @@ GameObject:
   - component: {fileID: 4450436106910038}
   - component: {fileID: 114609683950411764}
   - component: {fileID: 114568511238116566}
-  - component: {fileID: 114250121368897478}
   m_Layer: 11
-  m_Name: Wait 3-5 Seconds
+  m_Name: Wait 1-3 Seconds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1490296443223304
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +178,7 @@ GameObject:
   - component: {fileID: 114191356363444264}
   - component: {fileID: 114830016384596700}
   - component: {fileID: 114981656997781118}
+  - component: {fileID: 82329744995090736}
   m_Layer: 11
   m_Name: PlagueDoctor
   m_TagString: Enemy
@@ -297,7 +229,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1490296443223304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 3, z: 0}
+  m_LocalPosition: {x: -1, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4258853781030872}
@@ -347,19 +279,6 @@ Transform:
   m_Children:
   - {fileID: 4051821199962108}
   m_Father: {fileID: 4037019140117584}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4087489874533138
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1141618691815728}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4655267319428728}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4196205048663748
@@ -412,20 +331,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4655267319428728}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4422646703757208
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1123732496341212}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4655267319428728}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4450436106910038
 Transform:
@@ -466,39 +372,9 @@ Transform:
   - {fileID: 4196205048663748}
   - {fileID: 4450436106910038}
   - {fileID: 4249485602257780}
-  - {fileID: 4087489874533138}
-  - {fileID: 4789522485778688}
   - {fileID: 4283543487046402}
-  - {fileID: 4422646703757208}
-  - {fileID: 4742116099096150}
   m_Father: {fileID: 4050099229370742}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4742116099096150
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1007978145698172}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4655267319428728}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4789522485778688
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1100369042372566}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4655267319428728}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4997683636485134
 Transform:
@@ -548,6 +424,101 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.27
+--- !u!82 &82329744995090736
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490296443223304}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!82 &82927277418088468
 AudioSource:
   m_ObjectHideFlags: 1
@@ -661,54 +632,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114057221609039738
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1123732496341212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9554488c2d410674a90b747265184da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnterEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 95247402175847256}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: attack
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  arc: 360
-  angleOffset: 0
-  numberOfBulletsPerWave: 17
-  numberOfBulletWaves: 1
-  instantiateOverXSeconds: 0
-  shootOnEnable: 1
-  initialDelay: 0.3
-  changeStateOnFinish: 1
-  nextState: {fileID: 0}
-  bulletPrefab: {fileID: 1144479920589930, guid: 9a68f7d633905eb45891f41d37c614ec,
-    type: 2}
-  onShootEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114057230007136366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -756,7 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets: {fileID: 114191356363444264}
-  speed: 360
+  speed: 45
   snapToTargetOnEnable: 1
 --- !u!114 &114113399441098124
 MonoBehaviour:
@@ -793,17 +716,28 @@ MonoBehaviour:
   arc: 135
   angleOffset: 0
   numberOfBulletsPerWave: 7
-  numberOfBulletWaves: 1
-  instantiateOverXSeconds: 0
+  numberOfBulletWaves: 3
+  instantiateOverXSeconds: 1
   shootOnEnable: 1
   initialDelay: 0.3
   changeStateOnFinish: 1
   nextState: {fileID: 0}
-  bulletPrefab: {fileID: 1144479920589930, guid: 96e48bc67d75be948945a4bf626417df,
+  bulletPrefab: {fileID: 1144479920589930, guid: f91c4069700f6294a8ba97ca3e5074ab,
     type: 2}
   onShootEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 2ac1c8293425443479ee55bac0691358, type: 2}
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 82329744995090736}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114191356363444264
@@ -818,35 +752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transforms: []
---- !u!114 &114250121368897478
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1274318659243570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24fa6c478ed7d94991161b2ef2a4b6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnterEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  moveTime: {x: 0.5, y: 3}
-  delayTime: {x: 0.5, y: 1}
-  inputController: {fileID: 114709788954237846}
-  movementControler: {fileID: 114925626023323650}
-  useRaycasting: 1
-  physicsLayers:
-    serializedVersion: 2
-    m_Bits: 768
 --- !u!114 &114273410560823734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -860,11 +765,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     type: 0
-    ConstantValue: 4
+    ConstantValue: 2
     Variable: {fileID: 0}
   maxHealth:
     type: 0
-    ConstantValue: 4
+    ConstantValue: 2
     Variable: {fileID: 0}
   damageFlashAmount: 3
   deactivateRootObjectOnDeath: 1
@@ -917,56 +822,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 114709788954237846}
   targets: {fileID: 114191356363444264}
---- !u!114 &114288683925439212
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1141618691815728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e8c2bcdedc50e4bae75bdc99653354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targets: {fileID: 114191356363444264}
-  speed: 360
-  snapToTargetOnEnable: 1
---- !u!114 &114349155736869368
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1100369042372566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e8c2bcdedc50e4bae75bdc99653354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targets: {fileID: 114191356363444264}
-  speed: 360
-  snapToTargetOnEnable: 1
---- !u!114 &114474879088270062
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1007978145698172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca75db5691efc2e4c806491128644398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnterEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  WaitTime: {x: 2, y: 2}
 --- !u!114 &114479810461060352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1033,19 +888,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 114709788954237846}
   targets: {fileID: 114191356363444264}
---- !u!114 &114591342719838544
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1007978145698172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6bf20ca94de44ca6af49e26bd0594, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputController: {fileID: 114709788954237846}
-  targets: {fileID: 114191356363444264}
 --- !u!114 &114609683950411764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1067,69 +909,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  WaitTime: {x: 3, y: 5}
---- !u!114 &114668913917682650
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1123732496341212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e8c2bcdedc50e4bae75bdc99653354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targets: {fileID: 114191356363444264}
-  speed: 360
-  snapToTargetOnEnable: 1
---- !u!114 &114676233272966596
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1141618691815728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9554488c2d410674a90b747265184da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnterEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 95247402175847256}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: attack
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  arc: 162
-  angleOffset: 0
-  numberOfBulletsPerWave: 8
-  numberOfBulletWaves: 1
-  instantiateOverXSeconds: 0
-  shootOnEnable: 1
-  initialDelay: 0.3
-  changeStateOnFinish: 1
-  nextState: {fileID: 0}
-  bulletPrefab: {fileID: 1144479920589930, guid: 96e48bc67d75be948945a4bf626417df,
-    type: 2}
-  onShootEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  WaitTime: {x: 1, y: 6}
 --- !u!114 &114677159561885020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1151,7 +931,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  WaitTime: {x: 4, y: 4}
+  WaitTime: {x: 3, y: 3}
 --- !u!114 &114709788954237846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1268,7 +1048,7 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
-    ConstantValue: 2
+    ConstantValue: 1
     Variable: {fileID: 0}
   oldMoveSpeed:
     type: 0
@@ -1277,54 +1057,6 @@ MonoBehaviour:
   smoothing: 0.4
   knockbackDecel: 5
   knockbackDeadzone: 0.1
---- !u!114 &114952708646076778
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1100369042372566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9554488c2d410674a90b747265184da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnterEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 95247402175847256}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: attack
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  arc: 189
-  angleOffset: 0
-  numberOfBulletsPerWave: 9
-  numberOfBulletWaves: 1
-  instantiateOverXSeconds: 0
-  shootOnEnable: 1
-  initialDelay: 0.3
-  changeStateOnFinish: 1
-  nextState: {fileID: 0}
-  bulletPrefab: {fileID: 1144479920589930, guid: 96e48bc67d75be948945a4bf626417df,
-    type: 2}
-  onShootEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114956226818735104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1336,8 +1068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 029ff00bd1db97b4eb17cb9afdff5d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 8
-  viewAngle: 220
+  viewRadius: 25
+  viewAngle: 270
   targetMask:
     serializedVersion: 2
     m_Bits: 2048
@@ -2299,7 +2031,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 3
+        scalar: 5
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -2349,7 +2081,7 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      cycleCount: 3
+      cycleCount: 5
       repeatInterval: 0.1
   SizeModule:
     enabled: 0
@@ -6074,7 +5806,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -48
+  m_SortingOrder: 64
 --- !u!212 &212800381962243838
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -50,8 +50,10 @@ public class Projectile : MonoBehaviour
     public bool destroyOnCollision;
     [TabGroup("Default Variables"), ShowIf("destroyOnCollision")]
     public LayerMask collisionLayers;
+    [TabGroup("Default Variables")]
+    public UnityEvent onProjectileCollision;
 
-    public Transform creator;
+    //public Transform creator;
     /*
     [TabGroup("Action Queue")]
     public float delayBeforeStartingQueue;
@@ -62,13 +64,13 @@ public class Projectile : MonoBehaviour
     Rigidbody2D rb;
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!destroyOnCollision)
-            return;
-
+    { 
         if ((collisionLayers.value & 1 << collision.gameObject.layer) != 0)
         {
-            Destroy(transform.gameObject);
+            onProjectileCollision.Invoke();
+
+            if (destroyOnCollision)
+                Destroy(transform.gameObject);
         }
     }
 

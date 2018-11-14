@@ -20,6 +20,8 @@ TextureImporter:
     21300030: plaguedoctor_15
     21300032: plaguedoctor_16
     21300034: plaguedoctor_17
+    21300036: birdbullet_0
+    21300038: birdbullet_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -457,6 +459,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0fce5a65bf5d14948befdd7d4020f44e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birdbullet_0
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 199
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba3a0faf37236c54fa4f6ec278a3e667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: birdbullet_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 199
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624c6bf451927cd428c43a14baafa908
       vertices: []
       indices: 
       edges: []

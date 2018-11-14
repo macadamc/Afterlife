@@ -45,12 +45,14 @@ public class SetAnimationValues : MonoBehaviour
 
     private void OnEnable()
     {
-        Health.onHealthChanged += OnHealthChange;
+        if(Health!=null)
+            Health.onHealthChanged += OnHealthChange;
     }
 
     private void OnDisable()
     {
-        Health.onHealthChanged -= OnHealthChange;
+        if (Health != null)
+            Health.onHealthChanged -= OnHealthChange;
     }
 
     public void OnHealthChange(int change)
@@ -69,7 +71,11 @@ public class SetAnimationValues : MonoBehaviour
 
         Animator.SetBool("isMoving", Mc.IsMoving);
 
-        if (Health.currentHealth.Value <= 0)
-            Animator.SetTrigger("death");
+        if(Health != null)
+        {
+
+            if (Health.currentHealth.Value <= 0)
+                Animator.SetTrigger("death");
+        }
     }
 }
