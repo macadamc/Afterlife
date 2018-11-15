@@ -35,7 +35,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4384031897003660}
-  - component: {fileID: 114868935412752582}
   - component: {fileID: 58218547120053586}
   - component: {fileID: 114496093307907610}
   m_Layer: 0
@@ -132,7 +131,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: LQAPAAAAaW52ZW50b3J5Q2hlY2tz
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -161,24 +160,14 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2048
+  addPlayerTag: 1
+  interactableTags: []
   disableOnEnter: 1
   collider: {fileID: 58218547120053586}
   clip: {fileID: 0}
   dataSettings:
     dataTag: Dungeon_X_Key_X
     persistenceType: 3
---- !u!114 &114868935412752582
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1182477203582506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ed8e6919e80884f880292d5809655a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startNode: 
 --- !u!212 &212102283914097312
 SpriteRenderer:
   m_ObjectHideFlags: 1

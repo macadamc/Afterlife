@@ -17,6 +17,8 @@ namespace ShadyPixel.StateMachine
 
         public GameObject defaultState;
 
+        public bool autoUpdate = true;
+
         [TabGroup("Settings")]
         [Tooltip("If the StateMachine will loop around to the beginning or end when calling Next or Previous at the edges.")]
         public bool loopStates = true;
@@ -92,6 +94,12 @@ namespace ShadyPixel.StateMachine
             if (events.OnStateExit != null) events.OnStateExit.Invoke(currentState);
             currentState.SetActive(false);
             currentState = null;
+        }
+
+        // used in UnityEvents
+        public void SetState(GameObject state)
+        {
+            ChangeState(state);
         }
 
         public GameObject ChangeState(GameObject state)
@@ -177,9 +185,12 @@ namespace ShadyPixel.StateMachine
 
             HideStates();
 
-            if (events.OnStart != null) events.OnStart.Invoke();
+            if (autoUpdate)
+            {
+                if (events.OnStart != null) events.OnStart.Invoke();
 
-            if (defaultState != null) ChangeState(defaultState);
+                if (defaultState != null) ChangeState(defaultState);
+            }
         }
 
         private void InitializeList()

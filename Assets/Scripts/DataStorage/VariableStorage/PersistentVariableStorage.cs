@@ -1,33 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Yarn;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using UnityEngine.Events;
-using ShadyPixel.Variables;
 
 public class PersistentVariableStorage : SerializedMonoBehaviour, IDataPersister
 {
     private void OnEnable()
     {
-        storage.OnAdd += DoOnAdd;
-        storage.OnChange += DoOnChange;
-        storage.OnRemove += DoOnRemove;
         PersistentDataManager.RegisterPersister(this);
     }
     private void OnDisable()
     {
-        storage.OnAdd -= DoOnAdd;
-        storage.OnChange -= DoOnChange;
-        storage.OnRemove -= DoOnRemove;
         PersistentDataManager.UnregisterPersister(this);
     }
     private void OnDestroy()
     {
-        storage.OnAdd -= DoOnAdd;
-        storage.OnChange -= DoOnChange;
-        storage.OnRemove -= DoOnRemove;
         PersistentDataManager.UnregisterPersister(this);
     }
 
@@ -35,20 +21,6 @@ public class PersistentVariableStorage : SerializedMonoBehaviour, IDataPersister
     public GlobalStorageObject storage;
 
     public DataSettings dataSettings;
-
-    public VariableStorageEvent[] inventoryEvents;
-
-    [System.Serializable]
-    public class VariableStorageEvent
-    {
-        public string key;
-        [DrawWithUnity]
-        public UnityEvent OnAdd;
-        [DrawWithUnity]
-        public UnityEvent OnChange;
-        [DrawWithUnity]
-        public UnityEvent OnRemove;
-    }
 
     void IDataPersister.LoadData(Data data)
     {
@@ -74,33 +46,22 @@ public class PersistentVariableStorage : SerializedMonoBehaviour, IDataPersister
         dataSettings.persistenceType = persistenceType;
     }
 
-    VariableStorageEvent GetInventoryEvent(string key)
-    {
-        foreach (var iv in inventoryEvents)
-        {
-            if (iv.key == key) return iv;
-        }
-        return null;
-    }
-
-    public void DoOnAdd(string key, GlobalStorageObject.VarType type)
-    {
-        GetInventoryEvent(key)?.OnAdd.Invoke();
-    }
-    public void DoOnChange(string key, GlobalStorageObject.VarType type)
-    {
-        GetInventoryEvent(key)?.OnChange.Invoke();
-    }
-    public void DoOnRemove(string key, GlobalStorageObject.VarType type)
-    {
-        GetInventoryEvent(key)?.OnRemove.Invoke();
-    }
-
     internal void CreateSceneOlnyStorage()
     {
         storage = ScriptableObject.CreateInstance<GlobalStorageObject>();
         storage.name = $"{gameObject.name}_TempStorage";
     }
+
+    [Button]
+    void AddStorageChecker()
+    {
+        var checker = gameObject.AddComponent<StorageCheckerBehaviour>();
+        checker.storage = storage;
+    }
+    [Button]
+    void AddStorageEvents()
+    {
+        var events = gameObject.AddComponent<StorageEvents>();
+        events.storage = storage;
+    }
 }
-
-

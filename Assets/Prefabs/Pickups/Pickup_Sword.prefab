@@ -51,9 +51,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4251792470197682}
-  - component: {fileID: 114823957550277502}
   - component: {fileID: 58662729816687822}
-  - component: {fileID: 114571448257192008}
+  - component: {fileID: 114384163211546816}
   m_Layer: 0
   m_Name: Pickup_Sword
   m_TagString: Untagged
@@ -117,7 +116,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.78
---- !u!114 &114571448257192008
+--- !u!114 &114384163211546816
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,21 +124,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1909610655404828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251bc39422413e64db99a91cb384b55a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f77928a8cc7f5f4cad6caf98bd98c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
   OnEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: f102289cd8630f74dad4d71713f1cc29, type: 2}
+        m_MethodName: Add
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f9a3ee6ba59a5c44fbcb6852d64d2c48,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnExit:
@@ -149,28 +160,15 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   layers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 32567
   addPlayerTag: 1
   interactableTags: []
   disableOnEnter: 1
   collider: {fileID: 58662729816687822}
   clip: {fileID: 8300000, guid: a1a8acb2df1b4874a9cced61b3644beb, type: 3}
   dataSettings:
-    dataTag: 1cea934a-2013-4642-866c-bc296b93ea65
+    dataTag: SwordPickup
     persistenceType: 3
-  itemToAdd: {fileID: 11400000, guid: f9a3ee6ba59a5c44fbcb6852d64d2c48, type: 2}
---- !u!114 &114823957550277502
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1909610655404828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ed8e6919e80884f880292d5809655a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startNode: 
 --- !u!212 &212729742426773910
 SpriteRenderer:
   m_ObjectHideFlags: 1

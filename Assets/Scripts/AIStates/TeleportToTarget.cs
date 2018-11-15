@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
-public class TeleportToTarget : MonoBehaviour {
+public class TeleportToTarget : MonoBehaviour
+{
 
     public Transform transformToTeleport;
     public Targets targets;
-    public float maxDistanceFromTarget = 4f;
+
+    [MinMaxSlider(0f, 20f, true)]
+    public Vector2 minMaxDistance = new Vector2(2, 4f);
+
     public LayerMask obstacleLayers;
     public bool teleportOnEnable = true;
 
@@ -32,7 +37,8 @@ public class TeleportToTarget : MonoBehaviour {
     public Vector2 ValidTeleportPosition()
     {
         Vector2 targetPos = targets.transforms[Random.Range(0, targets.transforms.Count)].position;
-        Vector2 potentialPos = targetPos + Random.insideUnitCircle * maxDistanceFromTarget;
+
+        Vector2 potentialPos = targetPos + Random.insideUnitCircle.normalized * Random.Range(minMaxDistance.x, minMaxDistance.y);
 
         RaycastHit2D hit = Physics2D.Raycast(potentialPos, (targetPos - potentialPos).normalized, Vector2.Distance(potentialPos, targetPos), obstacleLayers);
 

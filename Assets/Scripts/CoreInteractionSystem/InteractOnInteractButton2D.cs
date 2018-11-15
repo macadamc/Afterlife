@@ -49,7 +49,6 @@ public class InteractOnInteractButton2D : InteractOnTrigger2D
     protected virtual void OnInteractButtonPress()
     {
         OnButtonPress.Invoke();
-        DoInventoryChecks(m_InteractingCollider);
         Debug.Log("[" + name + "] Triggered by [" + m_InteractingCollider.gameObject.name + "]");
     }
 }

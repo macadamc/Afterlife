@@ -216,7 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTimeScale: 0
   choiceContainer: {fileID: 1225349679947588}
-  textComp: {fileID: 114813480346837132}
   text: {fileID: 114562158816380840}
   bg: {fileID: 224129301231632424}
 --- !u!114 &114216289221203372

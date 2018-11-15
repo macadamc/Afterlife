@@ -13,9 +13,6 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
     public bool addPlayerTag = true;
     public List<string> interactableTags;
 
-    
-    public VariableStorageChecker[] inventoryChecks;
-
     protected Collider2D m_Collider;
     protected bool CheckTags (Collider2D other)
     {
@@ -32,16 +29,19 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
             interactableTags.Add("Player");
     }
 
-    // called from unity editor dropdown menu and when component is created
+    /// <summary>
+    /// called from unity editor dropdown menu and when component is created.
+    /// </summary>
     protected virtual void Reset()
     {
         layers = LayerMask.NameToLayer("Everything");
         m_Collider = GetComponent<Collider2D>();
         m_Collider.isTrigger = true;
-        inventoryChecks = new VariableStorageChecker[0];
     }
 
-    // checks layer that other gameobject is on compared to layermask.
+    /// <summary>
+    /// check layers that other gameobject is on compared to layermask.
+    /// </summary>
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!enabled)
@@ -64,28 +64,19 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
         }
     }
 
-    // loops through inventory checks and calls function on them
-    protected void DoInventoryChecks(Collider2D other)
-    {
-        PersistentVariableStorage store = other.GetComponentInChildren<PersistentVariableStorage>();
-
-        if (store == null || inventoryChecks == null || inventoryChecks.Length == 0)
-            return;
-
-        for (int i = 0; i < inventoryChecks.Length; i++)
-        {
-            inventoryChecks[i].DoChecks(store);
-        }
-    }
-
-    // when entering trigger and passes layermask check
+    /// <summary>
+    /// when entering trigger and passes layermask check.
+    /// </summary>
+    /// <param name="other"></param>
     protected virtual void ExecuteOnEnter(Collider2D other)
     {
         OnEnter.Invoke();
-        DoInventoryChecks(other);
     }
 
-    // when leaving trigger and passes layermask check
+    /// <summary>
+    /// when leaving trigger and passes layermask check
+    /// </summary>
+    /// <param name="other"></param>
     protected virtual void ExecuteOnExit(Collider2D other)
     {
         OnExit.Invoke();
