@@ -5,10 +5,6 @@ using Sirenix.OdinInspector;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SceneManagement;
-using SeawispHunter.MinibufferConsole;
-
-
-
 
 public class PersistentDataManager : MonoBehaviour
 {
@@ -43,15 +39,6 @@ public class PersistentDataManager : MonoBehaviour
     [ShowInInspector]
     protected Dictionary<string, Data> m_Store = new Dictionary<string, Data>();
     event System.Action schedule = null;
-
-    private void OnEnable()
-    {
-        Minibuffer.Register(this);
-    }
-    private void OnDisable()
-    {
-        Minibuffer.Register(this);
-    }
 
     void Update()
     {
@@ -182,7 +169,6 @@ public class PersistentDataManager : MonoBehaviour
     }
 
     [Button]
-    [Command("SaveExternal", description = "Save GameState to a file.")]
     public static void SaveExternal(string saveName)
     {
         string fileName = $"{saveName}.bin";
@@ -198,7 +184,6 @@ public class PersistentDataManager : MonoBehaviour
 
     }
     [Button]
-    [Command("LoadExternal", description ="Load GameState From a File.")]
     public static void LoadExternal(string saveName)
     {
         string fileName = $"{saveName}.bin";

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 using System.Linq;
-using SeawispHunter.MinibufferConsole;
 
 public class TextBoxRef : MonoBehaviour {
 
@@ -58,7 +57,6 @@ public class TextBoxRef : MonoBehaviour {
         Debug.Assert(canvas != null, "No canavas found with correct render mode set");
 
         defaultSettings = textBoxSettings;
-        Minibuffer.Register(this);
     }
 
     private void LateUpdate()
@@ -75,8 +73,6 @@ public class TextBoxRef : MonoBehaviour {
     private void OnDisable()
     {
         _textBox?.DisableTextbox();
-
-        Minibuffer.Unregister(this);
     }
 
     private void OnApplicationQuit()
@@ -106,7 +102,6 @@ public class TextBoxRef : MonoBehaviour {
         CallTextBoxString(dialogueRunner, text);
     }
 
-    [Command]
     public static void CallTextBoxString(DialogueRunner runner, string text)
     {
         if (runner.isDialogueRunning)
@@ -164,6 +159,4 @@ public class TextBoxRef : MonoBehaviour {
             _textBox?.DisableTextbox();
         }
     }
-
-
 }
