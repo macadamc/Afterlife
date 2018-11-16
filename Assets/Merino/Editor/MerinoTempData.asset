@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13981b66f67204744891820795ef4230, type: 3}
+  m_Name: MerinoTempData
+  m_EditorClassIdentifier: 
+  editedID: 2
+  timestamp: 103844.62246201592
+  m_TreeElements:
+  - m_ID: 0
+    m_Name: Root
+    m_Depth: -1
+    nodePosition: {x: 0, y: 0}
+    nodeTags: 
+    nodeBody: 
+    enabled: 1
+  - m_ID: 1
+    m_Name: TestNpc2.SimpleConditional
+    m_Depth: 0
+    nodePosition: {x: 1060, y: 292}
+    nodeTags: 
+    nodeBody: "<<if $Count is null>>\n    <<set $Count to 0>>\n<<endif>>\n<<if $Count
+      < 5>>\n    <<set $Count to $Count + 1>>\n    TestNpc2:Yes?\n    TestNpc2:...\n<<else>>\n
+      \   TestNpc2:Well Thats Enough..\n<<endif>>"
+    enabled: 1
+  - m_ID: 2
+    m_Name: ChoiceTest
+    m_Depth: 0
+    nodePosition: {x: 1058, y: 528}
+    nodeTags: 
+    nodeBody: 'Global: Heres a Choice!
+
+      [[Option 1|Option1]]
+
+      [[Option 2|Option2]]'
+    enabled: 1
+  - m_ID: 3
+    m_Name: Option1
+    m_Depth: 0
+    nodePosition: {x: 925, y: 763}
+    nodeTags: 
+    nodeBody: Global:One Pressed
+    enabled: 1
+  - m_ID: 4
+    m_Name: Option2
+    m_Depth: 0
+    nodePosition: {x: 1175, y: 763}
+    nodeTags: 
+    nodeBody: Global:Two Pressed
+    enabled: 1
+  - m_ID: 5
+    m_Name: ChoiceTestAlt
+    m_Depth: 0
+    nodePosition: {x: 807, y: 294}
+    nodeTags: 
+    nodeBody: "Global:Hello [PlayerName]!!\n<<SetTextBoxSettings Global NoDelay>>//Show
+      text intantly\nGlobal:Make a Choice.\n<<SetTextBoxSettings Global default>>//use
+      default textSettings\n->Option 1\n    Global:[PlayerName] Picked Option 1!!!\n->Option
+      2\n    Global:[PlayerName] Picked Option 2..."
+    enabled: 1

@@ -186,6 +186,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1979815880887732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4010446313743656}
+  - component: {fileID: 114884376202916582}
+  m_Layer: 11
+  m_Name: StateMachine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4010446313743656
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1979815880887732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4719379981638848}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4110940682705028
 Transform:
   m_ObjectHideFlags: 1
@@ -258,13 +287,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142652446435154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.11, y: 1.81, z: 0}
+  m_LocalPosition: {x: -6.27, y: 3.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4253881909877106}
   - {fileID: 4769017149580422}
   - {fileID: 4860658888545166}
   - {fileID: 4606905125293868}
+  - {fileID: 4010446313743656}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -620,25 +650,14 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
   OnEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114388691763941234}
-        m_MethodName: CallTextBox
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: TestNpc.DefaultPassive
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnExit:
@@ -726,7 +745,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -813,6 +832,41 @@ MonoBehaviour:
   smoothing: 0.4
   knockbackDecel: 5
   knockbackDeadzone: 0.1
+--- !u!114 &114884376202916582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1979815880887732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787802ab2173b0240bbd57b7f3608395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: {fileID: 0}
+  autoUpdate: 1
+  loopStates: 1
+  logToConsole: 0
+  allowStateReentry: 0
+  returnToDefaultOnDisable: 1
+  currentState: {fileID: 0}
+  events:
+    OnStart:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    OnStateEnter:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    OnStateExit:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  states: []
 --- !u!114 &114913233399015978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -879,7 +933,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -29
+  m_SortingOrder: -62
 --- !u!212 &212014535548717588
 SpriteRenderer:
   m_ObjectHideFlags: 1
