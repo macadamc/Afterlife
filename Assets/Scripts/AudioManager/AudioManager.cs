@@ -12,7 +12,6 @@ using UnityEditor;
 public class AudioManager : Singleton<AudioManager>
 {
     public AudioSource source_BGM;
-    public AudioClip debugClip;
     public TilemapSoundEffects tilemapSFX;
 
     Tilemap _tilemap;
@@ -23,11 +22,6 @@ public class AudioManager : Singleton<AudioManager>
     private void OnEnable()
     {
         Initialize(this);
-    }
-
-    private void Start()
-    {
-        PlayBGM(debugClip, true);
     }
 
     public void PlaySFX(SoundEffect sfx)
@@ -73,10 +67,25 @@ public class AudioManager : Singleton<AudioManager>
         Tween.Value(0.0f, 1.0f, SetBGMVolume, 1.0f, 0.0f, Tween.EaseIn);
     }
 
+    public void PlayBGM(AudioClip clip)
+    {
+        source_BGM.clip = clip;
+        source_BGM.loop = false;
+        source_BGM.Play();
+        Tween.Value(0.0f, 1.0f, SetBGMVolume, 1.0f, 0.0f, Tween.EaseIn);
+    }
+
     public void FadeToBGM(AudioClip clip, bool loop)
     {
         queuedClip = clip;
         queuedLoop = loop;
+        Tween.Value(source_BGM.volume, 0.0f, SetBGMVolume, 1.0f, 0.0f, Tween.EaseIn, Tween.LoopType.None, null, OnFadeOut, true);
+    }
+
+    public void FadeToBGM(AudioClip clip)
+    {
+        queuedClip = clip;
+        queuedLoop = false;
         Tween.Value(source_BGM.volume, 0.0f, SetBGMVolume, 1.0f, 0.0f, Tween.EaseIn, Tween.LoopType.None, null, OnFadeOut, true);
     }
 
