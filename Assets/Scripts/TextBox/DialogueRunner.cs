@@ -98,27 +98,26 @@ namespace Yarn.Unity
         }
 
         /// Start the dialogue
-        void Start ()
+        IEnumerator Start ()
         {
+            yield return new WaitForEndOfFrame();
             // Ensure that we have our Implementation object
             if (dialogueUI == null) {
                 dialogueUI = FindObjectOfType<DialougeUI>();
                 if (dialogueUI == null)
                 {
                     Debug.LogError("Implementation was not set! Can't run the dialogue!");
-                    return;
                 }
             }
 
             // And that we have our variable storage object
             if (wrappedGlobalStore == null)
             {
-                wrappedGlobalStore = new YarnStorageWrapper(Player.Instance.pvs.storage);
+                wrappedGlobalStore = new YarnStorageWrapper(GlobalStorage.Instance.storage);
 
                 if (wrappedGlobalStore == null)
                 {
                     Debug.LogError("Variable storage was not set! Can't run the dialogue!");
-                    return;
                 }
             }
 

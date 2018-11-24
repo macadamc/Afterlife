@@ -51,8 +51,9 @@ public class TextBoxRef : MonoBehaviour {
         dialogueRunner = GetComponentInChildren<DialogueRunner>();
     }
 
-    private void Start()
+    IEnumerator Start()
     {
+        yield return new WaitForEndOfFrame();
         canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceOverlay); }).FirstOrDefault();
         Debug.Assert(canvas != null, "No canavas found with correct render mode set");
 

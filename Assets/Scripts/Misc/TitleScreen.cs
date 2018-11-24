@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
+using UnityEngine.Experimental.Animations;
 
 public class TitleScreen : MonoBehaviour
 {
     public Transition transition;
     public string newGameSceneName;
     private bool _waiting = true;
+    public GlobalStorageObject DefaultGlobalStorageObject;
+    public GameObject LoadButton;
+    public GameObject HUD;
 
     public void StartNewGame()
     {
@@ -42,6 +47,9 @@ public class TitleScreen : MonoBehaviour
     private void Start()
     {
         TransitionManager.Instance.onTransitionEnd += OnFadeIn;
+        LoadButton.SetActive(File.Exists(Application.persistentDataPath + "/" + "SaveData.bin"));
+        HUD = GameObject.FindGameObjectWithTag("Canvas");
+        HUD.SetActive(false);
     }
 
     private void OnFadeIn()
@@ -53,17 +61,19 @@ public class TitleScreen : MonoBehaviour
     private void NewGame()
     {
         TransitionManager.Instance.onTransitionEnd -= NewGame;
-        //SaveLoadManager.Instance.Save();
-        SceneManager.LoadScene(newGameSceneName, LoadSceneMode.Single);
+        PersistentDataManager.SaveExternal("SaveData");
+        HUD.SetActive(true);
+        SceneManager.LoadScene(DefaultGlobalStorageObject.GetString("checkpoint_scene"), LoadSceneMode.Single);
+        
     }
 
     private void LoadGame()
     {
         TransitionManager.Instance.onTransitionEnd -= LoadGame;
-        //SaveLoadManager.Instance.Load();
-        SceneManager.LoadScene(newGameSceneName, LoadSceneMode.Single);
+        PersistentDataManager.LoadExternal("SaveData");
+        HUD.SetActive(true);
+        SceneManager.LoadScene(DefaultGlobalStorageObject.GetString("checkpoint_scene"), LoadSceneMode.Single);
     }
-
 
     private void QuitGame()
     {

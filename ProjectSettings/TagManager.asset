@@ -10,6 +10,7 @@ TagManager:
   - GlobalTextbox
   - Projectile
   - LightCamera
+  - Canvas
   layers:
   - Default
   - TransparentFX

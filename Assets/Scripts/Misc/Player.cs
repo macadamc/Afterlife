@@ -37,31 +37,57 @@ public class Player : Singleton<Player> {
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        Debug.Log("Scene Loaded, trying to teleport");
-        Teleport[] teleporters = FindObjectsOfType<Teleport>();
-        foreach(Teleport t in teleporters)
+        if (string.IsNullOrEmpty(pvs.storage.GetString("doorTag")) == false)
         {
-            if (pvs.storage.strings.ContainsKey("doorTag"))
+            Debug.Log("Scene Loaded, Teleporting to Door");
+            Teleport[] teleporters = FindObjectsOfType<Teleport>();
+            foreach (Teleport t in teleporters)
             {
-                if(pvs.storage.strings["doorTag"] == t.doorTag)
+                if (pvs.storage.strings.ContainsKey("doorTag"))
                 {
-                    Debug.Log("Found doortag");
-                    transform.position = t.enterTransform.position;
-                    //CameraFollow.Instance.SetPosition(t.TeleportTransform.position, t.cameraZone);
-                    return;
-                }
-                else
-                {
-                    Debug.Log("Could not find corrent door tag in scene.");
+                    if (pvs.storage.strings["doorTag"] == t.doorTag)
+                    {
+                        Debug.Log("Found doortag");
+                        transform.position = t.enterTransform.position;
+                        pvs.storage.RemoveValue("doorTag");
+                        return;
+                    }
                 }
             }
-            else
+            
+            Debug.Log("No Door Tag in Persistant Variable Storage");
+        }
+        else
+        {
+            Debug.Log("Scene Loaded, Teleporting to Checkpoint");
+
+            Checkpoint[] checkpoints = FindObjectsOfType<Checkpoint>();
+
+            foreach (Checkpoint t in checkpoints)
             {
-                Debug.Log("No Door Tag in Persistant Variable Storage");
-                //CameraFollow.Instance.SetPosition(transform.position);
+                if (pvs.storage.strings.ContainsKey("checkpoint_id"))
+                {
+                    if (pvs.storage.strings["checkpoint_id"] == t.Id)
+                    {
+                        Debug.Log("Found checkpoint_id");
+                        transform.position = t.transform.position;
+                        break;
+                    }
+                }
             }
+
+            StartCoroutine(ResetHealth());
+
+            //Debug.Log("No CheckPoint in Persistant Variable Storage");
         }
     }
+
+    public IEnumerator ResetHealth()
+    {
+        yield return new WaitForEndOfFrame();
+        health.currentHealth.Value = health.maxHealth.Value;
+        Debug.Log(health.currentHealth.Value);
+    } 
 
     public void TeleportPlayer(string DoorTag)
     {

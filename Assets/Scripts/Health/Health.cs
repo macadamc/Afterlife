@@ -72,15 +72,10 @@ public class Health : MonoBehaviour, IDataPersister
         CheckHealth();
     }
 
-    protected void CheckHealth()
+    protected virtual void CheckHealth()
     {
         if (currentHealth.Value <= 0)
         {
-            /*
-            if (spawnOnDeath != null)
-                Instantiate(spawnOnDeath, transform.position, Quaternion.identity);
-                */
-
             events.onDeath.Invoke();
 
             if (deactivateRootObjectOnDeath)
@@ -90,8 +85,6 @@ public class Health : MonoBehaviour, IDataPersister
 
     private void OnEnable()
     {
-        //currentHealth.Value = maxHealth.Value;
-        //_initialized = true;
         _sprites = GetComponentsInChildren<SpriteRenderer>();
         PersistentDataManager.RegisterPersister(this);
     }
@@ -100,14 +93,6 @@ public class Health : MonoBehaviour, IDataPersister
     {
         PersistentDataManager.UnregisterPersister(this);
     }
-
-    /*
-    protected virtual void Start()
-    {
-        if (!_initialized)
-            Initialize();
-    }
-    */
 
     [Button]
     public void Damage()

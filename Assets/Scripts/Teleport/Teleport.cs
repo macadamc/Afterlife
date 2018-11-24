@@ -54,10 +54,11 @@ public class Teleport : InteractOnTrigger2D
         TransitionManager.Instance.onTransitionEnd -= OnFadeOut;
         if (type == Type.ChangeScene)
         {
-            PersistentVariableStorage pvs = Player.Instance.gameObject.GetComponent<PersistentVariableStorage>();
+            //PersistentVariableStorage pvs = Player.Instance.gameObject.GetComponent<PersistentVariableStorage>();
 
             // changing scenes
-            pvs.storage.strings["doorTag"] = doorTag;
+            GlobalStorage.Instance.storage.strings["doorTag"] = doorTag;
+
             PersistentDataManager.SaveAllData();
             //Player.Instance.doorTag = doorTag;
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);

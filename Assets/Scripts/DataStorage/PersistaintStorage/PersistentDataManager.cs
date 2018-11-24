@@ -56,9 +56,9 @@ public class PersistentDataManager : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoad;
     }
+
     protected void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Writing To persistent Objects");
         LoadAllData();
     }
 
@@ -136,6 +136,7 @@ public class PersistentDataManager : MonoBehaviour
     //Saves all IDataPeresisters in the current scene into this object.
     protected void SaveAllDataInternal()
     {
+        Debug.Log("Save scene Objects into storage");
         foreach (var dp in m_DataPersisters)
         {
             Save(dp);
@@ -147,6 +148,7 @@ public class PersistentDataManager : MonoBehaviour
     {
         schedule += () =>
         {
+            Debug.Log("Loading Objects into Scene");
             foreach (var dp in m_DataPersisters)
             {
                 var dataSettings = dp.GetDataSettings();
