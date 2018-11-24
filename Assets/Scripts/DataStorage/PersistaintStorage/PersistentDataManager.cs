@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -38,9 +39,15 @@ public class PersistentDataManager : MonoBehaviour
     protected HashSet<IDataPersister> m_DataPersisters = new HashSet<IDataPersister>();
     [ShowInInspector]
     protected Dictionary<string, Data> m_Store = new Dictionary<string, Data>();
+
     event System.Action schedule = null;
 
     void Update()
+    {
+        DoSheduled();
+    }
+
+    public void DoSheduled()
     {
         if (schedule != null)
         {
@@ -52,13 +59,21 @@ public class PersistentDataManager : MonoBehaviour
     void Awake()
     {
         if (Instance != this)
+        {
             Destroy(gameObject);
+        }
+        else
+        {
+            SceneManager.sceneLoaded += delegate { StartCoroutine(SheduleAtEndOfFFrame()); };
+        }
+            
 
-        SceneManager.sceneLoaded += OnSceneLoad;
+        
     }
 
-    protected void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    IEnumerator SheduleAtEndOfFFrame()
     {
+        yield return new WaitForEndOfFrame();
         LoadAllData();
     }
 
@@ -66,6 +81,14 @@ public class PersistentDataManager : MonoBehaviour
     {
         if (instance == this)
             quitting = true;
+    }
+
+    public static T GetData<T>(string key) where T : Data
+    {
+        if(instance.m_Store.ContainsKey(key))
+            return (T)instance.m_Store[key];
+
+        return null;
     }
 
     public static void RegisterPersister(IDataPersister persister)
@@ -117,9 +140,12 @@ public class PersistentDataManager : MonoBehaviour
 
     protected void Unregister(IDataPersister persister)
     {
-        schedule += () => m_DataPersisters.Remove(persister);
+        schedule += () =>
+        {
+            m_DataPersisters.Remove(persister);
+        };
+        
     }
-
 
     //Writes a single IDataPersister into this object.
     protected void Save(IDataPersister dp)
@@ -133,7 +159,7 @@ public class PersistentDataManager : MonoBehaviour
         }
     }
 
-    //Saves all IDataPeresisters in the current scene into this object.
+    //Saves all IDataPersisters in the current scene into this object.
     protected void SaveAllDataInternal()
     {
         Debug.Log("Save scene Objects into storage");
@@ -165,11 +191,6 @@ public class PersistentDataManager : MonoBehaviour
         };
     }
 
-    bool IsGameRunning()
-    {
-        return Application.isPlaying;
-    }
-
     [Button]
     public static void SaveExternal(string saveName)
     {
@@ -194,7 +215,10 @@ public class PersistentDataManager : MonoBehaviour
         var formatter = new BinaryFormatter();
         instance.m_Store = (Dictionary<string, Data>)formatter.Deserialize(stream);
         stream.Close();
+        instance.DoSheduled();
         instance.LoadAllDataInternal();
+        instance.DoSheduled();
+
     }
 
     #if UNITY_EDITOR

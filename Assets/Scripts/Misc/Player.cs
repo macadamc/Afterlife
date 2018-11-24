@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Player : Singleton<Player> {
 
-    public PersistentVariableStorage pvs;
+    //public PersistentVariableStorage pvs;
     Health health;
     private void Awake()
     {
         health = GetComponent<Health>();
-        pvs = GetComponent<PersistentVariableStorage>();
+        //pvs = GetComponent<PersistentVariableStorage>();
         Initialize(this);
     }
     private void OnEnable()
@@ -37,19 +37,21 @@ public class Player : Singleton<Player> {
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        if (string.IsNullOrEmpty(pvs.storage.GetString("doorTag")) == false)
+        Debug.Log($"Loaded Scene {arg0.name}");
+
+        if (string.IsNullOrEmpty(GlobalStorage.Instance.storage.GetString("doorTag")) == false)
         {
             Debug.Log("Scene Loaded, Teleporting to Door");
             Teleport[] teleporters = FindObjectsOfType<Teleport>();
             foreach (Teleport t in teleporters)
             {
-                if (pvs.storage.strings.ContainsKey("doorTag"))
+                if (GlobalStorage.Instance.storage.strings.ContainsKey("doorTag"))
                 {
-                    if (pvs.storage.strings["doorTag"] == t.doorTag)
+                    if (GlobalStorage.Instance.storage.strings["doorTag"] == t.Id)
                     {
                         Debug.Log("Found doortag");
                         transform.position = t.enterTransform.position;
-                        pvs.storage.RemoveValue("doorTag");
+                        GlobalStorage.Instance.storage.RemoveValue("doorTag");
                         return;
                     }
                 }
@@ -59,41 +61,52 @@ public class Player : Singleton<Player> {
         }
         else
         {
-            Debug.Log("Scene Loaded, Teleporting to Checkpoint");
-
+            Debug.Log("Looking For Checkpoint");
             Checkpoint[] checkpoints = FindObjectsOfType<Checkpoint>();
 
-            foreach (Checkpoint t in checkpoints)
+            if (checkpoints.Length > 0)
             {
-                if (pvs.storage.strings.ContainsKey("checkpoint_id"))
+                bool checkPointFound = false;
+                foreach (Checkpoint t in checkpoints)
                 {
-                    if (pvs.storage.strings["checkpoint_id"] == t.Id)
+                    if (GlobalStorage.Instance.storage.strings.ContainsKey("checkpoint_id"))
                     {
-                        Debug.Log("Found checkpoint_id");
-                        transform.position = t.transform.position;
-                        break;
+                        if (GlobalStorage.Instance.storage.strings["checkpoint_id"] == t.Id)
+                        {
+                            Debug.Log("Found checkpoint_id in scene, teleporting Player.");
+                            transform.position = t.transform.position;
+                            checkPointFound = true;
+                            break;
+                        }
                     }
                 }
+
+                if (checkPointFound)
+                {
+                    // data hasnt been injected into the scene yet so we edit it using the manager; 
+                    var healthData = PersistentDataManager.GetData<Data<int, int>>("PlayerHealth");
+                    if (healthData != null)
+                    {
+                        healthData.value0 = healthData.value1;
+                    }
+                }
+                
+            }
+            else
+            {
+                Debug.Log("No CheckPoints in scene.");
             }
 
-            StartCoroutine(ResetHealth());
-
-            //Debug.Log("No CheckPoint in Persistant Variable Storage");
+            
+            
         }
     }
 
-    public IEnumerator ResetHealth()
-    {
-        yield return new WaitForEndOfFrame();
-        health.currentHealth.Value = health.maxHealth.Value;
-        Debug.Log(health.currentHealth.Value);
-    } 
-
-    public void TeleportPlayer(string DoorTag)
+    public void TeleportPlayer(string Id)
     {
         foreach (Teleport t in FindObjectsOfType<Teleport>())
         {
-            if (DoorTag == t.doorTag)
+            if (Id == t.Id)
             {
                 transform.position = t.enterTransform.position;
                 return;
@@ -119,14 +132,14 @@ public class Player : Singleton<Player> {
 
     public void SetString(string key, string val)
     {
-        pvs.storage.SetValue(key, val);
+        GlobalStorage.Instance.storage.SetValue(key, val);
     }
     public void SetNumber(string key, float val)
     {
-        pvs.storage.SetValue(key, val);
+        GlobalStorage.Instance.storage.SetValue(key, val);
     }
     public void SetBool(string key, bool val)
     {
-        pvs.storage.SetValue(key, val);
+        GlobalStorage.Instance.storage.SetValue(key, val);
     }
 }

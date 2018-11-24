@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 1081193655}
   - component: {fileID: 1081193654}
   m_Layer: 0
-  m_Name: PlayerStorage
+  m_Name: DefaultStorage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -935,7 +935,7 @@ MonoBehaviour:
   storage: {fileID: 11400000, guid: f47a3e65be30bb846aef0bd6aa539093, type: 2}
   dataSettings:
     dataTag: PlayerPersistantStorage
-    persistenceType: 3
+    persistenceType: 2
 --- !u!4 &1081193655
 Transform:
   m_ObjectHideFlags: 0

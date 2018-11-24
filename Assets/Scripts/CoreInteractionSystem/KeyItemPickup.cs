@@ -21,12 +21,6 @@ public class KeyItemPickup : InteractOnTrigger2D, IDataPersister
     void OnEnable()
     {
         collider = GetComponent<CircleCollider2D>();
-        PersistentDataManager.RegisterPersister(this);
-    }
-
-    void OnDisable()
-    {
-        PersistentDataManager.UnregisterPersister(this);
     }
 
     private void OnDestroy()
@@ -44,7 +38,6 @@ public class KeyItemPickup : InteractOnTrigger2D, IDataPersister
 
     protected override void ExecuteOnEnter(Collider2D other)
     {
-        var ic = other.GetComponent<PersistentVariableStorage>();
         if (disableOnEnter)
         {
             gameObject.SetActive(false);

@@ -63,8 +63,8 @@ public class TitleScreen : MonoBehaviour
         TransitionManager.Instance.onTransitionEnd -= NewGame;
         PersistentDataManager.SaveExternal("SaveData");
         HUD.SetActive(true);
-        SceneManager.LoadScene(DefaultGlobalStorageObject.GetString("checkpoint_scene"), LoadSceneMode.Single);
-        
+        StartCoroutine(delayedSceneLoad());
+
     }
 
     private void LoadGame()
@@ -72,9 +72,16 @@ public class TitleScreen : MonoBehaviour
         TransitionManager.Instance.onTransitionEnd -= LoadGame;
         PersistentDataManager.LoadExternal("SaveData");
         HUD.SetActive(true);
-        SceneManager.LoadScene(DefaultGlobalStorageObject.GetString("checkpoint_scene"), LoadSceneMode.Single);
+        StartCoroutine(delayedSceneLoad());
     }
 
+    IEnumerator delayedSceneLoad()
+    {
+        yield return new WaitForEndOfFrame();
+        PersistentDataManager.Instance.DoSheduled();
+        SceneManager.LoadScene(DefaultGlobalStorageObject.GetString("checkpoint_scene"), LoadSceneMode.Single);
+
+    }
     private void QuitGame()
     {
         TransitionManager.Instance.onTransitionEnd -= QuitGame;
