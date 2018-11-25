@@ -176,11 +176,6 @@ public class DialougeUI : DialogueUIBehaviour
         textBox.DisableTextbox(textBoxRef.textBoxSettings.useTween);
         yield return new WaitWhile(() => { return textBox.gameObject.activeSelf; });
     }
-
-    public override IEnumerator RunOptions(Options optionsCollection, OptionChooser optionChooser)
-    {
-        throw new System.NotImplementedException();
-    }
 }
 
 [System.Serializable]

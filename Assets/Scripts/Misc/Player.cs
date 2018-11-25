@@ -66,7 +66,6 @@ public class Player : Singleton<Player> {
 
             if (checkpoints.Length > 0)
             {
-                bool checkPointFound = false;
                 foreach (Checkpoint t in checkpoints)
                 {
                     if (GlobalStorage.Instance.storage.strings.ContainsKey("checkpoint_id"))
@@ -75,30 +74,15 @@ public class Player : Singleton<Player> {
                         {
                             Debug.Log("Found checkpoint_id in scene, teleporting Player.");
                             transform.position = t.transform.position;
-                            checkPointFound = true;
                             break;
                         }
                     }
                 }
-
-                if (checkPointFound)
-                {
-                    // data hasnt been injected into the scene yet so we edit it using the manager; 
-                    var healthData = PersistentDataManager.GetData<Data<int, int>>("PlayerHealth");
-                    if (healthData != null)
-                    {
-                        healthData.value0 = healthData.value1;
-                    }
-                }
-                
             }
             else
             {
                 Debug.Log("No CheckPoints in scene.");
             }
-
-            
-            
         }
     }
 

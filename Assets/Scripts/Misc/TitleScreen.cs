@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
-using UnityEngine.Experimental.Animations;
 
 public class TitleScreen : MonoBehaviour
 {
@@ -62,11 +61,9 @@ public class TitleScreen : MonoBehaviour
         TransitionManager.Instance.onTransitionEnd -= NewGame;
         
         //copy default values.
-        GlobalStorage.Instance.storage.strings = new Dictionary<string, string>(DefaultGlobalStorageValues.strings);
-        GlobalStorage.Instance.storage.floats = new Dictionary<string, float>(DefaultGlobalStorageValues.floats);
-        GlobalStorage.Instance.storage.bools = new Dictionary<string, bool>(DefaultGlobalStorageValues.bools);
+        GlobalStorage.Instance.storage.CopyValues(DefaultGlobalStorageValues);
 
-        PersistentDataManager.SaveExternal("SaveData");
+        PersistentDataManager.SaveExternal();
         HUD.SetActive(true);
         StartCoroutine(delayedSceneLoad());
 
@@ -75,7 +72,7 @@ public class TitleScreen : MonoBehaviour
     private void LoadGame()
     {
         TransitionManager.Instance.onTransitionEnd -= LoadGame;
-        PersistentDataManager.LoadExternal("SaveData");
+        PersistentDataManager.LoadExternal();
         HUD.SetActive(true);
         StartCoroutine(delayedSceneLoad());
     }

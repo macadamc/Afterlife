@@ -18,11 +18,6 @@ public class GlobalStorage : Singleton<GlobalStorage>, IDataPersister
         PersistentDataManager.UnregisterPersister(this);
     }
 
-    void OnEnable()
-    {
-        
-    }
-
     public DataSettings dataSettings;
 
     void IDataPersister.LoadData(Data data)

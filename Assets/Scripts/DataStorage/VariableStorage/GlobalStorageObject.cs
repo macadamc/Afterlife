@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 [CreateAssetMenu]
 public class GlobalStorageObject : SerializedScriptableObject
 {
-    public enum VarType { FLOAT, STRING, BOOL};
+    public enum VarType { FLOAT, STRING, BOOL}
     public Dictionary<string, string> strings = new Dictionary<string, string>();
     public Dictionary<string, float> floats = new Dictionary<string, float>();
     public Dictionary<string, bool> bools = new Dictionary<string, bool>();
@@ -188,5 +188,12 @@ public class GlobalStorageObject : SerializedScriptableObject
         strings.Clear();
         floats.Clear();
         bools.Clear();
+    }
+
+    public void CopyValues(GlobalStorageObject other)
+    {
+        strings = new Dictionary<string, string>(other.strings);
+        floats = new Dictionary<string, float>(other.floats);
+        bools = new Dictionary<string, bool>(other.bools);
     }
 }

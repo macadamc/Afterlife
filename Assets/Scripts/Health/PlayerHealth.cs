@@ -28,9 +28,13 @@ public class PlayerHealth : Health
 
     protected IEnumerator PlayerDead()
     {
-        PersistentDataManager.SaveExternal("SaveData");
         yield return new WaitForSeconds(deathWaitTime);
         playerDeath.Invoke();
+
+        var hp = Player.Instance.gameObject.GetComponent<PlayerHealth>();
+        hp.currentHealth = hp.maxHealth;
+
+        PersistentDataManager.SaveExternal();
         SceneManager.LoadScene("TitleTitle");
     }
 }
