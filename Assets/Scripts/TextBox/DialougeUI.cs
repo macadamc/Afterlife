@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn;
@@ -175,6 +176,11 @@ public class DialougeUI : DialogueUIBehaviour
         //tween textbox closed.
         textBox.DisableTextbox(textBoxRef.textBoxSettings.useTween);
         yield return new WaitWhile(() => { return textBox.gameObject.activeSelf; });
+    }
+
+    public override IEnumerator RunOptions(Options options, OptionChooser optionsChooser)
+    {
+        throw new NotImplementedException();
     }
 }
 
