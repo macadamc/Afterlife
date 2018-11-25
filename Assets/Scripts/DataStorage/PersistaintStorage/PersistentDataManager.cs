@@ -201,10 +201,6 @@ public class PersistentDataManager : MonoBehaviour
         var formatter = new BinaryFormatter();
         formatter.Serialize(stream, instance.m_Store);
         stream.Close();
-
-        // Restore from file
-        
-
     }
     [Button]
     public static void LoadExternal(string saveName)

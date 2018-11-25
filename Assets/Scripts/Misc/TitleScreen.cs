@@ -8,9 +8,8 @@ using UnityEngine.Experimental.Animations;
 public class TitleScreen : MonoBehaviour
 {
     public Transition transition;
-    public string newGameSceneName;
     private bool _waiting = true;
-    public GlobalStorageObject DefaultGlobalStorageObject;
+    public GlobalStorageObject DefaultGlobalStorageValues;
     public GameObject LoadButton;
     public GameObject HUD;
 
@@ -61,6 +60,12 @@ public class TitleScreen : MonoBehaviour
     private void NewGame()
     {
         TransitionManager.Instance.onTransitionEnd -= NewGame;
+        
+        //copy default values.
+        GlobalStorage.Instance.storage.strings = new Dictionary<string, string>(DefaultGlobalStorageValues.strings);
+        GlobalStorage.Instance.storage.floats = new Dictionary<string, float>(DefaultGlobalStorageValues.floats);
+        GlobalStorage.Instance.storage.bools = new Dictionary<string, bool>(DefaultGlobalStorageValues.bools);
+
         PersistentDataManager.SaveExternal("SaveData");
         HUD.SetActive(true);
         StartCoroutine(delayedSceneLoad());
@@ -79,7 +84,7 @@ public class TitleScreen : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         PersistentDataManager.Instance.DoSheduled();
-        SceneManager.LoadScene(DefaultGlobalStorageObject.GetString("checkpoint_scene"), LoadSceneMode.Single);
+        SceneManager.LoadScene(GlobalStorage.Instance.storage.GetString("checkpoint_scene"), LoadSceneMode.Single);
 
     }
     private void QuitGame()
@@ -91,7 +96,4 @@ public class TitleScreen : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
-
-
-
 }

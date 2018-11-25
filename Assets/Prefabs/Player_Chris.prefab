@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 114451312751791208}
   - component: {fileID: 114042986886767670}
   - component: {fileID: 114565254229820494}
-  - component: {fileID: 114483365830791534}
   - component: {fileID: 114584574525576344}
   - component: {fileID: 114419959039390538}
   - component: {fileID: 114408305820384076}
@@ -851,12 +850,12 @@ MonoBehaviour:
   playerDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 50354483339719376}
-        m_MethodName: set_simulated
-        m_Mode: 6
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -919,31 +918,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
   allowMoreThanOne: 1
-  pvs: {fileID: 0}
---- !u!114 &114483365830791534
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1747217673039194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877e5fe501b710b41848b6c520d224fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  storage: {fileID: 11400000, guid: 66883d7ae0345824a860ef8f7a7a76be, type: 2}
-  dataSettings:
-    dataTag: PlayerPersistantStorage
-    persistenceType: 3
 --- !u!114 &114565254229820494
 MonoBehaviour:
   m_ObjectHideFlags: 1
