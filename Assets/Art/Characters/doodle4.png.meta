@@ -5,6 +5,9 @@ TextureImporter:
     21300000: doodle4_0
     21300002: doodle4_1
     21300004: doodle4_2
+    21300006: doodle4_3
+    21300008: doodle4_4
+    21300010: doodle4_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -87,26 +90,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: doodle4_0
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 126
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.484375, y: 0.1875}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c33a5f3a85ed47a48b7c160fa2128bd4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: doodle4_1
       rect:
         serializedVersion: 2
@@ -130,18 +113,98 @@ TextureImporter:
       name: doodle4_2
       rect:
         serializedVersion: 2
-        x: 136
-        y: 72
-        width: 48
-        height: 48
+        x: 128
+        y: 65
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 3801a4e9e235a9044bded459f8212ac5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doodle4_3
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 128
+        width: 16
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1412ab92af031c545978fab5f2c51dd4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doodle4_0
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 221
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9afda9f90a72645b73503e4529516c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doodle4_4
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 128
+        width: 16
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b66ba446ec39be43ad6739478342456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doodle4_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 15
+        height: 23
+      alignment: 9
+      pivot: {x: 0.4666667, y: 0.17391305}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d48e5608287a74fa8e3695fbf2e7b7
       vertices: []
       indices: 
       edges: []

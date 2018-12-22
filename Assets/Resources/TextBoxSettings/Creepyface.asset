@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7d77f554118e94abaeea2e147942b3, type: 3}
+  m_Name: Creepyface
+  m_EditorClassIdentifier: 
+  useDelay: 1
+  delay: 0.05
+  sfx: {fileID: 11400000, guid: 7483c6a11b8054340925271e63953146, type: 2}
+  TMP_Font: {fileID: 11400000, guid: b581fcc60aab2ab418065460acb396b0, type: 2}
+  fontSize: 8
+  inputType: 1
+  passiveLineDelay: 2
+  autoSize: 1
+  maxSize: {x: 175, y: 38.5}
+  padding: {x: 0, y: 0}
+  useTween: 1

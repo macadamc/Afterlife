@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4828476896945214}
   - component: {fileID: 82289633668625436}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FootstepSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4604300690912258}
   - component: {fileID: 212924547306494156}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4580679242485038}
   - component: {fileID: 331310886699134062}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WaterMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4590298502738490}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemSpawnTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,9 @@ GameObject:
   - component: {fileID: 212329305435466154}
   - component: {fileID: 95456276724869522}
   - component: {fileID: 114742236944062550}
-  m_Layer: 0
+  - component: {fileID: 210164178231403262}
+  - component: {fileID: 114637227156962410}
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4282839960973540}
   - component: {fileID: 82846626994341580}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4733523103079562}
   - component: {fileID: 114361942929999516}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: StateMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,11 +140,9 @@ GameObject:
   - component: {fileID: 114108585924785506}
   - component: {fileID: 114720998394926712}
   - component: {fileID: 114265016254833902}
-  - component: {fileID: 114737526251307570}
   - component: {fileID: 114245107465903846}
   - component: {fileID: 114710091932633576}
   - component: {fileID: 114417035029121784}
-  - component: {fileID: 210822194784519822}
   - component: {fileID: 114451312751791208}
   - component: {fileID: 114042986886767670}
   - component: {fileID: 114565254229820494}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4300396102351528}
   - component: {fileID: 198022365014229932}
   - component: {fileID: 199329155439596852}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: par_PlayerWalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4830244831607538}
   - component: {fileID: 212472265932423400}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemAboveHeadSpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4444541476256268}
   - component: {fileID: 212953699551470014}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemOnBackSpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 4800716102551636}
   - component: {fileID: 114020277098976420}
   - component: {fileID: 114630913732127406}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747217673039194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.46, y: 3.57, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4604300690912258}
@@ -683,14 +683,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 0}
-  transformToUse: {fileID: 0}
+  transformToUse: {fileID: 4160723617120886}
 --- !u!114 &114245107465903846
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747217673039194}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c592ac52cee5421479c5d170f2c3e055, type: 3}
   m_Name: 
@@ -896,7 +896,7 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   moveSpeed:
     type: 0
-    ConstantValue: 5
+    ConstantValue: 4
     Variable: {fileID: 0}
   oldMoveSpeed:
     type: 0
@@ -954,6 +954,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 0}
   useOrthognial: 0
+--- !u!114 &114637227156962410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1498283099159458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a87427ccd751847a6358f922d4d037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppu: 16
 --- !u!114 &114710091932633576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -994,7 +1006,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  currentItem: {fileID: 0}
+  currentItem: {fileID: 11400000, guid: f9a3ee6ba59a5c44fbcb6852d64d2c48, type: 2}
   itemIndex: -1
   heldItemSpriteRend: {fileID: 212953699551470014}
   itemSpawnTransform: {fileID: 4590298502738490}
@@ -1004,18 +1016,6 @@ MonoBehaviour:
   dataSettings:
     dataTag: PlayerItemController
     persistenceType: 3
---- !u!114 &114737526251307570
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1747217673039194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a87427ccd751847a6358f922d4d037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ppu: 16
 --- !u!114 &114742236944062550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5708,16 +5708,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!210 &210822194784519822
+--- !u!210 &210164178231403262
 SortingGroup:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1747217673039194}
+  m_GameObject: {fileID: 1498283099159458}
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -57
+  m_SortingOrder: 0
 --- !u!212 &212329305435466154
 SpriteRenderer:
   m_ObjectHideFlags: 1

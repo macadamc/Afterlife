@@ -25,66 +25,71 @@ public class Inventory : MonoBehaviour, IDataPersister
     }
     //public List<Item> activeItems = new List<Item>();
     public ItemRuntimeSet itemSet;
-    public SpriteRenderer aboveHeadSpriteRenderer;
+    //public SpriteRenderer aboveHeadSpriteRenderer;
 
     private ItemController _itemController;
 
+    /*
     /// <summary>
     /// Add Item to activeItem list
     /// </summary>
     /// <param name="item"></param>
     public void AddItem(Item item)
     {
-        // if user does not already have item in iventory, add it
-        if (!itemSet.Items.Contains(item))
-        {
-            itemSet.Add(item);
+    // if user does not already have item in iventory, add it
+    if (!itemSet.Items.Contains(item))
+    {
+        itemSet.Add(item);
 
-            StartCoroutine(GetItem(item));
-        }
+        StartCoroutine(GetItem(item));
     }
-
+    }
     /// <summary>
     /// Remove Item from activeItem list
     /// </summary>
     /// <param name="item"></param>
     public void RemoveItem(Item item)
     {
-        // if user has item in inventory, remove it
-        if (itemSet.Items.Contains(item))
-            itemSet.Remove(item);
+    // if user has item in inventory, remove it
+    if (itemSet.Items.Contains(item))
+        itemSet.Remove(item);
     }
 
     public IEnumerator GetItem(Item item)
     {
-        aboveHeadSpriteRenderer.sprite = item.aboveHeadSprite;
-        aboveHeadSpriteRenderer.gameObject.SetActive(true);
-        //ItemController.MovementController.Stun(1.0f);
-        yield return new WaitForSeconds(1f);
-        aboveHeadSpriteRenderer.gameObject.SetActive(false);
-        // if there is only one item, equip the item
-        if (itemSet.Items.Count == 1)
-            InventoryManager.Instance.Equip(item);
+    aboveHeadSpriteRenderer.sprite = item.aboveHeadSprite;
+    aboveHeadSpriteRenderer.gameObject.SetActive(true);
+    //ItemController.MovementController.Stun(1.0f);
+    yield return new WaitForSeconds(1f);
+    aboveHeadSpriteRenderer.gameObject.SetActive(false);
+    // if there is only one item, equip the item
+    if (itemSet.Items.Count == 1)
+        InventoryManager.Instance.Equip(item);
     }
+    */
 
     private void Start()
     {        
         itemSet.Items.Clear();
-
+        /*
         if(aboveHeadSpriteRenderer!=null)
             aboveHeadSpriteRenderer.gameObject.SetActive(false);
+        */
 
         InventoryManager.Instance.onEquipItem += OnEquipItem;
     }
     private void OnEnable()
     {
         PersistentDataManager.RegisterPersister(this);
+        itemSet.onListChange += OnItemListChange;
     }
 
     private void OnDisable()
     {
         InventoryManager.Instance.onEquipItem -= OnEquipItem;
         PersistentDataManager.UnregisterPersister(this);
+
+        itemSet.onListChange -= OnItemListChange;
     }
 
     private void OnEquipItem(Item item)
@@ -97,6 +102,12 @@ public class Inventory : MonoBehaviour, IDataPersister
                 ItemController.itemIndex = i;
             }
         }
+    }
+
+    private void OnItemListChange()
+    {
+        if (itemSet.Items.Count == 1)
+            InventoryManager.Instance.Equip(itemSet.Items[0]);
     }
 
     public DataSettings GetDataSettings()

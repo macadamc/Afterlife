@@ -146,6 +146,7 @@ public class Teleport : InteractOnTrigger2D
         _teleportObj = other.gameObject;
     }
 
+
     public void OnFadeOut()
     {
         TransitionManager.Instance.onTransitionEnd -= OnFadeOut;

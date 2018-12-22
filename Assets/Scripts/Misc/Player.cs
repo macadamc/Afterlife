@@ -99,16 +99,6 @@ public class Player : Singleton<Player> {
         }
     }
 
-    public void EquipItem(Item item)
-    {
-        var inventory = GetComponent<Inventory>();
-
-        if(inventory.itemSet.Items.Contains(item) == false)
-            inventory.AddItem(item);
-
-        inventory.ItemController.EquipItem(inventory.itemSet.Items[inventory.itemSet.Items.Count - 1]);
-    }
-
     public void PlayerColor(Color c)
     {
         this.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = c;

@@ -14,18 +14,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestQuest/TestQuest_Cave.unity
     guid: 584ec3637a8316043a5a5cac57dd732a
-  - enabled: 1
-    path: Assets/Scenes/TestQuest 1/TestQuestAlpha_Bar.unity
-    guid: f9d4334b441d66c479c4c9d0701a2d9f
-  - enabled: 1
-    path: Assets/Scenes/TestQuest 1/TestQuestAlpha_Cave.unity
-    guid: 2386d127190ebdd4d908635ca50a2edc
-  - enabled: 1
-    path: Assets/Scenes/TestQuest 1/TestQuestAlpha_Island.unity
-    guid: e20662566a7bb26478358db0a1f73cc2
-  - enabled: 1
-    path: Assets/Scenes/TestQuest 1/TestQuestAlpha_Title.unity
-    guid: 34a4a59060e54514b9be25692fdaa44f
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/TestQuest/TestQuest_ForestTest_Cinemachine.unity
     guid: fe3c66a13d534e64c959c51865c66511

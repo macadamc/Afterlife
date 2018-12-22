@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: MerinoTempData
   m_EditorClassIdentifier: 
   editedID: 1
-  timestamp: 33137.34549710062
+  timestamp: 74455.46307095843
   m_TreeElements:
   - m_ID: 0
     m_Name: Root
@@ -22,46 +22,11 @@ MonoBehaviour:
     nodeBody: 
     enabled: 1
   - m_ID: 1
-    m_Name: TestNpc2.SimpleConditional
+    m_Name: Test
     m_Depth: 0
-    nodePosition: {x: 1060, y: 292}
+    nodePosition: {x: 0, y: 0}
     nodeTags: 
-    nodeBody: "<<if $Count is null>>\n    <<set $Count to 0>>\n<<endif>>\n<<if $Count
-      < 5>>\n    <<set $Count to $Count + 1>>\n    TestNpc2:Yes?\n    TestNpc2:...\n<<else>>\n
-      \   TestNpc2:Well Thats Enough..\n<<endif>>"
-    enabled: 1
-  - m_ID: 2
-    m_Name: ChoiceTest
-    m_Depth: 0
-    nodePosition: {x: 1058, y: 528}
-    nodeTags: 
-    nodeBody: 'Global: Heres a Choice!
+    nodeBody: 'doodle:... Please ...
 
-      [[Option 1|Option1]]
-
-      [[Option 2|Option2]]'
-    enabled: 1
-  - m_ID: 3
-    m_Name: Option1
-    m_Depth: 0
-    nodePosition: {x: 925, y: 763}
-    nodeTags: 
-    nodeBody: Global:One Pressed
-    enabled: 1
-  - m_ID: 4
-    m_Name: Option2
-    m_Depth: 0
-    nodePosition: {x: 1175, y: 763}
-    nodeTags: 
-    nodeBody: Global:Two Pressed
-    enabled: 1
-  - m_ID: 5
-    m_Name: ChoiceTestAlt
-    m_Depth: 0
-    nodePosition: {x: 807, y: 294}
-    nodeTags: 
-    nodeBody: "Global:Hello [PlayerName]!!\n<<SetTextBoxSettings Global NoDelay>>//Show
-      text intantly\nGlobal:Make a Choice.\n<<SetTextBoxSettings Global default>>//use
-      default textSettings\n->Option 1\n    Global:[PlayerName] Picked Option 1!!!\n->Option
-      2\n    Global:[PlayerName] Picked Option 2..."
+      doodle:Kill me...'
     enabled: 1

@@ -1,0 +1,9 @@
+title: Test
+tags: 
+colorID: 0
+position: 0,0
+parent: Root
+---
+Global:Come so soon?
+Global:You know what you have to do now, right?
+===

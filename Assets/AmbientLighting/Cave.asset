@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abc14e7eea1afc449635617548c297e, type: 3}
   m_Name: Cave
   m_EditorClassIdentifier: 
-  lightColor: {r: 0.012600005, g: 0.012600005, b: 0.08235294, a: 0}
+  lightColor: {r: 0, g: 0, b: 0, a: 0}
   lightIntensity: 2

@@ -14,7 +14,7 @@ MonoBehaviour:
   useDelay: 1
   delay: 0.05
   sfx: {fileID: 11400000, guid: defaeaf35e534e241a524754c49db636, type: 2}
-  font: {fileID: 12800000, guid: 2734d75b269420044ade817b027e0d15, type: 3}
+  TMP_Font: {fileID: 11400000, guid: b581fcc60aab2ab418065460acb396b0, type: 2}
   fontSize: 8
   inputType: 0
   passiveLineDelay: 0

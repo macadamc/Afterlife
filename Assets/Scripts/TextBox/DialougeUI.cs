@@ -73,9 +73,6 @@ public class DialougeUI : DialogueUIBehaviour
         textBox = textBoxRef.textBox;
         m_lastTextBox = textBoxRef;
 
-        textBox.text.rectTransform.sizeDelta = textBoxRef.textBoxSettings.maxSize;
-        textBox.bg.sizeDelta = textBoxRef.textBoxSettings.maxSize;
-
         textBox.EnabledTextBox(textBoxRef.textBoxSettings.useTween);
 
         // if the current textbox isnt in the conversation yet we add it to the activeTextboxes.
@@ -99,7 +96,8 @@ public class DialougeUI : DialogueUIBehaviour
         //Set the size of the text box
         if (textBoxRef.textBoxSettings.autoSize)
         {
-            
+            textBox.text.rectTransform.sizeDelta = textBoxRef.textBoxSettings.maxSize;
+            textBox.bg.sizeDelta = textBoxRef.textBoxSettings.maxSize;
             textBox.text.rectTransform.sizeDelta.Set(textBoxRef.textBoxSettings.maxSize.x, textBox.text.rectTransform.sizeDelta.y);
             textBox.text.ForceMeshUpdate();
 
