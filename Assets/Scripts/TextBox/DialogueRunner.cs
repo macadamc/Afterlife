@@ -60,7 +60,21 @@ namespace Yarn.Unity
         public static YarnStorageWrapper wrappedGlobalStore;
 
         /// The object that will handle the actual display and user input
-        public Yarn.Unity.DialogueUIBehaviour dialogueUI;
+        private DialogueUIBehaviour ui;
+        public Yarn.Unity.DialogueUIBehaviour dialogueUI {
+            get
+            {
+                if (ui == null)
+                {
+                    ui = FindObjectOfType<DialougeUI>();
+                    if (ui == null)
+                    {
+                        Debug.LogError("Implementation was not set! Can't run the dialogue!");
+                    }
+                }
+                return ui;
+            }
+            set { ui = value; } }
 
         /// Whether we should start dialogue when the scene starts
         public bool startAutomatically = true;
@@ -98,9 +112,9 @@ namespace Yarn.Unity
         }
 
         /// Start the dialogue
-        IEnumerator Start ()
+        void Start ()
         {
-            yield return new WaitForEndOfFrame();
+            //yield return new WaitForEndOfFrame();
             // Ensure that we have our Implementation object
             if (dialogueUI == null) {
                 dialogueUI = FindObjectOfType<DialougeUI>();

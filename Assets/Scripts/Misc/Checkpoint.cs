@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Pixelplacement;
+using Yarn.Unity;
 
 [RequireComponent(typeof(Collider2D))]
 public class Checkpoint : InteractOnInteractButton2D
@@ -11,45 +12,32 @@ public class Checkpoint : InteractOnInteractButton2D
     private string m_currentSceneName;
 
     public SpriteRenderer waypointLight;
+    public GameObject particles;
+    public GameObject dialouge;
+    public string Node;
+
     private Color lightColor;
-    //bool activated = true;
+    bool activated = false;
 
     private void Start()
     {
         lightColor = waypointLight.color;
 
         m_currentSceneName = SceneManager.GetActiveScene().name;
+        activated = CheckPointManager.Instance.checkPoints.Contains(Id);
+        dialouge.SetActive(activated);
+        particles.SetActive(activated);
 
-        if (CheckPointManager.Instance.checkPoints.ContainsKey(Id))
+        if (activated)
         {
             Debug.Log($"Key : {Id} found in checkpoints");
+            
         }
-
-        Tween.Color(waypointLight, waypointLight.color, Color.clear, 4.0f, 0.2f, Tween.EaseInOut, Tween.LoopType.None, null, null, true);
-    }
-
-    protected override void ExecuteOnEnter(Collider2D other)
-    {
-        base.ExecuteOnEnter(other);
-        /*
-        if(!activated)
+        else
         {
-            Tween.Color(waypointLight, waypointLight.color, lightColor, 4.0f, 0.2f, Tween.EaseInOut, Tween.LoopType.None, null, null, true);
-            activated = true;
+            waypointLight.color = Color.clear;
+            
         }
-        */
-    }
-
-    protected override void ExecuteOnExit(Collider2D other)
-    {
-        base.ExecuteOnExit(other);
-        /*
-        if(activated)
-        {
-            Tween.Color(waypointLight, waypointLight.color, Color.clear, 4.0f, 0.2f, Tween.EaseInOut, Tween.LoopType.None, null, null, true);
-            activated = false;
-        }
-        */
     }
 
     protected override void OnInteractButtonPress()
@@ -59,17 +47,32 @@ public class Checkpoint : InteractOnInteractButton2D
         GlobalStorage.Instance.storage.SetValue("checkpoint_id", Id);
         GlobalStorage.Instance.storage.SetValue("checkpoint_scene", m_currentSceneName);
 
-        if (CheckPointManager.Instance.checkPoints.ContainsKey(Id) == false)
-        {
-            CheckPointManager.Instance.checkPoints.Add(Id, m_currentSceneName);
-        }
-
         var hp = Player.Instance.gameObject.GetComponent<PlayerHealth>();
         hp.currentHealth.Value = hp.maxHealth.Value;
 
-        PersistentDataManager.SaveExternal();
+        if (activated == false)
+        {
+            CheckPointManager.Instance.checkPoints.Add(Id);
+            Tween.Color(waypointLight, waypointLight.color, lightColor, .2f, 0.2f, Tween.EaseInOut, Tween.LoopType.None, null, null, true);
+            particles.SetActive(true);
+            dialouge.SetActive(true);
+            activated = true;
+        }
+        else
+        {
+            StartCoroutine(TeleportToPrompt());
+        }
 
-        Debug.Log($"checkpoints Visited : {CheckPointManager.Instance.checkPoints.Count}");
-        Debug.Log("Bringing up Teleport Menu....");
+        PersistentDataManager.SaveExternal();
+    }
+
+    IEnumerator TeleportToPrompt()
+    {
+        bool dialougeComplete;
+        var runner = dialouge.GetComponent<DialogueRunner>();
+        var textboxref = dialouge.GetComponent<TextBoxRef>();
+
+        textboxref.CallTextBox(Node);
+        yield return new WaitUntil(() => { return runner.isDialogueRunning == false; });
     }
 }

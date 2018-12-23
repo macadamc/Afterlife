@@ -6,14 +6,16 @@ using Sirenix.OdinInspector;
 
 public class CheckPointManager : Singleton<CheckPointManager>, IDataPersister
 {
-    [ShowInInspector]
-    public Dictionary<string, string> checkPoints = new Dictionary<string, string>();
+    public HashSet<string> checkPoints;
     public DataSettings dataSettings;
 
     void Awake()
     {
         Initialize(this);
         PersistentDataManager.RegisterPersister(this);
+
+        if (checkPoints == null)
+            checkPoints = new HashSet<string>();
     }
 
     void OnDestroy()
@@ -37,12 +39,12 @@ public class CheckPointManager : Singleton<CheckPointManager>, IDataPersister
 
     public Data SaveData()
     {
-        return new Data<Dictionary<string, string>>(checkPoints);
+        return new Data<HashSet<string>>(checkPoints);
     }
 
     public void LoadData(Data data)
     {
-        var loadedData = data as Data<Dictionary<string, string>>;
+        var loadedData = data as Data<HashSet<string>>;
         checkPoints = loadedData.value;
     }
 }

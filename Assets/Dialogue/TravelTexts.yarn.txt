@@ -1,0 +1,29 @@
+title: TravelTo_DebugRoom1
+tags: 
+colorID: 0
+position: 0,0
+parent: Root
+---
+Global:Travel to The Debug Room?
+-> travel
+    <<set $checkpoint_id to "Floaty Island">>
+    <<set $checkpoint_scene to "TestQuest_DebugRoom1">>
+    <<LoadScene GameManagers TestQuest_DebugRoom1>>
+-> not quite yet..
+    Global:Well alright then..
+===
+title: TravelTo_Shrine
+tags: 
+colorID: 0
+position: 0,0
+parent: Root
+---
+Global:Shall I Leave this Place?
+-> I've grown tired of this world.
+    Global:Indeed.
+    <<set $checkpoint_id to "Shrine">>
+    <<set $checkpoint_scene to "TitleTitle">>
+    <<LoadScene GameManagers TitleTitle>>
+-> not quite yet..
+    Global:Well alright then..
+===

@@ -6,6 +6,8 @@ using Yarn;
 using Yarn.Unity;
 using System.Linq;
 using UnityEngine.Events;
+using TMPro;
+using UnityEngine.UI;
 
 
 public class DialougeUI : DialogueUIBehaviour
@@ -178,7 +180,42 @@ public class DialougeUI : DialogueUIBehaviour
 
     public override IEnumerator RunOptions(Options options, OptionChooser optionsChooser)
     {
-        throw new NotImplementedException();
+        GameObject choiceContainer = m_lastTextBox.textBox.transform.Find("ChoiceContainer").gameObject;
+
+        m_lastTextBox.textBox.gameObject.SetActive(true);
+        choiceContainer.SetActive(true);
+        
+        bool optionSelected = false;
+        int optionindex = -1;
+
+        //destroy old choices.
+        for (int i = 0; i < choiceContainer.transform.childCount; i++)
+        {
+            Destroy(choiceContainer.transform.GetChild(i).gameObject);
+        }
+        //create new choices.
+        foreach (string option in options.options)
+        {
+            GameObject choiceObj = Instantiate(choicePrefab, choiceContainer.transform);
+            choiceObj.GetComponentInChildren<TextMeshProUGUI>().text = option;
+
+            // set what happens when we click a choice.
+            choiceObj.GetComponent<Button>().onClick.AddListener(() => 
+            {
+                optionindex = choiceObj.transform.GetSiblingIndex();
+                optionSelected = true;
+                choiceContainer.SetActive(false);
+
+            });
+        }
+
+        yield return new WaitWhile(() => { return optionSelected == false; });
+
+        //tween textbox closed.
+        m_lastTextBox.textBox.DisableTextbox(m_lastTextBox.textBoxSettings.useTween);
+
+        yield return new WaitWhile(() => { return m_lastTextBox.textBox.gameObject.activeSelf; });
+        optionsChooser(optionindex);
     }
 }
 

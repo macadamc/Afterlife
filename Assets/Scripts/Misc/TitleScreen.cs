@@ -82,6 +82,7 @@ public class TitleScreen : MonoBehaviour
         yield return new WaitForEndOfFrame();
         PersistentDataManager.Instance.DoSheduled();
         SceneManager.LoadScene(GlobalStorage.Instance.storage.GetString("checkpoint_scene"), LoadSceneMode.Single);
+        CheckPointManager.Instance.checkPoints.Add(GlobalStorage.Instance.storage.GetString("checkpoint_id"));
 
     }
     private void QuitGame()

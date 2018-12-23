@@ -156,8 +156,11 @@ public class Teleport : InteractOnTrigger2D
             GlobalStorage.Instance.storage.SetValue(isCheckPoint ? "checkpoint_id" : "doorTag", Id);
 
             if (isCheckPoint)
+            {
                 GlobalStorage.Instance.storage.SetValue("checkpoint_scene", sceneName);
-
+                CheckPointManager.Instance.checkPoints.Add(Id);
+            }
+                
             PersistentDataManager.SaveExternal("SaveData");
 
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
