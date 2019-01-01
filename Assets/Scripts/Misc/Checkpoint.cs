@@ -14,7 +14,9 @@ public class Checkpoint : InteractOnInteractButton2D
     public SpriteRenderer waypointLight;
     public GameObject particles;
     public GameObject dialouge;
+    private DialogueRunner runner;
     public string Node;
+    public Transition transition;
 
     private Color lightColor;
     bool activated = false;
@@ -22,28 +24,37 @@ public class Checkpoint : InteractOnInteractButton2D
     private void Start()
     {
         lightColor = waypointLight.color;
-
         m_currentSceneName = SceneManager.GetActiveScene().name;
+        Init();
+    }
+
+    public void Init()
+    {
         activated = CheckPointManager.Instance.checkPoints.Contains(Id);
+
         dialouge.SetActive(activated);
         particles.SetActive(activated);
 
         if (activated)
         {
             Debug.Log($"Key : {Id} found in checkpoints");
-            
+
         }
         else
         {
             waypointLight.color = Color.clear;
-            
+
         }
     }
-
     protected override void OnInteractButtonPress()
     {
-        base.OnInteractButtonPress();
+        if (runner == null)
+            runner = dialouge.GetComponent<DialogueRunner>();
 
+        if (runner == null || runner.isDialogueRunning)
+            return;
+
+        base.OnInteractButtonPress();
         GlobalStorage.Instance.storage.SetValue("checkpoint_id", Id);
         GlobalStorage.Instance.storage.SetValue("checkpoint_scene", m_currentSceneName);
 
@@ -71,7 +82,6 @@ public class Checkpoint : InteractOnInteractButton2D
         bool dialougeComplete;
         var runner = dialouge.GetComponent<DialogueRunner>();
         var textboxref = dialouge.GetComponent<TextBoxRef>();
-
         textboxref.CallTextBox(Node);
         yield return new WaitUntil(() => { return runner.isDialogueRunning == false; });
     }

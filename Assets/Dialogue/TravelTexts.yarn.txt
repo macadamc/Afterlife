@@ -1,3 +1,11 @@
+title: NewNode4
+tags: 
+colorID: 0
+position: 0,0
+parent: Root
+---
+Write stuff here.
+===
 title: TravelTo_DebugRoom1
 tags: 
 colorID: 0
@@ -9,8 +17,7 @@ Global:Travel to The Debug Room?
     <<set $checkpoint_id to "Floaty Island">>
     <<set $checkpoint_scene to "TestQuest_DebugRoom1">>
     <<LoadScene GameManagers TestQuest_DebugRoom1>>
--> not quite yet..
-    Global:Well alright then..
+-> leave
 ===
 title: TravelTo_Shrine
 tags: 
@@ -22,8 +29,8 @@ Global:Shall I Leave this Place?
 -> I've grown tired of this world.
     Global:Indeed.
     <<set $checkpoint_id to "Shrine">>
-    <<set $checkpoint_scene to "TitleTitle">>
-    <<LoadScene GameManagers TitleTitle>>
+    <<set $checkpoint_scene to "TestQuest_DebugRoom1">>
+    <<LoadScene GameManagers TestQuest_DebugRoom1>>
 -> not quite yet..
     Global:Well alright then..
 ===

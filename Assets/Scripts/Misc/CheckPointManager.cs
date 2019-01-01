@@ -46,5 +46,10 @@ public class CheckPointManager : Singleton<CheckPointManager>, IDataPersister
     {
         var loadedData = data as Data<HashSet<string>>;
         checkPoints = loadedData.value;
+
+        foreach(Checkpoint c in GameObject.FindObjectsOfType<Checkpoint>())
+        {
+            c.Init();
+        }
     }
 }

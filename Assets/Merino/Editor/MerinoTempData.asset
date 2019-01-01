@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13981b66f67204744891820795ef4230, type: 3}
   m_Name: MerinoTempData
   m_EditorClassIdentifier: 
-  editedID: 2
-  timestamp: 16892.361591149704
+  editedID: 1
+  timestamp: 20792.101949111366
   m_TreeElements:
   - m_ID: 0
     m_Name: Root
@@ -22,22 +22,28 @@ MonoBehaviour:
     nodeBody: 
     enabled: 1
   - m_ID: 1
+    m_Name: NewNode4
+    m_Depth: 0
+    nodePosition: {x: 0, y: 0}
+    nodeTags: 
+    nodeBody: Write stuff here.
+    enabled: 1
+  - m_ID: 2
     m_Name: TravelTo_DebugRoom1
     m_Depth: 0
     nodePosition: {x: 0, y: 0}
     nodeTags: 
     nodeBody: "Global:Travel to The Debug Room?\n-> travel\n    <<set $checkpoint_id
       to \"Floaty Island\">>\n    <<set $checkpoint_scene to \"TestQuest_DebugRoom1\">>\n
-      \   <<LoadScene GameManagers TestQuest_DebugRoom1>>\n-> not quite yet..\n    Global:Well
-      alright then.."
+      \   <<LoadScene GameManagers TestQuest_DebugRoom1>>\n-> leave"
     enabled: 1
-  - m_ID: 2
+  - m_ID: 3
     m_Name: TravelTo_Shrine
     m_Depth: 0
     nodePosition: {x: 0, y: 0}
     nodeTags: 
     nodeBody: "Global:Shall I Leave this Place?\n-> I've grown tired of this world.\n
       \   Global:Indeed.\n    <<set $checkpoint_id to \"Shrine\">>\n    <<set $checkpoint_scene
-      to \"TitleTitle\">>\n    <<LoadScene GameManagers TitleTitle>>\n-> not quite
-      yet..\n    Global:Well alright then.."
+      to \"TestQuest_DebugRoom1\">>\n    <<LoadScene GameManagers TestQuest_DebugRoom1>>\n->
+      not quite yet..\n    Global:Well alright then.."
     enabled: 1
