@@ -224,20 +224,4 @@ public class MovementController : MonoBehaviour
             _nextMoveTime = Time.time + time;
         }
     }
-
-    /*
-    public virtual void Step()
-    {
-        events.onStep.Invoke();
-        _nextStepTime = Time.time + Random.Range(stepLength.x, stepLength.y);
-
-        if(_tile!=null)
-        {
-            if (AudioManager.Instance.tilemapSFX.soundEffects.ContainsKey(_tile) && stepSoundSource != null)
-            {
-                AudioManager.Instance.tilemapSFX.soundEffects[_tile].Play(stepSoundSource);
-            }
-        }
-    }
-    */
 }

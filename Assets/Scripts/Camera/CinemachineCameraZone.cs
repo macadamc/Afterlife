@@ -24,6 +24,8 @@ public class CinemachineCameraZone : InteractOnTrigger2D
 
         //turns ON virtual camera
         vCam.gameObject.SetActive(true);
+
+        StartCoroutine(PauseManager.Instance.LerpTimeScaleOverTime(0.1f, 1.0f, 0.5f));
     }
 
     protected override void ExecuteOnExit(Collider2D other)
