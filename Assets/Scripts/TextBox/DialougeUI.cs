@@ -8,7 +8,7 @@ using System.Linq;
 using UnityEngine.Events;
 using TMPro;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 
 public class DialougeUI : DialogueUIBehaviour
 {
@@ -205,15 +205,29 @@ public class DialougeUI : DialogueUIBehaviour
                 optionindex = choiceObj.transform.GetSiblingIndex();
                 optionSelected = true;
                 choiceContainer.SetActive(false);
-
             });
         }
 
-        yield return new WaitWhile(() => { return optionSelected == false; });
+        //get the the first UI Element "choice" so we can focus on it.
+        yield return new WaitForEndOfFrame();
+        GameObject lastSelected = choiceContainer.transform.GetChild(0).gameObject;
 
-        //tween textbox closed.
+        //wait until the user has picked an option.
+        yield return new WaitWhile(() => 
+        {
+            // if we dont have focus while waiting for the user to pick an option, we need to reset the focus to the last selected option.
+            if(EventSystem.current.currentSelectedGameObject == null)
+                EventSystem.current.SetSelectedGameObject(lastSelected);
+
+            lastSelected = EventSystem.current.currentSelectedGameObject;
+
+            return optionSelected == false;
+        });
+
+        //start closing tween
         m_lastTextBox.textBox.DisableTextbox(m_lastTextBox.textBoxSettings.useTween);
 
+        // wait until the tween has finished and disabled the text box. then continue to the next node.
         yield return new WaitWhile(() => { return m_lastTextBox.textBox.gameObject.activeSelf; });
         optionsChooser(optionindex);
     }

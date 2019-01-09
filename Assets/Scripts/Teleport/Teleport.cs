@@ -146,7 +146,6 @@ public class Teleport : InteractOnTrigger2D
         _teleportObj = other.gameObject;
     }
 
-
     public void OnFadeOut()
     {
         TransitionManager.Instance.onTransitionEnd -= OnFadeOut;
@@ -161,7 +160,7 @@ public class Teleport : InteractOnTrigger2D
                 CheckPointManager.Instance.checkPoints.Add(Id);
             }
                 
-            PersistentDataManager.SaveExternal("SaveData");
+            PersistentDataManager.SaveExternal();
 
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
