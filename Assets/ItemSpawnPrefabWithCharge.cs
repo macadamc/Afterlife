@@ -1,28 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector;
 
-
-[CreateAssetMenu(menuName = "Items/New Item")]
-public class ItemSpawnPrefabObject : Item
+[CreateAssetMenu(menuName = "Items/New Chargable Item")]
+public class ItemSpawnPrefabWithCharge : Item
 {
     public GameObject itemToHold;
     public GameObject itemToSpawnOnUse;
-    [Range(0.0f,1.0f)]
+    public GameObject itemToSpawnOnUseCharged;
+
+    [Range(0.0f, 1.0f)]
     public float moveSpeedPercent;
     public float itemCooldownTime;
     public float itemMoveStunTime;
-    [Range(0,360)]
+    [Range(0, 360)]
     public int angleSnap = 45;
 
     private GameObject heldItem;
+
+    public float chargeTime;
+    private float minChargeTime;
+
 
     public override void Begin(ItemController user)
     {
         if (itemToHold != null)
         {
-            if(user.MovementController!=null)
+            if (user.MovementController != null)
             {
                 user.MovementController.oldMoveSpeed.Value = user.MovementController.moveSpeed.Value;
                 user.MovementController.moveSpeed.Value = user.MovementController.moveSpeed.Value * moveSpeedPercent;
@@ -30,8 +34,14 @@ public class ItemSpawnPrefabObject : Item
 
             heldItem = Instantiate(itemToHold, user.SpawnTransform);
 
+            var HeldItemListeners = heldItem.GetComponent<HeldItem>();
+            if(HeldItemListeners != null)
+            {
+                HeldItemListeners.Init(user);
+                HeldItemListeners.Begin(user);
+            }
+
             heldItem.transform.localScale = user.transform.localScale;
-            //CheckForDamageComponent(heldItem, user);
             heldItem.transform.position = (Vector2)user.SpawnTransform.position;
 
             if (angleSnap == 0)
@@ -39,6 +49,7 @@ public class ItemSpawnPrefabObject : Item
             else
                 RotateObject(heldItem.transform, user.InputController.lookDirection, angleSnap);
 
+            minChargeTime = Time.time + chargeTime;
         }
 
     }
@@ -53,26 +64,25 @@ public class ItemSpawnPrefabObject : Item
                 RotateObject(heldItem.transform, user.InputController.lookDirection);
             else
                 RotateObject(heldItem.transform, user.InputController.lookDirection, angleSnap);
-
         }
     }
 
     public override void End(ItemController user)
     {
-        if (heldItem != null)
-        {
-            Destroy(heldItem.gameObject);
-            heldItem = null;
-        }
-
         if (user.MovementController != null)
         {
             user.MovementController.moveSpeed.Value = user.MovementController.oldMoveSpeed.Value;
         }
 
-        GameObject spawnObject = Instantiate(itemToSpawnOnUse, user.SpawnTransform);
+        GameObject prefabToSpawn = null;
+
+        if (Time.time >= minChargeTime)
+            prefabToSpawn = itemToSpawnOnUseCharged;
+        else
+            prefabToSpawn = itemToSpawnOnUse;
+
+        GameObject spawnObject = Instantiate(prefabToSpawn, user.SpawnTransform);
         spawnObject.transform.localScale = user.transform.localScale;
-        //CheckForDamageComponent(spawnObject, user);
 
         if (angleSnap == 0)
             RotateObject(spawnObject.transform, user.InputController.lookDirection);
@@ -81,19 +91,24 @@ public class ItemSpawnPrefabObject : Item
 
         spawnObject.transform.position = (Vector2)user.SpawnTransform.position + (Vector2)spawnObject.transform.right;
 
-
-        /*
-        //  if object has a component that deals damage, make sure to set it so that it cant hurt itself.
-        DealDamage dd = spawnObject.GetComponentInChildren<DealDamage>();
-        if (dd != null)
-            dd.ignoreObject = user.gameObject;
-            */
-
         //  apply item delay so you cant spam items
         user.ApplyItemDelay(itemCooldownTime);
 
         // apply movement stun
         user.ApplyMoveStun(itemMoveStunTime);
+
+        if (heldItem != null)
+        {
+            var HeldItemListeners = heldItem.GetComponent<HeldItem>();
+            if (HeldItemListeners != null)
+            {
+                HeldItemListeners.Clean(user);
+            }
+
+            Destroy(heldItem.gameObject);
+            heldItem = null;
+        }
+
     }
 
     protected virtual void RotateObject(Transform transformToRotate, Vector2 _direction)
@@ -118,16 +133,4 @@ public class ItemSpawnPrefabObject : Item
         vec.z = Mathf.Round(vec.z / _angleSnap) * _angleSnap;
         transformToRotate.eulerAngles = vec;
     }
-
-    /*
-    private void CheckForDamageComponent(GameObject objToCheck, ItemController user)
-    {
-        ChangeHealthOnTriggerEnter changeHealth = objToCheck.GetComponentInChildren<ChangeHealthOnTriggerEnter>();
-        if (changeHealth != null)
-        {
-            changeHealth.ignoreObject = user.gameObject;
-        }
-    }
-    */
-
 }

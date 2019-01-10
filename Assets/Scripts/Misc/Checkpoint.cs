@@ -51,7 +51,7 @@ public class Checkpoint : InteractOnInteractButton2D
         if (runner == null)
             runner = dialouge.GetComponent<DialogueRunner>();
 
-        if (runner == null || runner.isDialogueRunning)
+        if (runner == null || runner.isDialogueRunning || PauseManager.Instance.Paused )
             return;
 
         base.OnInteractButtonPress();

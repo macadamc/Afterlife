@@ -146,7 +146,7 @@ public class TextBoxRef : MonoBehaviour {
     }
 
     [YarnCommand("SetTextBoxSettings")]
-    public void SetTextBoxSettings(string name)
+    public void SetTextBoxSettings(string name="default")
     {
         if(name.ToLower() == "default")
         {
