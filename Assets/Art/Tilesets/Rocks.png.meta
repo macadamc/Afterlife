@@ -1,12 +1,10 @@
 fileFormatVersion: 2
-guid: 6d217a3b1fd567e47a350c6377fc515f
+guid: 05cd860e3e5da6f4fa24c384cb340db7
 TextureImporter:
   fileIDToRecycleName:
-    21300000: StonePillars_0
-    21300002: StonePillars_1
-    21300004: StonePillars_2
-    21300006: StonePillars_3
-    21300008: StonePillars_4
+    21300000: Rocks_0
+    21300002: Rocks_1
+    21300004: Rocks_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -65,7 +63,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -76,7 +74,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -89,73 +87,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StonePillars_0
+      name: Rocks_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 160
-        width: 16
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d8c2f57c34986644ade316035f372f1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StonePillars_1
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 175
-        width: 16
-        height: 24
-      alignment: 9
-      pivot: {x: 0.5, y: 0.33333334}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb0d67228c402a445a3b309e4764f282
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StonePillars_2
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 96
-        height: 75
-      alignment: 9
-      pivot: {x: 0.5, y: 0.10666667}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3da465d5dc6d5814e89ae9162401cf9c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StonePillars_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 80
-        width: 64
-        height: 64
+        x: 4
+        y: 18
+        width: 26
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,27 +101,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e49299a4b20ffe469b7c96181b6d004
+      spriteID: d5ee37742e7ce9c4abe77d3dc639a040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: StonePillars_4
+      name: Rocks_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 208
-        width: 16
-        height: 42
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1904762}
+        x: 38
+        y: 87
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76337922cc9eeb4418fd8d0e81b2d697
+      spriteID: 355b514e0deeae742abfa27ec8b2b29b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocks_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 18
+        width: 37
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af63f65a8697ba4c8dd29bceabb4a3f
       vertices: []
       indices: 
       edges: []
@@ -191,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4026289962be582439382df15b5b8750
+    spriteID: baba772d99a68744c8596c2033c76241
     vertices: []
     indices: 
     edges: []

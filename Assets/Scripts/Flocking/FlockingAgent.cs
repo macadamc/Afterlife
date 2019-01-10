@@ -6,10 +6,10 @@ public class FlockingAgent : MovementController
 {
     public Vector2 velocity;
     public Vector2 acceleration;
-
     public FlockingAgentConfig config;
-
     private Vector2 wanderTarget;
+
+    GameObject player;
 
     private float RandomBinomial
     {
@@ -85,7 +85,8 @@ public class FlockingAgent : MovementController
                 config.wanderPriority * Wander() + 
                 config.allignmentPriority * Allignment() + 
                 config.seperationPriority * Seperation() + 
-                config.avoidancePriority * Avoidance();
+                config.obstacleAvoidancePriority * Avoidance() +
+                config.playerMagnitismPriority * Magnitism();
     }
 
     protected Vector2 Wander()
@@ -168,7 +169,7 @@ public class FlockingAgent : MovementController
     protected Vector2 Avoidance()
     {
         Vector2 avoidVector = new Vector2();
-        var enemyList = FlockingAgentManager.Instance.GetEnemies(this, config.avoidanceRadius);
+        var enemyList = FlockingAgentManager.Instance.GetEnemies(this, config.obstacleAvoidanceRadius);
         if (enemyList.Count == 0)
             return avoidVector;
 
@@ -177,6 +178,21 @@ public class FlockingAgent : MovementController
             avoidVector += RunAway(enemy.transform.position);
         }
         return avoidVector.normalized;
+    }
+
+    protected Vector2 Magnitism()
+    {
+        if (player == null)
+            player = Player.Instance.gameObject;
+
+        Vector2 magnitismVector = new Vector2();
+        float distance = Vector2.Distance(player.transform.position, transform.position);
+        if (distance > config.playerMagnitismRadius)
+            return magnitismVector;
+
+        magnitismVector = (player.transform.position - transform.position);
+
+        return magnitismVector.normalized;
     }
 
     Vector2 RunAway(Vector2 target)

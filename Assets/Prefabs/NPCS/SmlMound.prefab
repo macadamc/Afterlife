@@ -91,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467201421957952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.24, y: 0.42, z: 0}
+  m_LocalPosition: {x: 23.2, y: 67.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4827513747342640}
@@ -234,7 +234,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -258,8 +258,6 @@ MonoBehaviour:
     type: 0
     ConstantValue: -1
     Variable: {fileID: 0}
-  onlyHitTargets: 0
-  targets: {fileID: 0}
 --- !u!114 &114768212012649812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,7 +273,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -310,11 +308,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     type: 0
-    ConstantValue: 2
+    ConstantValue: 4
     Variable: {fileID: 0}
   maxHealth:
     type: 0
-    ConstantValue: 2
+    ConstantValue: 4
     Variable: {fileID: 0}
   damageFlashAmount: 3
   deactivateRootObjectOnDeath: 1
@@ -360,12 +358,12 @@ MonoBehaviour:
     type: 0
     ConstantValue: 0
     Variable: {fileID: 0}
-  smoothing: 1
-  knockbackDecel: 5
+  smoothing: 0.1
+  knockbackDecel: 2.5
   knockbackDeadzone: 0.1
   velocity: {x: 0, y: 0}
   acceleration: {x: 0, y: 0}
-  config: {fileID: 11400000, guid: ff1ac45f83eb4124d9b2282c6574e343, type: 2}
+  config: {fileID: 11400000, guid: 6e3018f9f0e2a3f4c910b80c7fcea7be, type: 2}
 --- !u!114 &114890564644930292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,7 +391,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -7
+  m_SortingOrder: -1086
 --- !u!212 &212299080308554310
 SpriteRenderer:
   m_ObjectHideFlags: 1

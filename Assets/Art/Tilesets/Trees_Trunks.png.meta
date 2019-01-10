@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: 6d217a3b1fd567e47a350c6377fc515f
+guid: a9d09c54ba2b79f43b94724c91818687
 TextureImporter:
   fileIDToRecycleName:
-    21300000: StonePillars_0
-    21300002: StonePillars_1
-    21300004: StonePillars_2
-    21300006: StonePillars_3
-    21300008: StonePillars_4
+    21300000: Trees_Trunks_0
+    21300002: Trees_Trunks_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -65,7 +62,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -76,7 +73,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -89,101 +86,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StonePillars_0
+      name: Trees_Trunks_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 160
-        width: 16
-        height: 64
+        x: 112
+        y: 57
+        width: 177
+        height: 153
       alignment: 9
-      pivot: {x: 0.5, y: 0.125}
+      pivot: {x: 0.5084746, y: 0.4117647}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d8c2f57c34986644ade316035f372f1
+      spriteID: 1012bdce868e1cd4ba8c979fb02cb2a1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: StonePillars_1
+      name: Trees_Trunks_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 175
-        width: 16
-        height: 24
+        x: 466
+        y: 428
+        width: 25
+        height: 36
       alignment: 9
-      pivot: {x: 0.5, y: 0.33333334}
+      pivot: {x: 0.48, y: 0.19444445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb0d67228c402a445a3b309e4764f282
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StonePillars_2
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 96
-        height: 75
-      alignment: 9
-      pivot: {x: 0.5, y: 0.10666667}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3da465d5dc6d5814e89ae9162401cf9c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StonePillars_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 80
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e49299a4b20ffe469b7c96181b6d004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StonePillars_4
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 208
-        width: 16
-        height: 42
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1904762}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76337922cc9eeb4418fd8d0e81b2d697
+      spriteID: f1f8443787590044aa7698b3cad99bce
       vertices: []
       indices: 
       edges: []
@@ -191,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4026289962be582439382df15b5b8750
+    spriteID: 9bac849fb1812344595d5dbf668cfd82
     vertices: []
     indices: 
     edges: []

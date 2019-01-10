@@ -28,6 +28,10 @@ public class FlockingAgentConfig : ScriptableObject
     public float seperationPriority;
 
     // avoidance
-    public float avoidanceRadius;
-    public float avoidancePriority;
+    public float obstacleAvoidanceRadius;
+    public float obstacleAvoidancePriority;
+
+    // player magnitism
+    public float playerMagnitismRadius;
+    public float playerMagnitismPriority;
 }

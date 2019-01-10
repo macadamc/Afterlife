@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 114554138730495730}
   - component: {fileID: 114396205339560526}
   - component: {fileID: 114652236655222564}
-  - component: {fileID: 114798426115397882}
   - component: {fileID: 114177917253303066}
   - component: {fileID: 82282017479812126}
   - component: {fileID: 114602327389431910}
@@ -115,6 +114,8 @@ GameObject:
   - component: {fileID: 4927844595434972}
   - component: {fileID: 212310086600022752}
   - component: {fileID: 95049120905702678}
+  - component: {fileID: 210985957096046972}
+  - component: {fileID: 114332637109267698}
   m_Layer: 11
   m_Name: Sprite
   m_TagString: Enemy
@@ -182,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874669080378772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5343058, y: -3.7194858, z: 0}
+  m_LocalPosition: {x: 3.7247758, y: 49.121582, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4159638870953952}
@@ -424,7 +425,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: LQAPAAAAaW52ZW50b3J5Q2hlY2tz
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -446,6 +447,18 @@ MonoBehaviour:
   interactableTags: []
   knockbackForce: 5
   useRotation: 0
+--- !u!114 &114332637109267698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893931799749570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a87427ccd751847a6358f922d4d037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppu: 16
 --- !u!114 &114359005828226296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -528,7 +541,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -664,6 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: {fileID: 1281125443572454}
+  autoUpdate: 1
   loopStates: 1
   logToConsole: 0
   allowStateReentry: 0
@@ -686,18 +700,6 @@ MonoBehaviour:
       m_TypeName: ShadyPixel.Events.GameObjectEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   states: []
---- !u!114 &114798426115397882
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874669080378772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a87427ccd751847a6358f922d4d037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ppu: 16
 --- !u!114 &114890670252561880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -755,6 +757,16 @@ MonoBehaviour:
   dataSettings:
     dataTag: a54599e0-85cf-4b51-812c-a2092b519083
     persistenceType: 3
+--- !u!210 &210985957096046972
+SortingGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893931799749570}
+  m_Enabled: 1
+  m_SortingLayerID: -1223979617
+  m_SortingLayer: 1
+  m_SortingOrder: -786
 --- !u!212 &212191112061396026
 SpriteRenderer:
   m_ObjectHideFlags: 1

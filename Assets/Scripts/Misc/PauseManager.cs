@@ -34,6 +34,24 @@ public class PauseManager : Singleton<PauseManager>
         Time.timeScale = newTimeScale;
     }
 
+    public IEnumerator LerpTimeScaleOverTime(float startScale, float endScale, float time)
+    {
+        float elapsedTime = 0f;
+        float currentScale = startScale;
+
+        ChangeTimeScale(startScale);
+
+        while (elapsedTime < time)
+        {
+            currentScale = Mathf.Lerp(startScale, endScale, (elapsedTime / time));
+            elapsedTime += Time.unscaledDeltaTime;
+            ChangeTimeScale(currentScale);
+            yield return null;
+        }
+
+        ChangeTimeScale(endScale);
+    }
+
     private void OnEnable()
     {
         Initialize(this);
