@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4899957056159068}
   - component: {fileID: 58585975379836226}
+  - component: {fileID: 114005482175170264}
   m_Layer: 11
   m_Name: Bush
   m_TagString: Untagged
@@ -94,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1827379523206802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28, y: 24.5, z: 0}
+  m_LocalPosition: {x: 28, y: 23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4288082101993308}
@@ -117,6 +118,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114005482175170264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827379523206802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989db5ac4e126a344aa62febf2454d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth:
+    type: 0
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  maxHealth:
+    type: 0
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  damageFlashAmount: 1
+  deactivateRootObjectOnDeath: 1
+  events:
+    onHurt:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onDeath:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  dataSettings:
+    dataTag: 495a9a1b-860c-4463-86a9-849b9a95456a
+    persistenceType: 0
 --- !u!114 &114359662347182430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,7 +174,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -395
+  m_SortingOrder: -371
 --- !u!212 &212250474130166856
 SpriteRenderer:
   m_ObjectHideFlags: 1

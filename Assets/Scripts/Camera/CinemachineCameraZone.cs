@@ -5,6 +5,8 @@ using Cinemachine;
 
 public class CinemachineCameraZone : InteractOnTrigger2D
 {
+    public bool slowdownEffectOnPlayerEnter = true;
+
     // this object gets enabled / disabled as the player enters and exits the trigger.
     CinemachineVirtualCamera vCam;
     private void Start()
@@ -25,7 +27,8 @@ public class CinemachineCameraZone : InteractOnTrigger2D
         //turns ON virtual camera
         vCam.gameObject.SetActive(true);
 
-        StartCoroutine(PauseManager.Instance.LerpTimeScaleOverTime(0.1f, 1.0f, 0.5f));
+        if(slowdownEffectOnPlayerEnter)
+            StartCoroutine(PauseManager.Instance.LerpTimeScaleOverTime(0.0f, 1.0f, 1.0f));
     }
 
     protected override void ExecuteOnExit(Collider2D other)

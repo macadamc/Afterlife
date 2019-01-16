@@ -1,0 +1,12 @@
+title: Start
+tags: 
+colorID: 0
+position: 0,0
+parent: Root
+---
+Global:Lost soul..
+Global:You have come to a forsaken land.
+Global:This is one of the last fragments left uncorrupted by this plague.
+Global:Though I guess that is but just a matter of time now.
+Global:This is all a hopeless endeavor.
+===
