@@ -8,6 +8,8 @@ public class PlayerInputController : MonoBehaviour
     public string verticalAxisName = "Vertical";
     public string inputButtonName = "Attack";
     public string menuButtonName = "Menu";
+    public string interactButtonName = "Interact";
+    public string dodgeButtonName = "Dodge";
 
     public InputController inputController;
 
@@ -56,5 +58,7 @@ public class PlayerInputController : MonoBehaviour
 
         // check for input button presses.
         inputController.input.Evaluate(inputButtonName);
+        inputController.interact.Evaluate(interactButtonName);
+        inputController.dodge.Evaluate(dodgeButtonName);
     }
 }

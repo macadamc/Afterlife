@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114108539164464460}
   - component: {fileID: 114555793450348100}
   - component: {fileID: 58504722092143704}
+  - component: {fileID: 61908810475834558}
   m_Layer: 0
   m_Name: Test_Use
   m_TagString: Untagged
@@ -42,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1466178211366072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.30333638, y: -2.0908253, z: -0.15000598}
+  m_LocalPosition: {x: 56.873055, y: -86.387886, z: -0.15000598}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,9 +61,34 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25, y: 0}
+  m_Offset: {x: -0.64, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.4
+--- !u!61 &61908810475834558
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466178211366072}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.43}
+  m_EdgeRadius: 0
 --- !u!82 &82542265776480826
 AudioSource:
   m_ObjectHideFlags: 1
@@ -191,7 +217,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -215,8 +241,6 @@ MonoBehaviour:
     type: 0
     ConstantValue: -1
     Variable: {fileID: 0}
-  onlyHitTargets: 0
-  targets: {fileID: 0}
 --- !u!114 &114247679881712370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,7 +313,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d00fb0d12c76874dbcf9aa60cff34d9, type: 3}
+  m_Name: Boomerang
+  m_EditorClassIdentifier: 
+  description: drom down unda.
+  onBackSprite: {fileID: 0}
+  aboveHeadSprite: {fileID: 0}
+  pickupSfx: {fileID: 11400000, guid: 52165f94741d0ee4a94a8a62e48dfecc, type: 2}
+  strafeLockedWhileHeld: 1
+  itemToHold: {fileID: 1289854128865008, guid: ae074326870dd794cb59ad76922d8b86, type: 2}
+  itemToSpawnOnUse: {fileID: 1066514471141394, guid: e77b6b3de1f8be44693fb6be721bc9d6,
+    type: 2}
+  otherItemToSpawn: {fileID: 0}
+  moveSpeedPercent: 0.842
+  itemCooldownTime: -1
+  itemMoveStunTime: 0.3
+  angleSnap: 30
+  useOtherPrefab: 0
+  chargeTime: 1

@@ -507,6 +507,7 @@ MonoBehaviour:
   dataSettings:
     dataTag: 215e9d32-1257-48ee-bfc9-740695eee031
     persistenceType: 3
+  invincible: 0
 --- !u!114 &114103447911072342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -535,7 +536,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -577,6 +578,14 @@ MonoBehaviour:
     pressed: 0
     held: 0
     released: 0
+  interact:
+    pressed: 0
+    held: 0
+    released: 0
+  dodge:
+    pressed: 0
+    held: 0
+    released: 0
 --- !u!114 &114406305362572576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -592,7 +601,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -742,6 +751,10 @@ MonoBehaviour:
   smoothing: 1
   knockbackDecel: 5
   knockbackDeadzone: 0.1
+  dodgeDecel: 5
+  dodgeDeadzone: 0.1
+  _knockbackVector: {x: 0, y: 0}
+  _dodgeVector: {x: 0, y: 0}
   jumpStrength: 2.5
 --- !u!114 &114724102246657904
 MonoBehaviour:
@@ -799,7 +812,8 @@ MonoBehaviour:
   angleSnap: 0
   useInputControllerForDirection: 0
   ic: {fileID: 114362882646091682}
-  visionTags: []
+  visionTags:
+  - Player
   targets: {fileID: 114483175484338766}
   onTargetSeen:
     m_PersistentCalls:
@@ -856,6 +870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: {fileID: 1673813438545370}
+  autoUpdate: 1
   loopStates: 1
   logToConsole: 0
   allowStateReentry: 0

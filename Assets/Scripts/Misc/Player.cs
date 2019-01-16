@@ -3,15 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using ShadyPixel.Singleton;
 using UnityEngine.SceneManagement;
+using Sirenix.OdinInspector;
 
-public class Player : Singleton<Player> {
+public class Player : Singleton<Player>
+{
 
-    //public PersistentVariableStorage pvs;
     Health health;
+    MovementController mc;
+    InputController ic;
+    ItemController itemController;
+    Coroutine roll;
+
+    public float dodgeForce = 20f;
+    [PropertyRange(0f, 1f)]
+    public float controlRegainThreshold = .5f;
+    public float cooldownTime = 1f;
+    private float nextRollTime;
+
     private void Awake()
     {
         health = GetComponent<Health>();
-        //pvs = GetComponent<PersistentVariableStorage>();
+        mc = GetComponent<MovementController>();
+        ic = GetComponent<InputController>();
+        itemController = GetComponent<ItemController>();
+
         Initialize(this);
     }
     private void OnEnable()
@@ -19,11 +34,55 @@ public class Player : Singleton<Player> {
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         health.onHealthChanged += PlayerHealthChanged;
     }
-
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
         health.onHealthChanged -= PlayerHealthChanged;
+    }
+
+    private void Update()
+    {
+        if(ic.dodge.pressed && roll == null)
+        {
+            roll = StartCoroutine(DodgeRoll());
+            mc.events.onDodge.Invoke();
+        }
+    }
+
+    private IEnumerator DodgeRoll()
+    {
+        float startTime = Time.time;
+        nextRollTime = startTime + cooldownTime;
+        float force = dodgeForce;
+        health.invincible = true;
+        Vector2 stick = ic.joystick;
+        if(stick.magnitude != 0)
+        {
+            stick = stick.normalized;
+        }
+        else
+        {
+            stick = -ic.lookDirection.normalized;
+            force *= .6f;
+        }
+
+        mc.Stun(float.MaxValue);
+        mc._dodgeVector = stick * force;
+        ic.strafe = true;
+        yield return new WaitUntil(() => { return mc._dodgeVector.magnitude <= force * controlRegainThreshold; } );
+        mc._dodgeVector = Vector2.zero;
+        health.invincible = false;
+        yield return new WaitForSeconds(.15f);
+        mc.StunCancel();
+
+        if (itemController._usingItem)
+            ic.strafe = itemController.currentItem.strafeLockedWhileHeld;
+        else
+            ic.strafe = false;
+
+        yield return new WaitUntil(() => { return Time.time >= nextRollTime; });
+        roll = null;
+        
     }
 
     void PlayerHealthChanged(int change)
@@ -97,23 +156,5 @@ public class Player : Singleton<Player> {
             }
 
         }
-    }
-
-    public void PlayerColor(Color c)
-    {
-        this.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = c;
-    }
-
-    public void SetString(string key, string val)
-    {
-        GlobalStorage.Instance.storage.SetValue(key, val);
-    }
-    public void SetNumber(string key, float val)
-    {
-        GlobalStorage.Instance.storage.SetValue(key, val);
-    }
-    public void SetBool(string key, bool val)
-    {
-        GlobalStorage.Instance.storage.SetValue(key, val);
     }
 }

@@ -29,6 +29,8 @@ public class InputController : MonoBehaviour
     public Vector2 lookDirection = Vector2.zero;
     public bool strafe;
     public Button input;
+    public Button interact;
+    public Button dodge;
 
     public void SetLookDirection()
     {

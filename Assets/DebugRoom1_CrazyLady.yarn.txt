@@ -1,0 +1,30 @@
+title: WhyDidYouComeHere
+tags: 
+colorID: 0
+position: 0,0
+parent: Root
+---
+CrazyLady;Are you still There?
+CrazyLady:Why did you come here?
+CrazyLady:You know your going to fail.. So why even try?
+CrazyLady:Benji Failed... We all Failed. Some More than others...
+CrazyLady:Oh how I wish my Benji Was here.. Poor Benji, he was a good Lad, did right by me he did.
+CrazyLady:If you see my Benji Would you tell him I love Him? And that I'm Sorry?
+===
+title: Hello
+tags: 
+colorID: 0
+position: 0,0
+parent: Root
+---
+<<if not visited("Hello")>>
+  CrazyLady:Hello?
+  CrazyLady:Im sorry I can't let you in. You you how it is.. can't be sure,  not wwith the state of things.
+  CrazyLady:Do you know My Benji? Have You Seen Him?
+  CrazyLady:Oh how I wish my Benji Was here.. Poor Benji, he was a good Lad, did right by me he did
+<<elseif not visited("WhyDidYouComeHere")>>
+  [[WhyDidYouComeHere]]
+<<else>>
+  CrazyLady:...
+<<endif>>
+===

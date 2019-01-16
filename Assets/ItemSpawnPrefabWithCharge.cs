@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 [CreateAssetMenu(menuName = "Items/New Chargable Item")]
 public class ItemSpawnPrefabWithCharge : Item
 {
     public GameObject itemToHold;
     public GameObject itemToSpawnOnUse;
-    public GameObject itemToSpawnOnUseCharged;
+    [ShowIf("useOtherPrefab")]
+    public GameObject otherItemToSpawn;
 
     [Range(0.0f, 1.0f)]
     public float moveSpeedPercent;
@@ -18,8 +20,8 @@ public class ItemSpawnPrefabWithCharge : Item
 
     private GameObject heldItem;
 
+    public bool useOtherPrefab;
     public float chargeTime;
-    private float minChargeTime;
 
 
     public override void Begin(ItemController user)
@@ -35,7 +37,7 @@ public class ItemSpawnPrefabWithCharge : Item
             heldItem = Instantiate(itemToHold, user.SpawnTransform);
 
             var HeldItemListeners = heldItem.GetComponent<HeldItem>();
-            if(HeldItemListeners != null)
+            if (HeldItemListeners != null)
             {
                 HeldItemListeners.Init(user);
                 HeldItemListeners.Begin(user);
@@ -48,8 +50,6 @@ public class ItemSpawnPrefabWithCharge : Item
                 RotateObject(heldItem.transform, user.InputController.lookDirection);
             else
                 RotateObject(heldItem.transform, user.InputController.lookDirection, angleSnap);
-
-            minChargeTime = Time.time + chargeTime;
         }
 
     }
@@ -76,12 +76,19 @@ public class ItemSpawnPrefabWithCharge : Item
 
         GameObject prefabToSpawn = null;
 
-        if (Time.time >= minChargeTime)
-            prefabToSpawn = itemToSpawnOnUseCharged;
+        if (Time.time >= user.StartTime + chargeTime && useOtherPrefab)
+            prefabToSpawn = otherItemToSpawn;
         else
             prefabToSpawn = itemToSpawnOnUse;
 
         GameObject spawnObject = Instantiate(prefabToSpawn, user.SpawnTransform);
+
+        var AttackItemListeners = spawnObject.GetComponent<HeldItem>();
+        if (AttackItemListeners != null)
+        {
+            AttackItemListeners.Begin(user);
+        }
+
         spawnObject.transform.localScale = user.transform.localScale;
 
         if (angleSnap == 0)
@@ -133,4 +140,5 @@ public class ItemSpawnPrefabWithCharge : Item
         vec.z = Mathf.Round(vec.z / _angleSnap) * _angleSnap;
         transformToRotate.eulerAngles = vec;
     }
+
 }

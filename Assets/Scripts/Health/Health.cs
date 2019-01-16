@@ -29,12 +29,12 @@ public class Health : MonoBehaviour, IDataPersister
 
     //int _currentHealth;
     bool _initialized;
-    bool _flashing;
+    public bool invincible;
     SpriteRenderer[] _sprites;
 
     public virtual void ChangeHealth(int change)
     {
-        if (_flashing)
+        if (invincible)
             return;
 
         currentHealth.Value += change;
@@ -53,7 +53,7 @@ public class Health : MonoBehaviour, IDataPersister
 
     protected IEnumerator DamageFlash(int flashes)
     {
-        _flashing = true;
+        invincible = true;
         for (int i = 0; i < flashes; i++)
         {
             foreach(SpriteRenderer r in _sprites)
@@ -67,7 +67,7 @@ public class Health : MonoBehaviour, IDataPersister
             }
             yield return new WaitForSeconds(0.1f);
         }
-        _flashing = false;
+        invincible = false;
         yield return null;
         CheckHealth();
     }

@@ -218,7 +218,7 @@ public class ItemControllerEvent : UnityEvent<ItemController> { }
 
 public class ItemController : MonoBehaviour, IDataPersister
 {
-    public UnityEvent onAttack;
+    public UnityEvent onAttack; 
 
     public ItemControllerEvent OnStart;
     public ItemControllerEvent OnEnd;
@@ -230,7 +230,6 @@ public class ItemController : MonoBehaviour, IDataPersister
     public Transform itemSpawnTransform;
 
     public bool logToConsole;
-    public bool lockDirectionWhenUsingItem;
     [HideInInspector]
     public float lastX;
 
@@ -271,10 +270,36 @@ public class ItemController : MonoBehaviour, IDataPersister
         }
     }
 
+    private float m_startTime;
+    public float StartTime
+    {
+        get
+        {
+            if (_usingItem)
+                return m_startTime;
+            throw new System.Exception("Opps...");
+            return Time.time;
+        }
+        private set
+        {
+            m_startTime = value; 
+        }
+    }
+    public float HeldTime
+    {
+        get
+        {
+            if (_usingItem)
+                return Time.time - StartTime;
+            else
+                return 0f;
+        }
+    }
+
     MovementController _movementController;
     InputController _inputController;
     float _nextPossibleUseTime;
-    bool _usingItem;
+    public bool _usingItem;
     bool _init;
 
     private void OnEnable()
@@ -305,7 +330,8 @@ public class ItemController : MonoBehaviour, IDataPersister
         currentItem = Instantiate(item);
         currentItem.Init(this);
 
-        heldItemSpriteRend.sprite = item.onBackSprite;        
+        heldItemSpriteRend.sprite = item.onBackSprite;
+        ResetUseTime();
     }
     public void Unequip()
     {
@@ -319,9 +345,19 @@ public class ItemController : MonoBehaviour, IDataPersister
         
     }
 
+    public void ResetUseTime()
+    {
+        _nextPossibleUseTime = Time.time;
+    }
+
     public void ApplyItemDelay(float time)
     {
-        _nextPossibleUseTime = Time.time + time;
+        if(time < 0)
+        {
+            _nextPossibleUseTime = float.MaxValue;
+        }
+        else
+            _nextPossibleUseTime = Time.time + time;
     }
     public void ApplyMoveStun(float time)
     {
@@ -370,12 +406,13 @@ public class ItemController : MonoBehaviour, IDataPersister
 
     private void StartItem(ItemController controller)
     {
-        if (lockDirectionWhenUsingItem)
+        if (currentItem.strafeLockedWhileHeld)
             InputController.strafe = true;
 
         heldItemSpriteRend.enabled = false;
 
         Log("Start Item [" + currentItem.name + "]");
+        StartTime = Time.time;
     }
     private void HoldItem(ItemController controller)
     {
@@ -383,7 +420,7 @@ public class ItemController : MonoBehaviour, IDataPersister
     }
     private void EndItem(ItemController controller)
     {
-        if (lockDirectionWhenUsingItem)
+        if (currentItem.strafeLockedWhileHeld)
             InputController.strafe = false;
 
         SetAttackTrigger();

@@ -12,6 +12,7 @@ public class MovementController : MonoBehaviour
     public class Events
     {
         public UnityEvent onKnockback;
+        public UnityEvent onDodge;
     }
     [DrawWithUnity]
     public Events events;
@@ -56,6 +57,7 @@ public class MovementController : MonoBehaviour
             return _rigidbody;
         }
     }
+
     public bool Knockedback
     {
         get
@@ -79,6 +81,7 @@ public class MovementController : MonoBehaviour
     {
         get { return _moveVector; }
     }
+
     public Animator anim;
     public string setAnimationBoolToIsMoving = "isMoving";
     public Transform moveTarget;
@@ -89,10 +92,14 @@ public class MovementController : MonoBehaviour
     public float smoothing = 0.4f;
     public float knockbackDecel = 5f;
     public float knockbackDeadzone = 0.1f;
+    public float dodgeDecel = 5f;
+    public float dodgeDeadzone = 0.1f;
 
     protected InputController _inputController;
     protected Vector2 _moveVector;
-    protected Vector2 _knockbackVector;
+    public Vector2 _knockbackVector;
+    public Vector2 _dodgeVector;
+
     protected Rigidbody2D _rigidbody;
     protected float _nextMoveTime;
     protected bool _stunned;
@@ -118,7 +125,7 @@ public class MovementController : MonoBehaviour
         if (PauseManager.Instance != null && PauseManager.Instance.Paused)
             return;
 
-        if (Knockedback || _stunned )
+        if (Knockedback || _stunned)
         {
             if(anim != null && setAnimationBoolToIsMoving.Length > 0)
                 anim.SetBool(setAnimationBoolToIsMoving, false);
@@ -127,7 +134,7 @@ public class MovementController : MonoBehaviour
             _moveVector = Vector2.Lerp(_moveVector, Vector2.zero * moveSpeed, smoothing);
 
             // check to see if stun time is over and input controller will regain control
-            if (Time.time > _nextMoveTime)
+            if (Time.time >= _nextMoveTime)
                 _stunned = false;
         }
         else
@@ -148,8 +155,9 @@ public class MovementController : MonoBehaviour
         if (PauseManager.Instance != null && PauseManager.Instance.Paused)
             return;
 
-        Rb.velocity = _moveVector + _knockbackVector;
+        Rb.velocity = _moveVector + _knockbackVector + _dodgeVector;
         UpdateKnockback();
+        UpdateDodge();
 
     }
 
@@ -164,6 +172,17 @@ public class MovementController : MonoBehaviour
 
             if (_knockbackVector.magnitude <= float.Epsilon)
                 _knockbackVector = Vector2.zero;
+        }
+    }
+
+    public virtual void UpdateDodge()
+    {
+        if (_dodgeVector.magnitude > 0)
+        {
+            _dodgeVector *= (1 - Time.fixedDeltaTime * dodgeDecel);
+
+            if (_dodgeVector.magnitude <= float.Epsilon)
+                _dodgeVector = Vector2.zero;
         }
     }
 
@@ -223,5 +242,11 @@ public class MovementController : MonoBehaviour
             _stunned = true;
             _nextMoveTime = Time.time + time;
         }
+    }
+
+    public void StunCancel()
+    {
+        _stunned = false;
+        _nextMoveTime = Time.time;
     }
 }

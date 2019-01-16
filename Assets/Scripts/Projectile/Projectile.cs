@@ -80,7 +80,7 @@ public class Projectile : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Update()
+    public virtual void Update()
     {
         speed = Mathf.Clamp(speed + acceleration * Time.deltaTime, speedBounds.x, speedBounds.y);
         angularVelocity = Mathf.Clamp(angularVelocity + angularAcceleration * Time.deltaTime, angularVelocityBounds.x, angularVelocityBounds.y);

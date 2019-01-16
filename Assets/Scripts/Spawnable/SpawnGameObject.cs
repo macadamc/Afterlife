@@ -16,6 +16,8 @@ public class SpawnGameObject : MonoBehaviour
 
     [TabGroup("Spawn Settings")]
     public bool triggerOnce;
+    [TabGroup("Spawn Settings"), ShowIf("triggerOnce")]
+    public bool ResetTriggerOnDisable;
     [TabGroup("Spawn Settings"), MinMaxSlider(0f, 10f, true)]
     public Vector2 startDelay;
     [TabGroup("Spawn Settings")]
@@ -148,6 +150,9 @@ public class SpawnGameObject : MonoBehaviour
     {
         if(despawnOnDisable)
             DeSpawn();
+
+        if (ResetTriggerOnDisable)
+            m_triggered = false;
 
         StopAllCoroutines();
     }

@@ -19,11 +19,11 @@ MonoBehaviour:
   itemToHold: {fileID: 1936102589446768, guid: 827c925055b21e7418b377a6ca16fe30, type: 2}
   itemToSpawnOnUse: {fileID: 1466178211366072, guid: 8b2a25edd3c2cf145a1f2243d9a4af66,
     type: 2}
-  itemToSpawnOnUseCharged: {fileID: 1640222530503160, guid: 486bc62f16a848245980c5c80ca55769,
+  otherItemToSpawn: {fileID: 1640222530503160, guid: 486bc62f16a848245980c5c80ca55769,
     type: 2}
   moveSpeedPercent: 0.5
   itemCooldownTime: 0.5
   itemMoveStunTime: 0.25
   angleSnap: 45
-  hasChargeAttack: 1
+  useOtherPrefab: 0
   chargeTime: 1.25

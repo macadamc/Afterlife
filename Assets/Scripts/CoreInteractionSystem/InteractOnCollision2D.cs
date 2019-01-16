@@ -17,6 +17,7 @@ public class InteractOnCollision2D : MonoBehaviour {
     {
         if (layers.Contains(collision.gameObject))
         {
+            Debug.Log("???");
             OnCollision.Invoke();
         }
     }
