@@ -34,4 +34,6 @@ public class FlockingAgentConfig : ScriptableObject
     // player magnitism
     public float playerMagnitismRadius;
     public float playerMagnitismPriority;
+
+    public float inputPriority;
 }

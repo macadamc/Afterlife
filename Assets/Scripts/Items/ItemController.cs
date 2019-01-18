@@ -298,8 +298,8 @@ public class ItemController : MonoBehaviour, IDataPersister
 
     MovementController _movementController;
     InputController _inputController;
-    float _nextPossibleUseTime;
-    public bool _usingItem;
+    public float _nextPossibleUseTime { get; private set; }
+    public bool _usingItem { get; private set; }
     bool _init;
 
     private void OnEnable()

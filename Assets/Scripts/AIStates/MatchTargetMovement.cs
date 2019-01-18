@@ -32,9 +32,13 @@ public class MatchTargetMovement : State
 
     private void Update()
     {
-        if(target_InputController != null)
+        if (target_InputController == null)
+            return;
+
+        if(!invert)
             inputController.joystick = target_InputController.joystick;
-        if (invert)
-            inputController.joystick = inputController.joystick * -1;
+        else
+            inputController.joystick = -target_InputController.joystick;
     }
 }
+

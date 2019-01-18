@@ -29,6 +29,8 @@ GameObject:
   - component: {fileID: 114555793450348100}
   - component: {fileID: 58504722092143704}
   - component: {fileID: 61908810475834558}
+  - component: {fileID: 114906919819735540}
+  - component: {fileID: 114700859298252710}
   m_Layer: 0
   m_Name: Test_Use
   m_TagString: Untagged
@@ -335,6 +337,42 @@ MonoBehaviour:
   interactableTags: []
   knockbackForce: 10
   useRotation: 1
+--- !u!114 &114700859298252710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466178211366072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee842ecccb013d242bee8ce86f70b70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ItemControllerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onHeld:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ItemControllerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114906919819735540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466178211366072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99d6e641ab05fb4b8ba4f0b6ea8f53d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mc: {fileID: 0}
+  force: 5
+  hitParticlePrefab: {fileID: 1089315535814794, guid: 149c0f2b8c6122044bd3ad638ccc21d4,
+    type: 2}
 --- !u!212 &212510268472777076
 SpriteRenderer:
   m_ObjectHideFlags: 1

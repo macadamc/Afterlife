@@ -49,7 +49,6 @@ public class RandomMoveState : State {
         _delayedSet = false;
     }
 
-
     private void FixedUpdate()
     {
         if(useRaycasting && PathBlocked())

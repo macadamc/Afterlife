@@ -72,7 +72,7 @@ public class Player : Singleton<Player>
         yield return new WaitUntil(() => { return mc._dodgeVector.magnitude <= force * controlRegainThreshold; } );
         mc._dodgeVector = Vector2.zero;
         health.invincible = false;
-        yield return new WaitForSeconds(.15f);
+        yield return new WaitForSeconds(.1f);
         mc.StunCancel();
 
         if (itemController._usingItem)

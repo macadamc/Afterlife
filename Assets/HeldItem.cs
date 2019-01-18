@@ -11,7 +11,6 @@ public class HeldItem : MonoBehaviour
 
     public virtual void Init(ItemController user)
     {
-        //User = user;
         user.OnHold.AddListener(Hold);
         user.OnEnd.AddListener(End);
     }
@@ -25,6 +24,7 @@ public class HeldItem : MonoBehaviour
     {
         if (User == null)
             User = user;
+
         onStart.Invoke(user);
     }
 

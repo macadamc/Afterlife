@@ -8,6 +8,7 @@ public class FlockingAgent : MovementController
     public Vector2 acceleration;
     public FlockingAgentConfig config;
     private Vector2 wanderTarget;
+   
 
     GameObject player;
 
@@ -86,7 +87,8 @@ public class FlockingAgent : MovementController
                 config.allignmentPriority * Allignment() + 
                 config.seperationPriority * Seperation() + 
                 config.obstacleAvoidancePriority * Avoidance() +
-                config.playerMagnitismPriority * Magnitism();
+                config.playerMagnitismPriority * Magnitism() +
+                config.inputPriority * Input();
     }
 
     protected Vector2 Wander()
@@ -204,5 +206,10 @@ public class FlockingAgent : MovementController
     bool IsInFOV(Vector2 vec)
     {
         return Vector2.Angle(velocity, vec - (Vector2)transform.position) <= config.maxFov;
+    }
+
+    protected Vector2 Input()
+    {
+        return Ic.joystick;
     }
 }

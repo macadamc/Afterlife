@@ -6,37 +6,52 @@ using Sirenix.OdinInspector;
 
 public class UseItemState : State
 {
-    public InputController inputController;
-
     [MinMaxSlider(0.0f,5.0f)]
     public Vector2 holdTime;
-
     public bool changeStateOnFinish;
-    Coroutine coroutine;
+
+    private Coroutine coroutine;
+    private InputController inputController;
+    private ItemController itemController;
 
     protected override void OnEnable()
     {
-        if(inputController == null)
-            inputController = GetComponentInParent<InputController>();
-
         base.OnEnable();
 
-        if(coroutine == null)
-            coroutine = StartCoroutine(UseItem());
+        if (inputController == null)
+            inputController = GetComponentInParent<InputController>();
+
+        if (itemController == null)
+            itemController = GetComponentInParent<ItemController>();
     }
 
     protected override void OnDisable()
     {
-        StopCoroutine(coroutine);
-        coroutine = null;
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+            coroutine = null;
+        }
+
         inputController.input.SetValue(false);
     }
 
+    private void Update()
+    {
+        if (Time.time >= itemController._nextPossibleUseTime && coroutine == null)
+        {
+            coroutine = StartCoroutine(UseItem());
+        }
+        else if (coroutine == null && changeStateOnFinish)
+        {
+            Next();
+        }
+    }
+
+
     public IEnumerator UseItem()
     {
-
         inputController.input.pressed = true;
-        yield return null;
         inputController.input.held = true;
         yield return new WaitForSeconds(Random.Range(holdTime.x, holdTime.y));
         inputController.input.held = false;
