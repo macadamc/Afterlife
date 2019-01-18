@@ -4,7 +4,7 @@ colorID: 0
 position: 0,0
 parent: Root
 ---
-Global:Another soul?
-Global:I didn't think that was possible anymore.
-Global:Now to find a way out of this place.
+Global:A new soul?
+Global:I haven't seen a new face in ages.
+Global:I didn't think it was possible anymore.
 ===

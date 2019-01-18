@@ -43,6 +43,12 @@ TextureImporter:
     21300076: Cliffside_Alt_Door3_MR
     21300078: Cliffside_Alt_Door3_BL
     21300080: Cliffside_Alt_Door3_BR
+    21300082: Cliffside_Black
+    21300084: Cliffside_Alt_Door2_TM
+    21300086: Cliffside_Alt_Door2_ML
+    21300088: Cliffside_Alt_Door2_MM
+    21300090: Cliffside_Alt_Door2_MR
+    21300092: Cliffside_Alt_Door2_BM
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -687,46 +693,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cliffside_Alt_Door2_TL
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e148bd848d25a594fb91c1ffecb40fb0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cliffside_Alt_Door2_TR
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ed50baa9c05b6f4995bf3ad1c5bd9a4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Cliffside_Alt_Door1_B
       rect:
         serializedVersion: 2
@@ -742,46 +708,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 948d2dedceb625d42a0aa20bfd2a8900
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cliffside_Alt_Door2_BL
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4531e802bef83249977bc8df434676a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cliffside_Alt_Door2_BR
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 700a367b8ba35754ea432ab690dbd8d8
       vertices: []
       indices: 
       edges: []
@@ -901,7 +827,47 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cliffside_Alt_Door3_TL
+      name: Cliffside_Alt_Door2_TL
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba0213e61ddfb14795c2a61fcc87314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliffside_Alt_Door2_TM
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df297a550297ae42ade21328f92a630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliffside_Alt_Door2_TR
       rect:
         serializedVersion: 2
         x: 48
@@ -909,39 +875,59 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fde1a63c5675fb4fa5008acea63f376
+      spriteID: dad904cfb2af92a4797cdad0ce0378a7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cliffside_Alt_Door3_TR
+      name: Cliffside_Alt_Door2_ML
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 16
+        y: 16
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dc416cea42308e44b28a7b1933a7d36
+      spriteID: a01a96ebf687b1a449d70da9fde0dc71
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cliffside_Alt_Door3_ML
+      name: Cliffside_Alt_Door2_MM
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18e7b23b11a78a4ca63dd3fa9018fb4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliffside_Alt_Door2_MR
       rect:
         serializedVersion: 2
         x: 48
@@ -949,39 +935,62 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6eff6a6b9f51864488f09e7de1eaab2
+      spriteID: 9fe60f67393dd8b41b10fef674cd9e1d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cliffside_Alt_Door3_MR
+      name: Cliffside_Alt_Door2_BL
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
+        x: 16
+        y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: -1, y: 8}
       tessellationDetail: 0
       bones: []
-      spriteID: 44c39af56b2249847a6c98165691aadc
+      spriteID: dd5a988b334d8fd43b823b2b65a047c8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cliffside_Alt_Door3_BL
+      name: Cliffside_Alt_Door2_BM
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d792919fd41cb49a33d8d95dffd29d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliffside_Alt_Door2_BR
       rect:
         serializedVersion: 2
         x: 48
@@ -989,33 +998,16 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 1, y: 8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
-      spriteID: f4d2dba8e7437de42ac4b79cf0faf62e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cliffside_Alt_Door3_BR
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a28e25f0946fbe4e8673c178e9d841d
+      spriteID: 854f6b64a9f0e544ab538ce2c4366359
       vertices: []
       indices: 
       edges: []

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: MerinoTempData
   m_EditorClassIdentifier: 
   editedID: 1
-  timestamp: 268314.85073439893
+  timestamp: 5935.0578795051315
   m_TreeElements:
   - m_ID: 0
     m_Name: Root
@@ -26,13 +26,9 @@ MonoBehaviour:
     m_Depth: 0
     nodePosition: {x: 0, y: 0}
     nodeTags: 
-    nodeBody: 'Global:Lost soul..
+    nodeBody: 'Global:A new soul?
 
-      Global:You have come to a forsaken land.
+      Global:I haven''t seen a new face in ages.
 
-      Global:This is one of the last fragments left uncorrupted by this plague.
-
-      Global:Though I guess that is but just a matter of time now.
-
-      Global:This is all a hopeless endeavor.'
+      Global:I didn''t think it was possible anymore.'
     enabled: 1

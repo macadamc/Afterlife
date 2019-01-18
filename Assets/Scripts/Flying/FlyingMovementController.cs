@@ -42,5 +42,10 @@ public class FlyingMovementController : MovementController
 
         base.FixedUpdate();
     }
+
+    public void SetTargetHeight(float newTargetHeight)
+    {
+        targetFlyingHeight = newTargetHeight;
+    }
 }
 
