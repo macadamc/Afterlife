@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Name: SmallMoundFlockingConfig 1
   m_EditorClassIdentifier: 
   maxFov: 360
-  maxAcceleration: 10
-  maxVelocity: 2
-  wanderJitter: 0
-  wanderRadius: 0
-  wanderDistance: 0
-  wanderPriority: 0
+  maxAcceleration: 30
+  maxVelocity: 5
+  wanderJitter: 1
+  wanderRadius: 1
+  wanderDistance: 1
+  wanderPriority: 0.5
   cohesionRadius: 0
   cohesionPriority: 0
   allignmentRadius: 0
   allignmentPriority: 0
-  seperationRadius: 0.5
-  seperationPriority: 3
+  seperationRadius: 0.6
+  seperationPriority: 2
   obstacleAvoidanceRadius: 0
   obstacleAvoidancePriority: 0
   playerMagnitismRadius: 0

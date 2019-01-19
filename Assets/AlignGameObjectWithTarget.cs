@@ -16,6 +16,7 @@ public class AlignGameObjectWithTarget : State
     public Vector2 targetDistance;
     public float errorThreshold = .5f;
     public Transform debugObj;
+    Vector2 targetposLast;
 
     protected override void OnEnable()
     {
@@ -26,7 +27,7 @@ public class AlignGameObjectWithTarget : State
             itemController = GetComponentInParent<ItemController>();
 
         itemWithSnap = itemController.currentItem as ItemSpawnPrefabWithCharge;
-        Debug.Log(itemWithSnap.angleSnap);
+        Debug.Assert(itemWithSnap != null, "itemController.currentItem is not a ItemSpawnPrefabWithCharge.");
 
         if (_vision == null)
             _vision = GetComponentInParent<Vision>();
@@ -45,18 +46,20 @@ public class AlignGameObjectWithTarget : State
 
     private void LateUpdate()
     {
+        
         int snap = itemWithSnap != null ? itemWithSnap.angleSnap : 1;
-        //int snap = 45;
-        //Debug.Log(snap);
-        Vector3 lookdir = AngleSnap(target_InputController.transform.position - inputController.transform.position, snap);
+        
 
         if (target_InputController != null)
         {
-            //Debug.Log(target_InputController.gameObject.name + "," + inputController.gameObject.name);
-            //var dist = Vector2.Distance(inputController.transform.position, target_InputController.transform.position);
-            //var desiredPos = target_InputController.transform.position - (lookdir * Random.Range(targetDistance.x,targetDistance.y));
-            //var desiredPos = target_InputController.transform.position;
-            var desiredPos = GetPointOnLine(target_InputController.transform.position, -lookdir, inputController.transform.position);
+            Vector3 lookdir = AngleSnap(target_InputController.transform.position - inputController.transform.position, snap);
+            Vector2 lineStart = target_InputController.transform.position + (-lookdir * targetDistance.y);
+            Vector2 lineEnd = target_InputController.transform.position + (-lookdir * targetDistance.x);
+
+            var desiredPos = NearestPointOnFiniteLine(lineStart, lineEnd, inputController.transform.position);
+            //var desiredPos = NearestPointOnLine(target_InputController.transform.position, -lookdir, inputController.transform.position);
+            //var actualDesired = ((Vector2)desiredPos + targetposLast) / 2f;
+
             if (debugObj != null)
                 debugObj.position = desiredPos;
 
@@ -65,13 +68,15 @@ public class AlignGameObjectWithTarget : State
             if (dst > errorThreshold)
             {
                 inputController.joystick = desiredPos - inputController.transform.position;
-                inputController.joystick.Normalize();
+
+                if(inputController.joystick.magnitude > 1f)
+                    inputController.joystick.Normalize();
             }
             
             else if (exitStateOnAlign)
                 Next();
-                
-                
+
+            //targetposLast = desiredPos;
 
             /*
             if (IsWithin(dist, targetDistance.x, targetDistance.y) == false)
@@ -120,7 +125,6 @@ public class AlignGameObjectWithTarget : State
         return value >= min && value <= max;
     }
 
-    /*
     //linePnt - point the line passes through
     //lineDir - unit vector in direction of line, either direction works
     //pnt - the point to find nearest on line for
@@ -131,12 +135,23 @@ public class AlignGameObjectWithTarget : State
         var d = Vector2.Dot(v, lineDir);
         return linePnt + lineDir * d;
     }
-    */
+
+    public Vector3 NearestPointOnFiniteLine(Vector3 start, Vector3 end, Vector3 pnt)
+    {
+        var line = (end - start);
+        var len = line.magnitude;
+        line.Normalize();
+
+        var v = pnt - start;
+        var d = Vector3.Dot(v, line);
+        d = Mathf.Clamp(d, 0f, len);
+        return start + line * d;
+    }
 
     public Vector3 GetPointOnLine(Vector2 targetPoint, Vector2 dir, Vector2 positionToTest)
     {
         var v = positionToTest - targetPoint;
-        var d = Random.Range(targetDistance.x ,targetDistance.y);
+        var d = targetDistance.x; ; // Random.Range(targetDistance.x ,targetDistance.y);
         return (targetPoint + dir * d);
     }
 }

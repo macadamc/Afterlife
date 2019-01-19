@@ -20,7 +20,7 @@ MonoBehaviour:
   pickupSfx: {fileID: 0}
   strafeLockedWhileHeld: 1
   itemToHold: {fileID: 1791528383587346, guid: 3b05b564339bf4541a8d6857d839396b, type: 2}
-  itemToSpawnOnUse: {fileID: 1640222530503160, guid: 486bc62f16a848245980c5c80ca55769,
+  itemToSpawnOnUse: {fileID: 1144479920589930, guid: 96e48bc67d75be948945a4bf626417df,
     type: 2}
   moveSpeedPercent: 0.8
   itemCooldownTime: 1

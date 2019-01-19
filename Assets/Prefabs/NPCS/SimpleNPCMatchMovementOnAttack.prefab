@@ -40,6 +40,8 @@ GameObject:
   - component: {fileID: 212800965554813118}
   - component: {fileID: 95954036166090122}
   - component: {fileID: 114807364218757596}
+  - component: {fileID: 210562817368644416}
+  - component: {fileID: 114692990689435754}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -171,20 +173,35 @@ GameObject:
   - component: {fileID: 61927394396692184}
   - component: {fileID: 50541120254718532}
   - component: {fileID: 114953316120409980}
-  - component: {fileID: 114761467543703142}
   - component: {fileID: 114512449667502732}
   - component: {fileID: 114168255573229354}
   - component: {fileID: 114850767574356552}
   - component: {fileID: 114433835243665206}
-  - component: {fileID: 114235135642857968}
   - component: {fileID: 114608474538298410}
-  - component: {fileID: 210757364019404006}
   - component: {fileID: 114539188557673104}
   - component: {fileID: 114984650990419952}
   - component: {fileID: 114416755206010446}
   - component: {fileID: 114270246417641656}
+  - component: {fileID: 114814539236001780}
   m_Layer: 11
   m_Name: SimpleNPCMatchMovementOnAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1771036015234724
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4586587763134896}
+  - component: {fileID: 114187713180376270}
+  - component: {fileID: 114682367376184324}
+  m_Layer: 0
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,35 +255,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &1847232884473022
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4122955739164430}
-  - component: {fileID: 331643207960143322}
-  m_Layer: 0
-  m_Name: WaterMask (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4122955739164430
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1847232884473022}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4508372683207026}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4187667791052644
 Transform:
   m_ObjectHideFlags: 1
@@ -304,7 +292,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4508372683207026}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4284903228361590
 Transform:
@@ -339,7 +327,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745643173448592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.42, y: -83.4166, z: 0}
+  m_LocalPosition: {x: 31.51, y: -83.4166, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4208070322856016}
@@ -347,10 +335,22 @@ Transform:
   - {fileID: 4843678116061368}
   - {fileID: 4653103127041084}
   - {fileID: 4284903228361590}
-  - {fileID: 4122955739164430}
   - {fileID: 4210767274780034}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4586587763134896
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771036015234724}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.039015, y: -0.07859802, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4843678116061368}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4634781482841320
 Transform:
@@ -433,6 +433,7 @@ Transform:
   - {fileID: 4634781482841320}
   - {fileID: 4749575057716534}
   - {fileID: 4904124883449128}
+  - {fileID: 4586587763134896}
   m_Father: {fileID: 4508372683207026}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -618,18 +619,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9940ad27dd357dc46b46610f4b36e8d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114235135642857968
+--- !u!114 &114187713180376270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1745643173448592}
+  m_GameObject: {fileID: 1771036015234724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a87427ccd751847a6358f922d4d037, type: 3}
+  m_Script: {fileID: 11500000, guid: ca75db5691efc2e4c806491128644398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ppu: 16
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  WaitTime: {x: 1, y: 1}
 --- !u!114 &114270246417641656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -871,6 +882,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 114512449667502732}
   useOrthognial: 0
+--- !u!114 &114682367376184324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771036015234724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8aa835ca8bd9354f987043731d2e926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  invert: 1
+--- !u!114 &114692990689435754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100359158689576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a87427ccd751847a6358f922d4d037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppu: 16
 --- !u!114 &114703181980488308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -906,46 +951,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   forceState: {fileID: 0}
---- !u!114 &114761467543703142
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1745643173448592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03eba1f55077fcb47812ba284ced3f09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  events:
-    onKnockback:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    onDodge:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  anim: {fileID: 0}
-  setAnimationBoolToIsMoving: isMoving
-  moveTarget: {fileID: 0}
-  moveSpeed:
-    type: 0
-    ConstantValue: 2.5
-    Variable: {fileID: 0}
-  oldMoveSpeed:
-    type: 0
-    ConstantValue: 0
-    Variable: {fileID: 0}
-  smoothing: 0.4
-  knockbackDecel: 5
-  knockbackDeadzone: 0.1
-  dodgeDecel: 5
-  dodgeDeadzone: 0.1
-  _knockbackVector: {x: 0, y: 0}
-  _dodgeVector: {x: 0, y: 0}
 --- !u!114 &114767740564479650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -985,6 +990,49 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114814539236001780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745643173448592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddb431d61fb26e4f8e7df7bbac8e580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+    onKnockback:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onDodge:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  anim: {fileID: 0}
+  setAnimationBoolToIsMoving: isMoving
+  moveTarget: {fileID: 0}
+  moveSpeed:
+    type: 0
+    ConstantValue: 5
+    Variable: {fileID: 0}
+  oldMoveSpeed:
+    type: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  smoothing: 0.4
+  knockbackDecel: 5
+  knockbackDeadzone: 0.1
+  dodgeDecel: 5
+  dodgeDeadzone: 0.1
+  _knockbackVector: {x: 0, y: 0}
+  _dodgeVector: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
+  acceleration: {x: 0, y: 0}
+  config: {fileID: 11400000, guid: e6eacf5f26c459d49b62cea5d01d7b51, type: 2}
 --- !u!114 &114815772307971620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1120,12 +1168,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!210 &210757364019404006
+--- !u!210 &210562817368644416
 SortingGroup:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1745643173448592}
+  m_GameObject: {fileID: 1100359158689576}
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
@@ -1360,48 +1408,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!331 &331643207960143322
-SpriteMask:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1847232884473022}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d0516e0889f4c4c4198454766d786340, type: 3}
-  m_MaskAlphaCutoff: 0.2
-  m_FrontSortingLayerID: 0
-  m_BackSortingLayerID: 0
-  m_FrontSortingLayer: 0
-  m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
-  m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
-  m_SpriteSortPoint: 1

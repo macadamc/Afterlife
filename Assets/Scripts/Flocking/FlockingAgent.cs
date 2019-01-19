@@ -60,7 +60,7 @@ public class FlockingAgent : MovementController
         {
             acceleration = Combine();
             acceleration = Vector2.ClampMagnitude(acceleration, config.maxAcceleration);
-            velocity = velocity + acceleration * Time.deltaTime;
+            velocity = acceleration;
             velocity = Vector2.ClampMagnitude(velocity, config.maxVelocity);
 
             // use normal input from InputController.joystick

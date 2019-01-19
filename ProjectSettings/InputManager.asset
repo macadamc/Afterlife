@@ -73,7 +73,7 @@ InputManager:
     m_Name: Menu
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: escape
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: mouse 2
@@ -90,7 +90,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left shift
+    positiveButton: c
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
