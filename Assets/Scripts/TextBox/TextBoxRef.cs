@@ -54,14 +54,14 @@ public class TextBoxRef : MonoBehaviour {
     IEnumerator Start()
     {
         yield return new WaitForEndOfFrame();
-        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceOverlay); }).FirstOrDefault();
+        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceCamera); }).FirstOrDefault();
         Debug.Assert(canvas != null, "No canavas found with correct render mode set");
 
         defaultSettings = textBoxSettings;
     }
     void OnEnable()
     {
-        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceOverlay); }).FirstOrDefault();
+        canvas = FindObjectsOfType<Canvas>().Where((Canvas c) => { return c.renderMode == (useWorldSpaceCanvas ? RenderMode.WorldSpace : RenderMode.ScreenSpaceCamera); }).FirstOrDefault();
         Debug.Assert(canvas != null, "No canavas found with correct render mode set");
 
         defaultSettings = textBoxSettings;

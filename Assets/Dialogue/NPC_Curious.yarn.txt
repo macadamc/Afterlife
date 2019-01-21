@@ -7,4 +7,5 @@ parent: Root
 Global:A new soul?
 Global:I haven't seen a new face in ages.
 Global:I didn't think it was possible anymore.
+Global:Fascinating...
 ===

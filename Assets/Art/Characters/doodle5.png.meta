@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: ec6838977900032478bdfc72eacef1f8
+guid: a0c19b707e4201a408b7513f78b75b64
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Textbox_0
-    21300002: Textbox_1
-    21300004: Textbox_2
-    21300006: Textbox_3
+    21300000: doodle5_0
+    21300002: doodle5_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -64,7 +62,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -75,18 +73,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 64
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -99,81 +86,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Textbox_0
+      name: doodle5_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 65
+        y: 80
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 12, y: 12, z: 12, w: 12}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96a1241a5862e564fa987e8d152a6a70
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Textbox_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 8, y: 8, z: 8, w: 8}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 413b27f820a275442b1bd0e450bfbc40
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Textbox_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d74d0cc85e4600749ba26d373130d868
+      spriteID: e08813f1dbf1ced488600db05d3cc2c8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Textbox_3
+      name: doodle5_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 65
+        y: 48
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02e8b70848f72bc40b9bd389f17d42c7
+      spriteID: c194372021e2310429bf09bf80b19ebf
       vertices: []
       indices: 
       edges: []
@@ -181,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a323c1c0cb242404a91c7584172481f6
+    spriteID: fba4c3297065b11488f14e60526a4c6f
     vertices: []
     indices: 
     edges: []
