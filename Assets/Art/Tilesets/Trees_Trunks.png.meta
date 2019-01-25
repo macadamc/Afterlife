@@ -4,6 +4,8 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: Trees_Trunks_0
     21300002: Trees_Trunks_1
+    21300004: Trees_Trunks_2
+    21300006: Trees_Trunks_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -121,6 +123,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f1f8443787590044aa7698b3cad99bce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_Trunks_2
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 419
+        width: 26
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2631579}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86e975da0ab8c944f865b74e1734ec01
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_Trunks_3
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 421
+        width: 30
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15789473}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1790a1176203e714f9dbf5f251748091
       vertices: []
       indices: 
       edges: []

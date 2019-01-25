@@ -7,6 +7,7 @@ TextureImporter:
     21300004: StonePillars_2
     21300006: StonePillars_3
     21300008: StonePillars_4
+    21300010: StonePillars_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -132,8 +133,8 @@ TextureImporter:
       name: StonePillars_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
+        x: 104
+        y: 176
         width: 96
         height: 75
       alignment: 9
@@ -184,6 +185,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 76337922cc9eeb4418fd8d0e81b2d697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StonePillars_5
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 81
+        width: 48
+        height: 175
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13714285}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55e43317f6c34b84cab29502858a9e61
       vertices: []
       indices: 
       edges: []
