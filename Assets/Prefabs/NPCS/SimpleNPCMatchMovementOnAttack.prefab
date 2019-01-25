@@ -161,7 +161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1745643173448592
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +183,9 @@ GameObject:
   - component: {fileID: 114416755206010446}
   - component: {fileID: 114270246417641656}
   - component: {fileID: 114814539236001780}
+  - component: {fileID: 114154570965875774}
+  - component: {fileID: 114939122289932010}
+  - component: {fileID: 114636638821721852}
   m_Layer: 11
   m_Name: SimpleNPCMatchMovementOnAttack
   m_TagString: Untagged
@@ -198,8 +201,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4586587763134896}
+  - component: {fileID: 114760812667595380}
   - component: {fileID: 114187713180376270}
+  - component: {fileID: 114896262595536636}
   - component: {fileID: 114682367376184324}
+  - component: {fileID: 114370338339438832}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -608,6 +614,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114154570965875774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745643173448592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a7a3ffa08587245a89fa8deee861ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 5
 --- !u!114 &114168255573229354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -652,7 +670,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27752e18603bdf7459cdc47f89f29bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: AQALAAAAY29uc3RyYWludHMvAAAAAABQAAAAU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tUYXJnZXRDb25zdHJhaW50LCBBc3NlbWJseS1DU2hhcnBdXSwgbXNjb3JsaWIAAAAABgEAAAAAAAAAAi8BAAAAACMAAABIZWFsdGhHcmVhdGVyVGhhblgsIEFzc2VtYmx5LUNTaGFycAEAAAAfAAEAAAB4AAAAAAUHBQ==
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   transforms: []
+  constraints: []
 --- !u!114 &114359228355068448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -681,6 +709,31 @@ MonoBehaviour:
   targetDistance: {x: 0.5, y: 0.5}
   errorThreshold: 0.3
   debugObj: {fileID: 4210767274780034}
+--- !u!114 &114370338339438832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771036015234724}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b461abbd4e03b9e4ca5f7573eab43e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  invert: 0
+  targetDistance: 2
+  inputController: {fileID: 0}
+  changeStateOnFinish: 0
 --- !u!114 &114416755206010446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -882,13 +935,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 114512449667502732}
   useOrthognial: 0
+--- !u!114 &114636638821721852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745643173448592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831e2db8e802a8a4ab79ae8cf7cdbf94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 5
+  seperationRadius: 1.5
 --- !u!114 &114682367376184324
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1771036015234724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8aa835ca8bd9354f987043731d2e926, type: 3}
   m_Name: 
@@ -951,6 +1017,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   forceState: {fileID: 0}
+--- !u!114 &114760812667595380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771036015234724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6bf20ca94de44ca6af49e26bd0594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputController: {fileID: 0}
+  targets: {fileID: 0}
 --- !u!114 &114767740564479650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -972,7 +1051,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  holdTime: {x: 0, y: 0.6049151}
+  holdTime: {x: 0.15672894, y: 0.6049151}
   changeStateOnFinish: 1
 --- !u!114 &114807364218757596
 MonoBehaviour:
@@ -1024,15 +1103,20 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 0}
   smoothing: 0.4
-  knockbackDecel: 5
-  knockbackDeadzone: 0.1
+  knockbackDecel: 7
+  knockbackDeadzone: 0.2
   dodgeDecel: 5
   dodgeDeadzone: 0.1
   _knockbackVector: {x: 0, y: 0}
   _dodgeVector: {x: 0, y: 0}
-  velocity: {x: 0, y: 0}
-  acceleration: {x: 0, y: 0}
-  config: {fileID: 11400000, guid: e6eacf5f26c459d49b62cea5d01d7b51, type: 2}
+  OnUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxVelocity: 60
+  maxAcceleration: 10
+  maxFov: 360
 --- !u!114 &114815772307971620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1074,6 +1158,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 0}
   transformToUse: {fileID: 0}
+--- !u!114 &114896262595536636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771036015234724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efcf63b6a10f58840b262b24a27b395a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whilePressed: {fileID: 114682367376184324}
+  whileReleased: {fileID: 114370338339438832}
+--- !u!114 &114939122289932010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745643173448592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c783a99b4989d4cb2fe46ddf6ac8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 5
+  obstacleAvoidanceRadius: 1
 --- !u!114 &114953316120409980
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -131,7 +131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1322557479443096
 GameObject:
   m_ObjectHideFlags: 1
@@ -233,6 +233,9 @@ GameObject:
   - component: {fileID: 114805312671702342}
   - component: {fileID: 114764402366541110}
   - component: {fileID: 114798631846049710}
+  - component: {fileID: 114078754884792532}
+  - component: {fileID: 114274144485801868}
+  - component: {fileID: 114678111991014668}
   m_Layer: 11
   m_Name: SimpleNPCBow
   m_TagString: Enemy
@@ -412,7 +415,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1826403442561994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.459015, y: -83.4952, z: 0}
+  m_LocalPosition: {x: 28.999998, y: -88.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4902289421872890}
@@ -670,6 +673,19 @@ MonoBehaviour:
   dataSettings:
     dataTag: 8e68d3ce-7692-42a0-b9f2-1552087274b6
     persistenceType: 0
+--- !u!114 &114078754884792532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1826403442561994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831e2db8e802a8a4ab79ae8cf7cdbf94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 2.5
+  seperationRadius: 1.5
 --- !u!114 &114079756773202670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -843,6 +859,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 114700931904902386}
   useOrthognial: 0
+--- !u!114 &114274144485801868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1826403442561994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a7a3ffa08587245a89fa8deee861ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 5
 --- !u!114 &114300051870643264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -930,10 +958,10 @@ MonoBehaviour:
   delayTime: {x: 0, y: 2}
   inputController: {fileID: 114700931904902386}
   movementControler: {fileID: 0}
-  useRaycasting: 0
+  useRaycasting: 1
   physicsLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
 --- !u!114 &114560347458223370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -983,6 +1011,22 @@ MonoBehaviour:
   waterOffset: -0.2
   baseOffset: 0
   waterTiles: {fileID: 0}
+--- !u!114 &114678111991014668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1826403442561994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c783a99b4989d4cb2fe46ddf6ac8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 5
+  obstacleAvoidanceRadius: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 769
 --- !u!114 &114700931904902386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1032,7 +1076,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27752e18603bdf7459cdc47f89f29bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: AQALAAAAY29uc3RyYWludHMvAAAAAABQAAAAU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tUYXJnZXRDb25zdHJhaW50LCBBc3NlbWJseS1DU2hhcnBdXSwgbXNjb3JsaWIAAAAABgEAAAAAAAAAAi8BAAAAACMAAABIZWFsdGhHcmVhdGVyVGhhblgsIEFzc2VtYmx5LUNTaGFycAEAAAAfAAEAAAB4AAAAAAUHBQ==
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   transforms: []
+  constraints: []
 --- !u!114 &114798631846049710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1073,9 +1127,14 @@ MonoBehaviour:
   dodgeDeadzone: 0.1
   _knockbackVector: {x: 0, y: 0}
   _dodgeVector: {x: 0, y: 0}
-  velocity: {x: 0, y: 0}
-  acceleration: {x: 0, y: 0}
-  config: {fileID: 11400000, guid: e6eacf5f26c459d49b62cea5d01d7b51, type: 2}
+  OnUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxVelocity: 30
+  maxAcceleration: 10
+  maxFov: 360
 --- !u!114 &114805312671702342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1166,7 +1225,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: 1336
+  m_SortingOrder: 1419
 --- !u!212 &212189418728412960
 SpriteRenderer:
   m_ObjectHideFlags: 1

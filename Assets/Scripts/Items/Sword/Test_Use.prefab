@@ -29,8 +29,9 @@ GameObject:
   - component: {fileID: 114555793450348100}
   - component: {fileID: 58504722092143704}
   - component: {fileID: 61908810475834558}
-  - component: {fileID: 114906919819735540}
   - component: {fileID: 114700859298252710}
+  - component: {fileID: 114906919819735540}
+  - component: {fileID: 114883568180480456}
   m_Layer: 0
   m_Name: Test_Use
   m_TagString: Untagged
@@ -358,6 +359,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ItemControllerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114883568180480456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466178211366072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867abfee833cf9849816d50cd1e3ce52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114906919819735540
 MonoBehaviour:
   m_ObjectHideFlags: 1

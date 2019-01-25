@@ -57,8 +57,6 @@ public class AlignGameObjectWithTarget : State
             Vector2 lineEnd = target_InputController.transform.position + (-lookdir * targetDistance.x);
 
             var desiredPos = NearestPointOnFiniteLine(lineStart, lineEnd, inputController.transform.position);
-            //var desiredPos = NearestPointOnLine(target_InputController.transform.position, -lookdir, inputController.transform.position);
-            //var actualDesired = ((Vector2)desiredPos + targetposLast) / 2f;
 
             if (debugObj != null)
                 debugObj.position = desiredPos;
@@ -75,21 +73,6 @@ public class AlignGameObjectWithTarget : State
             
             else if (exitStateOnAlign)
                 Next();
-
-            //targetposLast = desiredPos;
-
-            /*
-            if (IsWithin(dist, targetDistance.x, targetDistance.y) == false)
-            {
-                if(Vector2.Distance(inputController.transform.position, desiredPos) > errorThreshold)
-                {
-                    inputController.joystick = inputController.transform.position - desiredPos;
-                    inputController.joystick.Normalize();
-                }
-                else if (exitStateOnAlign)
-                    Next();
-            }
-            */
         }
 
         

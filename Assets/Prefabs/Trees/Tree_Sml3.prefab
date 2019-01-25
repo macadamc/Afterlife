@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4667812089050600}
   - component: {fileID: 61887874984042534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tree_Sml3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ SpriteRenderer:
   m_Size: {x: 3.875, y: 4.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!212 &212338514779038556

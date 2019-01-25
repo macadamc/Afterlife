@@ -48,6 +48,7 @@ public class Projectile : MonoBehaviour
     public Vector2 angularVelocityBounds = new Vector2(-1080f, 1080f);
     [TabGroup("Default Variables")]
     public bool destroyOnCollision;
+
     [TabGroup("Default Variables"), ShowIf("destroyOnCollision")]
     public LayerMask collisionLayers;
     [TabGroup("Default Variables")]
@@ -61,18 +62,23 @@ public class Projectile : MonoBehaviour
     public List<ProjectileAction> actionQueue = new List<ProjectileAction>();
     */
 
-    Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    { 
-        if ((collisionLayers.value & 1 << collision.gameObject.layer) != 0)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        var hitProj = collision.GetComponent<HitProjectile>();
+        if(hitProj == null)
         {
-            onProjectileCollision.Invoke();
+            if ((collisionLayers.value & 1 << collision.gameObject.layer) != 0)
+            {
+                onProjectileCollision.Invoke();
 
-            if (destroyOnCollision)
-                Destroy(transform.gameObject);
+                if (destroyOnCollision)
+                    Destroy(transform.gameObject);
+            }
         }
     }
+    
 
     private void OnEnable()
     {

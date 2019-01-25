@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4196234690759376}
   - component: {fileID: 58925483895273404}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: SmlRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,10 +14,28 @@ public class BoomerangProjectileBehaviour : Projectile
     bool returnToUser;
     HeldItem heldItem;
     Quaternion neededRotation;
+    public CircleCollider2D coll;
+    public float BounceTime = 1f;
+    float bounceEndTime;
+    bool isBouncing;
+
+
+    public LayerMask obstacleLayers;
 
     public override void Update()
     {
         base.Update();
+
+        if(isBouncing)
+        {
+            if (Time.time >= bounceEndTime)
+            {
+                isBouncing = false;
+            }
+            else
+                return;
+        }
+
         if(returnToUser)
         {
             if (heldItem == null)
@@ -57,7 +75,6 @@ public class BoomerangProjectileBehaviour : Projectile
     public void AddVelocityToUserHeldTime(ItemController user)
     {
         speed += Mathf.Clamp01(user.HeldTime / ((ItemSpawnPrefabWithCharge)user.currentItem).chargeTime) * maxForce;
-        Debug.Log(speed);
     }
 
     public void DistanceCheck(ItemController user)
@@ -75,5 +92,30 @@ public class BoomerangProjectileBehaviour : Projectile
     {
         acceleration = 5f;
         returnToUser = state;
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        var hit = Physics2D.CircleCast(transform.position, coll.radius, Vector2.zero, 0f, obstacleLayers.value);
+        if ((obstacleLayers.value & 1 << collision.gameObject.layer) != 0 && returnToUser == false)
+        {
+            if (hit.collider != null)
+            {
+                //var hitDir = hit.point - (Vector2)transform.position;
+                //hitDir.Normalize();
+
+                //var bounceDir = Vector2.Reflect(hitDir, hit.normal);
+
+                //transform.rotation = Quaternion.LookRotation(bounceDir);
+
+            }
+
+            SetReturnState(true);
+        }
+        else
+        {
+            base.OnTriggerEnter2D(collision);
+        }
+            
     }
 }

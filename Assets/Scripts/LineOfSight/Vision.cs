@@ -4,7 +4,8 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.Events;
 
-public class Vision : MonoBehaviour {
+public class Vision : MonoBehaviour
+{
 
     public float viewRadius;
     [Range(0, 360)]

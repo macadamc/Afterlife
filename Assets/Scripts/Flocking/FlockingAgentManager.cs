@@ -75,5 +75,18 @@ public class FlockingAgentManager : Singleton<FlockingAgentManager>
         return enemiesFound;
     }
 
+    public List<Collider2D> GetObstacles(FlockingAgent agent, float radius, LayerMask layerMask)
+    {
+        List<Collider2D> colliderList = new List<Collider2D>();
+
+        var colliders = Physics2D.OverlapCircleAll(agent.transform.position, radius, layerMask);
+        foreach(Collider2D c in colliders)
+        {
+            colliderList.Add(c);
+        }
+
+        return colliderList;
+    }
+
 
 }

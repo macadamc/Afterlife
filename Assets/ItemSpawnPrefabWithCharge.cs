@@ -89,6 +89,10 @@ public class ItemSpawnPrefabWithCharge : Item
             AttackItemListeners.Begin(user);
         }
 
+        var HeldItemRef = user.GetComponent<HeldItemRef>();
+        if (HeldItemRef != null)
+            HeldItemRef.value = AttackItemListeners;
+
         spawnObject.transform.localScale = user.transform.localScale;
 
         if (angleSnap == 0)

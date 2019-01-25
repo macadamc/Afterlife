@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class FlockingAgent : MovementController
 {
-    public Vector2 velocity;
-    public Vector2 acceleration;
-    public FlockingAgentConfig config;
-    private Vector2 wanderTarget;
-   
+    [HideInInspector]
+    public UnityEngine.Events.UnityEvent OnUpdate;
 
-    GameObject player;
+    public Vector2 velocity { get; protected set; }
+    public float maxVelocity;
 
-    private float RandomBinomial
+    public Vector2 acceleration { get; protected set; }
+    public float maxAcceleration;
+
+    public float maxFov;
+    
+    //public FlockingAgentConfig config;
+    //private Vector2 wanderTarget;
+    //GameObject player;
+
+    public float RandomBinomial
     {
         get
         {
@@ -58,28 +66,23 @@ public class FlockingAgent : MovementController
         }
         else
         {
-            acceleration = Combine();
-            acceleration = Vector2.ClampMagnitude(acceleration, config.maxAcceleration);
+            acceleration = Vector2.zero;
+            OnUpdate.Invoke();
+            //acceleration = Combine();
+
+            acceleration = Vector2.ClampMagnitude(acceleration, maxAcceleration);
             velocity = acceleration;
-            velocity = Vector2.ClampMagnitude(velocity, config.maxVelocity);
+            velocity = Vector2.ClampMagnitude(velocity, maxVelocity);
 
             // use normal input from InputController.joystick
             _moveVector = Vector2.Lerp(_moveVector, velocity, smoothing);
 
             if(anim != null)
                 anim.SetBool(setAnimationBoolToIsMoving, IsMoving);
-        }
-        /*
-        acceleration = Combine();
-        acceleration = Vector2.ClampMagnitude(acceleration, config.maxAcceleration);
-        velocity = velocity + acceleration * Time.deltaTime;
-        velocity = Vector2.ClampMagnitude(velocity, config.maxVelocity);
-        position = position + velocity * Time.deltaTime;
-
-        transform.position = position;
-        */
+        }        
     }
 
+    /*
     protected Vector2 Combine()
     {
         return  config.cohesionPriority * Cohesion() +
@@ -196,20 +199,26 @@ public class FlockingAgent : MovementController
 
         return magnitismVector.normalized;
     }
+    */
 
     Vector2 RunAway(Vector2 target)
     {
-        Vector2 neededVelocity = ((Vector2)transform.position - target).normalized * config.maxVelocity;
+        Vector2 neededVelocity = ((Vector2)transform.position - target).normalized * maxVelocity;
         return neededVelocity - velocity;
     }
 
-    bool IsInFOV(Vector2 vec)
+    public bool IsInFOV(Vector2 vec)
     {
-        return Vector2.Angle(velocity, vec - (Vector2)transform.position) <= config.maxFov;
+        return Vector2.Angle(velocity, vec - (Vector2)transform.position) <= maxFov;
     }
 
     protected Vector2 Input()
     {
         return Ic.joystick;
+    }
+
+    public void AddSteeringForce (Vector2 forceVector, float priority)
+    {
+        acceleration += priority * forceVector;
     }
 }

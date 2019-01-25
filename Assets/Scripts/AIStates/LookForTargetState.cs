@@ -7,7 +7,6 @@ public class LookForTargetState : State
 {
     Vision _vision;
     public GameObject forceState;
-
     protected override void OnEnable()
     {
         _vision = GetComponentInParent<Vision>();
