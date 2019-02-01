@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4811230635706994}
   - component: {fileID: 114201532382355784}
   - component: {fileID: 114640635739492888}
+  - component: {fileID: 114761791458797022}
   m_Layer: 0
   m_Name: Dialouge
   m_TagString: Untagged
@@ -174,11 +175,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 2048
-  addPlayerTag: 1
-  interactableTags: []
+  addPlayerTag: 0
+  targetTags: {fileID: 114761791458797022}
 --- !u!114 &114170319828751664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,11 +207,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 2048
-  addPlayerTag: 1
-  interactableTags: []
+  addPlayerTag: 0
+  targetTags: {fileID: 114761791458797022}
   OnButtonPress:
     m_PersistentCalls:
       m_Calls:
@@ -245,7 +240,6 @@ MonoBehaviour:
   stringGroups: []
   shouldOverrideLanguage: 0
   overrideLanguage: 10
-  dialogueUI: {fileID: 0}
   startAutomatically: 0
   startNode: 
   automaticCommands: 1
@@ -266,3 +260,17 @@ MonoBehaviour:
   textBoxOffset: {x: 0, y: 2}
   textBoxSettings: {fileID: 11400000, guid: f1b05e89f73d9f640971ef0827303c99, type: 2}
   useWorldSpaceCanvas: 1
+--- !u!114 &114761791458797022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967852146868628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae5e664c05303c42891c893eb0939f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overridableTargets: []
+  _nonOverridable:
+  - Player

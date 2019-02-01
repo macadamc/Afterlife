@@ -9,9 +9,15 @@ public class HitProjectile : MonoBehaviour
     {
         var projectile = other.GetComponent<Projectile>();
         var heldItem = GetComponent<HeldItem>();
+        var targets = heldItem.User.GetComponent<TargetTags>();
 
-        if (projectile != null && heldItem != null)
+        if (projectile != null && heldItem != null && projectile.isHittable)
         {
+            var targetlist = targets.GetTargets();
+
+            var projTarg = projectile.GetComponent<TargetTags>();
+            projTarg.SetTargets(targetlist);
+
             var dir = projectile.transform.position - heldItem.User.SpawnTransform.position;
             dir.Normalize();
             var angleToTarget = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;

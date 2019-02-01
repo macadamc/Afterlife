@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 198831788898743676}
   - component: {fileID: 199810646394771958}
   - component: {fileID: 95804839618992272}
+  - component: {fileID: 114661207531586856}
   m_Layer: 0
   m_Name: Boomerang_Use
   m_TagString: Projectile
@@ -210,6 +211,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02487737f99538f439d1e26607f14ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  addPlayerTag: 0
+  targetTags: {fileID: 114661207531586856}
   speed: 7.5
   acceleration: -5
   speedBounds: {x: -20, y: 20}
@@ -236,6 +258,9 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  isHittable: 0
+  creator: {fileID: 0}
+  targets: {fileID: 0}
   returnTarget: {fileID: 0}
   maxForce: 3.5
   returnThresholdDst: 0.5
@@ -363,15 +388,26 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 2048
   addPlayerTag: 0
-  interactableTags: []
+  targetTags: {fileID: 0}
   change:
     type: 0
     ConstantValue: -1
     Variable: {fileID: 0}
+--- !u!114 &114661207531586856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1066514471141394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae5e664c05303c42891c893eb0939f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overridableTargets: []
+  _nonOverridable:
+  - Obstacle
 --- !u!114 &114958561624549936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -402,11 +438,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 0
   addPlayerTag: 0
-  interactableTags: []
+  targetTags: {fileID: 0}
   knockbackForce: 10
   useRotation: 1
 --- !u!198 &198831788898743676

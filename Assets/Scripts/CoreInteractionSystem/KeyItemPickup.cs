@@ -30,7 +30,7 @@ public class KeyItemPickup : InteractOnTrigger2D, IDataPersister
 
     protected override void Reset()
     {
-        layers = LayerMask.NameToLayer("Everything");
+        //layers = LayerMask.NameToLayer("Everything");
         collider = GetComponent<CircleCollider2D>();
         collider.isTrigger = true;
         dataSettings = new DataSettings();

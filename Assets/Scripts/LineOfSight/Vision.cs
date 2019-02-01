@@ -94,7 +94,6 @@ public class Vision : MonoBehaviour
         float angle = Mathf.Atan2(ic.lookDirection.y, ic.lookDirection.x) * Mathf.Rad2Deg;
         visionTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
-
     
     private void FindVisibleTargets()
     {

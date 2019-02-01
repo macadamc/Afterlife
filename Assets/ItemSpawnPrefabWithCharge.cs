@@ -83,6 +83,16 @@ public class ItemSpawnPrefabWithCharge : Item
 
         GameObject spawnObject = Instantiate(prefabToSpawn, user.SpawnTransform);
 
+        var projectile = spawnObject.GetComponent<Projectile>();
+        if(projectile != null)
+        {
+            projectile.creator = heldItem.GetComponentInParent<Collider2D>();
+            var userTargets = user.GetComponent<TargetTags>();
+            var projTargets = projectile.GetComponent<TargetTags>();
+            if (userTargets != null && projTargets != null)
+                projTargets.SetTargets(userTargets.GetTargets());
+        }
+
         var AttackItemListeners = spawnObject.GetComponent<HeldItem>();
         if (AttackItemListeners != null)
         {

@@ -11,10 +11,15 @@ public class ChangeHealthOnTriggerEnter : InteractOnTrigger2D {
     {
         base.ExecuteOnEnter(other);
 
-        Health self = GetComponentInParent<Health>();
+        //Health self = GetComponentInParent<Health>();
         Health hp = other.gameObject.GetComponentInChildren<Health>();
-
+        /*
         if (hp != null && ((self != null && self != hp) || self == null))
+        {
+            hp.ChangeHealth(change.Value);
+        }
+        */
+        if (hp != null)
         {
             hp.ChangeHealth(change.Value);
         }

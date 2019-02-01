@@ -4,6 +4,7 @@ using UnityEngine;
 using ShadyPixel.Singleton;
 using UnityEngine.SceneManagement;
 using Sirenix.OdinInspector;
+using ShadyPixel.Variables;
 
 public class Player : Singleton<Player>
 {
@@ -13,12 +14,16 @@ public class Player : Singleton<Player>
     InputController ic;
     ItemController itemController;
     Coroutine roll;
+    TileRef tileRef;
+    public TileBaseRuntimeSet HazardTiles;
 
     public float dodgeForce = 20f;
     [PropertyRange(0f, 1f)]
     public float controlRegainThreshold = .5f;
     public float cooldownTime = 1f;
     private float nextRollTime;
+    public GameObject colliderGo;
+    protected bool isAttacking;
 
     private void Awake()
     {
@@ -27,6 +32,9 @@ public class Player : Singleton<Player>
         ic = GetComponent<InputController>();
         itemController = GetComponent<ItemController>();
 
+        if (colliderGo == null)
+            colliderGo = GetComponentInChildren<Collider2D>().gameObject;
+        tileRef = GetComponent<TileRef>();
         Initialize(this);
     }
     private void OnEnable()
@@ -53,8 +61,12 @@ public class Player : Singleton<Player>
     {
         float startTime = Time.time;
         nextRollTime = startTime + cooldownTime;
+        isAttacking = ic.input.held;
         float force = dodgeForce;
+        Vector2 startPos = transform.position;
         health.invincible = true;
+        colliderGo.layer = LayerMask.NameToLayer(Layers.Entity_Roll);
+        itemController.heldItemSpriteRend.enabled = false;
         Vector2 stick = ic.joystick;
         if(stick.magnitude != 0)
         {
@@ -72,6 +84,10 @@ public class Player : Singleton<Player>
         yield return new WaitUntil(() => { return mc._dodgeVector.magnitude <= force * controlRegainThreshold; } );
         mc._dodgeVector = Vector2.zero;
         health.invincible = false;
+        colliderGo.layer = LayerMask.NameToLayer(Layers.Entity);
+        if(isAttacking == false)
+            itemController.heldItemSpriteRend.enabled = true;
+
         yield return new WaitForSeconds(.1f);
         mc.StunCancel();
 
@@ -79,6 +95,18 @@ public class Player : Singleton<Player>
             ic.strafe = itemController.currentItem.strafeLockedWhileHeld;
         else
             ic.strafe = false;
+
+
+        var tileBase = tileRef.GetTile(transform.position);
+        if (HazardTiles.Items.Contains(tileBase))
+        {
+            health.ChangeHealth(-1);
+            // play animations ect.
+            transform.position = startPos;
+            mc.Stun(.15f, true);
+            mc.Ic.input.SetValue(false);
+            mc.Ic.dodge.SetValue(false);
+        }
 
         yield return new WaitUntil(() => { return Time.time >= nextRollTime; });
         roll = null;
@@ -157,4 +185,6 @@ public class Player : Singleton<Player>
 
         }
     }
+
+
 }

@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 50796430906511202}
   - component: {fileID: 114797981218984890}
   - component: {fileID: 95750675604592102}
+  - component: {fileID: 114155297236041422}
   m_Layer: 14
   m_Name: BasicBullet
   m_TagString: Projectile
@@ -161,6 +162,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114155297236041422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144479920589930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae5e664c05303c42891c893eb0939f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overridableTargets: []
+  _nonOverridable:
+  - Obstacle
 --- !u!114 &114296668072369296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,11 +206,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 2048
-  addPlayerTag: 1
-  interactableTags: []
+  addPlayerTag: 0
+  targetTags: {fileID: 0}
   change:
     type: 0
     ConstantValue: -1
@@ -242,11 +254,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 2048
-  addPlayerTag: 1
-  interactableTags: []
+  addPlayerTag: 0
+  targetTags: {fileID: 0}
   knockbackForce: 2
   useRotation: 1
 --- !u!114 &114797981218984890
@@ -260,6 +269,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e42fb8245a31924cb9cda635a296926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  addPlayerTag: 0
+  targetTags: {fileID: 0}
   speed: 3.5
   acceleration: 0
   speedBounds: {x: -20, y: 20}
@@ -297,6 +327,9 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  isHittable: 1
+  creator: {fileID: 0}
+  targets: {fileID: 0}
 --- !u!114 &114815403649077380
 MonoBehaviour:
   m_ObjectHideFlags: 1

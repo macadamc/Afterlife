@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using ShadyPixel.Extentions;
 
 public class InteractOnCollision2D : MonoBehaviour {
 

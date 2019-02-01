@@ -9,24 +9,39 @@ using Sirenix.Serialization;
 public class InteractOnTrigger2D : SerializedMonoBehaviour
 {
     public UnityEvent OnEnter, OnExit;
-    public LayerMask layers;
+    //public LayerMask layers;
     public bool addPlayerTag = true;
-    public List<string> interactableTags;
+    //public List<string> interactableTags;
+
+    public TargetTags targetTags;
 
     protected Collider2D m_Collider;
     protected bool CheckTags (Collider2D other)
     {
-        if (interactableTags.Count == 0)
+        if (targetTags == null)
+            return true;
+        var targetList = targetTags.GetTargets();
+
+        if (targetList.Count == 0)
             return true;
 
-        return interactableTags.Contains(other.tag);
+        return targetList.Contains(other.tag);
 
     }
 
     private void Awake()
     {
-        if (addPlayerTag && interactableTags.Contains("Player") == false)
-            interactableTags.Add("Player");
+        if (targetTags == null)
+            targetTags = GetComponent<TargetTags>();
+
+        if(targetTags != null)
+        {
+            var targetList = targetTags.GetTargets();
+
+            if (addPlayerTag && targetList.Contains(Tags.Player) == false)
+                targetTags.overridableTargets.Add(Tags.Player);
+        }
+       
     }
 
     /// <summary>
@@ -34,7 +49,7 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
     /// </summary>
     protected virtual void Reset()
     {
-        layers = LayerMask.NameToLayer("Everything");
+        //layers = LayerMask.NameToLayer("Everything");
         m_Collider = GetComponent<Collider2D>();
         m_Collider.isTrigger = true;
     }
@@ -42,23 +57,23 @@ public class InteractOnTrigger2D : SerializedMonoBehaviour
     /// <summary>
     /// check layers that other gameobject is on compared to layermask.
     /// </summary>
-    void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (!enabled)
             return;
 
-        if (layers.Contains(other.gameObject) && CheckTags(other))
+        if (CheckTags(other))
         {
             ExecuteOnEnter(other);
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    protected virtual void OnTriggerExit2D(Collider2D other)
     {
         if (!enabled)
             return;
 
-        if (layers.Contains(other.gameObject) && CheckTags(other))
+        if (CheckTags(other))
         {
             ExecuteOnExit(other);
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SteeringBehaviour : MonoBehaviour
 {
-    public float priority;
+    public float priority = 1;
     protected FlockingAgent agent;
 
     public virtual void OnEnable()
@@ -29,3 +29,4 @@ public class SteeringBehaviour : MonoBehaviour
 
     public virtual void Tick() { }
 }
+

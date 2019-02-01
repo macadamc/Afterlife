@@ -467,7 +467,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -482,11 +482,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 2048
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   change:
     type: 0
     ConstantValue: -1
@@ -548,6 +545,7 @@ MonoBehaviour:
   dataSettings:
     dataTag: 1a10c3df-21c2-4c9b-aa37-87e2047ed806
     persistenceType: 3
+  invincible: 0
 --- !u!114 &114168196431236812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -579,6 +577,14 @@ MonoBehaviour:
     pressed: 0
     held: 0
     released: 0
+  interact:
+    pressed: 0
+    held: 0
+    released: 0
+  dodge:
+    pressed: 0
+    held: 0
+    released: 0
 --- !u!114 &114230173090805760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -607,7 +613,7 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: AQAPAAAAaW52ZW50b3J5Q2hlY2tzLwAAAAAAKQAAAFZhcmlhYmxlU3RvcmFnZUNoZWNrZXJbXSwgQXNzZW1ibHktQ1NoYXJwAAAAAAYAAAAAAAAAAAcF
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
@@ -622,11 +628,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 2048
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   knockbackForce: 5
   useRotation: 0
 --- !u!114 &114300672562206002
@@ -787,6 +790,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  ForcedState: {fileID: 0}
   WaitTime: {x: 0, y: 0.2}
 --- !u!114 &114695413287500364
 MonoBehaviour:
@@ -805,6 +809,11 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+    onDodge:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   anim: {fileID: 0}
   setAnimationBoolToIsMoving: isMoving
   moveTarget: {fileID: 4048325384012080}
@@ -819,6 +828,10 @@ MonoBehaviour:
   smoothing: 1
   knockbackDecel: 5
   knockbackDeadzone: 0.1
+  dodgeDecel: 5
+  dodgeDeadzone: 0.1
+  _knockbackVector: {x: 0, y: 0}
+  _dodgeVector: {x: 0, y: 0}
   jumpStrength: 5
 --- !u!114 &114720915188212234
 MonoBehaviour:
@@ -865,7 +878,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27752e18603bdf7459cdc47f89f29bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: AQALAAAAY29uc3RyYWludHMvAAAAAABQAAAAU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tUYXJnZXRDb25zdHJhaW50LCBBc3NlbWJseS1DU2hhcnBdXSwgbXNjb3JsaWIAAAAABgAAAAAAAAAABwU=
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   transforms: []
+  constraints: []
 --- !u!114 &114950258530205732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -878,6 +901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: {fileID: 1318831867736130}
+  autoUpdate: 1
   loopStates: 1
   logToConsole: 0
   allowStateReentry: 0

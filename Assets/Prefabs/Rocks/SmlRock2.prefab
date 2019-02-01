@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4327209306883056}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: SmlRock2
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,9 +35,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4818432925830154}
   - component: {fileID: 61963660834002356}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 212084308496787772}
   - component: {fileID: 210497042673365878}
   - component: {fileID: 114568800273241238}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

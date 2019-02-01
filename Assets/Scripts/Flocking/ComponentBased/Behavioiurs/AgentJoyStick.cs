@@ -18,6 +18,6 @@ public class AgentJoyStick : SteeringBehaviour
 
     public override void Tick()
     {
-        agent.AddSteeringForce(ic.joystick, priority);
+        agent.AddSteeringForce(ic.joystick * agent.moveSpeed, priority);
     }
 }

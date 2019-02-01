@@ -33,10 +33,13 @@ public class RadialProjectileEmitter : State
     [TabGroup("Events")]
     public UnityEvent onShootEvent;
 
+    [TabGroup("Variables")]
+    public TargetTags targets;
+
 
 
     #endregion
-
+    Projectile p;
     [Button, DisableInEditorMode]
     private void Execute()
     {
@@ -90,20 +93,30 @@ public class RadialProjectileEmitter : State
     {
         // creates bullet
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        p = bullet.GetComponent<Projectile>();
+        p.creator = transform.GetComponentInParent<Collider2D>();
+
+        if (targets != null)
+            bullet.GetComponent<TargetTags>().SetTargets(targets.GetTargets());
+            
         //  gets the angle from the look direction
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         //  rotates object to face the new angle
-        bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        Physics2D.IgnoreCollision(transform.GetComponentInParent<Collider2D>(), bullet.GetComponent<Collider2D>());
+        bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);        
     }
 
     private void Shoot(GameObject bulletPrefab, float angle)
     {
         // creates bullet
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        p = bullet.GetComponent<Projectile>();
+        p.creator = transform.GetComponentInParent<Collider2D>();
+
+        if (targets != null)
+            bullet.GetComponent<TargetTags>().SetTargets(targets.GetTargets());
+
         //  rotates object to face the new angle
         bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        Physics2D.IgnoreCollision(transform.GetComponentInParent<Collider2D>(), bullet.GetComponent<Collider2D>());
     }
 
     protected override void OnEnable()

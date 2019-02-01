@@ -96,26 +96,12 @@ public class BoomerangProjectileBehaviour : Projectile
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        var hit = Physics2D.CircleCast(transform.position, coll.radius, Vector2.zero, 0f, obstacleLayers.value);
         if ((obstacleLayers.value & 1 << collision.gameObject.layer) != 0 && returnToUser == false)
         {
-            if (hit.collider != null)
-            {
-                //var hitDir = hit.point - (Vector2)transform.position;
-                //hitDir.Normalize();
-
-                //var bounceDir = Vector2.Reflect(hitDir, hit.normal);
-
-                //transform.rotation = Quaternion.LookRotation(bounceDir);
-
-            }
-
             SetReturnState(true);
         }
-        else
-        {
-            base.OnTriggerEnter2D(collision);
-        }
-            
+
+        base.OnTriggerEnter2D(collision);
+
     }
 }

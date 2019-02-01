@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 114830016384596700}
   - component: {fileID: 114981656997781118}
   - component: {fileID: 82329744995090736}
+  - component: {fileID: 114762905146825926}
   m_Layer: 11
   m_Name: PlagueDoctor
   m_TagString: Enemy
@@ -229,7 +230,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1490296443223304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -4, z: 0}
+  m_LocalPosition: {x: 6.677777, y: 0.17835903, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4258853781030872}
@@ -740,6 +741,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  targets: {fileID: 114762905146825926}
 --- !u!114 &114191356363444264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -751,7 +753,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27752e18603bdf7459cdc47f89f29bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: AQALAAAAY29uc3RyYWludHMvAAAAAABQAAAAU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tUYXJnZXRDb25zdHJhaW50LCBBc3NlbWJseS1DU2hhcnBdXSwgbXNjb3JsaWIAAAAABgAAAAAAAAAABwU=
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   transforms: []
+  constraints: []
 --- !u!114 &114273410560823734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -809,6 +821,7 @@ MonoBehaviour:
   dataSettings:
     dataTag: d1ea8248-e085-457c-874b-01bd756a16ee
     persistenceType: 0
+  invincible: 0
 --- !u!114 &114287588630481466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -950,6 +963,14 @@ MonoBehaviour:
     pressed: 0
     held: 0
     released: 0
+  interact:
+    pressed: 0
+    held: 0
+    released: 0
+  dodge:
+    pressed: 0
+    held: 0
+    released: 0
 --- !u!114 &114749572385384052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -979,6 +1000,20 @@ MonoBehaviour:
   physicsLayers:
     serializedVersion: 2
     m_Bits: 768
+--- !u!114 &114762905146825926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490296443223304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae5e664c05303c42891c893eb0939f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overridableTargets:
+  - Player
+  _nonOverridable: []
 --- !u!114 &114826671870414558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -991,6 +1026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultState: {fileID: 1458068941379350}
+  autoUpdate: 1
   loopStates: 1
   logToConsole: 1
   allowStateReentry: 0
@@ -1043,6 +1079,11 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+    onDodge:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   anim: {fileID: 0}
   setAnimationBoolToIsMoving: isMoving
   moveTarget: {fileID: 0}
@@ -1057,6 +1098,10 @@ MonoBehaviour:
   smoothing: 0.4
   knockbackDecel: 5
   knockbackDeadzone: 0.1
+  dodgeDecel: 5
+  dodgeDeadzone: 0.1
+  _knockbackVector: {x: 0, y: 0}
+  _dodgeVector: {x: 0, y: 0}
 --- !u!114 &114956226818735104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5806,7 +5851,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: 64
+  m_SortingOrder: -3
 --- !u!212 &212800381962243838
 SpriteRenderer:
   m_ObjectHideFlags: 1

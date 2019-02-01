@@ -29,6 +29,10 @@ public class PlayerHealth : Health
     protected IEnumerator PlayerDead()
     {
         yield return new WaitForSeconds(deathWaitTime);
+        var ic = GetComponent<InputController>();
+        ic.joystick = Vector2.zero;
+        ic.dodge.SetValue(false);
+        ic.input.SetValue(false);
         playerDeath.Invoke();
 
         var hp = Player.Instance.gameObject.GetComponent<PlayerHealth>();

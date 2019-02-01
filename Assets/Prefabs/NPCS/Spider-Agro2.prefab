@@ -551,11 +551,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 2048
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   change:
     type: 0
     ConstantValue: -1
@@ -616,11 +613,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 2048
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   knockbackForce: 7
   useRotation: 0
 --- !u!114 &114455610134811240
@@ -682,7 +676,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27752e18603bdf7459cdc47f89f29bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: AQALAAAAY29uc3RyYWludHMvAAAAAABQAAAAU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tUYXJnZXRDb25zdHJhaW50LCBBc3NlbWJseS1DU2hhcnBdXSwgbXNjb3JsaWIAAAAABgAAAAAAAAAABwU=
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   transforms: []
+  constraints: []
 --- !u!114 &114525369374869838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -862,6 +866,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  ForcedState: {fileID: 0}
   WaitTime: {x: 0, y: 0.75}
 --- !u!114 &114942313008179888
 MonoBehaviour:

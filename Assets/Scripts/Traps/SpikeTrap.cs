@@ -5,6 +5,8 @@ using Sirenix.OdinInspector;
 
 public class SpikeTrap : MonoBehaviour
 {
+    protected enum state { INIT, BEFOREUP, BEFOREDOWN, DOWN };
+
     public enum BehaviourType { FixedTime, Triggered }
     public BehaviourType behaviourType;
 
@@ -21,11 +23,50 @@ public class SpikeTrap : MonoBehaviour
     float m_nextStateTime;
     Coroutine m_coroutine;
     Animator m_anim;
+    protected int currentState;
 
     WaitUntil WaitForNextState(float time)
     {
         m_nextStateTime = Time.time + time;
         return new WaitUntil(() => { return Time.time >= m_nextStateTime; });
+    }
+    private void FixedUpdate()
+    {
+        if (behaviourType == BehaviourType.Triggered)
+            return;
+
+        if (Time.time < m_nextStateTime)
+            return;
+
+        var coll = hurtbox.GetComponent<BoxCollider2D>();
+
+        
+        if (currentState == 4)
+            currentState = 0;
+
+        switch (currentState)
+        {
+            case 0:
+                m_nextStateTime = Time.time + initalDelay;
+                break;
+            case 1:
+                m_anim.SetTrigger("TrapSprung");
+                m_nextStateTime = Time.time + delayBeforeUp;
+                break;
+            case 2:
+                m_anim.SetTrigger("Trigger_Up");
+                hurtbox.gameObject.SetActive(true);
+                coll.isTrigger = false;
+                m_nextStateTime = Time.time + delayBeforeDown;
+                break;
+            case 3:
+                m_anim.SetTrigger("Trigger_Down");
+                hurtbox.gameObject.SetActive(false);
+                coll.isTrigger = true;
+                break;
+        }
+
+        currentState++;
     }
 
     IEnumerator DoTriggered()
@@ -115,10 +156,8 @@ public class SpikeTrap : MonoBehaviour
     {
         if(m_anim == null)
             m_anim = GetComponent<Animator>();
-
-        if (behaviourType == BehaviourType.FixedTime)
-            m_coroutine = StartCoroutine(DoFixedTime());
     }
+
     private void OnDisable()
     {
         if(m_coroutine != null)

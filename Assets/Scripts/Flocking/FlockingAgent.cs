@@ -201,10 +201,22 @@ public class FlockingAgent : MovementController
     }
     */
 
-    Vector2 RunAway(Vector2 target)
+    public Vector2 RunAway(Vector2 target)
     {
         Vector2 neededVelocity = ((Vector2)transform.position - target).normalized * maxVelocity;
         return neededVelocity - velocity;
+    }
+
+    public Vector2 Seek(Vector2 target, float arrivalStartDist= 0f)
+    {
+        var dist = Vector2.Distance(transform.position, target);
+
+        Vector2 neededVelocity = (target - (Vector2)transform.position).normalized * moveSpeed;
+
+        if (dist <= arrivalStartDist)
+            neededVelocity = neededVelocity - velocity;
+
+        return neededVelocity;
     }
 
     public bool IsInFOV(Vector2 vec)

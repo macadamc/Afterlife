@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 61672349314087452}
   - component: {fileID: 114902335831232678}
   - component: {fileID: 114098335259018962}
+  - component: {fileID: 114902356591547924}
   m_Layer: 0
   m_Name: TrapTriggerProjectile
   m_TagString: Untagged
@@ -119,6 +120,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e42fb8245a31924cb9cda635a296926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  addPlayerTag: 1
+  targetTags: {fileID: 0}
   speed: 1
   acceleration: 0
   speedBounds: {x: -20, y: 20}
@@ -134,6 +156,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  isHittable: 0
+  creator: {fileID: 0}
+  targets: {fileID: 0}
 --- !u!114 &114742728467950020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,6 +177,14 @@ MonoBehaviour:
     pressed: 0
     held: 0
     released: 0
+  interact:
+    pressed: 0
+    held: 0
+    released: 0
+  dodge:
+    pressed: 0
+    held: 0
+    released: 0
 --- !u!114 &114902335831232678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,6 +197,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 3
+--- !u!114 &114902356591547924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305667993371286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae5e664c05303c42891c893eb0939f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  values: []
 --- !u!212 &212967858484092170
 SpriteRenderer:
   m_ObjectHideFlags: 1

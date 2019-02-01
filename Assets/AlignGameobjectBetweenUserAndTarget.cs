@@ -140,7 +140,7 @@ public class AlignGameobjectBetweenUserAndTarget : SteeringBehaviour
             lookDir = (goToAlign.transform.position - targetPos).normalized;
             lineStart = goToAlign.transform.position + (lookDir * 1f);
             lineEnd = goToAlign.transform.position + (lookDir * 17f);
-            desiredPos = NearestPointOnFiniteLine(lineStart, lineEnd, itemController.itemSpawnTransform.position);
+            desiredPos = ShadyPixel.ShadyMath.NearestPointOnFiniteLine(lineStart, lineEnd, itemController.itemSpawnTransform.position);
             distanceToDesiredPos = Vector2.Distance(itemController.itemSpawnTransform.position, desiredPos);
 
             if (debugObj != null)
@@ -148,32 +148,9 @@ public class AlignGameobjectBetweenUserAndTarget : SteeringBehaviour
 
             if (distanceToDesiredPos <= trackingDistance && distanceToDesiredPos > errorThreshold)
             {
-                Vector2 neededVelocity = (desiredPos - itemController.itemSpawnTransform.position).normalized * agent.moveSpeed;
-                neededVelocity = neededVelocity - agent.velocity;
-
-                agent.AddSteeringForce(neededVelocity, priority);
+                agent.AddSteeringForce(agent.Seek(desiredPos), priority);
             }
         }
-    }
-
-    public Vector3 NearestPointOnLine(Vector2 linePnt, Vector2 lineDir, Vector2 pnt)
-    {
-        lineDir.Normalize();//this needs to be a unit vector
-        var v = pnt - linePnt;
-        var d = Vector2.Dot(v, lineDir);
-        return linePnt + lineDir * d;
-    }
-
-    public Vector3 NearestPointOnFiniteLine(Vector3 start, Vector3 end, Vector3 pnt)
-    {
-        var line = (end - start);
-        var len = line.magnitude;
-        line.Normalize();
-
-        var v = pnt - start;
-        var d = Vector3.Dot(v, line);
-        d = Mathf.Clamp(d, 0f, len);
-        return start + line * d;
     }
 
     private void Update()

@@ -4,7 +4,7 @@ using UnityEngine;
 using Pixelplacement;
 using Sirenix.OdinInspector;
 using UnityEngine.Events;
-
+using ShadyPixel.Variables;
 [System.Serializable]
 [InlineProperty]
 public class ActionVariable
@@ -32,7 +32,7 @@ public class ProjectileAction
 }
 
 
-public class Projectile : MonoBehaviour
+public class Projectile : InteractOnTrigger2D
 {
     [TabGroup("Default Variables")]
     public float speed = 1f;
@@ -53,8 +53,10 @@ public class Projectile : MonoBehaviour
     public LayerMask collisionLayers;
     [TabGroup("Default Variables")]
     public UnityEvent onProjectileCollision;
+    public bool isHittable = false;
 
-    //public Transform creator;
+    public Collider2D creator;
+    public TargetTags targets;
     /*
     [TabGroup("Action Queue")]
     public float delayBeforeStartingQueue;
@@ -63,27 +65,30 @@ public class Projectile : MonoBehaviour
     */
 
     protected Rigidbody2D rb;
-
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    protected override void ExecuteOnEnter(Collider2D collision)
     {
+        base.ExecuteOnEnter(collision);
+
         var hitProj = collision.GetComponent<HitProjectile>();
-        if(hitProj == null)
+        if (hitProj == null)
         {
             if ((collisionLayers.value & 1 << collision.gameObject.layer) != 0)
             {
                 onProjectileCollision.Invoke();
-
                 if (destroyOnCollision)
                     Destroy(transform.gameObject);
             }
         }
     }
-    
 
     private void OnEnable()
     {
         if(rb == null)
             rb = GetComponent<Rigidbody2D>();
+
+        if(targets == null)
+            targets = GetComponent<TargetTags>();
+
     }
 
     public virtual void Update()

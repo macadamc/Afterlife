@@ -18,7 +18,7 @@ public class CinemachineCameraZone : InteractOnTrigger2D
     protected override void ExecuteOnEnter(Collider2D other)
     {
         // only the player can trigger
-        if (!other.gameObject.CompareTag("Player"))
+        if (!other.gameObject.CompareTag(Tags.Player))
             return;
 
         // calls some unity events on base class
@@ -34,7 +34,7 @@ public class CinemachineCameraZone : InteractOnTrigger2D
     protected override void ExecuteOnExit(Collider2D other)
     {
         //this is all same as above but exit events / turning OFF virtual camera
-        if (!other.gameObject.CompareTag("Player"))
+        if (!other.gameObject.CompareTag(Tags.Player))
             return;
         base.ExecuteOnExit(other);
         vCam.gameObject.SetActive(false);
