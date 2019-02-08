@@ -32,16 +32,21 @@ public class HeldSword : HeldItem
         {
             minChargeTime = Time.time + item.chargeTime;
         }
-        
-        main.maxParticles = Mathf.RoundToInt(MaxParticlesAtFullCharge);
+
+        main.maxParticles = 0;// Mathf.RoundToInt(MaxParticlesAtFullCharge);
     }
 
     public override void Hold(ItemController user)
     {
-        float chargePercentage = Time.time / minChargeTime;
+        main.maxParticles = Mathf.RoundToInt(MaxParticlesAtFullCharge);
+        if(Time.time >= minChargeTime)
+        {
+            float chargePercentage = Time.time / minChargeTime;
 
-        emission.rateOverTime = MaxParticlesAtFullCharge * chargePercentage;
-        main.startSpeed = Mathf.Clamp(1f * chargePercentage, .25f, 1f);
+            emission.rateOverTime = MaxParticlesAtFullCharge * chargePercentage;
+            main.startSpeed = Mathf.Clamp(1f * chargePercentage, .25f, 1f); 
+        }
+        
     }
 
     public override void End(ItemController user)

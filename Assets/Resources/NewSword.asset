@@ -16,13 +16,14 @@ MonoBehaviour:
   aboveHeadSprite: {fileID: 21300010, guid: 70c3e630ef6678041bc528511d92d9bc, type: 3}
   pickupSfx: {fileID: 0}
   strafeLockedWhileHeld: 1
-  itemToHold: {fileID: 1407126974486646, guid: b7a8233e6c5b68b449c1e6ea41630bcf, type: 2}
+  itemToHold: {fileID: 1936102589446768, guid: 827c925055b21e7418b377a6ca16fe30, type: 2}
   itemToSpawnOnUse: {fileID: 1466178211366072, guid: 8b2a25edd3c2cf145a1f2243d9a4af66,
     type: 2}
-  otherItemToSpawn: {fileID: 0}
+  otherItemToSpawn: {fileID: 1466178211366072, guid: 7929350df0e1a9342aba3a6664c87773,
+    type: 2}
   moveSpeedPercent: 0.5
   itemCooldownTime: 0.45
   itemMoveStunTime: 0.15
   angleSnap: 45
-  useOtherPrefab: 0
-  chargeTime: 0
+  useOtherPrefab: 1
+  chargeTime: 0.5

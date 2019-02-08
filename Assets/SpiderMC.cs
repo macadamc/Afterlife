@@ -55,9 +55,6 @@ public class SpiderMC : FlockingAgent
 
     private void LateUpdate()
     {
-        if (m_LockInput & velocity.magnitude == 0f)
-            m_LockInput = false;
-
         if(velocity.magnitude > 0f)
         {
             velocity *= (1f - decel * Time.deltaTime);
@@ -65,6 +62,9 @@ public class SpiderMC : FlockingAgent
             if (velocity.magnitude <= decelDeadZone)
                 velocity = Vector2.zero;
         }
-        
+
+        if (m_LockInput & velocity.magnitude == 0f)
+            m_LockInput = false;
+
     }
 }

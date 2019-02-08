@@ -104,6 +104,7 @@ public class AlignGameobjectBetweenUserAndTarget : SteeringBehaviour
     protected float distanceToDesiredPos;
 
     private Vision _vision;
+    protected ProjectileRef pRef;
 
     public bool IsAligned
     {
@@ -128,10 +129,18 @@ public class AlignGameobjectBetweenUserAndTarget : SteeringBehaviour
 
         if (_vision.targets.transforms != null && _vision.targets.transforms.Count > 0)
             target_InputController = _vision.targets.transforms[0].GetComponent<InputController>();
+
+        if(pRef == null)
+            pRef = GetComponentInParent<ProjectileRef>();
+
     }
 
     public override void Tick()
     {
+        if (pRef != null && pRef.value != null)
+            goToAlign = pRef.value.gameObject;
+
+
         if (target_InputController != null && goToAlign != null)
         {
             var targetPos = target_InputController.transform.position;
@@ -159,6 +168,11 @@ public class AlignGameobjectBetweenUserAndTarget : SteeringBehaviour
         {
             uEvent.Invoke();
         }
+    }
+
+    public void SetTarget(GameObject go)
+    {
+        goToAlign = go;
     }
 
 }
