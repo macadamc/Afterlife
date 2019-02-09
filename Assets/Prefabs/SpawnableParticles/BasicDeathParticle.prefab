@@ -166,7 +166,7 @@ MonoBehaviour:
     OnEnable:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 11400000, guid: d7d9bbf80bb809944853433930bae9b5, type: 2}
+        - m_Target: {fileID: 11400000, guid: 56278a41a36323d4bb31972c8c0d3e1f, type: 2}
           m_MethodName: Play
           m_Mode: 2
           m_Arguments:
@@ -838,7 +838,7 @@ ParticleSystem:
     sphericalDirectionAmount: 1
     randomPositionAmount: 0
     radius:
-      value: 0.25
+      value: 1
       mode: 0
       spread: 0
       speed:
@@ -1067,7 +1067,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
+        scalar: 5
         minScalar: 0
         maxCurve:
           serializedVersion: 2

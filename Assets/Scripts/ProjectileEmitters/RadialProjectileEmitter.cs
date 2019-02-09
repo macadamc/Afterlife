@@ -13,6 +13,8 @@ public class RadialProjectileEmitter : State
     public float arc = 360f;
     [TabGroup("Variables")]
     public float angleOffset = 0f;
+    [TabGroup("Variables")]
+    public float bulletSpawnDistance = 0f;
     [TabGroup("Variables"), MinValue(1)]
     public int numberOfBulletsPerWave = 6;
     [TabGroup("Variables"), MinValue(1)]
@@ -102,7 +104,8 @@ public class RadialProjectileEmitter : State
         //  gets the angle from the look direction
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         //  rotates object to face the new angle
-        bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);        
+        bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        bullet.transform.localPosition += bullet.transform.right * bulletSpawnDistance;
     }
 
     private void Shoot(GameObject bulletPrefab, float angle)
@@ -117,6 +120,7 @@ public class RadialProjectileEmitter : State
 
         //  rotates object to face the new angle
         bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        bullet.transform.localPosition += bullet.transform.right * bulletSpawnDistance;
     }
 
     protected override void OnEnable()

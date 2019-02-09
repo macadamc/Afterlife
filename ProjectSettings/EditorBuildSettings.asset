@@ -56,4 +56,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Redo.unity
     guid: 9e18a19ce2dbee746a1a9e9d5540bccf
+  - enabled: 1
+    path: Assets/Scenes/ForestLevel.unity
+    guid: a2a3fc9659a97ca4cade984a420dab85
   m_configObjects: {}

@@ -17,6 +17,9 @@ public class Health : MonoBehaviour, IDataPersister
     public delegate void OnHealthChanged(int change);
     public OnHealthChanged onHealthChanged;
 
+    public delegate void OnGameObjectDeath();
+    public OnGameObjectDeath onGameObjectDeath;
+
     public IntReference currentHealth;
     public IntReference maxHealth;
     public int damageFlashAmount = 3;
@@ -31,6 +34,7 @@ public class Health : MonoBehaviour, IDataPersister
     bool _initialized;
     public bool invincible;
     SpriteRenderer[] _sprites;
+
 
     public virtual void ChangeHealth(int change)
     {
@@ -78,18 +82,21 @@ public class Health : MonoBehaviour, IDataPersister
         {
             events.onDeath.Invoke();
 
+            if(onGameObjectDeath != null)
+                onGameObjectDeath.Invoke();
+
             if (deactivateRootObjectOnDeath)
                 gameObject.SetActive(false);
         }
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         _sprites = GetComponentsInChildren<SpriteRenderer>();
         PersistentDataManager.RegisterPersister(this);
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         PersistentDataManager.UnregisterPersister(this);
     }

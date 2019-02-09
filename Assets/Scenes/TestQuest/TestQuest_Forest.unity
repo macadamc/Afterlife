@@ -5478,11 +5478,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &144946316
 Rigidbody2D:
@@ -5563,6 +5560,37 @@ CompositeCollider2D:
       - {x: -13.5, y: -8.5}
       - {x: 13.5, y: -8.5}
   m_VertexDistance: 0.0005
+--- !u!84 &150918484
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SpriteLightKit RT
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 898
+  m_Height: 561
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &158293660
 Prefab:
   m_ObjectHideFlags: 0
@@ -6483,11 +6511,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &277512637
 Rigidbody2D:
@@ -7513,11 +7538,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &428089147
 Rigidbody2D:
@@ -8446,11 +8468,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &486846555
 Rigidbody2D:
@@ -8646,11 +8665,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &499126448
 Rigidbody2D:
@@ -8850,11 +8866,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &527037296
 Rigidbody2D:
@@ -10092,11 +10105,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &741429236
 Rigidbody2D:
@@ -10240,11 +10250,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &748450144
 Rigidbody2D:
@@ -10518,7 +10525,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4096
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 1618453388}
+  m_TargetTexture: {fileID: 150918484}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -14225,11 +14232,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &1372241941
 Rigidbody2D:
@@ -15375,7 +15379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 09755a4891f8d4526a7e0690a23dec7b, type: 3}
-  spriteLightRT: {fileID: 1618453388}
+  spriteLightRT: {fileID: 150918484}
   intensity: 2
 --- !u!114 &1549161294
 MonoBehaviour:
@@ -15907,37 +15911,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e357fff97cff8f47a2d8a8f39d1846c, type: 2}
   m_IsPrefabAsset: 0
---- !u!84 &1618453388
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: SpriteLightKit RT
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 677
-  m_Height: 423
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1627065416
 Prefab:
   m_ObjectHideFlags: 0
@@ -16237,11 +16210,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4631197548683620, guid: 89e08c137a5a0234a918d2ac40313e6f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 29.31
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4631197548683620, guid: 89e08c137a5a0234a918d2ac40313e6f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 42.75
+      value: 50.4
       objectReference: {fileID: 0}
     - target: {fileID: 4631197548683620, guid: 89e08c137a5a0234a918d2ac40313e6f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -16273,6 +16246,14 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: f2e6e103cd4936d4d8d78f44826387cb,
         type: 2}
+    - target: {fileID: 4786389884999984, guid: 89e08c137a5a0234a918d2ac40313e6f, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4722574726008864, guid: 89e08c137a5a0234a918d2ac40313e6f, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114584574525576344, guid: 89e08c137a5a0234a918d2ac40313e6f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 89e08c137a5a0234a918d2ac40313e6f, type: 2}
@@ -17193,11 +17174,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &1827429401
 Rigidbody2D:
@@ -77961,11 +77939,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  layers:
-    serializedVersion: 2
-    m_Bits: 16183
   addPlayerTag: 1
-  interactableTags: []
+  targetTags: {fileID: 0}
   slowdownEffectOnPlayerEnter: 1
 --- !u!50 &1961397061
 Rigidbody2D:

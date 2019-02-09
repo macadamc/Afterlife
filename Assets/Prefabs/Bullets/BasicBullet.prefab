@@ -28,6 +28,8 @@ GameObject:
   - component: {fileID: 114797981218984890}
   - component: {fileID: 95750675604592102}
   - component: {fileID: 114155297236041422}
+  - component: {fileID: 210578056438579640}
+  - component: {fileID: 114473378033634460}
   m_Layer: 14
   m_Name: BasicBullet
   m_TagString: Projectile
@@ -224,6 +226,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 10
+--- !u!114 &114473378033634460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144479920589930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a87427ccd751847a6358f922d4d037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppu: 16
 --- !u!114 &114769910312015232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4989,6 +5003,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!210 &210578056438579640
+SortingGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144479920589930}
+  m_Enabled: 1
+  m_SortingLayerID: -1223979617
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!212 &212119323945850728
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: SFX_PlagueDoctorAttack
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 4b778681cc017ce41b80a705c518f2a3, type: 3}
-  volume: {x: 0.05, y: 0.1}
+  volume: {x: 0.2, y: 0.3}
   pitch: {x: 0.5, y: 0.6}
   mixerGroup: {fileID: 0}
