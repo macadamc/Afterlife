@@ -120,7 +120,7 @@ public class NewGameObjectCreator : OdinEditorWindow
 
     private void CreateHealth(GameObject baseObj)
     {
-        Health hp = baseObj.AddComponent<Health>();
+        baseObj.AddComponent<Health>();
     }
 
     private void CreateMovementController(GameObject baseObj)

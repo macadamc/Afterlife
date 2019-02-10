@@ -34,11 +34,6 @@ public class FlockingAgent : MovementController
         FlockingAgentManager.Instance.AddAgent(this);
     }
 
-    public override void OnEnable()
-    {
-        base.OnEnable();
-    }
-
     public virtual void OnDisable()
     {
         FlockingAgentManager.Instance.RemoveAgent(this);
@@ -68,6 +63,7 @@ public class FlockingAgent : MovementController
         {
             acceleration = Vector2.zero;
             OnUpdate.Invoke();
+
             //acceleration = Combine();
 
             acceleration = Vector2.ClampMagnitude(acceleration, maxAcceleration);
@@ -222,11 +218,6 @@ public class FlockingAgent : MovementController
     public bool IsInFOV(Vector2 vec)
     {
         return Vector2.Angle(velocity, vec - (Vector2)transform.position) <= maxFov;
-    }
-
-    protected Vector2 Input()
-    {
-        return Ic.joystick;
     }
 
     public void AddSteeringForce (Vector2 forceVector, float priority)

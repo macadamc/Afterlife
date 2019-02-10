@@ -16,7 +16,7 @@ public class TriggerDialogueClip : PlayableAsset, ITimelineClipAsset
     public override Playable CreatePlayable (PlayableGraph graph, GameObject owner)
     {
         var playable = ScriptPlayable<TriggerDialogueBehaviour>.Create (graph, template);
-        TriggerDialogueBehaviour clone = playable.GetBehaviour ();
+        //TriggerDialogueBehaviour clone = playable.GetBehaviour ();
         return playable;
     }
 }

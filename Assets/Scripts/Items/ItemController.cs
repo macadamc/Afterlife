@@ -277,7 +277,7 @@ public class ItemController : MonoBehaviour, IDataPersister
         {
             if (_usingItem)
                 return m_startTime;
-            throw new System.Exception("Opps...");
+            //throw new System.Exception("Opps...");
             return Time.time;
         }
         private set

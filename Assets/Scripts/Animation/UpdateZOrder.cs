@@ -22,13 +22,13 @@ public class UpdateZOrder : MonoBehaviour
     Vector2 _lastKnownPosition;
     SpriteRenderer[] _spriteRenderer;
     SortingGroup _sortingGroup;
-    bool _inEditor;
+    //bool _inEditor;
 
     private void Start()
     {
         if(!Application.isPlaying)
         {
-            _inEditor = true;
+            //_inEditor = true;
 
             if (_lastKnownPosition != (Vector2)transform.position)
             {

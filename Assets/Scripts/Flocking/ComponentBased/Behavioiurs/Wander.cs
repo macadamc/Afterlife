@@ -7,8 +7,6 @@ public class Wander : SteeringBehaviour
     public float jitter;
     public bool resetWanderTargetOnDisable;
     float _jitter;
-    //public float distance;
-    //public float radius;
     Vector2 wanderTarget;
 
 

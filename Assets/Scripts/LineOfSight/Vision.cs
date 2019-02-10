@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class Vision : MonoBehaviour
 {
-
     public float viewRadius;
     [Range(0, 360)]
     public float viewAngle;
@@ -124,8 +123,11 @@ public class Vision : MonoBehaviour
         }
         if (targets.transforms.Count > 0)
         {
-            onTargetSeen.Invoke();
-            hasTargets = true;
+            if(hasTargets == false)
+            {
+                onTargetSeen.Invoke();
+                hasTargets = true;
+            }
         }
         else
         { 
@@ -136,7 +138,6 @@ public class Vision : MonoBehaviour
             }
         }
     }
-    
 
     private void OnDrawGizmosSelected()
     {

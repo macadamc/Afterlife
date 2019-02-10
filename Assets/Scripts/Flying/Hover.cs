@@ -5,14 +5,12 @@ using UnityEngine;
 public class Hover : MonoBehaviour
 {
     FakeZAxis m_FakeZAxis;
-    Collider2D m_Collider;
 
     public GameObject Hurtbox;
 
     private void Awake()
     {
         m_FakeZAxis = GetComponent<FakeZAxis>();
-        m_Collider = GetComponent<Collider2D>();
     }
 
     private void FixedUpdate()

@@ -9,6 +9,9 @@ public class RandomNextState : State
     List<GameObject> states;
     protected override void OnEnable()
     {
+        if (states == null)
+            states = new List<GameObject>();
+
         StateMachine.ChangeState(states[Random.Range(0, states.Count)]);
     }
 }

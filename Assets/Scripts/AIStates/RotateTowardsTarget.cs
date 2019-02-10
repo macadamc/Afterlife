@@ -16,8 +16,8 @@ public class RotateTowardsTarget : MonoBehaviour {
 
     void OnEnable ()
     {
-        if(startRotation == null)
-            startRotation = transform.rotation;
+        startRotation = transform.rotation;
+
 
         vectorToTarget = Vector3.zero;
         angleToTarget = 0f;

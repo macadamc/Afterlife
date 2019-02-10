@@ -100,7 +100,7 @@ public static class OdinHierarchyDrawer
                 }
                 if (item.decorationType == OdinHierarchySettings.Decoration.Left)
                 {
-                    Rect extended2 = new Rect(extended);
+                    //Rect extended2 = new Rect(extended);
                     extended.xMin = extended.xMin - 2;
                     SirenixEditorGUI.DrawBorders(extended, 4, 0, 0, 0, item.decorationColor);
                 }

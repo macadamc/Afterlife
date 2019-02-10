@@ -17,10 +17,7 @@ public class HealthGreaterThanX : TargetConstraint
     Health hp;
     public override bool Check(Transform target)
     {
-        if(hp == null)
-        {
-            hp = target.GetComponent<Health>();
-        }
+        hp = target.GetComponent<Health>();
 
         return hp != null && hp.currentHealth > x;
     }

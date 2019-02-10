@@ -11,7 +11,7 @@ public class TriggerDialogueMixerBehaviour : PlayableBehaviour
 
         if (!trackBinding)
             return;
-
+        /*
         int inputCount = playable.GetInputCount ();
 
         for (int i = 0; i < inputCount; i++)
@@ -20,5 +20,6 @@ public class TriggerDialogueMixerBehaviour : PlayableBehaviour
             ScriptPlayable<TriggerDialogueBehaviour> inputPlayable = (ScriptPlayable<TriggerDialogueBehaviour>)playable.GetInput(i);
             TriggerDialogueBehaviour input = inputPlayable.GetBehaviour ();
         }
+        */
     }
 }

@@ -13,7 +13,7 @@ public class ProjectileEmitController : StateMachine
     {
         GameObject newEmitter = new GameObject("New Projectile Emitter");
         newEmitter.transform.parent = transform;
-        var emitter = newEmitter.AddComponent<RadialProjectileEmitter>();
+        newEmitter.AddComponent<RadialProjectileEmitter>();
         newEmitter.transform.localPosition = Vector3.zero;
 
         Selection.activeGameObject = newEmitter;

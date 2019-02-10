@@ -25,7 +25,7 @@ public class MoveToTargetsPosition : State {
 
         base.OnEnable();
 
-        if (_target != null && coroutine == null)
+        if (coroutine == null)
             coroutine = StartCoroutine(MoveTowardTarget());
     }
 

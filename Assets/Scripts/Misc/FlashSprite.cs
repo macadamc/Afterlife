@@ -28,7 +28,7 @@ public class FlashSprite : MonoBehaviour {
     public UnityEvent onStartEvent;
     public UnityEvent onFinishEvent;
 
-    bool _flashing;
+    //bool _flashing;
     SpriteRenderer[] _renderers;
 
     private void OnEnable()
@@ -40,7 +40,7 @@ public class FlashSprite : MonoBehaviour {
     protected IEnumerator Flash(int flashes)
     {
         onStartEvent.Invoke();
-        _flashing = true;
+        //_flashing = true;
         for (int i = 0; i < flashes; i++)
         {
             foreach (SpriteRenderer r in _renderers)
@@ -54,7 +54,7 @@ public class FlashSprite : MonoBehaviour {
             }
             yield return new WaitForSeconds(onTime);
         }
-        _flashing = false;
+        //_flashing = false;
 
         if(stateWhenFinished == SpriteState.On)
         {

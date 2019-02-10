@@ -14,10 +14,6 @@ public class InteractOnInteractButton2D : InteractOnTrigger2D
     InputController m_InputController;
     Collider2D m_InteractingCollider;
 
-    private void Start()
-    {
-        DialougeUI dialouge = GameObject.FindObjectOfType<DialougeUI>();
-    }
     // gets ref and sets m_CanExecuteButtons to true
     protected override void ExecuteOnEnter(Collider2D other)
     {
