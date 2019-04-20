@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
-[RequireComponent(typeof(Collider2D)), ShowOdinSerializedPropertiesInInspector]
+[ShowOdinSerializedPropertiesInInspector]
 public class InteractOnTrigger2D : SerializedMonoBehaviour
 {
     public UnityEvent OnEnter, OnExit;

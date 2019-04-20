@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 114419959039390538}
   - component: {fileID: 114408305820384076}
   - component: {fileID: 114935584025996696}
+  - component: {fileID: 114038975791419862}
   m_Layer: 11
   m_Name: Player_Chris
   m_TagString: Player
@@ -373,7 +374,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747217673039194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.9, y: -0.4, z: 0}
+  m_LocalPosition: {x: 27.7, y: 21.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4604300690912258}
@@ -751,6 +752,46 @@ MonoBehaviour:
   interactButtonName: Interact
   dodgeButtonName: Dodge
   inputController: {fileID: 114763024943547954}
+--- !u!114 &114038975791419862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1747217673039194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: -1
+    m_RawSignal: {fileID: 11400000, guid: be6bbfc852f4cb8409efc3f2bc87988d, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.15
+      m_DecayTime: 0
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 50
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
 --- !u!114 &114042986886767670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -890,6 +931,17 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 82289633668625436}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 114038975791419862}
+          m_MethodName: GenerateImpulse
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1162,7 +1214,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ItemControllerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  currentItem: {fileID: 11400000, guid: 7dbe1bd84945b08458a6c953e9364d5c, type: 2}
+  currentItem: {fileID: 11400000, guid: 30afb845d638c1d45911defc7d20fbbe, type: 2}
   itemIndex: -1
   heldItemSpriteRend: {fileID: 212953699551470014}
   itemSpawnTransform: {fileID: 4590298502738490}
@@ -10541,7 +10593,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: 6
+  m_SortingOrder: -347
 --- !u!212 &212329305435466154
 SpriteRenderer:
   m_ObjectHideFlags: 1

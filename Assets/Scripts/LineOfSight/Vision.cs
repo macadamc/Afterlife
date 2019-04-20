@@ -28,6 +28,11 @@ public class Vision : MonoBehaviour
     public UnityEvent onNoTargets;
     bool hasTargets;
 
+    private void OnEnable()
+    {
+        hasTargets = false;
+    }
+
     /// <summary>
     /// If this vision object can see open ground at a position in the world.
     /// </summary>

@@ -81,7 +81,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4871550222049710}
-  - component: {fileID: 114201717348821436}
   - component: {fileID: 114497371693990872}
   - component: {fileID: 114683671918417390}
   m_Layer: 11
@@ -121,7 +120,6 @@ GameObject:
   - component: {fileID: 114724499616921190}
   - component: {fileID: 114461180216296232}
   - component: {fileID: 114330166718601474}
-  - component: {fileID: 114422760912889954}
   - component: {fileID: 114117604516701630}
   - component: {fileID: 82409334724498548}
   - component: {fileID: 114798487061040356}
@@ -129,6 +127,7 @@ GameObject:
   - component: {fileID: 114682310005628642}
   - component: {fileID: 114217140503140140}
   - component: {fileID: 114464577462610730}
+  - component: {fileID: 114508327328922104}
   m_Layer: 11
   m_Name: Enemy_PlagueDoctor_SingleShot
   m_TagString: Enemy
@@ -640,18 +639,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9940ad27dd357dc46b46610f4b36e8d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114201717348821436
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1452660795169226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5eaebb92849b5649847ef79135fc77b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useOrthognial: 0
 --- !u!114 &114217140503140140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -734,19 +721,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ppu: 16
---- !u!114 &114422760912889954
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1513228093775202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e681110564417ec46ae73c15bfca7289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputController: {fileID: 114461180216296232}
-  transformToUse: {fileID: 4232977680265770}
 --- !u!114 &114426712078978904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -870,6 +844,19 @@ MonoBehaviour:
   priority: 1
   jitter: 10
   resetWanderTargetOnDisable: 1
+--- !u!114 &114508327328922104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1513228093775202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e681110564417ec46ae73c15bfca7289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputController: {fileID: 114461180216296232}
+  transformToUse: {fileID: 4347886164077712}
 --- !u!114 &114630755454996296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1018,13 +1005,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth:
     type: 0
-    ConstantValue: 4
+    ConstantValue: 6
     Variable: {fileID: 0}
   maxHealth:
     type: 0
-    ConstantValue: 4
+    ConstantValue: 6
     Variable: {fileID: 0}
-  damageFlashAmount: 3
+  damageFlashAmount: 1
   deactivateRootObjectOnDeath: 1
   events:
     onHurt:

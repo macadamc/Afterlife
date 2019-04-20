@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: DefaultNpc
   m_EditorClassIdentifier: 
   useDelay: 1
-  delay: 0.05
+  delay: 0.025
   sfx: {fileID: 11400000, guid: defaeaf35e534e241a524754c49db636, type: 2}
   TMP_Font: {fileID: 11400000, guid: b581fcc60aab2ab418065460acb396b0, type: 2}
   fontSize: 8
@@ -21,4 +21,4 @@ MonoBehaviour:
   autoSize: 1
   maxSize: {x: 175, y: 38.5}
   padding: {x: 0, y: 0}
-  useTween: 1
+  useTween: 0

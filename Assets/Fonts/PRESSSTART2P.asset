@@ -11,19 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: PRESSSTART2P
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -1540230619
   material: {fileID: 21411742321409078}
-  materialHashCode: 0
+  materialHashCode: 1911851534
   fontAssetType: 2
   m_fontInfo:
     Name: Press Start 2P
     PointSize: 52
-    Scale: 0
+    Scale: 1
     CharacterCount: 97
     LineHeight: 52
     Baseline: 0
     Ascender: 52
-    CapHeight: 0
+    CapHeight: 52
     Descender: 0
     CenterLine: 0
     SuperscriptOffset: 52
@@ -33,7 +33,7 @@ MonoBehaviour:
     UnderlineThickness: 2.5898438
     strikethrough: 18.90909
     strikethroughThickness: 2.5898438
-    TabWidth: 0
+    TabWidth: 520
     Padding: 5
     AtlasWidth: 512
     AtlasHeight: 512
@@ -42,10 +42,10 @@ MonoBehaviour:
   - id: 32
     x: 5
     y: 507
-    width: 0
-    height: 0
+    width: 52
+    height: 52
     xOffset: 0
-    yOffset: 0
+    yOffset: 52
     xAdvance: 52
     scale: 1
   - id: 33
@@ -981,7 +981,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: PRESSSTART2P Material
   m_Shader: {fileID: 4800000, guid: 128e987d567d4e2c824d754223b3f3b0, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

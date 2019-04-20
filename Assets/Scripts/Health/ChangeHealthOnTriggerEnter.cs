@@ -10,7 +10,6 @@ public class ChangeHealthOnTriggerEnter : InteractOnTrigger2D {
     protected override void ExecuteOnEnter(Collider2D other)
     {
         base.ExecuteOnEnter(other);
-
         //Health self = GetComponentInParent<Health>();
         Health hp = other.gameObject.GetComponentInChildren<Health>();
         /*
@@ -21,6 +20,7 @@ public class ChangeHealthOnTriggerEnter : InteractOnTrigger2D {
         */
         if (hp != null)
         {
+            //base.ExecuteOnEnter(other);
             hp.ChangeHealth(change.Value);
         }
 

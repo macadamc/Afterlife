@@ -11,42 +11,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestQuest_DebugRoom1.unity
     guid: 673e6bbf600851a439f4022aa900689c
-  - enabled: 1
+  - enabled: 0
     path: 
-    guid: 0852deeac9860a84e8dcfe0a48024966
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: 5b8f16f485106504282ab9c007fe28b2
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: 8f2016a1e4fdadb46bd7247cb7052364
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: f57a9abd46ecf0c4ca2f46195ff49963
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: 45d4c3ffe1960654cb064a1180ecb3bb
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: caea47bed1c45084bb318807be7dbacf
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: 53afef231df1243469796ec094f3f42f
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: 
-    guid: a3c5a98ce66ffaf4081b0b54fc2ad793
-  - enabled: 1
-    path: 
-    guid: 2ab024caddc1ddb48ac2eeb5c4a27d3c
-  - enabled: 1
-    path: 
-    guid: 60cdae155a9f3874288d6dc2217f3bf3
-  - enabled: 1
-    path: 
-    guid: 8a81b0f1540e5b647ac1ca64ec74d844
-  - enabled: 1
-    path: 
-    guid: 406b99734cd1ea74694de0da38693a50
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/TestQuest/DebugRoom_Chris.unity
     guid: ae2201b6666499a4897733e4093bbc2d
@@ -54,9 +42,27 @@ EditorBuildSettings:
     path: Assets/Scenes/ForestArea-Mike.unity
     guid: 15d90febeabdc874a81bbf949019c2c4
   - enabled: 1
-    path: Assets/Redo.unity
+    path: Assets/Scenes/Redo.unity
     guid: 9e18a19ce2dbee746a1a9e9d5540bccf
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/ForestLevel.unity
-    guid: a2a3fc9659a97ca4cade984a420dab85
+    path: Assets/Scenes/Debug/DebugNPCRoom.unity
+    guid: d9bc71e3977c7174ab59cc90f640a38f
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/TestQuest/ForestLevel_TileTest.unity
+    guid: 9c46140550c238d489788c21b44cbec7
+  - enabled: 1
+    path: Assets/Scenes/TestQuest/CaveTest.unity
+    guid: 43247eea13d24614a96fc3e2e7bef53f
+  - enabled: 1
+    path: Assets/Scenes/TestQuest/StartingCave.unity
+    guid: fe26a430dd6e4bb45b4c38d4f0881c26
+  - enabled: 1
+    path: Assets/Scenes/TestQuest/StartingHub.unity
+    guid: 89e7bb91f7ff5f9428b0477bcb9c54a9
   m_configObjects: {}

@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abc14e7eea1afc449635617548c297e, type: 3}
   m_Name: Moody2
   m_EditorClassIdentifier: 
-  lightColor: {r: 0.2995728, g: 0.4004719, b: 0.41509432, a: 1}
-  lightIntensity: 1
+  lightColor: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+  lightIntensity: 2

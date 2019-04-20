@@ -102,6 +102,11 @@ namespace ShadyPixel.StateMachine
             ChangeState(state);
         }
 
+        public void ForceNext()
+        {
+            Next();
+        }
+
         public GameObject ChangeState(GameObject state)
         {
             if(currentState != null)

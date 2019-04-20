@@ -6,6 +6,10 @@ TextureImporter:
     21300002: Trees_Trunks_1
     21300004: Trees_Trunks_2
     21300006: Trees_Trunks_3
+    21300008: Trees_Trunks_4
+    21300010: Trees_Trunks_5
+    21300012: Trees_Trunks_6
+    21300014: Trees_Trunks_7
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -163,6 +167,66 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1790a1176203e714f9dbf5f251748091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_Trunks_4
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 288
+        width: 63
+        height: 75
+      alignment: 9
+      pivot: {x: 0.44444448, y: 0.14666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864eb8763c257d3459691a013e88f85b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_Trunks_5
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 251
+        width: 99
+        height: 155
+      alignment: 9
+      pivot: {x: 0.57575756, y: 0.08387097}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 170eb979b1de0ae48b3d3dc1560ee98e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_Trunks_6
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 255
+        width: 133
+        height: 138
+      alignment: 9
+      pivot: {x: 0.518797, y: 0.108695656}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc83f581187a880408df8dc91bc96ece
       vertices: []
       indices: 
       edges: []

@@ -4,6 +4,8 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: doodle5_0
     21300002: doodle5_1
+    21300004: doodle5_2
+    21300006: doodle5_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -89,12 +91,12 @@ TextureImporter:
       name: doodle5_0
       rect:
         serializedVersion: 2
-        x: 65
-        y: 80
-        width: 32
-        height: 32
+        x: 32
+        y: 0
+        width: 16
+        height: 29
       alignment: 9
-      pivot: {x: 0.5, y: 0.1875}
+      pivot: {x: 0.5, y: 0.10344827}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -109,18 +111,58 @@ TextureImporter:
       name: doodle5_1
       rect:
         serializedVersion: 2
-        x: 65
-        y: 48
-        width: 32
-        height: 32
+        x: 5
+        y: 0
+        width: 20
+        height: 34
       alignment: 9
-      pivot: {x: 0.5, y: 0.1875}
+      pivot: {x: 0.55, y: 0.1764706}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: c194372021e2310429bf09bf80b19ebf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doodle5_2
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 25
+        height: 24
+      alignment: 9
+      pivot: {x: 0.48, y: 0.4166667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc14e08f551277f4caf234bd7d5d69b8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doodle5_3
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 32
+        width: 24
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a5b091563226242a794280d3d075dc
       vertices: []
       indices: 
       edges: []

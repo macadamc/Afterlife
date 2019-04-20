@@ -305,7 +305,7 @@ MonoBehaviour:
   addPlayerTag: 0
   targetTags: {fileID: 0}
   speed: 1.5
-  acceleration: 3
+  acceleration: 6
   speedBounds: {x: -20, y: 20}
   angularVelocity: 0
   angularAcceleration: 0

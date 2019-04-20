@@ -78,4 +78,9 @@ public class SetAnimationValues : MonoBehaviour
                 Animator.SetTrigger("death");
         }
     }
+
+    private void LateUpdate()
+    {
+        Animator.ResetTrigger("hurt");
+    }
 }

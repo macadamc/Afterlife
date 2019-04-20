@@ -69,7 +69,7 @@ public class MovementController : MonoBehaviour
     {
         get
         {
-            return _moveVector.magnitude > 0.1f;
+            return _moveVector.magnitude > 0.01f;
         }
     }
     public bool IsStunned

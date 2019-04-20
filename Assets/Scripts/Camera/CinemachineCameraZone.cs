@@ -8,10 +8,12 @@ public class CinemachineCameraZone : InteractOnTrigger2D
     public bool slowdownEffectOnPlayerEnter = true;
 
     // this object gets enabled / disabled as the player enters and exits the trigger.
-    CinemachineVirtualCamera vCam;
+    public CinemachineVirtualCamera vCam;
     private void Start()
     {
-        vCam = GetComponentInChildren<CinemachineVirtualCamera>();
+        if(vCam == null)
+            vCam = GetComponentInChildren<CinemachineVirtualCamera>();
+
         vCam.gameObject.SetActive(false);
     }
 

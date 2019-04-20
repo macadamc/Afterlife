@@ -1,0 +1,309 @@
+fileFormatVersion: 2
+guid: 9214a14e518dd1847bced03f873037e0
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Props_Trees_0
+    21300002: Props_Trees_1
+    21300004: Props_Trees_2
+    21300006: Props_Trees_3
+    21300008: Props_Trees_4
+    21300010: Props_Trees_5
+    21300012: Props_Trees_6
+    21300014: Props_Trees_7
+    21300016: Props_Trees_8
+    21300018: Props_Bush_1
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Props_Trees_0
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 783
+        width: 70
+        height: 87
+      alignment: 9
+      pivot: {x: 0.4857143, y: 0.18390805}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826f9557003d2494991fe31d1d7d3bd2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Props_Trees_1
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 782
+        width: 81
+        height: 95
+      alignment: 9
+      pivot: {x: 0.5432099, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f1593d27993fc74c873d02862902468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Props_Trees_2
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 773
+        width: 82
+        height: 110
+      alignment: 9
+      pivot: {x: 0.53658533, y: 0.22727272}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4966a0da72ad4dc4c9b2812f5190b149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Props_Trees_3
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 781
+        width: 46
+        height: 84
+      alignment: 9
+      pivot: {x: 0.5, y: 0.20238096}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d6a2073c5eb22a4893988bc2fe76a9b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Props_Trees_4
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 529
+        width: 71
+        height: 81
+      alignment: 9
+      pivot: {x: 0.49295774, y: 0.20987654}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62eb9430c805719499e1d16eec9906d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Props_Trees_5
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 520
+        width: 66
+        height: 134
+      alignment: 9
+      pivot: {x: 0.5151515, y: 0.1641791}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a9ff8a1f90e3c24cbca70c27b61ee26
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Props_Trees_6
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 514
+        width: 137
+        height: 136
+      alignment: 9
+      pivot: {x: 0.52554744, y: 0.22058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c7d499da08c8e49894a1cadd1884a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Props_Trees_7
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 515
+        width: 115
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5304348, y: 0.18543047}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8620d42f1e4908448b588b438e6042c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Props_Trees_8
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 263
+        width: 161
+        height: 193
+      alignment: 9
+      pivot: {x: 0.49068323, y: 0.1658031}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3abb8e49b6f88d146a5d3fd852b74de4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Props_Bush_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 898
+        width: 32
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478afa6dc5776ba42b58779e6f75d770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 28e56232d8494844193ee34aeb5e5966
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

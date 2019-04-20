@@ -373,7 +373,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   addPlayerTag: 0
   targetTags: {fileID: 0}
-  speed: 3
+  speed: 5
   acceleration: 0
   speedBounds: {x: -20, y: 20}
   angularVelocity: 0
