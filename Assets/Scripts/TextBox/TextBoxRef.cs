@@ -107,33 +107,36 @@ public class TextBoxRef : MonoBehaviour {
 
     public void CallTextBoxString(string text)
     {
-        CallTextBoxString(dialogueRunner, text);
-    }
-
-    public static void CallTextBoxString(DialogueRunner runner, string text)
-    {
-        if (runner.isDialogueRunning)
+        if (dialogueRunner.isDialogueRunning)
             return;
 
+        CallTextBoxStringInterrupt(text);
+    }
+
+    public void CallTextBoxStringInterrupt(string text)
+    {
         string prefix = 
             @"title:Inline
 ---
 ";
         string node = prefix + text + System.Environment.NewLine + "===";
-        runner.Clear();
 
-        runner.AddScript(node);
+        dialogueRunner.Stop();
+        dialogueRunner.Clear();
+
+        dialogueRunner.AddScript(node);
         // Load all scripts
-        if (runner.sourceText != null)
+        if (dialogueRunner.sourceText != null)
         {
-            foreach (var source in runner.sourceText)
+            foreach (var source in dialogueRunner.sourceText)
             {
                 // load and compile the text
-                runner.AddScript(source.text);
+                dialogueRunner.AddScript(source.text);
             }
         }
 
-        runner.StartDialogue("Inline");
+        Clean();
+        dialogueRunner.StartDialogue("Inline");
     }
 
     private void Clean()
@@ -161,10 +164,7 @@ public class TextBoxRef : MonoBehaviour {
 
     public void ForceCloseTextbox()
     {
-        if(textBoxSettings.inputType == TextBoxSettings.InputType.Player)
-        {
-            dialogueRunner.Stop();
-            _textBox?.DisableTextbox();
-        }
+        dialogueRunner.Stop();
+        _textBox?.DisableTextbox();
     }
 }

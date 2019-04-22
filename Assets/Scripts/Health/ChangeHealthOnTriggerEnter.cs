@@ -9,6 +9,7 @@ public class ChangeHealthOnTriggerEnter : InteractOnTrigger2D {
     public IntReference change = new IntReference(-1);
     protected override void ExecuteOnEnter(Collider2D other)
     {
+        
         base.ExecuteOnEnter(other);
         //Health self = GetComponentInParent<Health>();
         Health hp = other.gameObject.GetComponentInChildren<Health>();

@@ -29,11 +29,16 @@ public class SetJoystickToTarget : MonoBehaviour {
 
     private void Update()
     {
-        if (targets.transforms.Count == 0 || !continuousUpdate)
-            return;
+        if(_target == null && targets.transforms.Count > 0)
+        {
+            _target = targets.transforms[Random.Range(0, targets.transforms.Count)];
+        }
 
-        _dir = (_target.position - transform.position).normalized;
-        inputController.joystick = _dir;
+        if (targets.transforms.Count > 0 && continuousUpdate)
+        {
+            _dir = (_target.position - transform.position).normalized;
+            inputController.joystick = _dir;
+        }        
     }
 
     private void OnDisable()

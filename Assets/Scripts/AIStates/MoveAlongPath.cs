@@ -19,6 +19,7 @@ public class MoveAlongPath : State
     // Update is called once per frame
     void Update()
     {
+
         // check if we have somewere to walk
         if (currentWayPoint < this.wayPointList.Length)
         {

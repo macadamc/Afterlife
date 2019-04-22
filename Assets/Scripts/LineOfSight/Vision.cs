@@ -21,17 +21,21 @@ public class Vision : MonoBehaviour
     public InputController ic;
 
     public List<string> visionTags = new List<string>();
-    [Required]
-    public Targets targets;
+    //[Required]
+    //public Targets targets;
 
     public UnityEvent onTargetSeen;
     public UnityEvent onNoTargets;
     bool hasTargets;
+    [ShowInInspector, ListDrawerSettings(IsReadOnly = true)]
+    public List<Transform> targets { get; protected set; }
 
     private void OnEnable()
     {
+        targets = new List<Transform>();
         hasTargets = false;
-    }
+
+    } 
 
     /// <summary>
     /// If this vision object can see open ground at a position in the world.
@@ -55,6 +59,8 @@ public class Vision : MonoBehaviour
 
         return r;
     }
+
+    public bool HasTargets { get { return targets != null && targets.Count > 0;  } }
 
     private Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
@@ -101,7 +107,8 @@ public class Vision : MonoBehaviour
     
     private void FindVisibleTargets()
     {
-        targets.transforms.Clear();
+        //targets.transforms.Clear();
+        targets.Clear();
         Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(visionTransform.position, viewRadius, targetMask);
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
@@ -126,7 +133,7 @@ public class Vision : MonoBehaviour
                     targets.Add(targetsInViewRadius[i].transform);
             }
         }
-        if (targets.transforms.Count > 0)
+        if (targets.Count > 0)//targets.transforms.Count > 0)
         {
             if(hasTargets == false)
             {
@@ -159,10 +166,11 @@ public class Vision : MonoBehaviour
         Gizmos.color = Color.red;
         if (targets == null)
         return;
-        foreach (Transform visibleTarget in targets.transforms)
+        foreach (Transform visibleTarget in targets)//targets.transforms)
         {
         Gizmos.DrawLine(visionTransform.position, visibleTarget.position);
         }
         
     }
+
 }

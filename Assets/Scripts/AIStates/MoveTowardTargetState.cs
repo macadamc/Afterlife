@@ -21,8 +21,8 @@ public class MoveTowardTargetState : State
 
         _vision = GetComponentInParent<Vision>();
 
-        if(_vision.targets.transforms.Count > 0)
-            _target = _vision.targets.transforms[0];
+        if(_vision.HasTargets)//_vision.targets.transforms.Count > 0)
+            _target = _vision.targets[0];//_vision.targets.transforms[0];
 
         base.OnEnable();
 
@@ -47,11 +47,11 @@ public class MoveTowardTargetState : State
         {
             if (invert)
             {
-                return Vector2.Distance(transform.position, _target.position) < targetDistance && _vision.targets.transforms.Contains(_target);
+                return Vector2.Distance(transform.position, _target.position) < targetDistance && _vision.targets.Contains(_target);//_vision.targets.transforms.Contains(_target);
             }
             else
             {
-                return Vector2.Distance(transform.position, _target.position) > targetDistance && _vision.targets.transforms.Contains(_target);
+                return Vector2.Distance(transform.position, _target.position) > targetDistance && _vision.targets.Contains(_target);//_vision.targets.transforms.Contains(_target);
             }
         }
     }

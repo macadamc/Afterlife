@@ -21,6 +21,6 @@ public class Seperation : SteeringBehaviour
             }
         }
 
-        agent.AddSteeringForce(seperationVector.normalized, priority);
+        agent.AddSteeringForce(seperationVector.normalized * agent.moveSpeed, priority);
     }
 }

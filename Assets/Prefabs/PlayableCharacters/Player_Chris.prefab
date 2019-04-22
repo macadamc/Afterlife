@@ -374,7 +374,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747217673039194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.7, y: 21.7, z: 0}
+  m_LocalPosition: {x: 27.57, y: 17.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4604300690912258}
@@ -909,6 +909,7 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: a905607507a372a4eb8db4b8b345fd82, type: 2}
   damageFlashAmount: 3
+  SpriteRoot: {fileID: 4160723617120886}
   deactivateRootObjectOnDeath: 0
   events:
     onHurt:
@@ -10593,7 +10594,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1223979617
   m_SortingLayer: 1
-  m_SortingOrder: -347
+  m_SortingOrder: -278
 --- !u!212 &212329305435466154
 SpriteRenderer:
   m_ObjectHideFlags: 1

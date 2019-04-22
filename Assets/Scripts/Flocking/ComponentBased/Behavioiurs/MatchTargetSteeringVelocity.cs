@@ -15,8 +15,8 @@ public class MatchTargetSteeringVelocity : SteeringBehaviour
         if (_vision == null)
             _vision = agent.GetComponent<Vision>();
 
-        if (_vision.targets.transforms != null && _vision.targets.transforms.Count > 0)
-            target_Agent = _vision.targets.transforms[0].GetComponentInParent<FlockingAgent>();
+        if (_vision.HasTargets)
+            target_Agent = _vision.targets[0].GetComponentInParent<FlockingAgent>();//_vision.targets.transforms[0].GetComponentInParent<FlockingAgent>();
     }
 
     public override void Tick()

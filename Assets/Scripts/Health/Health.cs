@@ -23,6 +23,7 @@ public class Health : MonoBehaviour, IDataPersister
     public IntReference currentHealth;
     public IntReference maxHealth;
     public int damageFlashAmount = 3;
+    public Transform SpriteRoot;
     //public GameObject spawnOnDeath;
     public bool deactivateRootObjectOnDeath;
     [DrawWithUnity]
@@ -92,7 +93,7 @@ public class Health : MonoBehaviour, IDataPersister
 
     protected virtual void OnEnable()
     {
-        _sprites = GetComponentsInChildren<SpriteRenderer>();
+        _sprites = SpriteRoot.GetComponentsInChildren<SpriteRenderer>();
         PersistentDataManager.RegisterPersister(this);
     }
 

@@ -15,8 +15,8 @@ public class MatchTargetAgentJoyStick : SteeringBehaviour {
         if (_vision == null)
             _vision = GetComponentInParent<Vision>();
 
-        if (_vision.targets.transforms != null && _vision.targets.transforms.Count > 0)
-            target_InputController = _vision.targets.transforms[0].GetComponent<InputController>();
+        if (_vision.HasTargets)//_vision.targets.transforms != null && _vision.targets.transforms.Count > 0)
+            target_InputController = _vision.targets[0].GetComponent<InputController>();
     }
 
     public override void Tick()

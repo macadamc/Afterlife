@@ -6,13 +6,12 @@ using UnityEngine.Tilemaps;
 using Sirenix.OdinInspector;
 using UnityEngine.Events;
 
-public class FlyingMovementController : MovementController
+public class FlyingMovementController : FlockingAgent
 {
     public PIDController PID;
     public float targetFlyingHeight = 1f;
     public float force;
     public bool PlayMovingAnimationOnFlying;
-
     
     FakeZAxis m_FakeZAxis;
     

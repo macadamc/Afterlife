@@ -16,12 +16,12 @@ public class ToggleComponentWhileTargetJoystickIsPressed : MonoBehaviour {
 
     private void Update()
     {
-        if(_vision.targets.transforms.Count <= 0)
+        if(_vision.targets.Count <= 0)//_vision.targets.transforms.Count <= 0)
         {
             return;
         }
 
-        InputController ic = _vision.targets.transforms[0].GetComponent<InputController>();
+        InputController ic = _vision.targets[0].GetComponent<InputController>();//_vision.targets.transforms[0].GetComponent<InputController>();
         if (ic.joystick.magnitude > .1f && whilePressed.enabled == false)
         {
             whilePressed.enabled = true;

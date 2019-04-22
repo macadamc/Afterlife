@@ -54,9 +54,10 @@ public class Projectile : InteractOnTrigger2D
     [TabGroup("Default Variables")]
     public UnityEvent onProjectileCollision;
     public bool isHittable = false;
-
+    [HideInInspector]
     public Collider2D creator;
-    public TargetTags targets;
+    //public TargetTags targets;
+
     /*
     [TabGroup("Action Queue")]
     public float delayBeforeStartingQueue;
@@ -85,9 +86,12 @@ public class Projectile : InteractOnTrigger2D
     {
         if(rb == null)
             rb = GetComponent<Rigidbody2D>();
-
-        if(targets == null)
+        /*
+        if (targets == null)
             targets = GetComponent<TargetTags>();
+        */
+        if (targetTags == null)
+            targetTags = GetComponent<TargetTags>();
 
     }
 

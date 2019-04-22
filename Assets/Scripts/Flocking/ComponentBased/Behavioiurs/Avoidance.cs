@@ -9,14 +9,13 @@ public class Avoidance : SteeringBehaviour
 
     public override void Tick()
     {
-
         Vector2 avoidVector = new Vector2();
         var enemyList = FlockingAgentManager.Instance.GetObstacles(agent, obstacleAvoidanceRadius, layerMask);
         foreach (var enemy in enemyList)
         {
             avoidVector += RunAway(enemy.transform.position);
         }
-        agent.AddSteeringForce(avoidVector.normalized, priority);
+        agent.AddSteeringForce(avoidVector, priority);
     }
 
     Vector2 RunAway(Vector2 target)

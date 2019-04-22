@@ -25,23 +25,23 @@ public class SeekOrFleeTarget : SteeringBehaviour
         if (vision == null)
             vision = agent.GetComponent<Vision>();
 
-        if (target == null && vision.targets.transforms.Count > 0)
-            target = vision.targets.transforms[0];
+        if (vision.HasTargets)
+            target = vision.targets[0];//vision.targets.transforms[0];
 
-        vision.onNoTargets.AddListener(OnNoTarget);
+        vision.onNoTargets?.AddListener(OnNoTarget);
     }
     public override void OnDisable()
     {
         base.OnDisable();
-        vision.onNoTargets.RemoveListener(OnNoTarget);
+        vision.onNoTargets?.RemoveListener(OnNoTarget);
     }
 
     public override void Tick()
     {
-        if (vision.targets.transforms.Count == 0)
+        if (!vision.HasTargets)
             return;
 
-        Vector3 targetPosition = vision.targets.transforms[0].position;
+        Vector3 targetPosition = vision.targets[0].position;//vision.targets.transforms[0].position;
         float dist = Vector2.Distance(agent.transform.position, targetPosition);
         bool hasArrived = dist <= arrivalRadius.x;
 

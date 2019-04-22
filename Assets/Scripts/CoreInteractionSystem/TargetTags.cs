@@ -23,4 +23,9 @@ public class TargetTags : MonoBehaviour
     {
         overridableTargets = new List<string>(targets);
     }
+
+   public void SetTargets(TargetTags targets)
+    {
+        overridableTargets = new List<string>(targets.GetTargets());
+    }
 }

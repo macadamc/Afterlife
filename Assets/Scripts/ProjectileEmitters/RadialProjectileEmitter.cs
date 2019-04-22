@@ -43,10 +43,13 @@ public class RadialProjectileEmitter : State
     #endregion
     Projectile p;
     [Button, DisableInEditorMode]
-    private void Execute()
+    public void Execute()
     {
-        StopAllCoroutines();
-        StartCoroutine(ShootBulletWaves());
+        if (gameObject.activeSelf)
+        {
+            StopAllCoroutines();
+            StartCoroutine(ShootBulletWaves());
+        }
     }
 
     private IEnumerator ShootBulletWaves()
@@ -93,13 +96,13 @@ public class RadialProjectileEmitter : State
 
     private void Shoot(GameObject bulletPrefab, Vector2 dir)
     {
-        // creates bullet
+        // create the proijectile projectile, and set its inital values.
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+
         p = bullet.GetComponent<Projectile>();
         p.creator = transform.GetComponentInParent<Collider2D>();
-
         if (targets != null)
-            bullet.GetComponent<TargetTags>().SetTargets(targets.GetTargets());
+            bullet.GetComponent<TargetTags>().SetTargets(targets);
             
         //  gets the angle from the look direction
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -113,14 +116,22 @@ public class RadialProjectileEmitter : State
         // creates bullet
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         p = bullet.GetComponent<Projectile>();
-        p.creator = transform.GetComponentInParent<Collider2D>();
+        if(p != null)
+            p.creator = transform.GetComponentInParent<Collider2D>();        
 
         if (targets != null)
-            bullet.GetComponent<TargetTags>().SetTargets(targets.GetTargets());
+            bullet.GetComponent<TargetTags>()?.SetTargets(targets);
 
-        //  rotates object to face the new angle
-        bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        bullet.transform.localPosition += bullet.transform.right * bulletSpawnDistance;
+        if(p != null)
+        {
+            //  rotates object to face the new angle
+            bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            bullet.transform.localPosition += bullet.transform.right * bulletSpawnDistance;
+        }
+        else
+        {
+            bullet.transform.position = bullet.transform.TransformPoint( Quaternion.AngleAxis(angle, Vector3.forward) * bullet.transform.right * bulletSpawnDistance);
+        }
     }
 
     protected override void OnEnable()

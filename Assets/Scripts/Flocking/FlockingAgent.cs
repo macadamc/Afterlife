@@ -224,4 +224,10 @@ public class FlockingAgent : MovementController
     {
         acceleration += priority * forceVector;
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + (Vector3)velocity);
+    }
 }

@@ -20,8 +20,8 @@ public class MoveToTargetsPosition : State {
 
         _vision = GetComponentInParent<Vision>();
 
-        if(_vision.targets.transforms.Count > 0)
-            _target = _vision.targets.transforms[0].position;
+        if(_vision.HasTargets)//_vision.targets.transforms.Count > 0)
+            _target = _vision.targets[0].position;//_vision.targets.transforms[0].position;
 
         base.OnEnable();
 

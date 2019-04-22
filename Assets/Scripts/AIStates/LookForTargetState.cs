@@ -15,7 +15,7 @@ public class LookForTargetState : State
 
     private void Update()
     {
-        if(_vision.targets.transforms.Count > 0)
+        if(_vision.HasTargets)//_vision.targets.transforms.Count > 0)
         {
             if (forceState)
                 ChangeState(forceState);

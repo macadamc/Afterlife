@@ -1,21 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
+
 
 public class SetLookDirectionToAgentVelocity : MonoBehaviour {
     public bool useOrthognial;
     protected FlockingAgent agent;
-    protected InputController input;
+    public bool useFrameBuffer;
+    [ShowIf("useFrameBuffer")]
+    public int frames = 1;
+    int _frames = 0;
 	// Use this for initialization
 	void Start ()
     {
         agent = GetComponentInParent<FlockingAgent>();
-        input = agent.GetComponent<InputController>(); ;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if (useFrameBuffer)
+        {
+            _frames++;
+            if (_frames <= frames)
+                return;
+            else
+                _frames = 0;
+        }
+
         var dir = agent.velocity.normalized;
 
         if (useOrthognial)
@@ -30,6 +43,6 @@ public class SetLookDirectionToAgentVelocity : MonoBehaviour {
             }
         }
 
-        input.SetLookDirection(dir);
+        agent.Ic.SetLookDirection(dir);
     }
 }

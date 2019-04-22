@@ -6,7 +6,7 @@ using ShadyPixel.StateMachine;
 
 public class RandomNextState : State
     {
-    List<GameObject> states;
+    public List<GameObject> states;
     protected override void OnEnable()
     {
         if (states == null)

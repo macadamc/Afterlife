@@ -17,7 +17,7 @@ public class ConstrainMovementFromPoint : SteeringBehaviour {
     public override void Tick()
     {
         var dist = Mathf.Clamp((point.position - agent.transform.position).magnitude, 0, distanceFromPoint);
-        base.priority = Mathf.Lerp(minMaxPriority.x, minMaxPriority.y, (dist / distanceFromPoint));
-        agent.AddSteeringForce(agent.Seek(point.position, useArrival ? arrivalRadius : 0f), base.priority);
+        priority = Mathf.Lerp(minMaxPriority.x, minMaxPriority.y, (dist / distanceFromPoint));
+        agent.AddSteeringForce(agent.Seek(point.position, useArrival ? arrivalRadius : 0f), priority);
     }
 }

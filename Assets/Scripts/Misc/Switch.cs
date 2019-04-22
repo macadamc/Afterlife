@@ -9,7 +9,7 @@ public class Switch : MonoBehaviour, IDataPersister
     SpriteRenderer m_Renderer;
 
     public DataSettings dataSettings;
-    public bool DoEventsOnLoad = false;
+    public bool defaultState;
     public UnityEvent onTrue;
     public UnityEvent onFalse;
     
@@ -34,7 +34,9 @@ public class Switch : MonoBehaviour, IDataPersister
 
     private void Start()
     {
-        m_Renderer.flipY = m_State;
+        m_State = defaultState;
+        DoSwitchEvent(m_State);
+        FlipSprite(m_State);
     }
 
     public void ToggleSwitch()
@@ -78,7 +80,7 @@ public class Switch : MonoBehaviour, IDataPersister
         m_State = ((Data<bool>)data).value;
         FlipSprite(m_State);
 
-        if (DoEventsOnLoad)
+        if (dataSettings.persistenceType != DataSettings.PersistenceType.DoNotPersist || dataSettings.persistenceType != DataSettings.PersistenceType.WriteOnly)
             DoSwitchEvent(m_State);
     }
 }

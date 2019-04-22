@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class Wander : SteeringBehaviour
 {
@@ -13,8 +14,8 @@ public class Wander : SteeringBehaviour
     public override void OnDisable()
     {
         base.OnDisable();
-        if(resetWanderTargetOnDisable)
-            wanderTarget = Vector2.zero;
+        if (resetWanderTargetOnDisable)
+            wanderTarget = Vector2.zero;//agent.velocity.normalized;
     }
 
     public override void Tick()
